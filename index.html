@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.sentia株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #3d6cb5;
+      --primary-dark: #2e549a;
+      --primary-light: #5a85c9;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --bg: #fff;
+      --bg-section: #f7f9fc;
+      --border: #dde4ef;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 120px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .logo-tagline {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 120px;
+      left: 0;
+      right: 0;
+      background: var(--primary-dark);
+      padding: 12px 0 20px;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-drawer.open {
+      display: block;
+    }
+
+    .nav-drawer a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-drawer a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-drawer a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./home.jpeg') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px 60px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-en {
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: #3d6cb5;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 36px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    .hero-cta:hover {
+      background: #2e549a;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--bg);
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+      line-height: 1.9;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .value-card {
+      background: var(--bg-section);
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .value-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .value-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== SERVICES PREVIEW ===== */
+    .services-section {
+      background: var(--bg-section);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(61,108,181,0.12);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .services-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 32px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 3px 12px rgba(61,108,181,0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 18px rgba(61,108,181,0.3);
+    }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-band p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.85);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 32px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== WIKI IMAGE ===== */
+    .wiki-figure {
+      position: relative;
+      max-width: 900px;
+      margin: 48px auto 0;
+    }
+
+    .wiki-figure img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(61,108,181,0.15);
+    }
+
+    .wiki-figure figcaption {
+      font-size: 0.82rem;
+      color: #888;
+      text-align: center;
+      font-style: italic;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        height: 120px;
+      }
+
+      .logo-name {
+        font-size: 1.35rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .about-body {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 56px 20px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+    }
+
+    /* 共感・課題提示セクション */
+    .pain-section {
+      background-color: #f5f7fa;
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .pain-target {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 32px;
+      line-height: 1.9;
+    }
+
+    .pain-heading {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #3d6cb5;
+      margin-bottom: 32px;
+    }
+
+    .pain-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pain-list li {
+      background-color: #fff;
+      border-left: 4px solid #3d6cb5;
+      padding: 14px 20px;
+      border-radius: 4px;
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: #333;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .pain-adoption {
+      margin-top: 28px;
+      font-size: 0.88rem;
+      color: #3d6cb5;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== APPROACH ===== */
+    .approach-section {
+      background: var(--bg-section);
+    }
+
+    .approach-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .compare-card {
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+
+    .compare-card--generic {
+      background: #e9e9e9;
+      border: 1px solid #ccc;
+    }
+
+    .compare-card--ssentia {
+      background: #fff;
+      border-left: 4px solid var(--primary);
+      box-shadow: 0 2px 12px rgba(61,108,181,0.1);
+    }
+
+    .compare-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .compare-card--generic .compare-label {
+      color: #999;
+    }
+
+    .compare-card--ssentia .compare-label {
+      color: var(--primary);
+    }
+
+    .compare-question {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      font-weight: 500;
+    }
+
+    .compare-card--generic .compare-question {
+      color: #888;
+    }
+
+    .compare-card--ssentia .compare-question {
+      color: var(--text);
+    }
+
+    .approach-closing {
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.03em;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .approach-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .method-tagline {
+      font-size: 0.97rem;
+      color: #555;
+      margin-top: 12px;
+      line-height: 1.85;
+    }
+
+    .target-band {
+      background-color: #eef2fb;
+      border-left: 5px solid #3d6cb5;
+      padding: 20px 0;
+    }
+    .target-band .container p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.9;
+    }
+
+    .case-note {
+      font-size: 0.82rem;
+      color: #777;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      border-left: 3px solid #bbb;
+      line-height: 1.8;
+    }
+
+    .rep-intro {
+      background: #f9f9f9;
+      padding: 64px 0;
+      border-top: 1px solid #ddd;
+    }
+    .rep-heading {
+      font-size: 1.4rem;
+      color: #3d6cb5;
+      margin-bottom: 24px;
+    }
+    .rep-body p {
+      color: #444;
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+    .rep-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: #3d6cb5;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid #3d6cb5;
+      padding-bottom: 2px;
+    }
+    .rep-link:hover {
+      opacity: 0.7;
+    }
+
+    .badge-option {
+      display: inline-block;
+      background: #dce8f7;
+      color: #3d6cb5;
+      font-size: 0.72rem;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-left: 10px;
+      font-weight: bold;
+      vertical-align: middle;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-name">S.sentia株式会社</span>
+          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="profile.html">Profile</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-en">S.sentia Co., Ltd.</p>
+      <h1>引き出し、整理し、<br>仕組み化する。</h1>
+      <p class="hero-tagline">Trends fade. Fundamentals endure.</p>
+      <a href="services.html" class="hero-cta">サービスを見る</a>
+    </div>
+  </section>
+
+  <!-- 共感・課題提示セクション -->
+  <section class="pain-section">
+    <div class="container">
+      <p class="pain-target">自分も現場で人を育ててきたからこそ、「教える時間がない」つらさがわかる。<br>そんな経営者・育成担当の方へ。</p>
+      <h2 class="pain-heading">こんな状態になっていませんか？</h2>
+      <ul class="pain-list">
+        <li>仕事のやり方が、ベテランや自分の頭の中にしか残っていない</li>
+        <li>人が入るたびに教えるのに時間を取られ、本業が進まない</li>
+        <li>せっかく育てても、辞められると一からやり直し</li>
+        <li>「見て覚えて」では育たない。でもマニュアルを作る時間もない</li>
+      </ul>
+      <p class="pain-adoption">保険代理店・旅行代理店・不動産など人手不足が深刻な地方の中小企業様にご採用いただいております。</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="section-inner">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">私たちについて</h2>
+      <div class="section-divider"></div>
+      <div class="about-body">
+        <div class="about-text">
+          <p>
+            S.sentia株式会社は、ベテランや経営者の頭の中にある「経験・判断・やり方」を引き出し、誰でも再現できる形に整える仕組みづくりを支援するコンサルティング会社です。
+          </p>
+          <p>
+            トレンドに左右されることなく、ビジネスの本質（essentials）に向き合い、組織の根幹となる知識・スキル・文化を次世代へ確実に継承するための研修システムを構築します。
+          </p>
+          <p>
+            「Trends fade. Fundamentals endure.」—— 流行は過ぎ去るが、本質は残る。この信念のもと、お客様と共に長期的な価値を創り続けます。
+          </p>
+        </div>
+        <div class="about-values">
+          <div class="value-card">
+            <h3>本質への集中</h3>
+            <p>表面的なトレンドではなく、ビジネスの本質的な課題を見極め、根本から解決します。</p>
+          </div>
+          <div class="value-card">
+            <h3>知の継承</h3>
+            <p>個人の頭の中にある暗黙知を組織全体の資産へと変換し、持続的な競争優位を生み出します。</p>
+          </div>
+          <div class="value-card">
+            <h3>仕組みで定着</h3>
+            <p>単発の研修に留まらず、学びが自走する研修システムを設計・構築します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach-section">
+    <div class="section-inner">
+      <p class="section-label">Our Approach</p>
+      <h2 class="section-title">S.sentiaはどうやって「頭の中」を引き出すのか</h2>
+      <div class="section-divider"></div>
+      <div class="approach-compare">
+        <div class="compare-card compare-card--generic">
+          <span class="compare-label">よくある質問</span>
+          <p class="compare-question">「独自で工夫していることはありますか？」</p>
+        </div>
+        <div class="compare-card compare-card--ssentia">
+          <span class="compare-label">S.sentiaの質問</span>
+          <p class="compare-question">「マニュアルには書いていないけど、他のメンバーにも使ってほしいと思う、自分だけのやり方はありますか？」</p>
+        </div>
+      </div>
+      <p class="approach-closing">引き出し方が変わると、残るものが変わります。</p>
+      <p class="method-tagline">独自メソッドとAIを組み合わせ、ベテランや経営者が「当たり前」と思っているノウハウを言語化します。</p>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="services-section">
+    <div class="section-inner">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">サービス概要</h2>
+      <div class="section-divider"></div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <line x1="9" y1="7" x2="15" y2="7"/>
+              <line x1="9" y1="11" x2="15" y2="11"/>
+            </svg>
+          </div>
+          <h3>社内Wiki構築</h3>
+          <p>経営者やベテラン社員のノウハウや経験値を当社の技術で引き出し、「生きたマニュアル」を構築します。質問時間や引き継ぎ、確認作業にかかる時間を削減し、チーム全体の生産性を高めます。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <h3>社員育成コース設計</h3>
+          <p>社内Wikiを情報源とした、新人育成のための学習計画書やオンラインコース/教材を構築します。入社後の独り立ちにかかる時間を約1/3まで短縮し、管理職や教育担当者の負担軽減を同時に実現します。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>教育・研修コンテンツ<span class="badge-option">オプション支援</span></h3>
+          <p>AIやITリテラシーの向上を目的とした研修の提供や教材開発を行います。ツールの使い方にとどまらず、各業界別の業務への活かし方まで学べる実践的なコンテンツで、高付加価値を生み出す組織作りをサポートします。</p>
+        </div>
+      </div>
+      <figure class="wiki-figure">
+        <img src="./wiki_home.png" alt="社内Wikiの構築イメージ">
+        <figcaption>社内Wikiの構築イメージ。業務カテゴリごとに整理され、必要な情報にすぐアクセスできる構造を設計します。</figcaption>
+      </figure>
+      <figure style="display:block; width:100%; max-width:900px; margin: 24px auto 0; text-align:center;">
+        <img src="./unit.png" alt="Wikiをベースにした学習コース実例" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 4px 24px rgba(61,108,181,0.15); display:block; margin:0 auto;">
+        <figcaption style="font-size:0.82rem; color:#888; text-align:center; font-style:italic; margin-top:8px;">Wikiをベースにした学習コース実例。新人がフェーズ・カテゴリ・Unitの順で学べる構造になっています。</figcaption>
+      </figure>
+      <figure style="display:block; width:100%; max-width:900px; margin: 24px auto 0; text-align:center;">
+        <img src="./course.png" alt="学習コースの詳細画面" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 4px 24px rgba(61,108,181,0.15); display:block; margin:0 auto;">
+        <figcaption style="font-size:0.82rem; color:#888; text-align:center; font-style:italic; margin-top:8px;">学習コースの詳細画面。各Unitにコンテンツが整理され、新人が自走して学べる環境を構築します。</figcaption>
+      </figure>
+      <div class="services-cta">
+        <a href="services.html" class="btn-primary">サービス詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>組織の課題や研修に関するご相談を承っております。<br>お問い合わせはメールにてお受けしています。</p>
+    <a href="contact.html" class="btn-outline">お問い合わせフォーム</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="footer-logo">S.sentia株式会社</a>
+        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    // Close drawer when a link is tapped
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "S.sentia株式会社",
+    "url": "https://ssentia.co.jp",
+    "logo": "https://ssentia.co.jp/favicon.ico"
+  }
+  </script>
+</body>
+</html>

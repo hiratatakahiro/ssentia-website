@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | S.sentia株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #3d6cb5;
+      --primary-dark: #2e549a;
+      --primary-light: #5a85c9;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --bg: #fff;
+      --bg-section: #f7f9fc;
+      --border: #dde4ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 120px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .logo-tagline {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 120px;
+      left: 0;
+      right: 0;
+      background: var(--primary-dark);
+      padding: 12px 0 20px;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-drawer.open { display: block; }
+
+    .nav-drawer a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { background: rgba(255,255,255,0.1); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./company.jpeg') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px 60px;
+      text-align: center;
+    }
+
+    .page-hero-label {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* ===== PROFILE SECTION ===== */
+    .profile-section {
+      padding: 80px 24px;
+    }
+
+    .profile-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Avatar */
+    .profile-avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .profile-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 4px solid var(--border);
+    }
+
+    .avatar-initials {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-title-block {
+      text-align: center;
+    }
+
+    .profile-company {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .profile-position {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+    }
+
+    .profile-name-en {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    /* Profile body */
+    .profile-body {}
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .profile-bio {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.95;
+      margin-bottom: 40px;
+    }
+
+    .profile-bio p {
+      margin-bottom: 16px;
+    }
+
+    .profile-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Career */
+    .career-section {
+      margin-bottom: 40px;
+    }
+
+    .career-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .career-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .career-item {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .career-item:last-child {
+      border-bottom: none;
+    }
+
+    .career-year {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 60px;
+      padding-top: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .career-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .career-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Strengths */
+    .strengths-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .strength-card {
+      background: var(--bg-section);
+      border-radius: 8px;
+      padding: 20px;
+      border-top: 3px solid var(--primary);
+    }
+
+    .strength-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .strength-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Company info */
+    .company-section {
+      background: var(--bg-section);
+      padding: 72px 24px;
+    }
+
+    .company-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .company-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.07);
+    }
+
+    .company-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 400px;
+    }
+
+    .company-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .company-table th {
+      width: 160px;
+      padding: 18px 24px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary);
+      background: #eef2fa;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    .company-table td {
+      padding: 18px 24px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .company-table .business-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .company-table .business-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.7;
+    }
+
+    .company-table .business-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+
+    .business-label {
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-band p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.85);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 32px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .profile-card {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .profile-avatar-wrap {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+      }
+
+      .avatar-initials {
+        font-size: 2rem;
+      }
+
+      .profile-title-block {
+        text-align: left;
+      }
+
+      .strengths-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .logo-name {
+        font-size: 1.35rem;
+      }
+
+      .company-table th {
+        width: 110px;
+        padding: 14px 16px;
+      }
+
+      .company-table td {
+        padding: 14px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-section { padding: 52px 20px; }
+      .company-section { padding: 52px 20px; }
+    }
+
+    .rep-direct {
+      background: #f4f7fc;
+      border-left: 5px solid #3d6cb5;
+      padding: 28px 32px;
+      margin: 48px 0;
+      border-radius: 0 6px 6px 0;
+      line-height: 2.0;
+      color: #333;
+    }
+    .rep-direct p {
+      margin-bottom: 12px;
+    }
+    .rep-direct p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-name">S.sentia株式会社</span>
+          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html" class="active">Profile</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="profile.html">Profile</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-label">Profile</p>
+    <h1>代表者プロフィール</h1>
+  </div>
+
+  <!-- PROFILE -->
+  <section class="profile-section">
+    <div class="profile-inner">
+      <div class="profile-card">
+
+        <!-- Avatar & Name -->
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar">
+            <img src="./profile2.png" alt="平田 喬大 代表取締役" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          </div>
+          <div class="profile-title-block">
+            <p class="profile-company">S.sentia株式会社</p>
+            <p class="profile-position">代表取締役</p>
+            <p class="profile-name">平田 喬大</p>
+            <p class="profile-name-en">Takahiro Hirata</p>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="profile-body">
+          <p class="section-label">Representative Director</p>
+          <h2 class="section-title">平田 喬大</h2>
+          <div class="section-divider"></div>
+
+          <div class="profile-bio">
+            <p>
+              成長期の会社には、共通の痛みがあります。売上をつくることに全力を注いでいる間に、「現場で何が起きているかわからない」「引き継ぎが毎回ゼロから」「新人教育に時間が取れない」という状態が静かに積み上がっていく。
+            </p>
+            <p>
+              私自身、前職のサービス業で営業・企画・業務改善を経験し、管理職として組織を動かす中でこの痛みを実感しました。問題はわかっている。でも手が回らない。その状態が何年も続く。
+            </p>
+            <p>
+              S.sentiaは、組織が本来の業務に集中している間に、情報基盤を整える会社です。欲しい情報やノウハウがここにすべて集約してある、新人・ベテラン問わずすぐにアクセスできる、上司が忙しくても自分で学べる。そういう状態を、あなたの会社の中に作ります。
+            </p>
+            <p>
+              ツールを売るのではなく、あなたの会社が自走できる仕組みを作ることが、私たちの仕事です。
+            </p>
+          </div>
+
+          <!-- Career -->
+          <div class="career-section">
+            <h3 class="career-title">経歴</h3>
+            <p style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:20px">平田 喬大（ひらた たかひろ）</p>
+            <ul class="career-list">
+              <li class="career-item">
+                <span class="career-year">出身</span>
+                <div class="career-content">
+                  <p>1985年熊本県生まれ。大阪〜福岡での勤務経験を経て2022年12月より札幌在住。</p>
+                </div>
+              </li>
+              <li class="career-item">
+                <span class="career-year">前職</span>
+                <div class="career-content">
+                  <p>過去11年間にわたり教育旅行・留学業界で全国の学校のグローバル教育を支援。在職中、現場で日々発生する業務の暗黙知を独自に記録・整理し、NotionとClaudeを活用して自社の社内Wikiを構築。これが S.sentia のサービス設計の原型となった。</p>
+                </div>
+              </li>
+              <li class="career-item">
+                <span class="career-year">2026</span>
+                <div class="career-content">
+                  <p>S.sentia株式会社設立。これまでITの業務経験はなかったが、生産性の高い業務を目指してさまざまなツールを使いこなすうちに、AIやツール開発の楽しさに目覚める。</p>
+                </div>
+              </li>
+              <li class="career-item">
+                <span class="career-year">資格</span>
+                <div class="career-content">
+                  <p>Google AI Generative Leader認定、Notion上級プログラム修了。</p>
+                </div>
+              </li>
+              <li class="career-item">
+                <span class="career-year">人物</span>
+                <div class="career-content">
+                  <p>論理より直感で動く右脳派。運動・勉強・仕事をルーティンとするストイックな生活スタイルで、何にでも興味を持つ探究心の塊のような人間です。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Strengths -->
+          <div>
+            <h3 class="strengths-title">専門領域</h3>
+            <div class="strengths-grid">
+              <div class="strength-card">
+                <h4>暗黙知の言語化</h4>
+                <p>熟練者の経験・判断・勘どころを構造化し、組織の形式知として整理します</p>
+              </div>
+              <div class="strength-card">
+                <h4>研修システム設計</h4>
+                <p>学びが定着・自走する仕組みとして研修プログラムを一貫して設計します</p>
+              </div>
+              <div class="strength-card">
+                <h4>知識継承の仕組み化</h4>
+                <p>属人化リスクを排除し、組織の知的資産を次世代へ確実に継承します</p>
+              </div>
+              <div class="strength-card">
+                <h4>組織学習の伴走支援</h4>
+                <p>実施後のフォローアップ・改善サイクルの定着まで継続的に支援します</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SF Photo -->
+          <figure style="margin-top:40px;text-align:center;">
+            <img src="./SFO.jpeg" alt="サンフランシスコのWaymo全自動運転車（2024年7月）" style="width:100%;max-width:600px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+            <figcaption style="margin-top:10px;font-size:0.82rem;color:#666;font-style:italic;line-height:1.7;">
+              2024年7月にサンフランシスコを訪問した際に撮った全自動運転車（Waymo社）。このサンフランシスコでのさまざまな体験がきっかけで、自分のキャリアや日本の将来に対して危機感を抱くようになり、帰国後に起業への関心が一気に高まりました。
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+
+      <div class="rep-direct">
+        <p>
+          金融・旅行業界での実務経験を持ち、保険の仕組みや旅行業の商流、現場の業務フローを深く理解しています。
+          S.sentiaでは、調査・設計・納品まで全工程を平田が直接担当します。外部への丸投げは行いません。
+        </p>
+        <p>
+          「大手コンサルに頼む規模ではないが、中途半端な結果は困る」——そういったご相談を多くいただきます。
+          代表が一貫して関わるからこそ実現できる、現場感覚に根ざしたスピードと品質が、S.sentiaの強みです。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY INFO -->
+  <section class="company-section">
+    <div class="company-inner">
+      <p class="section-label">Company</p>
+      <h2 class="section-title">会社概要</h2>
+      <div class="section-divider"></div>
+      <div class="company-table-wrapper">
+        <table class="company-table">
+          <tr>
+            <th>会社名</th>
+            <td>S.sentia株式会社（エスセンティア）</td>
+          </tr>
+          <tr>
+            <th>代表取締役</th>
+            <td>平田 喬大（ひらた たかひろ）</td>
+          </tr>
+          <tr>
+            <th>設立日</th>
+            <td>2026年4月1日</td>
+          </tr>
+          <tr>
+            <th>資本金</th>
+            <td>1,000,000円</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>北海道札幌市</td>
+          </tr>
+          <tr>
+            <th>法人番号</th>
+            <td>6430001096600</td>
+          </tr>
+          <tr>
+            <th>業務内容</th>
+            <td>
+              <ul class="business-list">
+                <li>
+                  <div>
+                    <span class="business-label">経営・IT支援</span>
+                    企業の経営課題に関するコンサルティング及びIT導入支援
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span class="business-label">AI活用サービス</span>
+                    人工知能（AI）を活用した情報処理サービス・情報提供サービス・コンサルティング業務
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span class="business-label">教育・研修コンテンツ</span>
+                    教育・研修・学習支援に関するコンテンツの企画・制作・販売・運営
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <span class="business-label">ソフトウェア開発・販売</span>
+                    コンピュータソフトウェア及び各種アプリケーションソフトウェアの企画・開発・制作・販売・保守
+                  </div>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>ウェブサイト</th>
+            <td>ssentia.co.jp</td>
+          </tr>
+          <tr>
+            <th>メール</th>
+            <td>hirata@ssentia.co.jp</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>組織の課題や研修に関するご相談を承っております。<br>お問い合わせはメールにてお受けしています。</p>
+    <a href="contact.html" class="btn-outline">お問い合わせフォーム</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="footer-logo">S.sentia株式会社</a>
+        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "S.sentia株式会社",
+    "url": "https://ssentia.co.jp",
+    "logo": "https://ssentia.co.jp/favicon.ico"
+  }
+  </script>
+</body>
+</html>
