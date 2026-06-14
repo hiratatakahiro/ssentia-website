@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>よくある質問 | S.sentia株式会社</title>
+  <title>料金プラン | S.sentia株式会社</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -224,65 +224,6 @@
       margin-bottom: 36px;
     }
 
-    /* ===== FAQ ===== */
-    .faq-item {
-      margin-bottom: 64px;
-    }
-
-    .faq-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .faq-q {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .faq-q-badge {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-
-    .faq-q-text {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .faq-a {
-      padding-left: 52px;
-    }
-
-    .faq-note {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.85;
-      margin-top: 20px;
-      padding: 16px 20px;
-      background: var(--bg-section);
-      border-left: 4px solid var(--primary);
-      border-radius: 0 6px 6px 0;
-    }
-
-    .section-hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
-    }
-
     /* ===== TABLE ===== */
     .table-wrapper {
       overflow-x: auto;
@@ -308,8 +249,7 @@
       font-size: 0.9rem;
     }
 
-    .table-wide   { min-width: 720px; }
-    .table-medium { min-width: 600px; }
+    .table-xl { min-width: 840px; }
 
     thead tr {
       background: var(--primary);
@@ -345,21 +285,47 @@
       white-space: nowrap;
     }
 
-    tr.row-hl td {
-      background: #e8eef8;
+    .plan-col { color: var(--primary) !important; }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
       font-weight: 700;
-      color: var(--text);
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
     }
 
-    .table-compare thead tr { background: #f0f4fb; }
-    .table-compare thead th { color: var(--primary); }
-    .table-compare .th-accent {
-      background: var(--primary) !important;
-      color: #fff !important;
+    .cta-band p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      line-height: 1.8;
     }
 
-    .sym-good { color: #2d7a4f; font-weight: 700; }
-    .sym-fair { color: #b07020; font-weight: 700; }
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.85);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 32px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
 
     /* ===== FOOTER ===== */
     footer {
@@ -425,8 +391,6 @@
 
       .scroll-hint { display: block; }
 
-      .faq-a { padding-left: 0; }
-
       .footer-inner {
         flex-direction: column;
         gap: 24px;
@@ -460,9 +424,9 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="price.html">Price</a>
+        <a href="price.html" class="active">Price</a>
         <a href="profile.html">Profile</a>
-        <a href="faq.html" class="active">FAQ</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
@@ -476,6 +440,7 @@
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
+    <a href="price.html">Price</a>
     <a href="profile.html">Profile</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
@@ -483,139 +448,94 @@
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="page-hero-label">FAQ</p>
-    <h1>よくある質問</h1>
+    <p class="page-hero-label">Pricing</p>
+    <h1>料金プラン</h1>
   </div>
 
-  <!-- FAQ SECTION -->
+  <!-- PRICING SECTION -->
   <section>
     <div class="section-inner">
-      <p class="section-label">FAQ</p>
-      <h2 class="section-title">よくある質問</h2>
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">料金プラン</h2>
       <div class="section-divider"></div>
-
-      <!-- Q1 -->
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="faq-q-badge">Q1</div>
-          <p class="faq-q-text">プロジェクトにかかる時間はどのくらいですか？</p>
-        </div>
-        <div class="faq-a">
-          <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:20px;">貴社の状況により、以下の目安をご参考ください。</p>
-          <p class="scroll-hint">← 横にスクロールできます</p>
-          <div class="table-wrapper">
-            <table class="table-wide">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>タイプA　資料中心</th>
-                  <th>タイプB　混在</th>
-                  <th>タイプC　暗黙知中心</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>明文化された資料</td>
-                  <td>多い（規定集・マニュアル等）</td>
-                  <td>ある程度あり</td>
-                  <td>少ない（断片的・口頭のみ）</td>
-                </tr>
-                <tr>
-                  <td>暗黙知の比率</td>
-                  <td>低</td>
-                  <td>中</td>
-                  <td>高</td>
-                </tr>
-                <tr class="row-hl">
-                  <td>wiki構築作業時間</td>
-                  <td>4〜5h（7〜10カテゴリ・10ページ規模）</td>
-                  <td>8〜12h（10〜20カテゴリ・20〜30ページ規模）</td>
-                  <td>15〜20h（複合業務・50〜60ページ規模）</td>
-                </tr>
-                <tr>
-                  <td>インタビュー時間</td>
-                  <td>1〜2h（メール回答＋口頭30〜60分）</td>
-                  <td>3〜4h（メール回答＋口頭2〜3回）</td>
-                  <td>4〜6h（口頭4〜6回）</td>
-                </tr>
-                <tr>
-                  <td>インタビューの比率</td>
-                  <td>20〜30%</td>
-                  <td>30〜40%</td>
-                  <td>25〜35%</td>
-                </tr>
-                <tr class="row-hl">
-                  <td>合計所要時間</td>
-                  <td>5〜7h</td>
-                  <td>11〜16h</td>
-                  <td>19〜26h</td>
-                </tr>
-                <tr>
-                  <td>手作業換算（目安）</td>
-                  <td>50〜70h</td>
-                  <td>110〜160h</td>
-                  <td>190〜260h</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <ol style="font-size: 0.9em; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; padding-left: 1.4em;">
+        <li>会社パンフレット・商品カタログ・社内規程・業務マニュアル・関連法令・提案書など、ご用意いただける資料をご提供ください。資料の量と質が、引き出せる暗黙知の精度に直結します。</li>
+        <li>PDF版は更新・共有機能を含まないシンプルな納品形式です。Notionを使った動的なWiki構築はStarterプラン以上でご提供しています。</li>
+      </ol>
+      <p class="scroll-hint">← 横にスクロールできます</p>
+      <div class="table-wrapper">
+        <table class="table-xl">
+          <thead>
+            <tr>
+              <th>プラン</th>
+              <th>対象・内容</th>
+              <th>条件</th>
+              <th>納品形式</th>
+              <th>価格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="plan-col">無料カテゴリ診断</td>
+              <td>必要カテゴリ数と優先して作成すべき項目を診断</td>
+              <td>打ち合わせ 1回・60分</td>
+              <td>ー</td>
+              <td>無料</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Lite（お試し）</td>
+              <td>1カテゴリ・5unitまで</td>
+              <td>打ち合わせ 1回・60分／社員インタビュー 1回・60分（3名まで）</td>
+              <td>PDF納品</td>
+              <td>5万円（税込）</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Lite Plus</td>
+              <td>最大5カテゴリ・各カテゴリ5unitまで</td>
+              <td>打ち合わせ 1回・60分／社員インタビュー 1回・60分（3名まで）</td>
+              <td>PDF納品</td>
+              <td>25万円（税込）</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Starter（特化型）</td>
+              <td>特定の商品・サービス・業務フロー 1領域</td>
+              <td>インタビュー 2〜3回</td>
+              <td>Notion納品</td>
+              <td>50〜70万円</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Standard（部門型）</td>
+              <td>特定部署・チームの業務全体</td>
+              <td>インタビュー 4〜5回</td>
+              <td>Notion納品</td>
+              <td>90〜120万円</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Full（全社型）</td>
+              <td>会社全体の業務横断</td>
+              <td>インタビュー 6回以上</td>
+              <td>Notion納品</td>
+              <td>150〜200万円</td>
+            </tr>
+            <tr>
+              <td class="plan-col">カスタム</td>
+              <td>既存ツール（Google / Microsoft）への実装</td>
+              <td>上記各プランに準拠</td>
+              <td>既存環境</td>
+              <td>各プランの1.5〜2倍目安</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <hr class="section-hr">
-
-      <!-- Q2 -->
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="faq-q-badge">Q2</div>
-          <p class="faq-q-text">使用するツールはNotionでなければなりませんか？</p>
-        </div>
-        <div class="faq-a">
-          <p class="scroll-hint">← 横にスクロールできます</p>
-          <div class="table-wrapper">
-            <table class="table-medium table-compare">
-              <thead>
-                <tr>
-                  <th>比較軸</th>
-                  <th>SharePoint・OneNote</th>
-                  <th class="th-accent">Notion</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>学習の順番を構造化</td>
-                  <td><span class="sym-fair">△</span> できるが構造化は手動で複雑</td>
-                  <td><span class="sym-good">◎</span> カテゴリ→Unit→詳細の階層が学習順に直結</td>
-                </tr>
-                <tr>
-                  <td>ページ読み込みの速さ</td>
-                  <td><span class="sym-fair">△</span> ファイルを都度開く必要あり</td>
-                  <td><span class="sym-good">◎</span> ブラウザで即表示、アプリ不要。到達ストレスゼロ</td>
-                </tr>
-                <tr>
-                  <td>フォーマットの統一</td>
-                  <td><span class="sym-fair">△</span> Word・PPT・PDFが混在</td>
-                  <td><span class="sym-good">◎</span> 全ページが同じブロックUIで統一、認知負荷を軽減</td>
-                </tr>
-                <tr>
-                  <td>インライン編集・即時反映</td>
-                  <td><span class="sym-fair">△</span> ファイルを開いて保存が必要</td>
-                  <td><span class="sym-good">◎</span> ページ上で直接編集、保存不要。変更当日に全員が最新版を参照</td>
-                </tr>
-                <tr>
-                  <td>ロードマップ・フェーズ設計</td>
-                  <td><span class="sym-fair">△</span> 別途設計が必要</td>
-                  <td><span class="sym-good">◎</span> フェーズ・Unit構造を直感的に設計</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="faq-note">既存のSharePointやGoogle Workspaceをご利用の場合も対応可能です。詳しくはお問い合わせください。</p>
-        </div>
-      </div>
-
     </div>
   </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>プランの詳細やカスタマイズについてはお気軽にお問い合わせください。<br>初回相談は無料です。</p>
+    <a href="contact.html" class="btn-outline">お問い合わせフォーム</a>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -627,6 +547,7 @@
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
+        <a href="price.html">Price</a>
         <a href="profile.html">Profile</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
