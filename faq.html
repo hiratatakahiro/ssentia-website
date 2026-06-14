@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よくある質問 | S.sentia株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #3d6cb5;
+      --primary-dark: #2e549a;
+      --primary-light: #5a85c9;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --bg: #fff;
+      --bg-section: #f7f9fc;
+      --border: #dde4ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 120px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img { height: 52px; width: auto; }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .logo-tagline {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 120px;
+      left: 0;
+      right: 0;
+      background: var(--primary-dark);
+      padding: 12px 0 20px;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-drawer.open { display: block; }
+
+    .nav-drawer a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { background: rgba(255,255,255,0.1); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./service.jpeg') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .page-hero-label {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 72px 24px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 36px;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      margin-bottom: 64px;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .faq-q-badge {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .faq-q-text {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .faq-a {
+      padding-left: 52px;
+    }
+
+    .faq-note {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--bg-section);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .section-hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ===== TABLE ===== */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(61,108,181,0.08);
+      margin-bottom: 8px;
+    }
+
+    .scroll-hint {
+      display: none;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 0.9rem;
+    }
+
+    .table-wide   { min-width: 720px; }
+    .table-medium { min-width: 600px; }
+
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-section); }
+
+    tbody td {
+      padding: 14px 20px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      vertical-align: top;
+    }
+
+    tbody td:first-child {
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    tr.row-hl td {
+      background: #e8eef8;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .table-compare thead tr { background: #f0f4fb; }
+    .table-compare thead th { color: var(--primary); }
+    .table-compare .th-accent {
+      background: var(--primary) !important;
+      color: #fff !important;
+    }
+
+    .sym-good { color: #2d7a4f; font-weight: 700; }
+    .sym-fair { color: #b07020; font-weight: 700; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .scroll-hint { display: block; }
+
+      .faq-a { padding-left: 0; }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .logo-name { font-size: 1.35rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 52px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-name">S.sentia株式会社</span>
+          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="profile.html">Profile</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-label">FAQ</p>
+    <h1>よくある質問</h1>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくある質問</h2>
+      <div class="section-divider"></div>
+
+      <!-- Q1 -->
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-badge">Q1</div>
+          <p class="faq-q-text">プロジェクトにかかる時間はどのくらいですか？</p>
+        </div>
+        <div class="faq-a">
+          <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:20px;">貴社の状況により、以下の目安をご参考ください。</p>
+          <p class="scroll-hint">← 横にスクロールできます</p>
+          <div class="table-wrapper">
+            <table class="table-wide">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>タイプA　資料中心</th>
+                  <th>タイプB　混在</th>
+                  <th>タイプC　暗黙知中心</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>明文化された資料</td>
+                  <td>多い（規定集・マニュアル等）</td>
+                  <td>ある程度あり</td>
+                  <td>少ない（断片的・口頭のみ）</td>
+                </tr>
+                <tr>
+                  <td>暗黙知の比率</td>
+                  <td>低</td>
+                  <td>中</td>
+                  <td>高</td>
+                </tr>
+                <tr class="row-hl">
+                  <td>wiki構築作業時間</td>
+                  <td>4〜5h（7〜10カテゴリ・10ページ規模）</td>
+                  <td>8〜12h（10〜20カテゴリ・20〜30ページ規模）</td>
+                  <td>15〜20h（複合業務・50〜60ページ規模）</td>
+                </tr>
+                <tr>
+                  <td>インタビュー時間</td>
+                  <td>1〜2h（メール回答＋口頭30〜60分）</td>
+                  <td>3〜4h（メール回答＋口頭2〜3回）</td>
+                  <td>4〜6h（口頭4〜6回）</td>
+                </tr>
+                <tr>
+                  <td>インタビューの比率</td>
+                  <td>20〜30%</td>
+                  <td>30〜40%</td>
+                  <td>25〜35%</td>
+                </tr>
+                <tr class="row-hl">
+                  <td>合計所要時間</td>
+                  <td>5〜7h</td>
+                  <td>11〜16h</td>
+                  <td>19〜26h</td>
+                </tr>
+                <tr>
+                  <td>手作業換算（目安）</td>
+                  <td>50〜70h</td>
+                  <td>110〜160h</td>
+                  <td>190〜260h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-hr">
+
+      <!-- Q2 -->
+      <div class="faq-item">
+        <div class="faq-q">
+          <div class="faq-q-badge">Q2</div>
+          <p class="faq-q-text">使用するツールはNotionでなければなりませんか？</p>
+        </div>
+        <div class="faq-a">
+          <p class="scroll-hint">← 横にスクロールできます</p>
+          <div class="table-wrapper">
+            <table class="table-medium table-compare">
+              <thead>
+                <tr>
+                  <th>比較軸</th>
+                  <th>SharePoint・OneNote</th>
+                  <th class="th-accent">Notion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>学習の順番を構造化</td>
+                  <td><span class="sym-fair">△</span> できるが構造化は手動で複雑</td>
+                  <td><span class="sym-good">◎</span> カテゴリ→Unit→詳細の階層が学習順に直結</td>
+                </tr>
+                <tr>
+                  <td>ページ読み込みの速さ</td>
+                  <td><span class="sym-fair">△</span> ファイルを都度開く必要あり</td>
+                  <td><span class="sym-good">◎</span> ブラウザで即表示、アプリ不要。到達ストレスゼロ</td>
+                </tr>
+                <tr>
+                  <td>フォーマットの統一</td>
+                  <td><span class="sym-fair">△</span> Word・PPT・PDFが混在</td>
+                  <td><span class="sym-good">◎</span> 全ページが同じブロックUIで統一、認知負荷を軽減</td>
+                </tr>
+                <tr>
+                  <td>インライン編集・即時反映</td>
+                  <td><span class="sym-fair">△</span> ファイルを開いて保存が必要</td>
+                  <td><span class="sym-good">◎</span> ページ上で直接編集、保存不要。変更当日に全員が最新版を参照</td>
+                </tr>
+                <tr>
+                  <td>ロードマップ・フェーズ設計</td>
+                  <td><span class="sym-fair">△</span> 別途設計が必要</td>
+                  <td><span class="sym-good">◎</span> フェーズ・Unit構造を直感的に設計</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="faq-note">既存のSharePointやGoogle Workspaceをご利用の場合も対応可能です。詳しくはお問い合わせください。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="footer-logo">S.sentia株式会社</a>
+        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "S.sentia株式会社",
+    "url": "https://ssentia.co.jp",
+    "logo": "https://ssentia.co.jp/favicon.ico"
+  }
+  </script>
+</body>
+</html>
