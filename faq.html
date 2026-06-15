@@ -224,48 +224,7 @@
       margin-bottom: 36px;
     }
 
-    /* ===== FAQ ===== */
-    .faq-item {
-      margin-bottom: 64px;
-    }
-
-    .faq-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .faq-q {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .faq-q-badge {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2px;
-    }
-
-    .faq-q-text {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .faq-a {
-      padding-left: 52px;
-    }
-
+    /* ===== FAQ ACCORDION ===== */
     .faq-note {
       font-size: 0.92rem;
       color: var(--text-muted);
@@ -277,10 +236,77 @@
       border-radius: 0 6px 6px 0;
     }
 
-    .section-hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-accordion details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .faq-accordion details[open] > summary {
+      border-bottom: 1px solid var(--border);
+      border-radius: 6px 6px 0 0;
+    }
+
+    .faq-accordion summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-radius: 6px;
+      user-select: none;
+    }
+
+    .faq-accordion summary::-webkit-details-marker { display: none; }
+
+    .faq-accordion summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .faq-accordion details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 20px 20px 24px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .faq-answer p { margin-bottom: 12px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+
+    .faq-category {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-top: 2px solid var(--border);
+      padding-top: 32px;
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    .faq-category:first-child {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
     }
 
     /* ===== TABLE ===== */
@@ -461,7 +487,7 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="price.html">Price</a>
-        <a href="profile.html">Profile</a>
+        <a href="profile.html">About</a>
         <a href="faq.html" class="active">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -476,7 +502,8 @@
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="profile.html">Profile</a>
+    <a href="price.html">Price</a>
+    <a href="profile.html">About</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -494,126 +521,206 @@
       <h2 class="section-title">よくある質問</h2>
       <div class="section-divider"></div>
 
-      <!-- Q1 -->
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="faq-q-badge">Q1</div>
-          <p class="faq-q-text">プロジェクトにかかる時間はどのくらいですか？</p>
-        </div>
-        <div class="faq-a">
-          <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.85;margin-bottom:20px;">貴社の状況により、以下の目安をご参考ください。</p>
-          <p class="scroll-hint">← 横にスクロールできます</p>
-          <div class="table-wrapper">
-            <table class="table-wide">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>タイプA　資料中心</th>
-                  <th>タイプB　混在</th>
-                  <th>タイプC　暗黙知中心</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>明文化された資料</td>
-                  <td>多い（規定集・マニュアル等）</td>
-                  <td>ある程度あり</td>
-                  <td>少ない（断片的・口頭のみ）</td>
-                </tr>
-                <tr>
-                  <td>暗黙知の比率</td>
-                  <td>低</td>
-                  <td>中</td>
-                  <td>高</td>
-                </tr>
-                <tr class="row-hl">
-                  <td>wiki構築作業時間</td>
-                  <td>4〜5h（7〜10カテゴリ・10ページ規模）</td>
-                  <td>8〜12h（10〜20カテゴリ・20〜30ページ規模）</td>
-                  <td>15〜20h（複合業務・50〜60ページ規模）</td>
-                </tr>
-                <tr>
-                  <td>インタビュー時間</td>
-                  <td>1〜2h（メール回答＋口頭30〜60分）</td>
-                  <td>3〜4h（メール回答＋口頭2〜3回）</td>
-                  <td>4〜6h（口頭4〜6回）</td>
-                </tr>
-                <tr>
-                  <td>インタビューの比率</td>
-                  <td>20〜30%</td>
-                  <td>30〜40%</td>
-                  <td>25〜35%</td>
-                </tr>
-                <tr class="row-hl">
-                  <td>合計所要時間</td>
-                  <td>5〜7h</td>
-                  <td>11〜16h</td>
-                  <td>19〜26h</td>
-                </tr>
-                <tr>
-                  <td>手作業換算（目安）</td>
-                  <td>50〜70h</td>
-                  <td>110〜160h</td>
-                  <td>190〜260h</td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="faq-accordion">
+
+        <!-- Q1 -->
+        <details>
+          <summary>プロジェクトにかかる時間はどのくらいですか？</summary>
+          <div class="faq-answer">
+            <p>貴社の状況により、以下の目安をご参考ください。</p>
+            <p class="scroll-hint">← 横にスクロールできます</p>
+            <div class="table-wrapper">
+              <table class="table-wide">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>タイプA　資料中心</th>
+                    <th>タイプB　混在</th>
+                    <th>タイプC　暗黙知中心</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>明文化された資料</td>
+                    <td>多い（規定集・マニュアル等）</td>
+                    <td>ある程度あり</td>
+                    <td>少ない（断片的・口頭のみ）</td>
+                  </tr>
+                  <tr>
+                    <td>暗黙知の比率</td>
+                    <td>低</td>
+                    <td>中</td>
+                    <td>高</td>
+                  </tr>
+                  <tr class="row-hl">
+                    <td>wiki構築作業時間</td>
+                    <td>4〜5h（7〜10カテゴリ・10ページ規模）</td>
+                    <td>8〜12h（10〜20カテゴリ・20〜30ページ規模）</td>
+                    <td>15〜20h（複合業務・50〜60ページ規模）</td>
+                  </tr>
+                  <tr>
+                    <td>インタビュー時間</td>
+                    <td>1〜2h（メール回答＋口頭30〜60分）</td>
+                    <td>3〜4h（メール回答＋口頭2〜3回）</td>
+                    <td>4〜6h（口頭4〜6回）</td>
+                  </tr>
+                  <tr>
+                    <td>インタビューの比率</td>
+                    <td>20〜30%</td>
+                    <td>30〜40%</td>
+                    <td>25〜35%</td>
+                  </tr>
+                  <tr class="row-hl">
+                    <td>合計所要時間</td>
+                    <td>5〜7h</td>
+                    <td>11〜16h</td>
+                    <td>19〜26h</td>
+                  </tr>
+                  <tr>
+                    <td>手作業換算（目安）</td>
+                    <td>50〜70h</td>
+                    <td>110〜160h</td>
+                    <td>190〜260h</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </div>
+        </details>
 
-      <hr class="section-hr">
-
-      <!-- Q2 -->
-      <div class="faq-item">
-        <div class="faq-q">
-          <div class="faq-q-badge">Q2</div>
-          <p class="faq-q-text">使用するツールはNotionでなければなりませんか？</p>
-        </div>
-        <div class="faq-a">
-          <p class="scroll-hint">← 横にスクロールできます</p>
-          <div class="table-wrapper">
-            <table class="table-medium table-compare">
-              <thead>
-                <tr>
-                  <th>比較軸</th>
-                  <th>SharePoint・OneNote</th>
-                  <th class="th-accent">Notion</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>学習の順番を構造化</td>
-                  <td><span class="sym-fair">△</span> できるが構造化は手動で複雑</td>
-                  <td><span class="sym-good">◎</span> カテゴリ→Unit→詳細の階層が学習順に直結</td>
-                </tr>
-                <tr>
-                  <td>ページ読み込みの速さ</td>
-                  <td><span class="sym-fair">△</span> ファイルを都度開く必要あり</td>
-                  <td><span class="sym-good">◎</span> ブラウザで即表示、アプリ不要。到達ストレスゼロ</td>
-                </tr>
-                <tr>
-                  <td>フォーマットの統一</td>
-                  <td><span class="sym-fair">△</span> Word・PPT・PDFが混在</td>
-                  <td><span class="sym-good">◎</span> 全ページが同じブロックUIで統一、認知負荷を軽減</td>
-                </tr>
-                <tr>
-                  <td>インライン編集・即時反映</td>
-                  <td><span class="sym-fair">△</span> ファイルを開いて保存が必要</td>
-                  <td><span class="sym-good">◎</span> ページ上で直接編集、保存不要。変更当日に全員が最新版を参照</td>
-                </tr>
-                <tr>
-                  <td>ロードマップ・フェーズ設計</td>
-                  <td><span class="sym-fair">△</span> 別途設計が必要</td>
-                  <td><span class="sym-good">◎</span> フェーズ・Unit構造を直感的に設計</td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Q2 -->
+        <details>
+          <summary>使用するツールはNotionでなければなりませんか？</summary>
+          <div class="faq-answer">
+            <p class="scroll-hint">← 横にスクロールできます</p>
+            <div class="table-wrapper">
+              <table class="table-medium table-compare">
+                <thead>
+                  <tr>
+                    <th>比較軸</th>
+                    <th>SharePoint・OneNote</th>
+                    <th class="th-accent">Notion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>学習の順番を構造化</td>
+                    <td><span class="sym-fair">△</span> できるが構造化は手動で複雑</td>
+                    <td><span class="sym-good">◎</span> カテゴリ→Unit→詳細の階層が学習順に直結</td>
+                  </tr>
+                  <tr>
+                    <td>ページ読み込みの速さ</td>
+                    <td><span class="sym-fair">△</span> ファイルを都度開く必要あり</td>
+                    <td><span class="sym-good">◎</span> ブラウザで即表示、アプリ不要。到達ストレスゼロ</td>
+                  </tr>
+                  <tr>
+                    <td>フォーマットの統一</td>
+                    <td><span class="sym-fair">△</span> Word・PPT・PDFが混在</td>
+                    <td><span class="sym-good">◎</span> 全ページが同じブロックUIで統一、認知負荷を軽減</td>
+                  </tr>
+                  <tr>
+                    <td>インライン編集・即時反映</td>
+                    <td><span class="sym-fair">△</span> ファイルを開いて保存が必要</td>
+                    <td><span class="sym-good">◎</span> ページ上で直接編集、保存不要。変更当日に全員が最新版を参照</td>
+                  </tr>
+                  <tr>
+                    <td>ロードマップ・フェーズ設計</td>
+                    <td><span class="sym-fair">△</span> 別途設計が必要</td>
+                    <td><span class="sym-good">◎</span> フェーズ・Unit構造を直感的に設計</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="faq-note">既存のSharePointやGoogle Workspaceをご利用の場合も対応可能です。詳しくはお問い合わせください。</p>
           </div>
-          <p class="faq-note">既存のSharePointやGoogle Workspaceをご利用の場合も対応可能です。詳しくはお問い合わせください。</p>
-        </div>
-      </div>
+        </details>
 
+        <!-- カテゴリ①：情報・セキュリティ -->
+        <h3 class="faq-category">情報・セキュリティ</h3>
+
+        <details>
+          <summary>社内の機密情報をAIに渡して大丈夫ですか？</summary>
+          <div class="faq-answer">
+            <p>インタビューで伺った内容や提供いただいた資料を、社外のAIサービスに無断でアップロードすることはありません。AI活用は質問設計の補助に限定しており、御社の情報は契約期間中および終了後も第三者に共有しません。ご要望に応じて秘密保持契約（NDA）を締結いたします。</p>
+          </div>
+        </details>
+
+        <!-- カテゴリ②：納品後・運用 -->
+        <h3 class="faq-category">納品後・運用</h3>
+
+        <details>
+          <summary>納品後、Wikiの内容を自分たちで更新できますか？</summary>
+          <div class="faq-answer">
+            <p>はい。Notionは直感的に編集できるツールで、特別なITスキルは不要です。納品時に基本的な編集方法もご説明します。業務内容が変わった際も、担当者の方がすぐに修正・追記できる構造で設計します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Notionの利用料は別途かかりますか？</summary>
+          <div class="faq-answer">
+            <p>Notionには無料プランがあり、小規模なチームであれば無料範囲内でご利用いただけるケースがほとんどです。チーム規模や機能要件によっては有料プラン（月数百〜数千円）が必要になる場合があります。契約前にご案内します。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>納品後にサポートや修正対応はありますか？</summary>
+          <div class="faq-answer">
+            <p>納品後30日以内に気づいた構造上の不備や記載漏れについては、無償で対応します。それ以降の追加・改修については、別途お見積りいたします。</p>
+          </div>
+        </details>
+
+        <!-- カテゴリ③：費用・リスク -->
+        <h3 class="faq-category">費用・リスク</h3>
+
+        <details>
+          <summary>結果に満足できなかった場合はどうなりますか？</summary>
+          <div class="faq-answer">
+            <p>各フェーズの終了時に確認の機会を設けており、方向性がずれていればその都度修正します。最終納品前にも内容確認をしていただいたうえでの納品となりますので、「完成品を見て初めて失望する」という事態を防ぐ進め方をしています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>小規模な会社でも依頼できますか？</summary>
+          <div class="faq-answer">
+            <p>はい。従業員数名〜数十名規模の企業様からのご依頼が中心です。むしろ「マニュアルを作る時間も人手もない」という規模感のお客様にこそ、価値を感じていただけるサービスです。</p>
+          </div>
+        </details>
+
+        <!-- カテゴリ④：時間・手間 -->
+        <h3 class="faq-category">時間・手間</h3>
+
+        <details>
+          <summary>私たちはどのくらいの時間を用意すればいいですか？</summary>
+          <div class="faq-answer">
+            <p>御社にご負担いただくのは主にインタビューの時間です。プランによって異なりますが、最小のLiteプランで1〜2時間程度、Standardプランでも打ち合わせ・インタビューの合計は5〜7時間が目安です。資料の事前準備が多いほど、インタビュー時間は短くなります。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>社内に既存のマニュアルがほとんどありませんが、それでも依頼できますか？</summary>
+          <div class="faq-answer">
+            <p>むしろそのような状態のお客様を主な対象としています。資料がない場合は、インタビュー中心の進め方（タイプC）で対応します。「口頭でしか伝わっていない」ノウハウを引き出すことがS.sentiaの核心です。</p>
+          </div>
+        </details>
+
+        <!-- カテゴリ⑤：体制・対応範囲 -->
+        <h3 class="faq-category">体制・対応範囲</h3>
+
+        <details>
+          <summary>札幌以外の会社でも依頼できますか？</summary>
+          <div class="faq-answer">
+            <p>はい。インタビューはオンライン（Zoom等）で対応しており、全国どこからでもご依頼いただけます。現在も道外のお客様のプロジェクトを進めています。</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>担当者は途中で変わりますか？</summary>
+          <div class="faq-answer">
+            <p>調査・設計・納品まで、代表の平田が一貫して担当します。外部スタッフへの丸投げは行いません。</p>
+          </div>
+        </details>
+
+      </div>
     </div>
   </section>
 
@@ -627,7 +734,7 @@
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="profile.html">Profile</a>
+        <a href="profile.html">About</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
