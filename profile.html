@@ -668,6 +668,26 @@
     .about-quote p:last-child {
       margin-bottom: 0;
     }
+
+    .photo-figure {
+      margin: 0;
+    }
+
+    .photo-caption {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.8;
+      font-style: italic;
+      border-left: 3px solid #3d6cb5;
+      padding-left: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .photo-caption {
+        font-size: 0.84rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -830,6 +850,9 @@
       </blockquote>
       <figure style="margin-top: 48px; text-align: center;">
         <img src="SFO.jpeg" alt="サンフランシスコでの一枚" style="width:100%;max-width:600px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+        <figcaption class="photo-caption">
+          2024年7月に4年ぶりにサンフランシスコを訪れたときに撮影した写真。Waymo社の全自動運転タクシーを街中の至る所で見かけた。わずか数年の間で街の姿がすっかり変わってしまったことに良い意味でショックを受け、そこからテクノロジーへの関心が高まり、AIやWEBアプリの研究・開発などを経て、起業するきっかけとなった。
+        </figcaption>
       </figure>
     </div>
   </section>

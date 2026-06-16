@@ -298,6 +298,13 @@
       align-items: start;
     }
 
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
     .about-text p {
       color: var(--text-muted);
       font-size: 0.96rem;
@@ -910,6 +917,80 @@
 
       .rep-title-block { text-align: left; }
     }
+
+    .approach-theory {
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+      padding: 0 1rem;
+    }
+
+    .theory-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a2e4a;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .theory-body {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .theory-sub {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .theory-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .theory-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .theory-table thead tr {
+      background-color: #3d6cb5;
+      color: #fff;
+    }
+
+    .theory-table th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .theory-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e0e7f0;
+      color: #333;
+      vertical-align: top;
+      line-height: 1.7;
+    }
+
+    .theory-table tbody tr:nth-child(even) {
+      background-color: #f4f7fb;
+    }
+
+    .theory-table tbody tr:hover {
+      background-color: #eaf0f9;
+    }
+
+    @media (max-width: 640px) {
+      .theory-table th,
+      .theory-table td {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.88rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -977,39 +1058,64 @@
   <!-- ABOUT -->
   <section class="about">
     <div class="section-inner">
-      <div class="about-heading-row">
-        <div>
-          <p class="section-label">About Us</p>
-          <h2 class="section-title">私たちについて</h2>
-        </div>
-        <img src="S.sentia_logo3.png" alt="S.sentia ロゴ" class="about-logo">
-      </div>
-      <div class="section-divider"></div>
-      <div class="about-body">
-        <div class="about-text">
-          <p>
-            S.sentia株式会社は、組織の中に眠るノウハウや判断基準を引き出し、社内Wiki・研修教材として体系化するコンサルティング会社です。
-          </p>
-          <p>
-            人手不足、転職の活性化、ミドルマネジメント業務の複雑化——あらゆる業界の現場を見てきた私たちがたどり着いた結論は、「暗黙知の言語化こそが、中小企業が生き残るための本質的（Essential）な解決策だ」ということでした。
-          </p>
-          <p>
-            この確信のもと、S.sentiaを立ち上げました。
-          </p>
+      <div class="about-layout">
+        <div class="about-left">
+          <div class="about-heading-row">
+            <div>
+              <p class="section-label">About Us</p>
+              <h2 class="section-title">私たちについて</h2>
+            </div>
+            <img src="S.sentia_logo3.png" alt="S.sentia ロゴ" class="about-logo">
+          </div>
+          <div class="section-divider"></div>
+          <div class="about-text">
+            <p>
+              S.sentia株式会社は、組織の中に眠るノウハウや判断基準を引き出し、社内Wiki・研修教材として体系化するコンサルティング会社です。
+            </p>
+            <p>
+              人手不足、転職の活性化、ミドルマネジメント業務の複雑化——あらゆる業界の現場を見てきた私たちがたどり着いた結論は、「暗黙知の言語化こそが、中小企業が生き残るための本質的（Essential）な解決策だ」ということでした。
+            </p>
+            <p>
+              この確信のもと、S.sentiaを立ち上げました。
+            </p>
+          </div>
         </div>
         <div class="about-values">
-          <div class="value-card">
-            <h3>本質への集中</h3>
-            <p>表面的なトレンドではなく、ビジネスの本質的な課題を見極め、根本から解決します。</p>
-          </div>
-          <div class="value-card">
-            <h3>知の継承</h3>
-            <p>個人の頭の中にある暗黙知を組織全体の資産へと変換し、持続的な競争優位を生み出します。</p>
-          </div>
-          <div class="value-card">
-            <h3>仕組みで定着</h3>
-            <p>単発の研修に留まらず、学びが自走する研修システムを設計・構築します。</p>
-          </div>
+          <svg width="100%" viewBox="114 30 453 424" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>S.sentia バリュー Venn 図</title>
+            <desc>個人の知恵・言語化の技術・組織の仕組みが交差し、中心にEssential Knowledgeが生まれる</desc>
+            <style>
+              .venn-lbl{font-size:14px;font-weight:500;fill:#1a2a4a;font-family:'Noto Sans JP',sans-serif}
+              .venn-sub{font-size:12px;fill:#666;font-family:'Noto Sans JP',sans-serif}
+              .venn-ct{font-size:12px;font-weight:500;fill:#fff;font-family:'Noto Sans JP',sans-serif}
+              .venn-ce{font-size:10px;fill:rgba(255,255,255,0.75);font-family:'Noto Sans JP',sans-serif;letter-spacing:0.5px}
+              .venn-c-top{fill:#3d6cb5;fill-opacity:.45}
+              .venn-c-bl{fill:#c57a2e;fill-opacity:.40}
+              .venn-c-br{fill:#25998a;fill-opacity:.40}
+              .venn-cen{fill:#3d6cb5}
+              @media(prefers-color-scheme:dark){
+                .venn-c-top{fill:#5c8dd4;fill-opacity:.55}
+                .venn-c-bl{fill:#d4954e;fill-opacity:.55}
+                .venn-c-br{fill:#39b8a7;fill-opacity:.55}
+                .venn-cen{fill:#3d6cb5}
+                .venn-lbl{fill:#f0f0f0}
+                .venn-sub{fill:#aaa}
+              }
+            </style>
+            <circle class="venn-c-top" cx="340" cy="175" r="130"/>
+            <circle class="venn-c-bl" cx="262" cy="309" r="130"/>
+            <circle class="venn-c-br" cx="418" cy="309" r="130"/>
+            <circle class="venn-cen" cx="340" cy="263" r="52"/>
+            <text class="venn-ce" x="340" y="245" text-anchor="middle">▲</text>
+            <text class="venn-ct" x="340" y="262" text-anchor="middle">Essential</text>
+            <text class="venn-ct" x="340" y="277" text-anchor="middle">Knowledge</text>
+            <text class="venn-lbl" x="340" y="108" text-anchor="middle">言語化の技術</text>
+            <text class="venn-sub" x="340" y="125" text-anchor="middle">S.sentiaの専門性</text>
+            <text class="venn-lbl" x="200" y="318" text-anchor="middle">個人の知恵</text>
+            <text class="venn-sub" x="200" y="335" text-anchor="middle">属人化されたノウハウ</text>
+            <text class="venn-lbl" x="480" y="318" text-anchor="middle">組織の仕組み</text>
+            <text class="venn-sub" x="480" y="335" text-anchor="middle">共有と継承</text>
+          </svg>
         </div>
       </div>
     </div>
@@ -1032,7 +1138,45 @@
         </div>
       </div>
       <p class="approach-closing">引き出し方が変わると、残るものが変わります。</p>
-      <p class="method-tagline">独自メソッドとAIを組み合わせ、ベテランや経営者が「当たり前」と思っているノウハウを言語化します。</p>
+      <div class="approach-theory">
+        <div class="theory-text">
+          <h3 class="theory-heading">なぜ「よくある質問」は機能しないのか</h3>
+          <p class="theory-body">
+            熟練者は、自分が「当たり前」にやっていることを「工夫」とは認識しません。
+            哲学者マイケル・ポランニーが示したように、私たちは語れる以上のことを知っています——
+            専門家の知識の多くは、言語化される前に体へ染み込んでいます。
+            だからこそ「工夫していることは？」という問いは、最も重要なノウハウを素通りします。
+          </p>
+          <p class="theory-sub">
+            S.SENTIAの質問は、3つの設計で暗黙知の領域を正確に指定しています。
+          </p>
+        </div>
+
+        <div class="theory-table-wrapper">
+          <table class="theory-table">
+            <thead>
+              <tr>
+                <th>言葉</th>
+                <th>設計の意図</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>「マニュアルには書いていない」</td>
+                <td>形式知との境界を引き、暗黙知の領域を明示する</td>
+              </tr>
+              <tr>
+                <td>「他のメンバーにも使ってほしい」</td>
+                <td>本人の価値判断をフィルターとして機能させる</td>
+              </tr>
+              <tr>
+                <td>「自分だけのやり方」</td>
+                <td>一般論ではなく、個人の経験記憶に絞り込む</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
