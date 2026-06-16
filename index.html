@@ -305,6 +305,19 @@
       align-items: start;
     }
 
+    @media (max-width: 768px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+      .about-left,
+      .about-values {
+        width: 100%;
+      }
+      .about-values {
+        margin-top: 2rem;
+      }
+    }
+
     .about-text p {
       color: var(--text-muted);
       font-size: 0.96rem;
