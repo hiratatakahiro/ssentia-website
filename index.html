@@ -279,6 +279,18 @@
       background: var(--bg);
     }
 
+    .about-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .about-logo {
+      height: 120px;
+      width: auto;
+      margin-bottom: -18px;
+    }
+
     .about-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -700,6 +712,7 @@
       color: #555;
       margin-top: 12px;
       line-height: 1.85;
+      text-align: center;
     }
 
     .target-band {
@@ -964,19 +977,24 @@
   <!-- ABOUT -->
   <section class="about">
     <div class="section-inner">
-      <p class="section-label">About Us</p>
-      <h2 class="section-title">私たちについて</h2>
+      <div class="about-heading-row">
+        <div>
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">私たちについて</h2>
+        </div>
+        <img src="S.sentia_logo3.png" alt="S.sentia ロゴ" class="about-logo">
+      </div>
       <div class="section-divider"></div>
       <div class="about-body">
         <div class="about-text">
           <p>
-            S.sentia株式会社は、ベテランや経営者の頭の中にある「経験・判断・やり方」を引き出し、誰でも再現できる形に整える仕組みづくりを支援するコンサルティング会社です。
+            S.sentia株式会社は、組織の中に眠るノウハウや判断基準を引き出し、社内Wiki・研修教材として体系化するコンサルティング会社です。
           </p>
           <p>
-            トレンドに左右されることなく、ビジネスの本質（essentials）に向き合い、組織の根幹となる知識・スキル・文化を次世代へ確実に継承するための研修システムを構築します。
+            人手不足、転職の活性化、ミドルマネジメント業務の複雑化——あらゆる業界の現場を見てきた私たちがたどり着いた結論は、「暗黙知の言語化こそが、中小企業が生き残るための本質的（Essential）な解決策だ」ということでした。
           </p>
           <p>
-            「Trends fade. Fundamentals endure.」—— 流行は過ぎ去るが、本質は残る。この信念のもと、お客様と共に長期的な価値を創り続けます。
+            この確信のもと、S.sentiaを立ち上げました。
           </p>
         </div>
         <div class="about-values">

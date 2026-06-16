@@ -407,6 +407,153 @@
     @media (max-width: 480px) {
       section { padding: 52px 20px; }
     }
+
+    /* ===== SUPPORT BADGE ===== */
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-light-plan  { background: #E1F5EE; color: #085041; }
+    .badge-std-plan    { background: #E6F1FB; color: #0C447C; }
+    .badge-int-plan    { background: #EEEDFE; color: #26215C; }
+
+    /* ===== SUPPORT BANNER ===== */
+    .support-banner-wrap {
+      padding: 0 24px 56px;
+    }
+
+    .support-banner {
+      background: #EEF5FF;
+      border-left: 4px solid #185FA5;
+      border-radius: 6px;
+      padding: 18px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #0c3d6e;
+      font-weight: 500;
+    }
+
+    /* ===== MONTHLY SUPPORT CARDS ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .plan-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .card-header {
+      padding: 22px 20px 18px;
+    }
+
+    .card-plan-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .card-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .card-price-sub {
+      font-size: 0.78rem;
+      font-weight: 500;
+      opacity: 0.75;
+    }
+
+    .card-features {
+      background: #fff;
+      padding: 14px 18px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f2f5;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .feature-item:last-child { border-bottom: none; }
+
+    .feature-item.included .feature-label { font-weight: 700; color: var(--text); }
+    .feature-item.excluded .feature-label { color: #b8bfc9; }
+    .feature-item.excluded .feature-icon  { color: #c8cdd5; }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 16px;
+      margin-top: 1px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .feature-note {
+      font-size: 0.72rem;
+      display: block;
+      margin-top: 1px;
+      color: #b8bfc9;
+    }
+
+    /* ===== RECOMMENDATIONS ===== */
+    .rec-section {
+      padding: 0 24px 56px;
+    }
+
+    .rec-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rec-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .rec-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .rec-tag {
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .rec-tag-light     { background: #E1F5EE; color: #085041; }
+    .rec-tag-standard  { background: #E6F1FB; color: #0C447C; }
+    .rec-tag-intensive { background: #EEEDFE; color: #26215C; }
+
+    @media (max-width: 768px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -485,37 +632,37 @@
             <tr>
               <td class="plan-col">Lite（お試し）</td>
               <td>1カテゴリ・5unitまで</td>
-              <td>打ち合わせ 1回・60分／社員インタビュー 1回・60分（3名まで）</td>
+              <td>打ち合わせ 1回・60分<br>社員インタビュー 1回・60分（3名まで）</td>
               <td>PDF納品</td>
               <td>5万円（税込）</td>
             </tr>
             <tr>
               <td class="plan-col">Lite Plus</td>
               <td>最大5カテゴリ・各カテゴリ5unitまで</td>
-              <td>打ち合わせ 1回・60分／社員インタビュー 1回・60分（3名まで）</td>
+              <td>打ち合わせ 1回・60分<br>社員インタビュー 1回・60分（3名まで）</td>
               <td>PDF納品</td>
               <td>25万円（税込）</td>
             </tr>
             <tr>
               <td class="plan-col">Starter（特化型）</td>
               <td>特定の商品・サービス・業務フロー 1領域</td>
-              <td>インタビュー 2〜3回</td>
+              <td>打ち合わせ 1回・60分<br>社員インタビュー 2〜3回</td>
               <td>Notion納品</td>
-              <td>50〜70万円</td>
+              <td>50〜70万円<br><span class="badge badge-light-plan">初期6ヶ月 Light サポート込</span></td>
             </tr>
             <tr>
               <td class="plan-col">Standard（部門型）</td>
               <td>特定部署・チームの業務全体</td>
-              <td>インタビュー 4〜5回</td>
+              <td>打ち合わせ 1回・60分<br>社員インタビュー 4〜5回</td>
               <td>Notion納品</td>
-              <td>90〜120万円</td>
+              <td>90〜120万円<br><span class="badge badge-std-plan">初期6ヶ月 Standard サポート込</span></td>
             </tr>
             <tr>
               <td class="plan-col">Full（全社型）</td>
               <td>会社全体の業務横断</td>
-              <td>インタビュー 6回以上</td>
+              <td>打ち合わせ 1回・60分<br>社員インタビュー 6回以上</td>
               <td>Notion納品</td>
-              <td>150〜200万円</td>
+              <td>150〜200万円<br><span class="badge badge-int-plan">初期6ヶ月 Intensive サポート込</span></td>
             </tr>
             <tr>
               <td class="plan-col">カスタム</td>
@@ -529,6 +676,175 @@
       </div>
     </div>
   </section>
+
+  <!-- SUPPORT BANNER -->
+  <div class="support-banner-wrap">
+    <div class="support-banner">
+      Notion納品プランには初期6ヶ月のサポートが含まれています／7ヶ月目以降は下記よりサポートプランをお選びください
+    </div>
+  </div>
+
+  <!-- SECTION 2: 月額サポートプラン -->
+  <section style="padding-top: 0;">
+    <div class="section-inner">
+      <p class="section-label">Monthly Support</p>
+      <h2 class="section-title">月額サポートプラン</h2>
+      <div class="section-divider"></div>
+      <div class="cards-grid">
+
+        <!-- Light -->
+        <div class="plan-card">
+          <div class="card-header" style="background: #E1F5EE;">
+            <div class="card-plan-name" style="color: #085041;">Light</div>
+            <div class="card-price" style="color: #0F6E56;">2万円<span class="card-price-sub">/月（税込）</span></div>
+          </div>
+          <div class="card-features">
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #1D9E75;">✓</span>
+              <span class="feature-label">月1回のページ更新代行</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #1D9E75;">✓</span>
+              <span class="feature-label">チャット対応（無制限）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #1D9E75;">✓</span>
+              <span class="feature-label">月次確認チェックリスト送付</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">緊急時電話対応（無料・オンライン）<span class="feature-note">原則なし</span></span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">月1回オンライン定例（60分）</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">月2回オンライン定例（60分）</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">新人入社時のwiki活用支援</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">新規業務発生時のUnit追加</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">半年ごとのwiki健康診断</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standard -->
+        <div class="plan-card">
+          <div class="card-header" style="background: #E6F1FB;">
+            <div class="card-plan-name" style="color: #0C447C;">Standard</div>
+            <div class="card-price" style="color: #185FA5;">5万円<span class="card-price-sub">/月（税込）</span></div>
+          </div>
+          <div class="card-features">
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">月1回のページ更新代行</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">チャット対応（無制限）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">月次確認チェックリスト送付</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">緊急時電話対応（無料・オンライン）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">月1回オンライン定例（60分）</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">月2回オンライン定例（60分）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #185FA5;">✓</span>
+              <span class="feature-label">新人入社時のwiki活用支援</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">新規業務発生時のUnit追加</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">半年ごとのwiki健康診断</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intensive -->
+        <div class="plan-card">
+          <div class="card-header" style="background: #EEEDFE;">
+            <div class="card-plan-name" style="color: #26215C;">Intensive</div>
+            <div class="card-price" style="color: #3C3489;">10万円<span class="card-price-sub">/月（税込）</span></div>
+          </div>
+          <div class="card-features">
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">月1回のページ更新代行</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">チャット対応（無制限）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">月次確認チェックリスト送付</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">緊急時電話対応（無料・オンライン）</span>
+            </div>
+            <div class="feature-item excluded">
+              <span class="feature-icon">—</span>
+              <span class="feature-label">月1回オンライン定例（60分）<span class="feature-note">月2回に包含</span></span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">月2回オンライン定例（60分）</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">新人入社時のwiki活用支援</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">新規業務発生時のUnit追加</span>
+            </div>
+            <div class="feature-item included">
+              <span class="feature-icon" style="color: #534AB7;">✓</span>
+              <span class="feature-label">半年ごとのwiki健康診断</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 推奨の組み合わせ -->
+  <div class="rec-section">
+    <div class="rec-inner">
+      <div class="rec-heading">推奨の組み合わせ（7ヶ月目以降）</div>
+      <div class="rec-tags">
+        <span class="rec-tag rec-tag-light">Starter → Light</span>
+        <span class="rec-tag rec-tag-standard">Standard → Standard</span>
+        <span class="rec-tag rec-tag-intensive">Full → Intensive</span>
+      </div>
+    </div>
+  </div>
 
   <!-- CTA -->
   <div class="cta-band">
