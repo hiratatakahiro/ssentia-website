@@ -1004,6 +1004,11 @@
         font-size: 0.88rem;
       }
     }
+    @media (max-width: 640px) {
+      .problem-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1059,12 +1064,118 @@
       <h2 class="section-title">よくある課題</h2>
       <div class="section-divider"></div>
       <p class="pain-target">自分も現場で人を育ててきたからこそ、「教える時間がない」つらさがわかる。そんな経営者・育成担当の方へ。</p>
-      <ul class="pain-list">
-        <li>人が入るたびに教えるのに時間を取られ、本業が進まない</li>
-        <li>「見て覚えて」では育たない。でもマニュアルや研修資料を作る時間もない</li>
-        <li>せっかく育てても、すぐに辞めてしまわないか不安</li>
-        <li>仕事のやり方が、ベテランや自分の頭の中にしか残っていない</li>
-      </ul>
+      <div class="problem-grid" style="
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin-top: 2rem;
+      ">
+
+        <div style="
+          background: #ffffff;
+          border-radius: 12px;
+          border-top: 4px solid #3d6cb5;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          padding: 1.75rem 1.5rem;
+          position: relative;
+        ">
+          <span style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #3d6cb5;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+          ">1</span>
+          <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
+            人が入るたびに教えるのに時間を取られ、本業が進まない
+          </p>
+        </div>
+
+        <div style="
+          background: #ffffff;
+          border-radius: 12px;
+          border-top: 4px solid #3d6cb5;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          padding: 1.75rem 1.5rem;
+          position: relative;
+        ">
+          <span style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #3d6cb5;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+          ">2</span>
+          <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
+            「見て覚えて」では育たない。でもマニュアルや研修資料を作る時間もない
+          </p>
+        </div>
+
+        <div style="
+          background: #ffffff;
+          border-radius: 12px;
+          border-top: 4px solid #3d6cb5;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          padding: 1.75rem 1.5rem;
+          position: relative;
+        ">
+          <span style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #3d6cb5;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+          ">3</span>
+          <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
+            せっかく育てても、すぐに辞めてしまわないか不安
+          </p>
+        </div>
+
+        <div style="
+          background: #ffffff;
+          border-radius: 12px;
+          border-top: 4px solid #3d6cb5;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          padding: 1.75rem 1.5rem;
+          position: relative;
+        ">
+          <span style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #3d6cb5;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.875rem;
+          ">4</span>
+          <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
+            仕事のやり方が、ベテランや自分の頭の中にしか残っていない
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
