@@ -488,40 +488,6 @@
       line-height: 1.7;
     }
 
-    /* ===== CREDENTIALS SECTION ===== */
-    .credentials-section {
-      background: var(--bg-section);
-      padding: 72px 24px;
-    }
-
-    .cred-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .cred-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 18px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(61,108,181,0.05);
-    }
-
-    .cred-icon {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      line-height: 1;
-    }
-
-    .cred-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
     /* ===== PERSONAL SECTION ===== */
     .personal-section {
       background: var(--bg-section);
@@ -797,10 +763,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .cred-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .footer-inner {
         flex-direction: column;
         gap: 24px;
@@ -831,10 +793,6 @@
 
     @media (max-width: 480px) {
       .exp-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .cred-grid {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -941,7 +899,7 @@
           <div class="exp-grid">
             <div class="exp-card">
               <span class="exp-icon">📋</span>
-              <span class="exp-label">営業・企画</span>
+              <span class="exp-label">営業・企画<br>（金融・旅行・教育）</span>
             </div>
             <div class="exp-card">
               <span class="exp-icon">👥</span>
@@ -953,23 +911,23 @@
             </div>
             <div class="exp-card">
               <span class="exp-icon">🔄</span>
-              <span class="exp-label">業務改善</span>
+              <span class="exp-label">業務プロセス改善</span>
             </div>
             <div class="exp-card">
-              <span class="exp-icon">🤖</span>
-              <span class="exp-label">AI活用</span>
+              <span class="exp-icon">💻</span>
+              <span class="exp-label">Claude Codeによる<br>アプリ・Webサイト構築</span>
             </div>
             <div class="exp-card">
               <span class="exp-icon">📝</span>
-              <span class="exp-label">Notion構築</span>
+              <span class="exp-label">Notion<br>上級プログラム修了</span>
             </div>
             <div class="exp-card">
               <span class="exp-icon">☁️</span>
-              <span class="exp-label">Google Cloud認定</span>
+              <span class="exp-label">Google Cloud<br>Generative AI Leader認定</span>
             </div>
             <div class="exp-card">
-              <span class="exp-icon">💼</span>
-              <span class="exp-label">起業・経営</span>
+              <span class="exp-icon">📊</span>
+              <span class="exp-label">FP2級</span>
             </div>
           </div>
         </div>
@@ -1031,45 +989,6 @@
         <li>教育コストや引き継ぎ負担を減らしたい</li>
         <li>管理職の負担を軽減したい</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ⑦ 資格・実績 -->
-  <section class="credentials-section">
-    <div class="section-inner">
-      <p class="section-label">Credentials</p>
-      <h2 class="section-title">資格・実績</h2>
-      <div class="section-divider"></div>
-      <div class="cred-grid">
-        <div class="cred-card">
-          <div class="cred-icon">🏅</div>
-          <div class="cred-label">Google AI<br>Generative Leader 認定</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">📘</div>
-          <div class="cred-label">Notion<br>上級プログラム修了</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">🤖</div>
-          <div class="cred-label">生成AI活用<br>実践経験</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">📊</div>
-          <div class="cred-label">FP2級</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">🎓</div>
-          <div class="cred-label">教育旅行・留学業界<br>11年</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">👔</div>
-          <div class="cred-label">管理職経験あり</div>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">💬</div>
-          <div class="cred-label">営業・企画<br>経験あり</div>
-        </div>
-      </div>
     </div>
   </section>
 
