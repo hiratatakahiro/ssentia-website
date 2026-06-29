@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | S.sentia株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #3d6cb5;
+      --primary-dark: #2e549a;
+      --primary-light: #5a85c9;
+      --text: #1a1a2e;
+      --text-muted: #555;
+      --bg: #fff;
+      --bg-section: #f7f9fc;
+      --border: #dde4ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      height: 120px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .logo-tagline {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 120px;
+      left: 0;
+      right: 0;
+      background: var(--primary-dark);
+      padding: 12px 0 20px;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-drawer.open { display: block; }
+
+    .nav-drawer a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { background: rgba(255,255,255,0.1); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./service.jpeg') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px 60px;
+      text-align: center;
+    }
+
+    .page-hero-label {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 72px 24px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 36px;
+    }
+
+    /* ===== SERVICE BLOCKS ===== */
+    .service-block {
+      margin-bottom: 72px;
+    }
+
+    .service-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-block-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .service-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      min-width: 48px;
+    }
+
+    .service-block-title {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.4;
+    }
+
+    .service-block-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 32px;
+      padding-left: 64px;
+    }
+
+    /* ===== TABLE ===== */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(61,108,181,0.08);
+      margin-bottom: 8px;
+    }
+
+    .scroll-hint {
+      display: none;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 540px;
+      font-size: 0.9rem;
+    }
+
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: var(--bg-section);
+    }
+
+    tbody td {
+      padding: 14px 20px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      vertical-align: top;
+    }
+
+    tbody td:first-child {
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8eef8;
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== FLOW ===== */
+    .flow-section {
+      background: var(--bg-section);
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 16px;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: '›';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      color: var(--border);
+      font-weight: 300;
+    }
+
+    .flow-num {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+    }
+
+    .flow-step h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .flow-step p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== PRICING NOTE ===== */
+    .pricing-note {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-top: 48px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .pricing-note-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .pricing-note h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .pricing-note p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-band p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.85);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 32px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      section {
+        padding: 52px 20px;
+      }
+
+      .tacit-section {
+        padding: 52px 20px;
+      }
+
+      .service-block {
+        margin-bottom: 48px;
+      }
+
+      .service-block-desc {
+        padding-left: 0;
+      }
+
+      .scroll-hint {
+        display: block;
+      }
+
+      .flow-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step:not(:last-child)::after {
+        content: '↓';
+        right: auto;
+        top: auto;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.4rem;
+      }
+
+      .pricing-note {
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .logo-name {
+        font-size: 1.35rem;
+      }
+
+      .section-divider {
+        margin-bottom: 24px;
+      }
+
+      .sub-section {
+        margin-top: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 40px 16px; }
+
+      .tacit-section { padding: 40px 16px; }
+    }
+
+    /* ===== SUB SECTION ===== */
+    .sub-section { margin-top: 40px; }
+
+    .sub-section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .sub-section-title {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .sub-section-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    /* ===== BADGES ===== */
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .badge-green  { background: #e6f4ea; color: #2d7a4f; }
+    .badge-blue   { background: #e8eef8; color: var(--primary); }
+    .badge-purple { background: #ede8f8; color: #6b4fb0; }
+    .badge-orange { background: #fef0e4; color: #c06010; }
+
+    /* ===== TABLE VARIANTS ===== */
+    .table-medium { min-width: 600px; }
+    .table-wide   { min-width: 720px; }
+    .table-xl     { min-width: 840px; }
+
+    .table-wrap-first tbody td:first-child { white-space: normal; }
+
+    .table-compare thead tr { background: #f0f4fb; }
+    .table-compare thead th { color: var(--primary); }
+    .table-compare .th-accent {
+      background: var(--primary) !important;
+      color: #fff !important;
+    }
+
+    .phase-cell {
+      font-weight: 700;
+      text-align: center;
+      vertical-align: middle !important;
+      white-space: nowrap;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      color: #fff !important;
+      line-height: 1.6;
+    }
+    .phase-1 { background: #5a85c9; }
+    .phase-2 { background: #3d6cb5; }
+    .phase-3 { background: #2e549a; }
+
+    tr.row-hl td {
+      background: #e8eef8;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .plan-col { color: var(--primary) !important; }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .sym-good { color: #2d7a4f; font-weight: 700; }
+    .sym-fair { color: #b07020; font-weight: 700; }
+
+    /* ===== REASON CARDS ===== */
+    .reason-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .reason-card {
+      background: var(--bg-section);
+      border-radius: 8px;
+      padding: 20px 22px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .reason-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .reason-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== OUTCOME CARDS ===== */
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .outcome-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 28px 24px;
+      border-top: 4px solid var(--primary);
+      box-shadow: 0 2px 12px rgba(61,108,181,0.07);
+    }
+
+    .outcome-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .outcome-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .outcome-card p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .reason-grid,
+      .outcome-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SECTION HR DIVIDER ===== */
+    .section-hr {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 40px 0;
+    }
+
+    /* ===== COMPACT TABLE (flow) ===== */
+    .table-compact thead th,
+    .table-compact tbody td {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    /* ===== COMPARISON TABLE FONT SIZE ===== */
+    .table-font-sm {
+      font-size: 0.775rem;
+    }
+
+    .service-structure-note {
+      background: #eef2fb;
+      border-radius: 6px;
+      padding: 22px 28px;
+      margin-bottom: 48px;
+      line-height: 1.9;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .ai-levels {
+      margin: 12px 0 0 8px;
+      padding-left: 16px;
+      list-style: disc;
+    }
+    .ai-levels li {
+      margin-bottom: 6px;
+      line-height: 1.8;
+      font-size: 0.92rem;
+      color: #444;
+    }
+    .badge-option {
+      display: inline-block;
+      background: #dce8f7;
+      color: #3d6cb5;
+      font-size: 0.72rem;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-left: 10px;
+      font-weight: bold;
+      vertical-align: middle;
+      letter-spacing: 0.03em;
+    }
+
+    /* ===== RESULTS ===== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .result-card {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(61,108,181,0.07);
+    }
+
+    .result-kpi {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      padding: 28px 24px;
+      background: var(--primary);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .result-kpi-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .result-kpi-unit {
+      font-size: 1.4rem;
+    }
+
+    .result-kpi-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-top: 8px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .result-body {
+      flex: 1;
+      padding: 24px 24px;
+    }
+
+    .result-industry {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: #e8eef8;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .result-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-card {
+        flex-direction: row;
+      }
+
+      .result-kpi {
+        min-width: 100px;
+        padding: 20px 16px;
+      }
+
+      .result-kpi-number {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .result-card {
+        flex-direction: column;
+      }
+
+      .result-kpi {
+        min-width: unset;
+        flex-direction: row;
+        gap: 12px;
+        padding: 16px 20px;
+        justify-content: flex-start;
+      }
+
+      .result-kpi-label {
+        margin-top: 0;
+        text-align: left;
+      }
+    }
+
+    .case-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .case-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .case-badge {
+      display: inline-block;
+      background-color: #3d6cb5;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .case-block {
+      margin-bottom: 1rem;
+    }
+
+    .case-block-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #3d6cb5;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .case-block p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .case-quote {
+      border-left: 3px solid #3d6cb5;
+      padding: 0.75rem 1rem;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+      background-color: #f5f8ff;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .case-quote-author {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    /* ===== TACIT SECTION ===== */
+    .tacit-section {
+      background: var(--bg);
+      padding: 72px 24px;
+    }
+
+    .tacit-lead {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 2;
+      margin-bottom: 48px;
+    }
+
+    .tacit-pattern {
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tacit-pattern-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tacit-pattern-title {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .tacit-pattern-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .tacit-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .tacit-card {
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+
+    .tacit-card--manual {
+      background: #f0f2f5;
+    }
+
+    .tacit-card--expert {
+      background: #fff;
+      border-left: 4px solid var(--primary);
+      box-shadow: 0 1px 8px rgba(61,108,181,0.08);
+    }
+
+    .tacit-card-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+    }
+
+    .tacit-card--expert .tacit-card-label {
+      color: var(--primary);
+    }
+
+    .tacit-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .tacit-card--expert p {
+      color: var(--text);
+    }
+
+    .tacit-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0 32px;
+    }
+
+    .tacit-box {
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .tacit-box--what {
+      background: #f0f2f5;
+      opacity: 0.75;
+    }
+
+    .tacit-box--why {
+      background: #dce8f7;
+      border: 2px solid var(--primary);
+    }
+
+    .tacit-box--if {
+      background: #e6f4ea;
+      border: 2px solid #2d7a4f;
+    }
+
+    .tacit-box-tag {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .tacit-box--why .tacit-box-tag { color: var(--primary-dark); }
+    .tacit-box--if  .tacit-box-tag { color: #2d7a4f; }
+
+    .tacit-box-main {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .tacit-box-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .tacit-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    .tacit-closing {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.9;
+      text-align: center;
+      padding: 24px;
+      background: #eef2fb;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .tacit-cards   { grid-template-columns: 1fr; }
+      .tacit-summary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-name">S.sentia株式会社</span>
+          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="price.html">Price</a>
+        <a href="profile.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="price.html">Price</a>
+    <a href="profile.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="page-hero-label">Services</p>
+    <h1>サービス紹介</h1>
+  </div>
+
+  <!-- 暗黙知とは何か -->
+  <section class="tacit-section">
+    <div class="section-inner">
+      <p class="section-label">暗黙知とは何か</p>
+      <h2 class="section-title">ベテランの頭の中は、こんな形をしている。</h2>
+      <div class="section-divider"></div>
+      <p class="tacit-lead">マニュアルには「何をするか」は書いてある。でも、それだけでは動けない。長年の経験者が当たり前のようにやっていることの裏には、必ず理由がある。その理由こそが、暗黙知だ。</p>
+
+      <!-- パターン① -->
+      <div class="tacit-pattern">
+        <div class="tacit-pattern-header">
+          <span class="badge badge-blue">パターン①</span>
+          <h3 class="tacit-pattern-title">設定値・デフォルトが、いつの間にか現実と乖離している</h3>
+        </div>
+        <p class="tacit-pattern-desc">ツールや書式の初期値が実態からずれている。ベテランは経験でその「ずれ」を補正しているが、その補正方法は引き継がれていない。</p>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「外注先/業務委託先への委託費は、委託先の最新の料金表に基づいて入力する」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に知っていること</span>
+            <p>外注や委託先の料金が変更になったとしても、その都度、最新の料金を知らせてもらえるとは限らない。そのため請求の段階で金額が上がって驚くということもよくある。最新の料金表を定期的に取り寄せるとともに、現在の物価高を考慮して、予備費として○○円を別枠で計上する。これをしないと完了後に追加請求が発生する可能性が高い。</p>
+          </div>
+        </div>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「見積書を作成する前に、最新の換算レートを確認する」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に知っていること</span>
+            <p>見積書提出時には社内規程のレートを確認するが、受注までにタイムラグが長いと、為替の変動により利益を圧迫する可能性がある。ある程度の変動を見越して社内規程レートに105%を乗じておくと、販売価格を大きく上げることなく、大幅な減益を防ぐことができる。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- パターン② -->
+      <div class="tacit-pattern">
+        <div class="tacit-pattern-header">
+          <span class="badge badge-purple">パターン②</span>
+          <h3 class="tacit-pattern-title">一度トラブルを経験した人だけが、自然に取っている予防策がある</h3>
+        </div>
+        <p class="tacit-pattern-desc">手順書には「〇〇をする」と書いてある。しかしベテランは「〇〇をする前に△△しておく」を自動的にやっている。△△をしなかったときに何が起きるかを知っているからだ。</p>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「契約書類を、契約者住所へ送付する」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に知っていること</span>
+            <p>契約者住所と「書類を受け取りたい住所」が一致しないケースがある。たとえば、物件が法人名義でも実際の担当者は別拠点にいる場合や、契約者が単身赴任中で現住所と登録住所が異なる場合などがそれにあたる。こうした情報は、契約締結の直前ではなく、初回の顧客ヒアリング時点で確認しておく必要がある。なぜなら、書類を誤送した後の再送は単なる工数増加にとどまらず、顧客との信頼関係に傷をつけるリスクがあるからだ。ベテランは「住所が複数ある可能性」を前提として顧客を見ており、初回接点の段階で自然にこの確認を済ませている。</p>
+          </div>
+        </div>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「取引先と一緒に営業に行く場合は、時間や合流場所を早めに決めておく」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に知っていること</span>
+            <p>初訪問の場所や初対面の相手の場合、移動時間に誤算が生じやすい。30分の余裕を持ったミート時間を設定した上で、案内地図を添えて事前共有する。これだけで当日トラブルが激減する。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- パターン③ -->
+      <div class="tacit-pattern">
+        <div class="tacit-pattern-header">
+          <span class="badge badge-orange">パターン③</span>
+          <h3 class="tacit-pattern-title">AかBかの判断基準が、言語化されていない</h3>
+        </div>
+        <p class="tacit-pattern-desc">「このケースはどうすればよいですか」にベテランは即答できる。しかしその判断根拠は、聞いてみるまで出てこない。</p>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「重要な案件では、上長の同席を検討する」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に知っていること</span>
+            <p>上長同席が必要なのは2パターンだけ：①自社大型顧客の詳細事例の説明が必要な場面、②クロージング段階で相手経営層・管理職との面会やプレゼンが必要な場面。これ以外は単独で対応して問題なし。</p>
+          </div>
+        </div>
+        <div class="tacit-cards">
+          <div class="tacit-card tacit-card--manual">
+            <span class="tacit-card-label">マニュアルの記述</span>
+            <p>「優先度の高いものから、1日のスケジュールを立てること。」</p>
+          </div>
+          <div class="tacit-card tacit-card--expert">
+            <span class="tacit-card-label">ベテランが実際に行っていること</span>
+            <p>頭を使う仕事（企画書・見積書作成・原価計算・システム入力・上司との壁打ち・顧客への電話対応）から一日を始める。頭を使う仕事＝オフィスでしかできない仕事ととらえる。つまり、電車など移動中にできる業務（日報を書く、1週間の予定を考える、メールをチェックする）は優先度を下げる。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT / WHY / IF -->
+      <div class="tacit-summary">
+        <div class="tacit-box tacit-box--what">
+          <div class="tacit-box-tag">WHAT</div>
+          <p class="tacit-box-main">何をするか</p>
+          <p class="tacit-box-sub">マニュアルに書ける</p>
+        </div>
+        <div class="tacit-box tacit-box--why">
+          <div class="tacit-box-tag">WHY</div>
+          <p class="tacit-box-main">なぜそうするか</p>
+          <p class="tacit-box-sub">聞かないと出てこない</p>
+        </div>
+        <div class="tacit-box tacit-box--if">
+          <div class="tacit-box-tag">IF</div>
+          <p class="tacit-box-main">どの条件でそうするか</p>
+          <p class="tacit-box-sub">聞かないと出てこない</p>
+        </div>
+      </div>
+
+      <p class="tacit-body">上の6つの事例に共通しているのは、「何をするか（WHAT）」はすでにマニュアルに書いてある、ということです。しかしそれだけでは、新しいスタッフは動けない。<br>「なぜそうするのか（WHY）」——失敗の経緯、数値の根拠、現場の現実。<br>「どの条件でそうするか（IF）」——判断の分岐点、例外のパターン、基準の境界線。<br>この「WHY」と「IF」は、意識して引き出さない限り、永遠に言語化されません。ベテランが退職する日まで、頭の中に眠り続けます。</p>
+
+      <p class="tacit-closing">私たちは、インタビューを通じてこの「WHY」と「IF」を引き出し、<br>新しいスタッフでも再現できる形に変換します。</p>
+    </div>
+  </section>
+
+  <!-- STEP 1〜3 -->
+  <section style="padding: 72px 24px 0 24px;">
+    <div class="section-inner">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">提供サービス</h2>
+      <div class="section-divider"></div>
+
+      <!-- サービス提供フロー -->
+      <div class="sub-section">
+        <p class="sub-section-label">Process</p>
+        <h4 class="sub-section-title">サービス提供フロー</h4>
+        <p class="scroll-hint">← 横にスクロールできます</p>
+        <div class="table-wrapper">
+          <table class="table-compact">
+            <thead>
+              <tr>
+                <th>フェーズ</th>
+                <th>ステップ</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="phase-cell phase-1" rowspan="2">Phase 1<br>準備</td>
+                <td class="step-label">STEP① 初期ヒアリング</td>
+                <td>課題・対象者・業務範囲を確認する</td>
+              </tr>
+              <tr>
+                <td class="step-label">STEP② 既存資料の収集</td>
+                <td>社内マニュアル・規則・営業資料など一式を提供いただく</td>
+              </tr>
+              <tr>
+                <td class="phase-cell phase-2" rowspan="5">Phase 2<br>暗黙知の抽出</td>
+                <td class="step-label">STEP③ AI質問設計</td>
+                <td>既存資料をもとに、S.sentiaが「引き出すべき暗黙知の質問」を設計</td>
+              </tr>
+              <tr>
+                <td class="step-label">STEP④ インタビュー実施</td>
+                <td>AI設計の質問を用いて、ベテラン・管理職へインタビュー</td>
+              </tr>
+              <tr>
+                <td class="step-label">STEP⑤ Wikiたたき台の構築</td>
+                <td>収集した情報をもとにWikiの初稿を作成</td>
+              </tr>
+              <tr>
+                <td class="step-label">STEP⑥ AI分析（漏れチェック）</td>
+                <td>AIが引き出し漏れ・不足領域を分析</td>
+              </tr>
+              <tr>
+                <td class="step-label">STEP⑦ 追加インタビュー</td>
+                <td>漏れが判明した領域を対象に再インタビューで補完</td>
+              </tr>
+              <tr>
+                <td class="phase-cell phase-3">Phase 3<br>納品</td>
+                <td class="step-label">STEP⑧ 完成・納品</td>
+                <td>WikiおよびオンボーディングシステムをNotionで仕上げ、納品</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr class="section-hr">
+
+      <!-- STEP 1 -->
+      <div class="service-block">
+        <div class="service-block-header">
+          <span class="service-number">01</span>
+          <h3 class="service-block-title">暗黙知の言語化</h3>
+        </div>
+        <p class="service-block-desc">
+          熟練者の頭の中にある経験・判断基準・ノウハウを引き出すには、「何を聞くか」が重要です。S.sentiaでは、お客様から提供いただいた既存資料をAIが分析し、暗黙知の4分類（手順・概念・判断軸・自己流の工夫）に沿って、引き出すべき質問を設計します。
+        </p>
+
+        <!-- 表1 -->
+        <div class="sub-section">
+          <p class="sub-section-label">Comparison</p>
+          <h4 class="sub-section-title">普通の質問 vs S.sentiaの質問</h4>
+          <p class="sub-section-desc">暗黙知の4分類ごとに、一般的な質問とS.sentiaが設計した質問の違いを比較しています。</p>
+          <p class="scroll-hint">← 横にスクロールできます</p>
+          <div class="table-wrapper">
+            <table class="table-wide table-wrap-first table-font-sm">
+              <thead>
+                <tr>
+                  <th>暗黙知の分類</th>
+                  <th>普通の質問</th>
+                  <th>S.sentiaの質問</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="badge badge-green">① 手順の暗黙知</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px">成功・失敗のケース</div>
+                  </td>
+                  <td>「どう対応しますか？」</td>
+                  <td>「クライアントへの修正提案で、うまく通ったケース、逆に後でトラブルになったケースはありましたか？」</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge badge-green">① 手順の暗黙知</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px;white-space:nowrap">説明の難所・トラブル予防</div>
+                  </td>
+                  <td>「説明しにくいことはありますか？」</td>
+                  <td>「仕様変更の追加費用をクライアントに伝えるとき、後でもめたケースはありましたか？」</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge badge-blue">② 概念・定義の暗黙知</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px">用語の本質</div>
+                  </td>
+                  <td>「〇〇とはどういう意味ですか？」</td>
+                  <td>「"レスポンシブ対応"という言葉、クライアントに一言で説明するとしたら何と言いますか？」</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge badge-purple">③ 判断軸の暗黙知</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px">場面ごとの判断分岐</div>
+                  </td>
+                  <td>「どこで判断を分けますか？」</td>
+                  <td>「①クライアントから追加要望が来た場合、②デザインの方向性に意見が割れた場合、③納期が厳しくなった場合——それぞれ自分で判断しますか？上長に確認しますか？」</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge badge-purple">③ 判断軸の暗黙知</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px;white-space:nowrap">優先順位・重要事項の把握</div>
+                  </td>
+                  <td>「新人に何を教えますか？」</td>
+                  <td>「ヒアリング・設計・制作・納品——この中で最初の1ヶ月に絶対に知っておくべきことを3つ挙げるとしたら何ですか？」</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge badge-orange">④ 自己流の工夫</span>
+                    <div style="font-size:0.8rem;font-weight:400;color:var(--text-muted);margin-top:4px;white-space:nowrap">他者にも使ってほしい工夫</div>
+                  </td>
+                  <td>「独自で工夫していることはありますか？」</td>
+                  <td>「マニュアルには書いていないけど、他のメンバーにも使ってほしいと思う、自分だけのやり方はありますか？」</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr class="section-hr">
+
+      <!-- STEP 2 -->
+      <div class="service-block">
+        <div class="service-block-header">
+          <span class="service-number">02</span>
+          <h3 class="service-block-title">Notionナレッジベース構築</h3>
+        </div>
+        <p class="service-block-desc">
+          引き出した知識・情報をNotionにまとめ、新入社員や未経験者が自走できるオンボーディングシステムを構築します。「何をどの順番で学ぶか」が構造として見えるナレッジベースが、早期戦力化を実現します。
+        </p>
+
+      </div>
+      <hr class="section-hr">
+
+      <!-- STEP 3 -->
+      <div class="service-block">
+        <div class="service-block-header">
+          <span class="service-number">03</span>
+          <h3 class="service-block-title">学習コース設計</h3>
+        </div>
+        <p class="service-block-desc">
+          ナレッジベースの情報を「フェーズ」「Unit」単位で整理し、習熟順に学べる学習コースを設計します。新人が迷わず進められるロードマップを提供し、上長の指導工数を最小化します。
+        </p>
+
+        <!-- Wiki サンプルリンク -->
+        <div style="margin-top: 2rem; margin-bottom: 0; display: flex; flex-direction: column; align-items: center;">
+          <p style="font-size: 0.95rem; color: #555; margin-bottom: 0.75rem;">
+            ▼ 実際に設計した社内Wikiのサンプルをご覧いただけます
+          </p>
+          <a href="https://app.notion.com/p/9d54557b42f247ca824a6b520670f3a1"
+             target="_blank" rel="noopener noreferrer"
+             style="display: block; width: 100%; max-width: 480px; border: 1.5px solid #c8d8f0; border-radius: 10px; overflow: hidden; text-decoration: none; box-shadow: 0 2px 8px rgba(61,108,181,0.10);">
+            <img src="wiki-sample.png"
+                 alt="社内Wikiサンプル（地域密着型不動産会社）"
+                 style="width: 100%; display: block;">
+          </a>
+        </div>
+
+      </div>
+      <hr class="section-hr">
+
+    </div>
+  </section>
+
+  <!-- 導入実績 -->
+  <section style="padding: 72px 24px;">
+    <div class="section-inner">
+      <div class="section-label">Results</div>
+      <h2 class="section-title">導入実績</h2>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-badge">75% 研修時間削減</div>
+          <div class="case-meta">保険代理店 A社｜北海道内・従業員15名・新人年3〜4名入社</div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">課題</div>
+          <p>新人が入るたびにベテラン社員が個別に対面研修。担当者によって教える内容にバラつきがあり、「誰に聞いても答えが違う」状態が続いていた。</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">取り組み</div>
+          <p>特定の保険商品の学習に特化した社内Wikiを開発。学習フェーズ・Unit構造で新人が自走できる環境を構築。</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">結果</div>
+          <p>対面研修 <strong>20時間 → 5時間（75%削減）</strong>。残りはWikiコースによる自己学習に移行。着手から納品まで約3週間。</p>
+        </div>
+
+        <div class="case-quote">
+          「Wikiができてから、新人に聞かれる回数が明らかに減りました。自分の時間が戻ってきた感覚があります。」
+          <div class="case-quote-author">— 教育担当マネージャー（保険代理店A社）</div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-badge">50% 独り立ち期間短縮</div>
+          <div class="case-meta">旅行代理店 B社｜北海道内・従業員20名・中途採用中心</div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">課題</div>
+          <p>営業フロー・サービス知識・システム操作が口頭とバラバラな資料に分散。新人が何をどの順に覚えればいいか分からず、独り立ちまでに長い時間がかかっていた。</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">取り組み</div>
+          <p>営業の業務フロー・サービス知識・システムマニュアルを網羅した総合Wikiを開発。入社フェーズに沿った学習ロードマップを設計。</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">結果</div>
+          <p>基本業務を1人でこなせるまでの期間が <strong>6ヶ月 → 3ヶ月（50%短縮）</strong>。着手から納品まで約4週間。</p>
+        </div>
+
+        <div class="case-quote">
+          「何をどの順番で覚えればいいかが一目でわかるようになり、新人からの『何をすればいいですか？』という質問がほぼなくなりました。」
+          <div class="case-quote-author">— 営業マネージャー（旅行代理店B社）</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>組織の知識継承・研修に関するご相談を承っております。<br>初回相談は無料です。</p>
+    <a href="contact.html" class="btn-outline">お問い合わせフォーム</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="footer-logo">S.sentia株式会社</a>
+        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="price.html">Price</a>
+        <a href="profile.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburger.classList.remove('open');
+      });
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "S.sentia株式会社",
+    "url": "https://ssentia.co.jp",
+    "logo": "https://ssentia.co.jp/favicon.ico"
+  }
+  </script>
+</body>
+</html>
