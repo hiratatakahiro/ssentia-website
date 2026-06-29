@@ -11,548 +11,201 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --primary: #3d6cb5;
-      --primary-dark: #2e549a;
-      --primary-light: #5a85c9;
-      --text: #1a1a2e;
-      --text-muted: #555;
-      --bg: #fff;
-      --bg-section: #f7f9fc;
-      --border: #dde4ef;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.8;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-      height: 120px;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-img { height: 52px; width: auto; }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .logo-name {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-    }
-
-    .logo-tagline {
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.08em;
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    nav a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.2s, color 0.2s;
-      letter-spacing: 0.04em;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .nav-drawer {
-      display: none;
-      position: fixed;
-      top: 120px;
-      left: 0;
-      right: 0;
-      background: var(--primary-dark);
-      padding: 12px 0 20px;
-      z-index: 99;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .nav-drawer.open { display: block; }
-
-    .nav-drawer a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-drawer a:last-child { border-bottom: none; }
-    .nav-drawer a:hover { background: rgba(255,255,255,0.1); }
-
-    /* ===== PAGE HERO ===== */
-    .page-hero {
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./price.jpeg') center/cover no-repeat;
-      color: #fff;
-      padding: 60px 24px;
-      text-align: center;
-    }
-
-    .page-hero-label {
-      font-size: 0.78rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 14px;
-    }
-
-    .page-hero h1 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.4;
-    }
-
-    /* ===== SECTION BASE ===== */
-    section {
-      padding: 72px 24px;
-    }
-
-    .section-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      line-height: 1.4;
-    }
-
-    .section-divider {
-      width: 48px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-      margin-bottom: 36px;
-    }
-
-    /* ===== TABLE ===== */
-    .table-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 8px;
-      box-shadow: 0 2px 16px rgba(61,108,181,0.08);
-      margin-bottom: 8px;
-    }
-
-    .scroll-hint {
-      display: none;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-align: right;
-      margin-bottom: 6px;
-      letter-spacing: 0.04em;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      font-size: 0.9rem;
-    }
-
-    .table-xl { min-width: 840px; }
-
-    thead tr {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    thead th {
-      padding: 14px 20px;
-      text-align: left;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-
-    tbody tr {
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: var(--bg-section); }
-
-    tbody td {
-      padding: 14px 20px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      vertical-align: top;
-    }
-
-    tbody td:first-child {
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-    }
-
-    .plan-col { color: var(--primary) !important; }
-
-    /* ===== CTA BAND ===== */
-    .cta-band {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 72px 24px;
-    }
-
-    .cta-band h2 {
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      font-weight: 700;
-      margin-bottom: 14px;
-      letter-spacing: 0.03em;
-    }
-
-    .cta-band p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 36px;
-      line-height: 1.8;
-    }
-
-    .btn-outline {
-      display: inline-block;
-      border: 2px solid rgba(255,255,255,0.85);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 12px 32px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-2px);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #0f1a2e;
-      color: rgba(255,255,255,0.55);
-      padding: 48px 24px 32px;
-    }
-
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-
-    .footer-logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .footer-tagline {
-      font-size: 0.75rem;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.4);
-      font-style: italic;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-nav a {
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-nav a:hover { color: #fff; }
-
-    .footer-bottom {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .hamburger { display: flex; }
-
-      .scroll-hint { display: block; }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .footer-nav {
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-
-      .logo-name { font-size: 1.35rem; }
-    }
-
-    @media (max-width: 480px) {
-      section { padding: 52px 20px; }
-    }
-
-    /* ===== SUPPORT BADGE ===== */
-    .badge {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      margin-top: 6px;
-      white-space: nowrap;
-    }
-
-    .badge-light-plan  { background: #E1F5EE; color: #085041; }
-    .badge-std-plan    { background: #E6F1FB; color: #0C447C; }
-    .badge-int-plan    { background: #EEEDFE; color: #26215C; }
-
-    /* ===== SUPPORT BANNER ===== */
-    .support-banner-wrap {
-      padding: 0 24px 56px;
-    }
-
-    .support-banner {
-      background: #EEF5FF;
-      border-left: 4px solid #185FA5;
-      border-radius: 6px;
-      padding: 18px 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: #0c3d6e;
-      font-weight: 500;
-    }
-
-    /* ===== MONTHLY SUPPORT CARDS ===== */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .plan-card {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-
-    .card-header {
-      padding: 22px 20px 18px;
-    }
-
-    .card-plan-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 0.03em;
-    }
-
-    .card-price {
-      font-size: 1.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .card-price-sub {
-      font-size: 0.78rem;
-      font-weight: 500;
-      opacity: 0.75;
-    }
-
-    .card-features {
-      background: #fff;
-      padding: 14px 18px;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f2f5;
-      font-size: 0.82rem;
-      line-height: 1.55;
-    }
-
-    .feature-item:last-child { border-bottom: none; }
-
-    .feature-item.included .feature-label { font-weight: 700; color: var(--text); }
-    .feature-item.excluded .feature-label { color: #b8bfc9; }
-    .feature-item.excluded .feature-icon  { color: #c8cdd5; }
-
-    .feature-icon {
-      flex-shrink: 0;
-      width: 16px;
-      margin-top: 1px;
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    .feature-note {
-      font-size: 0.72rem;
-      display: block;
-      margin-top: 1px;
-      color: #b8bfc9;
-    }
-
-    /* ===== RECOMMENDATIONS ===== */
-    .rec-section {
-      padding: 0 24px 56px;
-    }
-
-    .rec-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .rec-heading {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .rec-tags {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .rec-tag {
-      padding: 8px 18px;
-      border-radius: 4px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .rec-tag-light     { background: #E1F5EE; color: #085041; }
-    .rec-tag-standard  { background: #E6F1FB; color: #0C447C; }
-    .rec-tag-intensive { background: #EEEDFE; color: #26215C; }
-
-    @media (max-width: 768px) {
-      .cards-grid { grid-template-columns: 1fr; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root{
+      --primary:#3d6cb5; --primary-dark:#2e549a; --primary-light:#5a85c9;
+      --text:#1a1a2e; --text-muted:#555; --bg:#fff; --bg-section:#f7f9fc; --border:#dde4ef;
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Noto Sans JP',sans-serif; color:var(--text); background:var(--bg); line-height:1.8; }
+
+    /* HEADER */
+    header{ position:sticky; top:0; z-index:100; width:100%; height:120px; background:var(--primary); display:flex; align-items:center; box-shadow:0 2px 12px rgba(61,108,181,0.18); }
+    .header-inner{ max-width:1100px; width:100%; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; }
+    .logo{ display:flex; flex-direction:row; align-items:center; gap:12px; text-decoration:none; }
+    .logo-img{ height:52px; width:auto; }
+    .logo-text{ display:flex; flex-direction:column; gap:2px; }
+    .logo-name{ font-size:1.75rem; font-weight:700; color:#fff; letter-spacing:0.04em; line-height:1.2; }
+    .logo-tagline{ font-size:0.7rem; font-weight:300; color:rgba(255,255,255,0.75); letter-spacing:0.08em; }
+    nav{ display:flex; gap:8px; align-items:center; }
+    nav a{ color:rgba(255,255,255,0.9); text-decoration:none; font-size:0.88rem; font-weight:500; padding:8px 16px; border-radius:4px; transition:background .2s,color .2s; letter-spacing:0.04em; }
+    nav a:hover, nav a.active{ background:rgba(255,255,255,0.15); color:#fff; }
+    .hamburger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+    .hamburger span{ display:block; width:24px; height:2px; background:#fff; border-radius:2px; transition:transform .3s,opacity .3s; }
+    .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity:0; }
+    .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    .nav-drawer{ display:none; position:fixed; top:120px; left:0; right:0; background:var(--primary-dark); padding:12px 0 20px; z-index:99; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .nav-drawer.open{ display:block; }
+    .nav-drawer a{ display:block; color:#fff; text-decoration:none; padding:12px 28px; font-size:0.95rem; font-weight:500; letter-spacing:0.04em; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .nav-drawer a:last-child{ border-bottom:none; }
+    .nav-drawer a:hover{ background:rgba(255,255,255,0.1); }
+
+    /* HERO */
+    .page-hero{ background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)), url('./price.jpeg') center/cover no-repeat; background-color:var(--primary-dark); color:#fff; padding:60px 24px; text-align:center; }
+    .page-hero-label{ font-size:0.78rem; font-weight:300; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:14px; }
+    .page-hero h1{ font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; letter-spacing:0.04em; line-height:1.4; }
+
+    /* SECTION BASE */
+    section{ padding:72px 24px; }
+    .section-inner{ max-width:1000px; margin:0 auto; }
+    .section-label{ font-size:0.75rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:10px; }
+    .section-title{ font-size:clamp(1.3rem,2.5vw,1.75rem); font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
+    .section-sub{ font-size:0.92rem; color:var(--text-muted); margin-bottom:18px; }
+    .section-lead{ font-size:0.95rem; color:var(--text-muted); line-height:1.9; margin-bottom:28px; max-width:760px; }
+    .section-divider{ width:48px; height:3px; background:var(--primary); border-radius:2px; margin-bottom:32px; }
+    .alt-bg{ background:var(--bg-section); }
+
+    /* VALUE LEAD */
+    .value-lead-wrap{ padding:56px 24px 0; }
+    .value-lead{ background:#EEF5FF; border-left:4px solid var(--primary); border-radius:8px; padding:24px 28px; max-width:1000px; margin:0 auto; }
+    .value-lead p{ font-size:0.95rem; line-height:1.95; color:#0c3d6e; }
+
+    /* SIMULATOR */
+    .step{ margin-bottom:28px; }
+    .step-q{ font-size:0.98rem; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .step-num{ display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--primary); color:#fff; font-size:0.85rem; flex-shrink:0; }
+    .q-hint{ font-weight:400; font-size:0.8rem; color:var(--text-muted); }
+    .opt-row{ display:grid; gap:12px; grid-template-columns:repeat(3,1fr); }
+    .opt{ border:2px solid var(--border); background:#fff; border-radius:12px; padding:16px; cursor:pointer; text-align:left; font-family:inherit; transition:border-color .2s,box-shadow .2s,transform .2s; }
+    .opt:hover{ border-color:var(--primary-light); transform:translateY(-2px); }
+    .opt.active{ border-color:var(--primary); box-shadow:0 4px 16px rgba(61,108,181,0.18); background:#f5f9ff; }
+    .opt-title{ font-size:1rem; font-weight:700; color:var(--primary); margin-bottom:4px; }
+    .opt-sub{ font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .notion-premise{ border:1px solid var(--border); background:#fff; border-radius:12px; padding:18px 20px; margin-bottom:28px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+    .np-head{ width:100%; background:none; border:none; font-family:inherit; cursor:pointer; display:flex; align-items:center; gap:10px; flex-wrap:wrap; text-align:left; padding:0; }
+    .np-title{ font-size:0.95rem; font-weight:700; color:var(--text); }
+    .np-tag{ font-size:0.72rem; font-weight:700; padding:2px 10px; border-radius:20px; background:#EEEDFE; color:#3C3489; }
+    .np-chevron{ margin-left:auto; color:var(--primary); font-size:0.9rem; transition:transform .3s ease; }
+    .np-head[aria-expanded="true"] .np-chevron{ transform:rotate(180deg); }
+    .np-body{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    .np-body.open{ max-height:1000px; }
+    .np-feats{ display:grid; grid-template-columns:repeat(2,1fr); gap:4px 18px; margin:14px 0; }
+    .feat{ font-size:0.8rem; line-height:1.7; padding-left:20px; position:relative; color:var(--text); }
+    .feat.y::before{ content:'○'; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    .mvg{ background:#EEF5FF; border-left:4px solid var(--primary); border-radius:8px; padding:14px 16px; }
+    .mvg-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px; }
+    .mvg-box{ background:#fff; border-radius:8px; padding:11px 13px; }
+    .mvg-box h4{ font-size:0.82rem; margin-bottom:3px; }
+    .mvg-box.paid h4{ color:#0C447C; }
+    .mvg-box.free h4{ color:#085041; }
+    .mvg-box p{ font-size:0.76rem; color:var(--text-muted); line-height:1.6; }
+    .mvg-warn{ font-size:0.78rem; color:#8a4b00; background:#FFF5E8; border-radius:6px; padding:8px 12px; line-height:1.6; }
+    .members-box{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .stepper{ display:flex; align-items:center; border:2px solid var(--border); border-radius:10px; overflow:hidden; }
+    .stepper button{ width:44px; height:44px; border:none; background:#fff; font-size:1.3rem; color:var(--primary); cursor:pointer; font-family:inherit; }
+    .stepper button:hover{ background:#f5f9ff; }
+    .stepper input{ width:64px; height:44px; border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); text-align:center; font-size:1.1rem; font-weight:700; font-family:inherit; color:var(--text); }
+    .members-note{ font-size:0.8rem; color:var(--text-muted); }
+    .result{ border:2px solid var(--primary); border-radius:16px; overflow:hidden; box-shadow:0 8px 28px rgba(61,108,181,0.16); background:#fff; margin-top:8px; }
+    .result-head{ background:linear-gradient(135deg,var(--primary-dark),var(--primary)); color:#fff; padding:22px 26px; }
+    .result-head .rh-label{ font-size:0.76rem; letter-spacing:0.08em; opacity:0.85; margin-bottom:4px; }
+    .result-head .rh-plan{ font-size:1.45rem; font-weight:800; }
+    .result-head .rh-scope{ font-size:0.82rem; opacity:0.9; margin-top:2px; }
+    .result-body{ padding:8px 26px 4px; }
+    .rrow{ display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px dashed #eef0f4; gap:16px; }
+    .rrow:last-of-type{ border-bottom:none; }
+    .rrow-label{ font-size:0.86rem; color:var(--text-muted); }
+    .rrow-label small{ display:block; font-size:0.72rem; color:#9aa1ab; }
+    .rrow-val{ font-size:1.05rem; font-weight:700; text-align:right; white-space:nowrap; }
+    .rrow-val small{ font-size:0.74rem; font-weight:500; color:var(--text-muted); }
+    .result-total{ background:#f5f9ff; padding:20px 26px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; }
+    .result-total .rrow-label{ font-weight:700; color:var(--primary-dark); font-size:0.95rem; }
+    .result-total .rrow-val{ font-size:1.5rem; font-weight:800; color:var(--primary-dark); }
+    .result-foot{ padding:16px 26px 22px; font-size:0.76rem; color:var(--text-muted); line-height:1.8; }
+    .notion-pass{ color:#0C447C; font-weight:600; }
+
+    /* SIMULATION CASES */
+    .sim-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .sim-card{ border:1px solid var(--border); border-radius:12px; background:#fff; padding:24px 22px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .sim-case{ font-size:0.74rem; font-weight:700; color:var(--primary); letter-spacing:0.08em; margin-bottom:10px; }
+    .sim-scene{ font-size:0.9rem; font-weight:700; color:var(--text); line-height:1.7; margin-bottom:4px; }
+    .sim-detail{ font-size:0.8rem; color:var(--text-muted); margin-bottom:18px; line-height:1.7; }
+    .sim-figures{ border-top:1px solid var(--border); padding-top:14px; }
+    .sim-fig-row{ display:flex; justify-content:space-between; align-items:baseline; padding:6px 0; }
+    .sim-fig-label{ font-size:0.8rem; color:var(--text-muted); }
+    .sim-fig-val{ font-size:0.95rem; font-weight:700; color:var(--text); }
+    .sim-fig-total{ margin-top:8px; padding-top:12px; border-top:1px dashed var(--border); }
+    .sim-fig-total .sim-fig-label{ font-weight:700; color:var(--primary-dark); }
+    .sim-fig-total .sim-fig-val{ font-size:1.25rem; font-weight:800; color:var(--primary-dark); }
+
+    /* ENTRY PLANS */
+    .entry-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .entry-card{ background:#fff; border:1px solid var(--border); border-radius:14px; padding:24px 22px; box-shadow:0 2px 12px rgba(0,0,0,0.05); display:flex; flex-direction:column; }
+    .entry-card.free{ border:2px solid #1D9E75; }
+    .entry-name{ font-size:1.05rem; font-weight:700; color:var(--primary); margin-bottom:6px; }
+    .entry-card.free .entry-name{ color:#0F6E56; }
+    .entry-price{ font-size:1.6rem; font-weight:800; color:var(--text); line-height:1.2; margin-bottom:4px; }
+    .entry-price small{ font-size:0.74rem; font-weight:500; color:var(--text-muted); }
+    .entry-card.free .entry-price{ color:#0F6E56; }
+    .entry-delivery{ display:inline-block; font-size:0.72rem; font-weight:700; padding:2px 10px; border-radius:20px; background:#eef0f4; color:var(--text-muted); margin-bottom:14px; align-self:flex-start; }
+    .entry-card.free .entry-delivery{ background:#E1F5EE; color:#085041; }
+    .entry-desc{ font-size:0.84rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px; flex:1; }
+    .entry-points{ list-style:none; margin-top:auto; }
+    .entry-points li{ font-size:0.8rem; padding-left:20px; position:relative; line-height:1.7; color:var(--text); }
+    .entry-points li::before{ content:'✓'; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    .entry-card.free .entry-points li::before{ color:#1D9E75; }
+    .entry-foot{ font-size:0.8rem; color:var(--text-muted); margin-top:18px; line-height:1.8; }
+
+    /* SUPPORT BANNER */
+    .support-banner{ background:#EEF5FF; border-left:4px solid #185FA5; border-radius:6px; padding:18px 24px; max-width:1000px; margin:0 auto 32px; font-size:0.9rem; line-height:1.8; color:#0c3d6e; font-weight:500; }
+
+    /* MONTHLY SUPPORT CARDS */
+    .cards-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .plan-card{ border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:0 2px 12px rgba(0,0,0,0.05); background:#fff; }
+    .card-header{ padding:22px 20px 18px; }
+    .card-plan-name{ font-size:1.1rem; font-weight:700; margin-bottom:8px; letter-spacing:0.03em; }
+    .card-price{ font-size:1.5rem; font-weight:800; line-height:1.2; }
+    .card-price-sub{ font-size:0.78rem; font-weight:500; opacity:0.75; }
+    .card-features{ background:#fff; padding:14px 18px; }
+    .feature-item{ display:flex; align-items:flex-start; gap:9px; padding:8px 0; border-bottom:1px solid #f0f2f5; font-size:0.82rem; line-height:1.55; }
+    .feature-item:last-child{ border-bottom:none; }
+    .feature-item.included .feature-label{ font-weight:700; color:var(--text); }
+    .feature-item.excluded .feature-label{ color:#b8bfc9; }
+    .feature-item.excluded .feature-icon{ color:#c8cdd5; }
+    .feature-icon{ flex-shrink:0; width:16px; margin-top:1px; font-size:0.85rem; text-align:center; }
+    .feature-note{ font-size:0.72rem; display:block; margin-top:1px; color:#b8bfc9; }
+    .feature-new{ display:inline-block; font-size:0.64rem; font-weight:700; color:#fff; background:#3C3489; border-radius:4px; padding:1px 5px; margin-left:6px; vertical-align:middle; }
+
+    /* RECOMMENDATIONS */
+    .rec-inner{ max-width:1000px; margin:32px auto 0; }
+    .rec-heading{ font-size:0.8rem; font-weight:600; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; }
+    .rec-tags{ display:flex; gap:12px; flex-wrap:wrap; }
+    .rec-tag{ padding:8px 18px; border-radius:4px; font-size:0.88rem; font-weight:700; letter-spacing:0.03em; }
+    .rec-tag-light{ background:#E1F5EE; color:#085041; }
+    .rec-tag-standard{ background:#E6F1FB; color:#0C447C; }
+    .rec-tag-intensive{ background:#EEEDFE; color:#26215C; }
+
+    /* CTA */
+    .cta-band{ background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%); color:#fff; text-align:center; padding:72px 24px; }
+    .cta-eyebrow{ font-size:0.85rem; color:rgba(255,255,255,0.85); margin-bottom:10px; font-weight:500; }
+    .cta-band h2{ font-size:clamp(1.3rem,3vw,1.8rem); font-weight:700; margin-bottom:14px; letter-spacing:0.03em; }
+    .cta-band p{ font-size:0.95rem; color:rgba(255,255,255,0.8); margin-bottom:36px; line-height:1.8; }
+    .btn-outline{ display:inline-block; border:2px solid rgba(255,255,255,0.85); color:#fff; text-decoration:none; font-weight:700; font-size:0.9rem; padding:14px 36px; border-radius:4px; letter-spacing:0.06em; transition:background .2s,color .2s,transform .2s; }
+    .btn-outline:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
+
+    /* FOOTER */
+    footer{ background:#0f1a2e; color:rgba(255,255,255,0.55); padding:48px 24px 32px; }
+    .footer-inner{ max-width:1000px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; margin-bottom:40px; }
+    .footer-logo{ font-size:1.3rem; font-weight:700; color:#fff; text-decoration:none; display:block; margin-bottom:8px; }
+    .footer-tagline{ font-size:0.75rem; font-weight:300; letter-spacing:0.1em; color:rgba(255,255,255,0.4); font-style:italic; }
+    .footer-nav{ display:flex; gap:24px; }
+    .footer-nav a{ color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.85rem; transition:color .2s; }
+    .footer-nav a:hover{ color:#fff; }
+    .footer-bottom{ max-width:1000px; margin:0 auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.78rem; letter-spacing:0.04em; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav{ display:none; }
+      .hamburger{ display:flex; }
+      .opt-row, .sim-grid, .entry-grid, .cards-grid, .np-feats, .mvg-grid{ grid-template-columns:1fr; }
+      .footer-inner{ flex-direction:column; gap:24px; }
+      .footer-nav{ flex-wrap:wrap; gap:16px; }
+      .logo-name{ font-size:1.35rem; }
+    }
+    @media(max-width:480px){
+      section{ padding:52px 20px; }
+      .value-lead-wrap{ padding:40px 20px 0; }
     }
   </style>
 </head>
@@ -576,11 +229,7 @@
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -593,264 +242,265 @@
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- PAGE HERO -->
+  <!-- HERO -->
   <div class="page-hero">
     <p class="page-hero-label">Pricing</p>
     <h1>料金プラン</h1>
   </div>
 
-  <!-- PRICING SECTION -->
-  <section>
-    <div class="section-inner">
-      <p class="section-label">Pricing</p>
-      <h2 class="section-title">料金プラン</h2>
-      <div class="section-divider"></div>
-      <ol style="font-size: 0.9em; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; padding-left: 1.4em;">
-        <li>会社パンフレット・商品カタログ・社内規程・業務マニュアル・関連法令・提案書など、ご用意いただける資料をご提供ください。資料の量と質が、引き出せる暗黙知の精度に直結します。</li>
-        <li>PDF版は更新・共有機能を含まないシンプルな納品形式です。Notionを使った動的なWiki構築はStarterプラン以上でご提供しています。</li>
-      </ol>
-      <p class="scroll-hint">← 横にスクロールできます</p>
-      <div class="table-wrapper">
-        <table class="table-xl">
-          <thead>
-            <tr>
-              <th>プラン</th>
-              <th>対象・内容</th>
-              <th>条件</th>
-              <th>納品形式</th>
-              <th>価格</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="plan-col">無料カテゴリ診断</td>
-              <td>必要カテゴリ数と優先して作成すべき項目を診断</td>
-              <td>打ち合わせ 1回・60分</td>
-              <td>ー</td>
-              <td>無料</td>
-            </tr>
-            <tr>
-              <td class="plan-col">Lite（お試し）</td>
-              <td>1カテゴリ・5unitまで</td>
-              <td>打ち合わせ 1回・60分<br>社員インタビュー 1回・60分（3名まで）</td>
-              <td>PDF納品</td>
-              <td>5万円（税込）</td>
-            </tr>
-            <tr>
-              <td class="plan-col">Lite Plus</td>
-              <td>最大5カテゴリ・各カテゴリ5unitまで</td>
-              <td>打ち合わせ 1回・60分<br>社員インタビュー 1回・60分（3名まで）</td>
-              <td>PDF納品</td>
-              <td>25万円（税込）</td>
-            </tr>
-            <tr>
-              <td class="plan-col">Starter（特化型）</td>
-              <td>特定の商品・サービス・業務フロー 1領域</td>
-              <td>打ち合わせ 1回・60分<br>社員インタビュー 2〜3回</td>
-              <td>Notion納品</td>
-              <td>50〜70万円<br><span class="badge badge-light-plan">初期6ヶ月 Light サポート込</span></td>
-            </tr>
-            <tr>
-              <td class="plan-col">Standard（部門型）</td>
-              <td>特定部署・チームの業務全体</td>
-              <td>打ち合わせ 1回・60分<br>社員インタビュー 4〜5回</td>
-              <td>Notion納品</td>
-              <td>90〜120万円<br><span class="badge badge-std-plan">初期6ヶ月 Standard サポート込</span></td>
-            </tr>
-            <tr>
-              <td class="plan-col">Full（全社型）</td>
-              <td>会社全体の業務横断</td>
-              <td>打ち合わせ 1回・60分<br>社員インタビュー 6回以上</td>
-              <td>Notion納品</td>
-              <td>150〜200万円<br><span class="badge badge-int-plan">初期6ヶ月 Intensive サポート込</span></td>
-            </tr>
-            <tr>
-              <td class="plan-col">カスタム</td>
-              <td>既存ツール（Google / Microsoft）への実装</td>
-              <td>上記各プランに準拠</td>
-              <td>既存環境</td>
-              <td>各プランの1.5〜2倍目安</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- SUPPORT BANNER -->
-  <div class="support-banner-wrap">
-    <div class="support-banner">
-      Notion納品プランには初期6ヶ月のサポートが含まれています／7ヶ月目以降は下記よりサポートプランをお選びください
+  <!-- 投資対効果リード -->
+  <div class="value-lead-wrap">
+    <div class="value-lead">
+      <p>S.sentiaのサービスは、単なる「Wiki構築」ではなく、<strong>知識と経験を組織に残す仕組みづくり</strong>です。年間数十時間にのぼる引き継ぎ・新人教育の時間削減を目指します。多くのお客様は「担当者への依存を減らしたい」「新人教育を効率化したい」という課題から導入されています。</p>
     </div>
   </div>
 
-  <!-- SECTION 2: 月額サポートプラン -->
-  <section style="padding-top: 0;">
+  <!-- ① 費用シミュレーター -->
+  <section>
     <div class="section-inner">
+      <p class="section-label">Cost Simulator</p>
+      <h2 class="section-title">かんたん費用シミュレーター</h2>
+      <p class="section-sub">2つの質問に答えるだけで、おすすめプランと初年度の概算費用が分かります。</p>
+      <div class="section-divider"></div>
+
+      <div class="step">
+        <p class="step-q"><span class="step-num">1</span>どの範囲のWikiを作りたいですか？<span class="q-hint">（人数ではなく"範囲"で選びます）</span></p>
+        <div class="opt-row" id="scopeRow">
+          <button class="opt" data-scope="starter">
+            <div class="opt-title">特定の1領域だけ</div>
+            <div class="opt-sub">ある商品・業務フロー1つに絞ってWiki化したい</div>
+          </button>
+          <button class="opt active" data-scope="standard">
+            <div class="opt-title">1部署の業務全体</div>
+            <div class="opt-sub">複数領域あるが、ひと部署・チームの範囲</div>
+          </button>
+          <button class="opt" data-scope="full">
+            <div class="opt-title">複数部署・全社横断</div>
+            <div class="opt-sub">部門をまたいで会社全体の業務をWiki化したい</div>
+          </button>
+        </div>
+        <p class="members-note" style="margin-top:10px;">※ 20名規模でも、多領域・複数部署なら Standard〜Full が適しています。人数ではなく範囲で決まります。</p>
+      </div>
+
+      <div class="notion-premise">
+        <button class="np-head" id="npToggle" aria-expanded="false" aria-controls="npBody">
+          <span class="np-title">Notionはビジネスプランが前提です</span>
+          <span class="np-tag">AI検索が使えるプラン</span>
+          <span class="np-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="np-body" id="npBody">
+        <div class="np-feats">
+          <div class="feat y">Wiki全体の編集・閲覧・横断検索</div>
+          <div class="feat y">Notion AI（社内ナレッジの検索・要約）</div>
+          <div class="feat y">高度なページ分析・セキュリティ</div>
+          <div class="feat y">弊社のAI活用設計と相性◎</div>
+        </div>
+        <div class="mvg">
+          <div class="mvg-grid">
+            <div class="mvg-box paid">
+              <h4>有料メンバー（課金対象）</h4>
+              <p>Wikiを編集する人・AI検索を使う人。1人ごとに課金されます。</p>
+            </div>
+            <div class="mvg-box free">
+              <h4>ゲスト（無料）</h4>
+              <p>招待ページの閲覧・コメントのみ。何名でも無料で追加できます。</p>
+            </div>
+          </div>
+          <div class="mvg-warn">⚠️ <strong>AI検索を使いたい人は、閲覧だけでも有料メンバーが必要です。</strong>「見るだけ・AI不要」の社員はゲスト（無料）で招待し、コストを抑えられます。</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="step-q"><span class="step-num">2</span>「編集する」または「AI検索を使う」社員は何名ですか？<span class="q-hint">（＝有料メンバー）</span></p>
+        <div class="members-box">
+          <div class="stepper">
+            <button type="button" id="minus" aria-label="減らす">−</button>
+            <input type="number" id="members" value="5" min="1" max="500" inputmode="numeric">
+            <button type="button" id="plus" aria-label="増やす">＋</button>
+          </div>
+          <span class="members-note">名（閲覧だけ・AI不要の社員はゲストで無料。管理者1名分は有料席が必要です）</span>
+        </div>
+      </div>
+
+      <div class="result" id="result"></div>
+    </div>
+  </section>
+
+  <!-- ② 月額サポートプラン -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <div class="support-banner">
+        Notion納品プランには初期6ヶ月のサポートが含まれています／7ヶ月目以降は下記よりサポートプランをお選びください
+      </div>
       <p class="section-label">Monthly Support</p>
-      <h2 class="section-title">月額サポートプラン</h2>
+      <h2 class="section-title">月額サポートプラン（7ヶ月目以降）</h2>
       <div class="section-divider"></div>
       <div class="cards-grid">
 
-        <!-- Light -->
         <div class="plan-card">
-          <div class="card-header" style="background: #E1F5EE;">
-            <div class="card-plan-name" style="color: #085041;">Light</div>
-            <div class="card-price" style="color: #0F6E56;">2万円<span class="card-price-sub">/月（税込）</span></div>
+          <div class="card-header" style="background:#E1F5EE;">
+            <div class="card-plan-name" style="color:#085041;">Light</div>
+            <div class="card-price" style="color:#0F6E56;">2万円<span class="card-price-sub">/月（税込）</span></div>
           </div>
           <div class="card-features">
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #1D9E75;">✓</span>
-              <span class="feature-label">月1回のページ更新代行</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #1D9E75;">✓</span>
-              <span class="feature-label">チャット対応（無制限）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #1D9E75;">✓</span>
-              <span class="feature-label">月次確認チェックリスト送付</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">緊急時電話対応（無料・オンライン）<span class="feature-note">原則なし</span></span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">月1回オンライン定例（60分）</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">月2回オンライン定例（60分）</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">新人入社時のwiki活用支援</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">新規業務発生時のUnit追加</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">半年ごとのwiki健康診断</span>
-            </div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">月次確認チェックリスト送付</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">緊急時電話対応（無料・オンライン）<span class="feature-note">原則なし</span></span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月1回オンライン定例（60分）</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">新規業務発生時のUnit追加</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
           </div>
         </div>
 
-        <!-- Standard -->
         <div class="plan-card">
-          <div class="card-header" style="background: #E6F1FB;">
-            <div class="card-plan-name" style="color: #0C447C;">Standard</div>
-            <div class="card-price" style="color: #185FA5;">5万円<span class="card-price-sub">/月（税込）</span></div>
+          <div class="card-header" style="background:#E6F1FB;">
+            <div class="card-plan-name" style="color:#0C447C;">Standard</div>
+            <div class="card-price" style="color:#185FA5;">5万円<span class="card-price-sub">/月（税込）</span></div>
           </div>
           <div class="card-features">
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">月1回のページ更新代行</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">チャット対応（無制限）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">月次確認チェックリスト送付</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">緊急時電話対応（無料・オンライン）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">月1回オンライン定例（60分）</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">月2回オンライン定例（60分）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #185FA5;">✓</span>
-              <span class="feature-label">新人入社時のwiki活用支援</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">新規業務発生時のUnit追加</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">半年ごとのwiki健康診断</span>
-            </div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">月次確認チェックリスト送付</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">緊急時電話対応（無料・オンライン）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">月1回オンライン定例（60分）</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">新規業務発生時のUnit追加</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
           </div>
         </div>
 
-        <!-- Intensive -->
         <div class="plan-card">
-          <div class="card-header" style="background: #EEEDFE;">
-            <div class="card-plan-name" style="color: #26215C;">Intensive</div>
-            <div class="card-price" style="color: #3C3489;">10万円<span class="card-price-sub">/月（税込）</span></div>
+          <div class="card-header" style="background:#EEEDFE;">
+            <div class="card-plan-name" style="color:#26215C;">Intensive</div>
+            <div class="card-price" style="color:#3C3489;">10万円<span class="card-price-sub">/月（税込）</span></div>
           </div>
           <div class="card-features">
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">月1回のページ更新代行</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">チャット対応（無制限）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">月次確認チェックリスト送付</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">緊急時電話対応（無料・オンライン）</span>
-            </div>
-            <div class="feature-item excluded">
-              <span class="feature-icon">—</span>
-              <span class="feature-label">月1回オンライン定例（60分）<span class="feature-note">月2回に包含</span></span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">月2回オンライン定例（60分）</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">新人入社時のwiki活用支援</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">新規業務発生時のUnit追加</span>
-            </div>
-            <div class="feature-item included">
-              <span class="feature-icon" style="color: #534AB7;">✓</span>
-              <span class="feature-label">半年ごとのwiki健康診断</span>
-            </div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">月次確認チェックリスト送付</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">緊急時電話対応（無料・オンライン）</span></div>
+            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月1回オンライン定例（60分）<span class="feature-note">月2回に包含</span></span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">新規業務発生時のUnit追加</span></div>
+            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
           </div>
         </div>
 
+      </div>
+      <p class="members-note" style="margin-top:14px;">※ 3プラン共通で「Notionの使い方レクチャー（50分）」を含みます。導入後すぐに現場が使い始められるようサポートします。</p>
+
+      <div class="rec-inner">
+        <div class="rec-heading">推奨の組み合わせ（7ヶ月目以降）</div>
+        <div class="rec-tags">
+          <span class="rec-tag rec-tag-light">Starter → Light</span>
+          <span class="rec-tag rec-tag-standard">Standard → Standard</span>
+          <span class="rec-tag rec-tag-intensive">Full → Intensive</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 推奨の組み合わせ -->
-  <div class="rec-section">
-    <div class="rec-inner">
-      <div class="rec-heading">推奨の組み合わせ（7ヶ月目以降）</div>
-      <div class="rec-tags">
-        <span class="rec-tag rec-tag-light">Starter → Light</span>
-        <span class="rec-tag rec-tag-standard">Standard → Standard</span>
-        <span class="rec-tag rec-tag-intensive">Full → Intensive</span>
+  <!-- ③ エントリープラン -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Entry Plans</p>
+      <h2 class="section-title">まずは小さく試したい方へ</h2>
+      <p class="section-sub">本格導入（Notion）の前に、無料診断や PDF 納品で気軽に始められます。</p>
+      <div class="section-divider"></div>
+      <div class="entry-grid">
+        <div class="entry-card free">
+          <div class="entry-name">無料カテゴリ診断</div>
+          <div class="entry-price">無料</div>
+          <span class="entry-delivery">打ち合わせ 60分</span>
+          <p class="entry-desc">必要なカテゴリ数と、優先して作成すべき項目を診断します。何から手をつけるべきか整理できます。</p>
+          <ul class="entry-points">
+            <li>まず方向性だけ知りたい方に</li>
+            <li>そのまま各プランへ進めます</li>
+          </ul>
+        </div>
+        <div class="entry-card">
+          <div class="entry-name">Lite（お試し）</div>
+          <div class="entry-price">5万円<small>（税込）</small></div>
+          <span class="entry-delivery">PDF 納品</span>
+          <p class="entry-desc">1カテゴリ・5unit までを、まずは1つ形にします。暗黙知の抽出を体験できます。</p>
+          <ul class="entry-points">
+            <li>打ち合わせ 60分</li>
+            <li>社員インタビュー 60分（3名まで）</li>
+          </ul>
+        </div>
+        <div class="entry-card">
+          <div class="entry-name">Lite Plus</div>
+          <div class="entry-price">25万円<small>（税込）</small></div>
+          <span class="entry-delivery">PDF 納品</span>
+          <p class="entry-desc">最大5カテゴリ・各5unit まで。全体像をPDFでまとめたい方に。Notion導入前の整理にも。</p>
+          <ul class="entry-points">
+            <li>打ち合わせ 60分</li>
+            <li>社員インタビュー 60分（3名まで）</li>
+          </ul>
+        </div>
       </div>
+      <p class="entry-foot">※ PDF版は更新・共有機能を含まないシンプルな納品形式です。動的なNotion Wiki構築は Starter プラン以上（上記シミュレーター）でご提供します。</p>
     </div>
-  </div>
+  </section>
 
-  <!-- CTA -->
+  <!-- ④ 費用シミュレーション例 -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <p class="section-label">Case Studies</p>
+      <h2 class="section-title">費用シミュレーション例</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">実際の導入イメージを、業種・規模別の3ケースでご紹介します。</p>
+      <div class="sim-grid">
+        <div class="sim-card">
+          <p class="sim-case">CASE 01</p>
+          <p class="sim-scene">保険代理店・社員18名</p>
+          <p class="sim-detail">特定商品の提案フロー1領域をWiki化。ベテランの判断ノウハウを残したい。<br>→ <strong>Starter</strong></p>
+          <div class="sim-figures">
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">50万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">2万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約62万円</span></div>
+          </div>
+        </div>
+        <div class="sim-card">
+          <p class="sim-case">CASE 02</p>
+          <p class="sim-scene">旅行代理店・社員60名</p>
+          <p class="sim-detail">2部署の業務を横断的にWiki化。AI検索で問い合わせ対応を効率化。<br>→ <strong>Standard</strong></p>
+          <div class="sim-figures">
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">100万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">5万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約130万円</span></div>
+          </div>
+        </div>
+        <div class="sim-card">
+          <p class="sim-case">CASE 03</p>
+          <p class="sim-scene">不動産・社員120名</p>
+          <p class="sim-detail">全社の業務標準化と社内AI活用を含むDX推進を継続的に依頼。<br>→ <strong>Full</strong></p>
+          <div class="sim-figures">
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">180万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">10万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約240万円</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="members-note" style="margin-top:14px;">※ 上記は代表的なケースの目安です（Notion利用料は別途）。実際の金額は無料相談で個別にご提案します。</p>
+    </div>
+  </section>
+
+  <!-- 無料相談CTA -->
   <div class="cta-band">
-    <h2>まずはお気軽にご相談ください</h2>
-    <p>プランの詳細やカスタマイズについてはお気軽にお問い合わせください。<br>初回相談は無料です。</p>
-    <a href="contact.html" class="btn-outline">お問い合わせフォーム</a>
+    <p class="cta-eyebrow">どのプランが最適か分からない方へ</p>
+    <h2>30分の無料相談で、貴社に合ったプランをご提案します</h2>
+    <p>「料金は見たけれど、自社に当てはまるか分からない」<br>そんな段階でも大丈夫です。まずはお気軽にご相談ください。初回相談は無料です。</p>
+    <a href="contact.html" class="btn-outline">無料相談を申し込む</a>
   </div>
 
   <!-- FOOTER -->
@@ -869,27 +519,76 @@
         <a href="contact.html">Contact</a>
       </nav>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
-    </div>
+    <div class="footer-bottom">&copy; 2026 S.sentia Co., Ltd. All rights reserved.</div>
   </footer>
 
   <script>
+    // ハンバーガー
     const hamburger = document.getElementById('hamburger');
     const navDrawer = document.getElementById('navDrawer');
-
     hamburger.addEventListener('click', () => {
       const isOpen = navDrawer.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
     });
-
     navDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navDrawer.classList.remove('open');
-        hamburger.classList.remove('open');
-      });
+      link.addEventListener('click', () => { navDrawer.classList.remove('open'); hamburger.classList.remove('open'); });
     });
+
+    // Notion前提アコーディオン
+    const npToggle = document.getElementById('npToggle');
+    const npBody = document.getElementById('npBody');
+    npToggle.addEventListener('click', () => {
+      const isOpen = npBody.classList.toggle('open');
+      npToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // 費用シミュレーター
+    const PLANS = {
+      starter:  { name:'Starter（特化型）',  scope:'特定の1領域',      initLow:50,  initHigh:70,  support:2,  supportName:'Light' },
+      standard: { name:'Standard（部門型）', scope:'1部署の業務全体',  initLow:90,  initHigh:120, support:5,  supportName:'Standard' },
+      full:     { name:'Full（全社型）',     scope:'複数部署・全社横断', initLow:150, initHigh:200, support:10, supportName:'Intensive' },
+    };
+    const NOTION_UNIT = 3500;
+    let state = { scope:'standard', members:5 };
+    const yen = n => '¥' + Math.round(n).toLocaleString('ja-JP');
+    const man = n => Math.round(n).toLocaleString('ja-JP');
+
+    function render(){
+      const p = PLANS[state.scope];
+      const m = Math.max(1, state.members|0);
+      const notionMonthlyYen = NOTION_UNIT * m;
+      const notionYearMan = (NOTION_UNIT * m * 12) / 10000;
+      const notionManMonth = notionMonthlyYen / 10000;
+      const lowTotal  = p.initLow  + p.support*6 + notionYearMan;
+      const highTotal = p.initHigh + p.support*6 + notionYearMan;
+      document.getElementById('result').innerHTML = `
+        <div class="result-head">
+          <div class="rh-label">あなたにおすすめのプラン</div>
+          <div class="rh-plan">${p.name}</div>
+          <div class="rh-scope">対象範囲：${p.scope}</div>
+        </div>
+        <div class="result-body">
+          <div class="rrow"><span class="rrow-label">初期費用<small>初期6ヶ月の${p.supportName}サポート込</small></span><span class="rrow-val">${man(p.initLow)}〜${man(p.initHigh)}<small>万円</small></span></div>
+          <div class="rrow"><span class="rrow-label">月額サポート<small>7ヶ月目以降</small></span><span class="rrow-val">${p.support}<small>万円／月</small></span></div>
+          <div class="rrow"><span class="rrow-label">Notion利用料<small>お客様ご契約・ビジネスプラン・有料メンバー${m}名</small></span><span class="rrow-val notion-pass">${yen(notionMonthlyYen)}<small>／月（約${notionManMonth.toFixed(1)}万円）</small></span></div>
+        </div>
+        <div class="result-total"><span class="rrow-label">初年度 合計目安</span><span class="rrow-val">約${man(lowTotal)}〜${man(highTotal)}<small>万円</small></span></div>
+        <div class="result-foot">
+          ※ 金額は税込・目安です。範囲やインタビュー回数、Notionの人数・為替により変動します。<br>
+          ※ Notion利用料は「編集者＋AI利用者＝有料メンバー${m}名」で計算。閲覧のみの社員はゲスト（無料）で追加できます。<br>
+          ※ <span class="notion-pass">Notion利用料はお客様ご契約（パススルー）</span>。アカウント取得・初期設定は弊社が代行します。
+        </div>`;
+    }
+    document.querySelectorAll('#scopeRow .opt').forEach(b=>{
+      b.addEventListener('click',()=>{ document.querySelectorAll('#scopeRow .opt').forEach(x=>x.classList.remove('active')); b.classList.add('active'); state.scope=b.dataset.scope; render(); });
+    });
+    const input = document.getElementById('members');
+    const sync = ()=>{ state.members=Math.min(500,Math.max(1,parseInt(input.value||'1',10))); input.value=state.members; render(); };
+    document.getElementById('minus').addEventListener('click',()=>{ input.value=Math.max(1,(parseInt(input.value||'1',10)-1)); sync(); });
+    document.getElementById('plus').addEventListener('click',()=>{ input.value=Math.min(500,(parseInt(input.value||'1',10)+1)); sync(); });
+    input.addEventListener('input', sync);
+    render();
   </script>
 
   <script type="application/ld+json">
