@@ -1699,6 +1699,11 @@
 
     /* ▲▲▲ 追加CSSここまで ▲▲▲ */
 
+    /* ===== TABLE FIT (no scroll, compact) ===== */
+    .table-fit { min-width: 0; font-size: 0.82rem; }
+    .table-fit thead th,
+    .table-fit tbody td { padding: 10px 12px; }
+
     /* ===== DELIVERABLES 2-COLUMN ===== */
     .deliverables-cols {
       display: flex;
@@ -2160,9 +2165,8 @@
         <div class="deliverables-cols">
           <!-- 左カラム：納品物一覧の表 -->
           <div class="deliverables-col-left">
-            <p class="scroll-hint">← 横にスクロールできます</p>
             <div class="table-wrapper">
-              <table class="table-medium">
+              <table class="table-fit">
                 <thead>
                   <tr>
                     <th>納品物</th>
