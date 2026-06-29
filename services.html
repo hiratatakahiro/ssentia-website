@@ -928,11 +928,22 @@
       }
     }
 
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
     .case-card {
       border: 1px solid #e0e0e0;
       border-radius: 8px;
       padding: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .case-grid { grid-template-columns: 1fr; }
     }
 
     .case-header {
@@ -2214,6 +2225,7 @@
       <div class="section-label">Results</div>
       <h2 class="section-title">導入実績</h2>
 
+      <div class="case-grid">
       <div class="case-card">
         <div class="case-header">
           <div class="case-badge">75% 研修時間削減</div>
@@ -2267,6 +2279,7 @@
           <div class="case-quote-author">— 営業マネージャー（旅行代理店B社）</div>
         </div>
       </div>
+      </div><!-- /.case-grid -->
 
     </div>
   </section>
