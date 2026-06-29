@@ -465,9 +465,9 @@
           <p class="sim-scene">保険代理店・社員18名</p>
           <p class="sim-detail">特定商品の提案フロー1領域をWiki化。ベテランの判断ノウハウを残したい。<br>→ <strong>Starter</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">50万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">120万円〜</span></div>
             <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">2万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約62万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約132万円〜</span></div>
           </div>
         </div>
         <div class="sim-card">
@@ -475,9 +475,9 @@
           <p class="sim-scene">旅行代理店・社員60名</p>
           <p class="sim-detail">2部署の業務を横断的にWiki化。AI検索で問い合わせ対応を効率化。<br>→ <strong>Standard</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">100万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">250万円〜</span></div>
             <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">5万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約130万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約280万円〜</span></div>
           </div>
         </div>
         <div class="sim-card">
@@ -485,9 +485,9 @@
           <p class="sim-scene">不動産・社員120名</p>
           <p class="sim-detail">全社の業務標準化と社内AI活用を含むDX推進を継続的に依頼。<br>→ <strong>Full</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">180万円</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">400万円〜</span></div>
             <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">10万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約240万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約460万円〜</span></div>
           </div>
         </div>
       </div>
@@ -545,9 +545,9 @@
 
     // 費用シミュレーター
     const PLANS = {
-      starter:  { name:'Starter（特化型）',  scope:'特定の1領域',      initLow:50,  initHigh:70,  support:2,  supportName:'Light' },
-      standard: { name:'Standard（部門型）', scope:'1部署の業務全体',  initLow:90,  initHigh:120, support:5,  supportName:'Standard' },
-      full:     { name:'Full（全社型）',     scope:'複数部署・全社横断', initLow:150, initHigh:200, support:10, supportName:'Intensive' },
+      starter:  { name:'Starter（特化型）',  scope:'特定の1領域',      init:100, support:2,  supportName:'Light' },
+      standard: { name:'Standard（部門型）', scope:'1部署の業務全体',  init:200, support:5,  supportName:'Standard' },
+      full:     { name:'Full（全社型）',     scope:'複数部署・全社横断', init:300, support:10, supportName:'Intensive' },
     };
     const NOTION_UNIT = 3500;
     let state = { scope:'standard', members:5 };
@@ -560,8 +560,7 @@
       const notionMonthlyYen = NOTION_UNIT * m;
       const notionYearMan = (NOTION_UNIT * m * 12) / 10000;
       const notionManMonth = notionMonthlyYen / 10000;
-      const lowTotal  = p.initLow  + p.support*6 + notionYearMan;
-      const highTotal = p.initHigh + p.support*6 + notionYearMan;
+      const totalBase = p.init + p.support*6 + notionYearMan;
       document.getElementById('result').innerHTML = `
         <div class="result-head">
           <div class="rh-label">あなたにおすすめのプラン</div>
@@ -569,12 +568,13 @@
           <div class="rh-scope">対象範囲：${p.scope}</div>
         </div>
         <div class="result-body">
-          <div class="rrow"><span class="rrow-label">初期費用<small>初期6ヶ月の${p.supportName}サポート込</small></span><span class="rrow-val">${man(p.initLow)}〜${man(p.initHigh)}<small>万円</small></span></div>
+          <div class="rrow"><span class="rrow-label">初期費用<small>初期6ヶ月の${p.supportName}サポート込</small></span><span class="rrow-val">${man(p.init)}万円〜</span></div>
           <div class="rrow"><span class="rrow-label">月額サポート<small>7ヶ月目以降</small></span><span class="rrow-val">${p.support}<small>万円／月</small></span></div>
           <div class="rrow"><span class="rrow-label">Notion利用料<small>お客様ご契約・ビジネスプラン・有料メンバー${m}名</small></span><span class="rrow-val notion-pass">${yen(notionMonthlyYen)}<small>／月（約${notionManMonth.toFixed(1)}万円）</small></span></div>
         </div>
-        <div class="result-total"><span class="rrow-label">初年度 合計目安</span><span class="rrow-val">約${man(lowTotal)}〜${man(highTotal)}<small>万円</small></span></div>
+        <div class="result-total"><span class="rrow-label">初年度 合計目安</span><span class="rrow-val">約${man(totalBase)}万円〜</span></div>
         <div class="result-foot">
+          ※ 最終的な費用は、カバーする範囲に加え、情報密度（手順・フロー型か、商品知識・専門性型か）によって決まります。<br>
           ※ 金額は税込・目安です。範囲やインタビュー回数、Notionの人数・為替により変動します。<br>
           ※ Notion利用料は「編集者＋AI利用者＝有料メンバー${m}名」で計算。閲覧のみの社員はゲスト（無料）で追加できます。<br>
           ※ <span class="notion-pass">Notion利用料はお客様ご契約（パススルー）</span>。アカウント取得・初期設定は弊社が代行します。
