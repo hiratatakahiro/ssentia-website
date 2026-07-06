@@ -1801,6 +1801,8 @@
     .assure-q::before, .assure-a::before { position: absolute; left: 0; top: 1px; margin: 0; }
     /* fix: リード文が「4つ」で不自然に折り返すのを防止 */
     .assure-lead .nobr { white-space: nowrap; }
+    /* fix: 「社内ナレッジポータル化」の末尾「化」だけが折り返すのを防止（1行に収める） */
+    .vf-title--long { white-space: nowrap; font-size: 0.74rem; letter-spacing: -0.01em; }
   </style>
 </head>
 <body>
@@ -1905,7 +1907,7 @@
               <line x1="9" y1="20.5" x2="13" y2="20.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
             </svg>
           </div>
-          <div class="vf-title">社内ナレッジポータル化</div>
+          <div class="vf-title vf-title--long">社内ナレッジポータル化</div>
           <div class="vf-sub">最適なツールで構造化</div>
         </div>
         <div class="vf-node">
