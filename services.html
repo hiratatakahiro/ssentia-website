@@ -1722,6 +1722,80 @@
       .deliverables-cols { flex-direction: column; }
       .deliverables-col-left { flex: none; max-width: 100%; width: 100%; }
     }
+    /* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
+    .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 18px; }
+
+    /* 納品ツール注記 */
+    .tool-note {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: #eef2fb; border: 1px solid #d6e0f2; border-radius: 10px;
+      padding: 20px 24px; margin-top: 20px;
+    }
+    .tool-note-ico {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 9px;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+    }
+    .tool-note-title { display: block; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .tool-note p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.85; }
+
+    /* 不安払拭（Q&A） */
+    .assure-section { background: var(--bg-section); }
+    .assure-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 1.95; margin-bottom: 30px; max-width: 720px; }
+    .assure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .assure-card {
+      background: #fff; border-radius: 10px; padding: 26px 28px;
+      border-top: 4px solid var(--primary); box-shadow: 0 3px 16px rgba(61,108,181,0.08);
+    }
+    .assure-q { display: flex; align-items: flex-start; gap: 10px; font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.55; margin-bottom: 14px; }
+    .assure-q::before {
+      content: 'Q'; flex-shrink: 0; width: 24px; height: 24px; background: #e8eef8; color: var(--primary);
+      border-radius: 50%; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .assure-a { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-muted); line-height: 1.85; }
+    .assure-a::before {
+      content: 'A'; flex-shrink: 0; width: 24px; height: 24px; background: var(--primary); color: #fff;
+      border-radius: 50%; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .assure-a strong { color: var(--primary-dark); font-weight: 700; }
+
+    /* 信頼の証（方法論） */
+    .trust-section { background: var(--bg); }
+    .trust-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 1.95; margin-bottom: 30px; max-width: 740px; }
+    .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .method-card { background: var(--bg-section); border-radius: 10px; padding: 24px 26px; border-left: 4px solid var(--primary); }
+    .method-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: var(--primary);
+      background: #e8eef8; padding: 3px 12px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .method-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+    .method-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+    .demo-strip {
+      margin-top: 26px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: 12px; padding: 26px 30px; color: #fff;
+    }
+    .demo-strip-text { font-size: 0.95rem; line-height: 1.7; }
+    .demo-strip-text strong { display: block; font-size: 1.08rem; margin-bottom: 3px; }
+    .demo-strip a {
+      display: inline-block; background: #fff; color: var(--primary-dark); text-decoration: none; font-weight: 700;
+      font-size: 0.9rem; padding: 13px 26px; border-radius: 6px; white-space: nowrap; transition: transform 0.18s;
+    }
+    .demo-strip a:hover { transform: translateY(-2px); }
+
+    /* フローティングCTA */
+    .floatc {
+      position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      padding: 14px 24px; border-radius: 50px; box-shadow: 0 8px 24px rgba(46,84,154,0.4); transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .floatc:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(46,84,154,0.5); }
+    .floatc svg { flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .assure-grid, .method-grid { grid-template-columns: 1fr; }
+      .demo-strip { flex-direction: column; align-items: flex-start; }
+      .demo-strip a { width: 100%; text-align: center; }
+      .floatc { right: 14px; bottom: 14px; padding: 12px 20px; font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
@@ -1828,7 +1902,7 @@
             </svg>
           </div>
           <div class="vf-title">社内ナレッジポータル化</div>
-          <div class="vf-sub">Notionで構造化</div>
+          <div class="vf-sub">最適なツールで構造化</div>
         </div>
         <div class="vf-node">
           <div class="vf-icon">
@@ -1874,7 +1948,7 @@
             <h3>社内ナレッジポータル</h3>
           </div>
           <div class="mock">
-            <div class="mock-bar"><span></span><span></span><span></span><span class="mock-bar-title">社内ナレッジポータル – Notion</span></div>
+            <div class="mock-bar"><span></span><span></span><span></span><span class="mock-bar-title">社内ナレッジポータル</span></div>
             <div class="mock-body">
               <div class="mock-tree">
                 <div class="mt-cat">▼ 営業</div>
@@ -1997,8 +2071,21 @@
           <h3 class="service-block-title">社内ナレッジポータル構築</h3>
         </div>
         <p class="service-block-desc">
-          引き出した知識・情報をNotionにまとめ、社内の知識やノウハウをまとめたナレッジポータル構築します。一度作ってしまえば、入社・退職が続いたとしても、ここにアクセスすれば業務に必要な情報にアクセスでき、どういう状況になっても会社を回し続けることができます。
+          引き出した知識・情報を整理し、社内の知識やノウハウをまとめたナレッジポータルを構築します。一度作ってしまえば、入社・退職が続いたとしても、ここにアクセスすれば業務に必要な情報にたどり着け、どういう状況になっても会社を回し続けることができます。
         </p>
+
+        <!-- 使用ツールについて -->
+        <div class="tool-note">
+          <div class="tool-note-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 2.1 2.1l6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2.1-2.1 2.3-2.3z" stroke="var(--primary)" stroke-width="1.7" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong class="tool-note-title">納品ツールについて</strong>
+            <p>Notionをすでにご利用の企業様は、Notionでの納品が可能です。Notionをご利用でない企業様には、自社アプリを含む他のツールもご相談を承っております。御社の環境に合わせて、最適な形でお渡しします。</p>
+          </div>
+        </div>
 
         <!-- Wikiの中身イメージ -->
         <div class="sub-section">
@@ -2177,7 +2264,7 @@
                 <tbody>
                   <tr>
                     <td>社内ナレッジポータル</td>
-                    <td>業務手順・FAQ・判断基準（WHY・IFまで言語化）をNotionで構造化</td>
+                    <td>業務手順・FAQ・判断基準（WHY・IFまで言語化）を、ご利用ツールに合わせて構造化</td>
                   </tr>
                   <tr>
                     <td>新人教育コース</td>
@@ -2189,7 +2276,7 @@
                   </tr>
                   <tr>
                     <td>検索できる土台</td>
-                    <td>Notion検索／AIが参照できるナレッジベースとしての整備</td>
+                    <td>検索／AIが参照できるナレッジベースとしての整備</td>
                   </tr>
                   <tr>
                     <td>運用ガイド</td>
@@ -2328,14 +2415,86 @@
   </section>
 
 
+  <!-- ★ 不安払拭（はじめての外部委託でも） -->
+  <section class="assure-section">
+    <div class="section-inner">
+      <p class="section-label">Before You Ask</p>
+      <h2 class="section-title">はじめての外部委託でも、安心して進められます。</h2>
+      <div class="section-divider"></div>
+      <p class="assure-lead">
+        100万円規模の外部委託を初めて検討するとき、不安になるのは当然です。ご相談前に、よくいただく4つの不安にお答えします。
+      </p>
+      <div class="assure-grid">
+        <div class="assure-card">
+          <div class="assure-q">誰が担当しますか？</div>
+          <div class="assure-a">インタビューから設計・構築まで、<strong>すべての工程を代表が直接担当</strong>します。外注や担当者の入れ替えによる品質のばらつきはありません。</div>
+        </div>
+        <div class="assure-card">
+          <div class="assure-q">対象範囲が、途中で膨らみませんか？</div>
+          <div class="assure-a">初回の<strong>無料「カテゴリ診断」</strong>で対象範囲と概算費用を明確にしてから着手します。想定外の追加費用が後から出ない設計です。</div>
+        </div>
+        <div class="assure-card">
+          <div class="assure-q">どのくらいで終わりますか？</div>
+          <div class="assure-a">着手から納品まで<strong>最短3〜4週間</strong>。プロジェクト単位でお請けするので、ずるずると長引くことはありません。</div>
+        </div>
+        <div class="assure-card">
+          <div class="assure-q">高額なのに、成果が出なかったら？</div>
+          <div class="assure-a">まず<strong>1つの業務領域から始めるStarterプラン</strong>をご用意しています。実際に動く成果物を確認してから、範囲を広げるかを判断できます。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ 信頼の証（方法論で選ばれる） -->
+  <section class="trust-section">
+    <div class="section-inner">
+      <p class="section-label">Why S.sentia</p>
+      <h2 class="section-title">「実績数」ではなく、"方法"で選ばれています。</h2>
+      <div class="section-divider"></div>
+      <p class="trust-lead">
+        2026年4月創業。まだ「導入社数No.1」ではありません。それでもご相談をいただけるのは、属人化を解消するための<strong style="color:var(--primary-dark);">再現できる方法</strong>を体系として持っているからです。感覚や気合いではなく、決まった手順で知識を引き出します。
+      </p>
+      <div class="method-grid">
+        <div class="method-card">
+          <span class="method-tag">FRAMEWORK</span>
+          <h3>暗黙知の4分類</h3>
+          <p>手順・概念・判断軸・自己流の工夫。「何を聞き出せば知識が再現できるか」を4つに整理した、独自のフレームワークです。</p>
+        </div>
+        <div class="method-card">
+          <span class="method-tag">METHOD</span>
+          <h3>8つのプルーブ</h3>
+          <p>ベテラン本人も無意識にやっている「判断の奥」まで引き出すための、8つの質問アプローチ。表面的なマニュアルで終わらせません。</p>
+        </div>
+        <div class="method-card">
+          <span class="method-tag">AI-ASSISTED</span>
+          <h3>AIによる質問設計</h3>
+          <p>お預かりした既存資料をAIが分析し、抜け漏れのない深掘りの質問を設計。ヒアリングの質を、担当者の勘に頼りません。</p>
+        </div>
+        <div class="method-card">
+          <span class="method-tag">DEMO</span>
+          <h3>動く成果物を、先に見られる</h3>
+          <p>完成イメージは言葉ではなく、実物のサンプルで確認できます。「何ができあがるか分からない」不安をなくします。</p>
+        </div>
+      </div>
+      <div class="demo-strip">
+        <div class="demo-strip-text">
+          <strong>実際の社内ナレッジポータルを見てみる</strong>
+          地域密着型不動産会社向けに構築したサンプルを、そのまま公開しています。
+        </div>
+        <a href="https://app.notion.com/p/9d54557b42f247ca824a6b520670f3a1" target="_blank" rel="noopener noreferrer">サンプルを見る →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <div class="cta-band">
-    <h2>まずはお気軽にご相談ください</h2>
-    <p>組織の知識継承・研修に関するご相談を承っております。<br>初回相談・カテゴリ診断は無料です。</p>
+    <h2>まずは、無料のカテゴリ診断から。</h2>
+    <p>対象範囲・概算費用・進め方を、初回45分のオンライン相談でお伝えします。<br>その場での契約や、しつこい営業は一切ありません。</p>
     <div class="cta-actions">
-      <a href="contact.html" class="btn-outline">無料相談・お問い合わせ</a>
+      <a href="contact.html" class="btn-outline">無料相談・カテゴリ診断</a>
       <a href="price.html" class="cta-pricelink">料金プランを見る</a>
     </div>
+    <p class="cta-note">※ 初回相談・カテゴリ診断は無料です。</p>
   </div>
 
   <!-- FOOTER -->
@@ -2358,6 +2517,14 @@
       &copy; 2026 S.sentia Co., Ltd. All rights reserved.
     </div>
   </footer>
+
+  <!-- フローティングCTA -->
+  <a href="contact.html" class="floatc" aria-label="無料で相談する">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.5-4.5a8.4 8.4 0 0 1-1-4A8.38 8.38 0 0 1 12 3.6a8.38 8.38 0 0 1 9 7.9z" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    無料で相談する
+  </a>
 
   <script>
     const hamburger = document.getElementById('hamburger');
