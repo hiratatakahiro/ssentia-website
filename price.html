@@ -114,6 +114,15 @@
     .result-total .rrow-val{ font-size:1.5rem; font-weight:800; color:var(--primary-dark); }
     .result-foot{ padding:16px 26px 22px; font-size:0.76rem; color:var(--text-muted); line-height:1.8; }
     .notion-pass{ color:#0C447C; font-weight:600; }
+    /* SIZE OPTS (4列) */
+    @media(min-width:769px){ .opt-row.cols4{ grid-template-columns:repeat(4,1fr); } }
+    /* TIER TABLE */
+    .tier-table{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .tier-table th, .tier-table td{ padding:15px 22px; text-align:left; border-bottom:1px solid #f0f2f5; font-size:0.9rem; }
+    .tier-table thead th{ background:var(--primary); color:#fff; font-weight:700; font-size:0.85rem; letter-spacing:0.03em; }
+    .tier-table tbody tr:nth-child(even){ background:#f9fbfe; }
+    .tier-table tbody tr:last-child td{ border-bottom:none; }
+    .tier-table .tier-price{ font-weight:800; color:var(--primary-dark); font-size:1.05rem; white-space:nowrap; }
 
     /* SIMULATION CASES */
     .sim-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -282,45 +291,15 @@
         <p class="members-note" style="margin-top:10px;">※ 20名規模でも、多領域・複数部署なら Standard〜Full が適しています。人数ではなく範囲で決まります。</p>
       </div>
 
-      <div class="notion-premise">
-        <button class="np-head" id="npToggle" aria-expanded="false" aria-controls="npBody">
-          <span class="np-title">Notionはビジネスプランが前提です</span>
-          <span class="np-tag">AI検索が使えるプラン</span>
-          <span class="np-chevron" aria-hidden="true">▾</span>
-        </button>
-        <div class="np-body" id="npBody">
-        <div class="np-feats">
-          <div class="feat y">Wiki全体の編集・閲覧・横断検索</div>
-          <div class="feat y">Notion AI（社内ナレッジの検索・要約）</div>
-          <div class="feat y">高度なページ分析・セキュリティ</div>
-          <div class="feat y">弊社のAI活用設計と相性◎</div>
-        </div>
-        <div class="mvg">
-          <div class="mvg-grid">
-            <div class="mvg-box paid">
-              <h4>有料メンバー（課金対象）</h4>
-              <p>Wikiを編集する人・AI検索を使う人。1人ごとに課金されます。</p>
-            </div>
-            <div class="mvg-box free">
-              <h4>ゲスト（無料）</h4>
-              <p>招待ページの閲覧・コメントのみ。何名でも無料で追加できます。</p>
-            </div>
-          </div>
-          <div class="mvg-warn">⚠️ <strong>AI検索を使いたい人は、閲覧だけでも有料メンバーが必要です。</strong>「見るだけ・AI不要」の社員はゲスト（無料）で招待し、コストを抑えられます。</div>
-        </div>
-        </div>
-      </div>
-
       <div class="step">
-        <p class="step-q"><span class="step-num">2</span>「編集する」または「AI検索を使う」社員は何名ですか？<span class="q-hint">（＝有料メンバー）</span></p>
-        <div class="members-box">
-          <div class="stepper">
-            <button type="button" id="minus" aria-label="減らす">−</button>
-            <input type="number" id="members" value="5" min="1" max="500" inputmode="numeric">
-            <button type="button" id="plus" aria-label="増やす">＋</button>
-          </div>
-          <span class="members-note">名（閲覧だけ・AI不要の社員はゲストで無料。管理者1名分は有料席が必要です）</span>
+        <p class="step-q"><span class="step-num">2</span>従業員は何名ですか？<span class="q-hint">（月額は従業員の規模で決まります）</span></p>
+        <div class="opt-row cols4" id="sizeRow">
+          <button class="opt" data-size="s1"><div class="opt-title">〜9名</div></button>
+          <button class="opt active" data-size="s2"><div class="opt-title">10〜49名</div></button>
+          <button class="opt" data-size="s3"><div class="opt-title">50〜99名</div></button>
+          <button class="opt" data-size="s4"><div class="opt-title">100〜200名未満</div></button>
         </div>
+        <p class="members-note" style="margin-top:10px;">※ 200名以上は要相談です。無料相談で個別にご提案します。</p>
       </div>
 
       <div class="result" id="result"></div>
@@ -331,84 +310,26 @@
   <section class="alt-bg">
     <div class="section-inner">
       <div class="support-banner">
-        Notion納品プランには初期6ヶ月のサポートが含まれています／7ヶ月目以降は下記よりサポートプランをお選びください
+        月額は「自社アプリの利用＋wiki編集代行」を含む一本料金です。従業員の規模で決まります。
       </div>
-      <p class="section-label">Monthly Support</p>
-      <h2 class="section-title">月額サポートプラン（7ヶ月目以降）</h2>
+      <p class="section-label">Monthly Plan</p>
+      <h2 class="section-title">月額プラン（Standard・代行込み）</h2>
       <div class="section-divider"></div>
-      <div class="cards-grid">
-
-        <div class="plan-card">
-          <div class="card-header" style="background:#E1F5EE;">
-            <div class="card-plan-name" style="color:#085041;">Light</div>
-            <div class="card-price" style="color:#0F6E56;">2万円<span class="card-price-sub">/月（税込）</span></div>
-          </div>
-          <div class="card-features">
-            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">内容修正対応（3営業日以内・無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#1D9E75;">✓</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">緊急時電話対応（無料・オンライン）<span class="feature-note">原則なし</span></span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月1回オンライン定例（60分）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">改善ヒアリングアンケート（月1回）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">新規業務発生時のカテゴリ/Unit追加代行</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <div class="card-header" style="background:#E6F1FB;">
-            <div class="card-plan-name" style="color:#0C447C;">Standard</div>
-            <div class="card-price" style="color:#185FA5;">5万円<span class="card-price-sub">/月（税込）</span></div>
-          </div>
-          <div class="card-features">
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">内容修正対応（3営業日以内・無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">緊急時電話対応（無料・オンライン）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">月1回オンライン定例（60分）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#185FA5;">✓</span><span class="feature-label">改善ヒアリングアンケート（月1回）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">新規業務発生時のカテゴリ/Unit追加代行</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <div class="card-header" style="background:#EEEDFE;">
-            <div class="card-plan-name" style="color:#26215C;">Intensive</div>
-            <div class="card-price" style="color:#3C3489;">10万円<span class="card-price-sub">/月（税込）</span></div>
-          </div>
-          <div class="card-features">
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">Notionの使い方レクチャー（50分）<span class="feature-new">NEW</span></span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">月1回のページ更新代行</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">チャット対応（無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">内容修正対応（3営業日以内・無制限）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">緊急時電話対応（無料・オンライン）</span></div>
-            <div class="feature-item excluded"><span class="feature-icon">—</span><span class="feature-label">月1回オンライン定例（60分）<span class="feature-note">月2回に包含</span></span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">月2回オンライン定例（60分）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">新人入社時のwiki活用支援</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">改善ヒアリングアンケート（月1回）</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">新規業務発生時のカテゴリ/Unit追加代行</span></div>
-            <div class="feature-item included"><span class="feature-icon" style="color:#534AB7;">✓</span><span class="feature-label">半年ごとのwiki健康診断</span></div>
-          </div>
-        </div>
-
-      </div>
-      <p class="members-note" style="margin-top:14px;">※ 3プラン共通で「Notionの使い方レクチャー（50分）」を含みます。導入後すぐに現場が使い始められるようサポートします。</p>
-
-      <div class="rec-inner">
-        <div class="rec-heading">推奨の組み合わせ（7ヶ月目以降）</div>
-        <div class="rec-tags">
-          <span class="rec-tag rec-tag-light">Starter → Light</span>
-          <span class="rec-tag rec-tag-standard">Standard → Standard</span>
-          <span class="rec-tag rec-tag-intensive">Full → Intensive</span>
-        </div>
-      </div>
+      <table class="tier-table">
+        <thead>
+          <tr><th>従業員規模</th><th>月額（税込）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>〜9名</td><td class="tier-price">2万円 ／ 月</td></tr>
+          <tr><td>10〜49名</td><td class="tier-price">3.5万円 ／ 月</td></tr>
+          <tr><td>50〜99名</td><td class="tier-price">5万円 ／ 月</td></tr>
+          <tr><td>100〜200名未満</td><td class="tier-price">7.5万円 ／ 月</td></tr>
+          <tr><td>200名以上</td><td class="tier-price">要相談</td></tr>
+        </tbody>
+      </table>
+      <p class="members-note" style="margin-top:16px;">※ 月額には、自社アプリの利用料・保守、アプリ操作レクチャー、AI質問／回答ログ、月次レポート、および<strong>wiki編集代行（月10ページ／10本まで・1契約あたり）</strong>を含みます。</p>
+      <p class="members-note" style="margin-top:6px;">※ 初期費用（暗黙知の抽出・wiki構築）は別途。範囲に応じて100万円〜です。<strong>2年目以降は月額のみ</strong>となります。</p>
+      <p class="members-note" style="margin-top:6px;">※ Notionでの納品もお選びいただけます（料金は個別相談）。</p>
     </div>
   </section>
 
@@ -417,7 +338,7 @@
     <div class="section-inner">
       <p class="section-label">Entry Plans</p>
       <h2 class="section-title">まずは小さく試したい方へ</h2>
-      <p class="section-sub">本格導入（Notion）の前に、無料診断や PDF 納品で気軽に始められます。</p>
+      <p class="section-sub">本格導入の前に、無料診断や PDF 納品で気軽に始められます。</p>
       <div class="section-divider"></div>
       <div class="entry-grid">
         <div class="entry-card free">
@@ -444,14 +365,14 @@
           <div class="entry-name">Lite Plus</div>
           <div class="entry-price">25万円<small>（税込）</small></div>
           <span class="entry-delivery">PDF 納品</span>
-          <p class="entry-desc">最大5カテゴリ・各5unit まで。全体像をPDFでまとめたい方に。Notion導入前の整理にも。</p>
+          <p class="entry-desc">最大5カテゴリ・各5unit まで。全体像をPDFでまとめたい方に。本格導入前の整理にも。</p>
           <ul class="entry-points">
             <li>打ち合わせ 60分</li>
             <li>社員インタビュー 60分（3名まで）</li>
           </ul>
         </div>
       </div>
-      <p class="entry-foot">※ PDF版は更新・共有機能を含まないシンプルな納品形式です。動的なNotion Wiki構築は Starter プラン以上（上記シミュレーター）でご提供します。</p>
+      <p class="entry-foot">※ PDF版は更新・共有機能を含まないシンプルな納品形式です。動的なwiki（自社アプリ）の構築は Starter プラン以上（上記シミュレーター）でご提供します。Notionでの納品をご希望の場合も個別に対応します。</p>
     </div>
   </section>
 
@@ -468,9 +389,9 @@
           <p class="sim-scene">保険代理店・社員18名</p>
           <p class="sim-detail">特定商品の提案フロー1領域をWiki化。ベテランの判断ノウハウを残したい。<br>→ <strong>Starter</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">120万円〜</span></div>
-            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">2万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約132万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">100万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額</span><span class="sim-fig-val">3.5万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約142万円〜</span></div>
           </div>
         </div>
         <div class="sim-card">
@@ -478,9 +399,9 @@
           <p class="sim-scene">旅行代理店・社員60名</p>
           <p class="sim-detail">2部署の業務を横断的にWiki化。AI検索で問い合わせ対応を効率化。<br>→ <strong>Standard</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">250万円〜</span></div>
-            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">5万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約280万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">200万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額</span><span class="sim-fig-val">5万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約260万円〜</span></div>
           </div>
         </div>
         <div class="sim-card">
@@ -488,13 +409,13 @@
           <p class="sim-scene">不動産・社員120名</p>
           <p class="sim-detail">全社の業務標準化と社内AI活用を含むDX推進を継続的に依頼。<br>→ <strong>Full</strong></p>
           <div class="sim-figures">
-            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">400万円〜</span></div>
-            <div class="sim-fig-row"><span class="sim-fig-label">月額（7ヶ月目〜）</span><span class="sim-fig-val">10万円</span></div>
-            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約460万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">初期費用</span><span class="sim-fig-val">300万円〜</span></div>
+            <div class="sim-fig-row"><span class="sim-fig-label">月額</span><span class="sim-fig-val">7.5万円</span></div>
+            <div class="sim-fig-row sim-fig-total"><span class="sim-fig-label">初年度 合計</span><span class="sim-fig-val">約390万円〜</span></div>
           </div>
         </div>
       </div>
-      <p class="members-note" style="margin-top:14px;">※ 上記は代表的なケースの目安です（Notion利用料は別途）。実際の金額は無料相談で個別にご提案します。</p>
+      <p class="members-note" style="margin-top:14px;">※ 上記は代表的なケースの目安です（初期費用 ＋ 月額×12ヶ月）。2年目以降は月額のみ。実際の金額は無料相談で個別にご提案します。</p>
     </div>
   </section>
 
@@ -538,59 +459,50 @@
       link.addEventListener('click', () => { navDrawer.classList.remove('open'); hamburger.classList.remove('open'); });
     });
 
-    // Notion前提アコーディオン
-    const npToggle = document.getElementById('npToggle');
-    const npBody = document.getElementById('npBody');
-    npToggle.addEventListener('click', () => {
-      const isOpen = npBody.classList.toggle('open');
-      npToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    // 費用シミュレーター
-    const PLANS = {
-      starter:  { name:'Starter（特化型）',  scope:'特定の1領域',      init:100, support:2,  supportName:'Light' },
-      standard: { name:'Standard（部門型）', scope:'1部署の業務全体',  init:200, support:5,  supportName:'Standard' },
-      full:     { name:'Full（全社型）',     scope:'複数部署・全社横断', init:300, support:10, supportName:'Intensive' },
+    // 費用シミュレーター（範囲→初期費用／人数規模→月額・代行込み1本）
+    const SCOPES = {
+      starter:  { name:'Starter（特化型）',  scope:'特定の1領域',       init:100 },
+      standard: { name:'Standard（部門型）', scope:'1部署の業務全体',   init:200 },
+      full:     { name:'Full（全社型）',     scope:'複数部署・全社横断', init:300 },
     };
-    const NOTION_UNIT = 3500;
-    let state = { scope:'standard', members:5 };
-    const yen = n => '¥' + Math.round(n).toLocaleString('ja-JP');
-    const man = n => Math.round(n).toLocaleString('ja-JP');
+    const SIZES = {
+      s1: { label:'〜9名',          monthly:2 },
+      s2: { label:'10〜49名',       monthly:3.5 },
+      s3: { label:'50〜99名',       monthly:5 },
+      s4: { label:'100〜200名未満', monthly:7.5 },
+    };
+    let state = { scope:'standard', size:'s2' };
+    const man = n => n.toLocaleString('ja-JP');
 
     function render(){
-      const p = PLANS[state.scope];
-      const m = Math.max(1, state.members|0);
-      const notionMonthlyYen = NOTION_UNIT * m;
-      const notionYearMan = (NOTION_UNIT * m * 12) / 10000;
-      const notionManMonth = notionMonthlyYen / 10000;
-      const totalBase = p.init + p.support*6 + notionYearMan;
+      const p = SCOPES[state.scope];
+      const s = SIZES[state.size];
+      const yearTotal = Math.round((p.init + s.monthly*12) * 10) / 10;
       document.getElementById('result').innerHTML = `
         <div class="result-head">
-          <div class="rh-label">あなたにおすすめのプラン</div>
+          <div class="rh-label">あなたのプラン（Standard・代行込み）</div>
           <div class="rh-plan">${p.name}</div>
-          <div class="rh-scope">対象範囲：${p.scope}</div>
+          <div class="rh-scope">対象範囲：${p.scope}／従業員規模：${s.label}</div>
         </div>
         <div class="result-body">
-          <div class="rrow"><span class="rrow-label">初期費用<small>初期6ヶ月の${p.supportName}サポート込</small></span><span class="rrow-val">${man(p.init)}万円〜</span></div>
-          <div class="rrow"><span class="rrow-label">月額サポート<small>7ヶ月目以降</small></span><span class="rrow-val">${p.support}<small>万円／月</small></span></div>
-          <div class="rrow"><span class="rrow-label">Notion利用料<small>お客様ご契約・ビジネスプラン・有料メンバー${m}名</small></span><span class="rrow-val notion-pass">${yen(notionMonthlyYen)}<small>／月（約${notionManMonth.toFixed(1)}万円）</small></span></div>
+          <div class="rrow"><span class="rrow-label">初期費用<small>暗黙知の抽出・wiki構築（${p.scope}）</small></span><span class="rrow-val">${man(p.init)}万円〜</span></div>
+          <div class="rrow"><span class="rrow-label">月額<small>自社アプリ利用＋wiki編集代行 込み（従業員${s.label}）</small></span><span class="rrow-val">${man(s.monthly)}<small>万円／月</small></span></div>
         </div>
-        <div class="result-total"><span class="rrow-label">初年度 合計目安</span><span class="rrow-val">約${man(totalBase)}万円〜</span></div>
+        <div class="result-total"><span class="rrow-label">初年度 合計目安<small style="display:block;font-weight:500;color:#9aa1ab;">初期費用 ＋ 月額×12ヶ月</small></span><span class="rrow-val">約${man(yearTotal)}万円〜</span></div>
         <div class="result-foot">
           ※ 最終的な費用は、カバーする範囲に加え、情報密度（手順・フロー型か、商品知識・専門性型か）によって決まります。<br>
-          ※ 金額は税込・目安です。範囲やインタビュー回数、Notionの人数・為替により変動します。<br>
-          ※ Notion利用料は「編集者＋AI利用者＝有料メンバー${m}名」で計算。閲覧のみの社員はゲスト（無料）で追加できます。<br>
-          ※ <span class="notion-pass">Notion利用料はお客様ご契約（パススルー）</span>。アカウント取得・初期設定は弊社が代行します。
+          ※ 金額は税込・目安です。範囲・従業員規模・インタビュー回数により変動します。<br>
+          ※ <strong>2年目以降は月額のみ</strong>です（初期費用は初年度のみ）。<br>
+          ※ 月額に含む更新代行は月10ページ／10本まで（1契約あたり）。<br>
+          ※ 従業員200名以上、およびNotionでの納品をご希望の場合は、無料相談で個別にご提案します。
         </div>`;
     }
     document.querySelectorAll('#scopeRow .opt').forEach(b=>{
       b.addEventListener('click',()=>{ document.querySelectorAll('#scopeRow .opt').forEach(x=>x.classList.remove('active')); b.classList.add('active'); state.scope=b.dataset.scope; render(); });
     });
-    const input = document.getElementById('members');
-    const sync = ()=>{ state.members=Math.min(500,Math.max(1,parseInt(input.value||'1',10))); input.value=state.members; render(); };
-    document.getElementById('minus').addEventListener('click',()=>{ input.value=Math.max(1,(parseInt(input.value||'1',10)-1)); sync(); });
-    document.getElementById('plus').addEventListener('click',()=>{ input.value=Math.min(500,(parseInt(input.value||'1',10)+1)); sync(); });
-    input.addEventListener('input', sync);
+    document.querySelectorAll('#sizeRow .opt').forEach(b=>{
+      b.addEventListener('click',()=>{ document.querySelectorAll('#sizeRow .opt').forEach(x=>x.classList.remove('active')); b.classList.add('active'); state.size=b.dataset.size; render(); });
+    });
     render();
   </script>
 
