@@ -6,7 +6,8 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | S.sentia株式会社</title>
+  <title>サービス紹介｜業務の属人化解消とAI横断活用支援 | S.sentia株式会社</title>
+  <meta name="description" content="S.sentiaは現場の業務を実際に見せていただき、無意識・感覚でおこなわれてきた仕事を言語化します。①業務の属人化解消（システム操作・業務フロー・判断ルールの言語化・図式化・チャート化）②業務のAI横断活用支援（Google Workspace / Microsoft 365 / Notion の構築と定着研修）。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -1803,6 +1804,419 @@
     .assure-lead .nobr { white-space: nowrap; }
     /* fix: 「社内ナレッジポータル化」の末尾「化」だけが折り返すのを防止（1行に収める） */
     .vf-title--long { white-space: nowrap; font-size: 0.74rem; letter-spacing: -0.01em; }
+
+    /* ===================================================== */
+    /* ===== 2026-07 抜本改訂：共通コア＋2サービス構成 ===== */
+    /* ===================================================== */
+
+    /* --- 共通コア（言語化） --- */
+    .core-section { padding: 72px 24px; background: var(--bg); }
+    .core-lead {
+      font-size: 0.98rem;
+      line-height: 2.0;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .core-lead strong { color: var(--text); font-weight: 700; }
+
+    .core-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .core-step {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 22px;
+    }
+    .core-step-n {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-bottom: 12px;
+    }
+    .core-step-t {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .core-step-d { font-size: 0.86rem; line-height: 1.85; color: var(--text-muted); }
+
+    .core-branch-lead {
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .core-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .branch-card {
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      border: 1.5px solid var(--primary);
+      border-radius: 12px;
+      padding: 24px 24px 20px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .branch-card:hover {
+      background: #f4f7fd;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(61,108,181,0.13);
+    }
+    .branch-card-no {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .branch-card-t {
+      font-size: 1.14rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .branch-card-d { font-size: 0.86rem; line-height: 1.8; color: var(--text-muted); }
+    .branch-card-go {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* --- サービスセクション共通 --- */
+    .sv-section { padding: 76px 24px; background: var(--bg-section); }
+    .sv-section--alt { background: var(--bg); }
+    .sv-head { margin-bottom: 34px; }
+    .sv-no {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .sv-title {
+      font-size: clamp(1.5rem, 3.6vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .sv-title-sub {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      letter-spacing: 0.04em;
+      margin-top: 8px;
+    }
+    .sv-lead {
+      font-size: 0.95rem;
+      line-height: 2.0;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+    .sv-lead strong { color: var(--text); font-weight: 700; }
+    .sv-blocklabel {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin: 52px 0 8px;
+    }
+    .sv-blocktitle {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* --- 対象3領域 / 手法3点 の汎用カード --- */
+    .sv-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .sv-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--primary);
+      border-radius: 10px;
+      padding: 22px 20px;
+    }
+    .sv-section--alt .sv-card { background: var(--bg-section); }
+    .sv-card-n {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .sv-card-t {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .sv-card-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
+    .sv-card-d strong { color: var(--text); font-weight: 700; }
+
+    /* --- 提供パッケージのステップ（横並び・番号つき） --- */
+    .pkg-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .pkg-step {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 16px;
+    }
+    .sv-section--alt .pkg-step { background: var(--bg-section); }
+    .pkg-step-n {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .pkg-step-t {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+    .pkg-step-d { font-size: 0.82rem; line-height: 1.8; color: var(--text-muted); }
+    .pkg-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .pkg-tool {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: #eef2fb;
+      border: 1px solid #cdddf4;
+      border-radius: 3px;
+      padding: 2px 7px;
+      letter-spacing: 0.02em;
+    }
+
+    /* --- 納品サンプル図（実際の成果物の抜粋） --- */
+    .fig-box {
+      background: #fbfaf7;
+      border: 1px solid #ddd8cd;
+      border-radius: 8px;
+      padding: 18px 18px 14px;
+      margin-bottom: 18px;
+    }
+    .fig-cap {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: #8a8375;
+      margin-bottom: 12px;
+    }
+    .fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .fig-scroll svg { display: block; height: auto; }
+    .fig-after {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      border-top: 1px dashed #ddd8cd;
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    .fig-after strong { color: #b8412a; font-weight: 700; }
+    .fig-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+    .fig-hint {
+      display: none;
+      font-size: 0.72rem;
+      color: #a09789;
+      margin-bottom: 8px;
+    }
+
+    /* --- AI横断活用ハブ図 --- */
+    .aihub { margin-bottom: 26px; }
+
+    /* --- AI活用の8ポイント --- */
+    .cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cap-card {
+      display: flex;
+      gap: 14px;
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 18px;
+    }
+    .cap-n {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cap-t {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }
+
+    /* --- Before / After（AI活用の具体イメージ） --- */
+    .ba2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ba2-panel {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      background: #fff;
+    }
+    .ba2-panel--after { border-color: var(--primary); background: #f7faff; }
+    .ba2-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 3px 9px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+      background: #efefef;
+      color: #666;
+    }
+    .ba2-panel--after .ba2-label { background: var(--primary); color: #fff; }
+    /* min-width は既存の table{min-width:540px} の打ち消し（スマホで横あふれするため） */
+    .ba2-tbl { width: 100%; min-width: 0; border-collapse: collapse; font-size: 0.78rem; }
+    .ba2-tbl th, .ba2-tbl td {
+      border: 1px solid var(--border);
+      padding: 5px 8px;
+      text-align: left;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    /* color は既存の thead tr{color:#fff} の打ち消し（薄い背景に白文字で読めなくなるため） */
+    .ba2-tbl th { background: #f0f3f8; color: var(--text); font-weight: 700; font-size: 0.74rem; }
+    .ba2-tbl td.num { text-align: right; }
+    .ba2-flag { color: #b8412a; font-weight: 700; }
+    .ba2-ok { color: var(--primary-dark); font-weight: 700; }
+    .ba2-msg {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: #f6f6f4;
+      color: var(--text-muted);
+    }
+    .ba2-panel--after .ba2-msg { background: #eaf1fd; color: var(--primary-dark); }
+
+    /* --- ご提供例カード --- */
+    .ex-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .ex-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 20px;
+    }
+    .sv-section--alt .ex-card { background: var(--bg-section); }
+    .ex-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--primary-dark);
+      background: #eef2fb;
+      border-radius: 3px;
+      padding: 3px 9px;
+      margin-bottom: 12px;
+    }
+    .ex-t {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .ex-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
+    .ex-base {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+    .ex-disclaimer {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
+    /* --- 共通の結び --- */
+    .closing-band {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 26px 28px;
+      margin-top: 8px;
+    }
+    .closing-band p {
+      font-size: 0.95rem;
+      line-height: 2.0;
+      color: var(--text-muted);
+    }
+    .closing-band strong { color: var(--text); font-weight: 700; }
+
+    /* --- レスポンシブ --- */
+    @media (max-width: 900px) {
+      .core-steps { grid-template-columns: 1fr; gap: 14px; }
+      .core-branch { grid-template-columns: 1fr; }
+      .sv-grid3 { grid-template-columns: 1fr; }
+      .pkg-flow { grid-template-columns: 1fr 1fr; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .ex-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .core-section, .sv-section { padding: 56px 20px; }
+      .pkg-flow { grid-template-columns: 1fr; }
+      .ba2 { grid-template-columns: 1fr; }
+      .fig-hint { display: block; }
+      .fig-box { padding: 14px 14px 12px; }
+      .closing-band { padding: 22px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -1848,641 +2262,507 @@
     <h1>サービス紹介</h1>
   </div>
 
-  <!-- ★ ご提供するもの（成果物中心） -->
-  <section class="deliver-section">
+  <!-- ================================================= -->
+  <!-- ★ 共通コア：私たちの仕事は「言語化」です           -->
+  <!-- ================================================= -->
+  <section class="core-section">
     <div class="section-inner">
-      <p class="section-label">What We Deliver</p>
-      <h2 class="section-title">S.sentiaが提供するサービス内容</h2>
+      <p class="section-label">Our Core</p>
+      <h2 class="section-title">私たちの仕事は、「言語化」です。</h2>
       <div class="section-divider"></div>
-      <p class="deliver-lead">
-        S.sentiaは、ベテランの頭の中にある知識・ノウハウを引き出して<strong>業務の属人化を解消</strong>し、どんな人でも早く仕事ができる仕組みをつくります。最終的にお手元に残るのは、次の一連の流れと、3つの成果物です。
+      <p class="core-lead">
+        マニュアルも、社内wikiも、AIも、すべては手段です。<br>
+        S.sentiaの本体は、<strong>現場の業務を実際に見せていただき、インタビューを通して、これまで無意識・感覚でおこなわれてきた仕事を細部まで言葉にする</strong>こと。ここを省いてつくられた仕組みは、必ず使われずに終わります。
       </p>
 
-      <!-- 一本の価値フロー図 -->
-      <div class="value-flow">
-        <div class="vf-node vf-node--start">
-          <div class="vf-icon">
-            <!-- ベテラン社員：人物シルエット -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="9" r="5" stroke="currentColor" stroke-width="1.9"/>
-              <path d="M5 26c0-5.5 4-9 9-9s9 3.5 9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="vf-title">ベテラン社員</div>
-          <div class="vf-sub">頭の中の経験・判断</div>
+      <div class="core-steps">
+        <div class="core-step">
+          <span class="core-step-n">STEP 01</span>
+          <p class="core-step-t">見る</p>
+          <p class="core-step-d">現場に同席し、実際の操作・作業をそのまま見せていただきます。整えられた資料ではなく、画面の動きと手の順番を見ます。</p>
         </div>
-        <div class="vf-node">
-          <div class="vf-icon">
-            <!-- インタビュー：マイク -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="9" y="2" width="10" height="13" rx="5" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M5 14.5c0 5 4 8.5 9 8.5s9-3.5 9-8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="14" y1="23" x2="14" y2="27" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="9" y1="27" x2="19" y2="27" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="vf-title">インタビュー</div>
-          <div class="vf-sub">AI設計の質問で深掘り</div>
+        <div class="core-step">
+          <span class="core-step-n">STEP 02</span>
+          <p class="core-step-t">訊く</p>
+          <p class="core-step-d">「なぜその順番か」「例外のときどう判断しているか」まで掘ります。ご本人も説明したことのない判断の軸を、言葉にしていきます。</p>
         </div>
-        <div class="vf-node">
-          <div class="vf-icon">
-            <!-- 言語化：吹き出し＋テキスト行（口頭→文字） -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 3.5h22A1.5 1.5 0 0126.5 5v13A1.5 1.5 0 0125 19.5H9.5L4 25v-5.5H3A1.5 1.5 0 011.5 18V5A1.5 1.5 0 013 3.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-              <line x1="7" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="7" y1="14" x2="17" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="vf-title">WHY・IFまで言語化</div>
-          <div class="vf-sub">判断軸・例外を抽出</div>
-        </div>
-        <div class="vf-node">
-          <div class="vf-icon">
-            <!-- 社内ナレッジポータル化：重なるドキュメント -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="3" width="15" height="18" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <rect x="5" y="7" width="15" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/>
-              <line x1="9" y1="12.5" x2="16" y2="12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <line x1="9" y1="16.5" x2="16" y2="16.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <line x1="9" y1="20.5" x2="13" y2="20.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="vf-title vf-title--long">社内ナレッジポータル化</div>
-          <div class="vf-sub">最適なツールで構造化</div>
-        </div>
-        <div class="vf-node">
-          <div class="vf-icon">
-            <!-- 学習コース化：チェックリスト -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="24" height="24" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
-              <rect x="6" y="7" width="5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-              <polyline points="7,9.2 8.3,10.6 11,8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="14" y1="9.3" x2="22" y2="9.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <rect x="6" y="13.5" width="5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-              <line x1="14" y1="15.8" x2="22" y2="15.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <rect x="6" y="20" width="5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/>
-              <line x1="14" y1="22.3" x2="22" y2="22.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="vf-title">学習コース化</div>
-          <div class="vf-sub">習熟順のロードマップ</div>
-        </div>
-        <div class="vf-node vf-node--goal">
-          <div class="vf-icon">
-            <!-- 新人が自走できる：人物＋上昇矢印 -->
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M3 26c0-5 3.2-8 7-8s7 3 7 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="22" y1="22" x2="22" y2="7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
-              <polyline points="17.5,12 22,7 26.5,12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="vf-title">新人が<br>自走できる</div>
-          <div class="vf-sub">早期戦力化</div>
+        <div class="core-step">
+          <span class="core-step-n">STEP 03</span>
+          <p class="core-step-t">残す</p>
+          <p class="core-step-d">言葉と図にして、誰が読んでも同じ判断ができる形に整えます。日々の業務で実際に開かれる場所に置くところまで設計します。</p>
         </div>
       </div>
 
-      <!-- 3つの成果物 -->
-      <p class="sub-section-label">Deliverables</p>
-      <h4 class="sub-section-title" style="margin-bottom:24px;">お手元に残る、3つの成果物</h4>
-      <div class="deliver-grid">
-
-        <!-- ① 社内ナレッジポータル -->
-        <div class="deliver-card">
-          <div class="deliver-card-head">
-            <span class="deliver-card-no">1</span>
-            <h3>社内ナレッジポータル</h3>
-          </div>
-          <div class="mock">
-            <div class="mock-bar"><span></span><span></span><span></span><span class="mock-bar-title">社内ナレッジポータル</span></div>
-            <div class="mock-body">
-              <div class="mock-tree">
-                <div class="mt-cat">▼ 営業</div>
-                <div class="mt-item">初回訪問 / ヒアリング</div>
-                <div class="mt-item">見積 / 契約</div>
-                <div class="mt-cat">▼ 商品知識</div>
-                <div class="mt-item">商品A / 商品B / FAQ</div>
-                <div class="mt-cat">▼ システム</div>
-                <div class="mt-item">CRM / 受注 / 請求</div>
-              </div>
-            </div>
-          </div>
-          <p class="deliver-card-desc">
-            業務手順・FAQ・判断基準を、検索できる形で整理。「どこに書いてある？」がなくなります。
-          </p>
-        </div>
-
-        <!-- ② 新人教育コース -->
-        <div class="deliver-card">
-          <div class="deliver-card-head">
-            <span class="deliver-card-no">2</span>
-            <h3>新人教育コース</h3>
-          </div>
-          <div class="mock">
-            <div class="mock-bar"><span></span><span></span><span></span><span class="mock-bar-title">新人ロードマップ</span></div>
-            <div class="mock-body mock-course">
-              <div class="mc-phase">Phase 1 ｜ 基礎を身につける</div>
-              <div class="mc-row done"><span class="mc-check">✓</span><span>会社概要を理解する</span></div>
-              <div class="mc-row done"><span class="mc-check">✓</span><span>商品知識を学ぶ</span></div>
-              <div class="mc-row"><span class="mc-check"></span><span>業務フローを把握する</span></div>
-              <div class="mc-row"><span class="mc-check"></span><span>見積・契約の流れ</span></div>
-              <div class="mc-row"><span class="mc-check"></span><span>ロープレで実践</span></div>
-            </div>
-          </div>
-          <p class="deliver-card-desc">
-            何を、どの順番で学ぶか。新人が迷わず進めるロードマップで、上長の指導工数を最小化します。
-          </p>
-        </div>
-
-        <!-- ③ AIナレッジベース -->
-        <div class="deliver-card">
-          <div class="deliver-card-head">
-            <span class="deliver-card-no">3</span>
-            <h3>AIが答えるナレッジベース</h3>
-          </div>
-          <div class="mock">
-            <div class="mock-bar"><span></span><span></span><span></span><span class="mock-bar-title">AIアシスタント</span></div>
-            <div class="mock-body mock-chat">
-              <div class="ch-q">契約書類の送付先、どう確認すればいい？</div>
-              <div class="ch-a">初回ヒアリング時に「受け取り希望住所」を確認します。単身赴任・法人別拠点のケースがあるためです。</div>
-            </div>
-          </div>
-          <p class="deliver-card-desc">
-            言語化したノウハウや判断基準をAIが参照。新人の「ちょっとした疑問」に、いつでも答えられる土台になります。
-          </p>
-        </div>
-
+      <p class="core-branch-lead">この言語化を、2つの形でご提供しています。</p>
+      <div class="core-branch">
+        <a href="#service01" class="branch-card">
+          <p class="branch-card-no">SERVICE 01</p>
+          <p class="branch-card-t">業務の属人化解消</p>
+          <p class="branch-card-d">個人の中にある業務知識を、組織の資産に変えます。システム操作・業務フロー・判断ルールを言語化・図式化・チャート化します。</p>
+          <span class="branch-card-go">詳しく見る →</span>
+        </a>
+        <a href="#service02" class="branch-card">
+          <p class="branch-card-no">SERVICE 02</p>
+          <p class="branch-card-t">業務のAI横断活用支援</p>
+          <p class="branch-card-d">一部の人だけが使えているAIを、組織全体で使える状態にします。環境の構築から、定着のための研修までを支援します。</p>
+          <span class="branch-card-go">詳しく見る →</span>
+        </a>
       </div>
     </div>
   </section>
 
 
-  <!-- STEP 1〜3 -->
-  <section style="padding: 72px 24px 0 24px; background: var(--bg-section);">
+  <!-- ================================================= -->
+  <!-- ★ SERVICE 01：業務の属人化解消                     -->
+  <!-- ================================================= -->
+  <section class="sv-section" id="service01">
     <div class="section-inner">
-      <p class="section-label">How It Works</p>
-      <h2 class="section-title">サービス提供までの流れ</h2>
-      <div class="section-divider"></div>
-
-
-      <!-- STEP 1 -->
-      <div class="service-block">
-        <div class="service-block-header">
-          <span class="service-number">01</span>
-          <h3 class="service-block-title">業界別プリセット</h3>
-        </div>
-        <p class="service-block-desc">
-          S.sentiaが蓄積した、業界ごとのカテゴリのプリセットを使い、ナレッジポータルサイトのベースを作り、そこから必要・不要なカテゴリを追加・削除していきます。
+      <div class="sv-head">
+        <p class="sv-no">SERVICE 01</p>
+        <h2 class="sv-title">
+          業務の属人化解消
+          <span class="sv-title-sub">言語化・図式化・チャート化して、組織の資産にする</span>
+        </h2>
+        <p class="sv-lead">
+          「あの人しか分からない」「聞かないと進まない」をなくします。細かいニュアンスまで含めて、<strong>読めば同じ判断ができる状態</strong>まで落とし込みます。
         </p>
       </div>
-      <hr class="section-hr">
 
-      <!-- STEP 2 -->
-      <div class="service-block">
-        <div class="service-block-header">
-          <span class="service-number">02</span>
-          <h3 class="service-block-title">ノウハウ・判断基準の言語化</h3>
+      <!-- 対象3領域 -->
+      <p class="sv-blocklabel">SCOPE</p>
+      <h3 class="sv-blocktitle">言語化する、3つの領域</h3>
+      <div class="sv-grid3">
+        <div class="sv-card">
+          <p class="sv-card-n">① SYSTEM</p>
+          <p class="sv-card-t">システムなどの操作</p>
+          <p class="sv-card-d">顧客管理システム、基幹システム、スプレッドシート。<strong>どの画面を、どの順に、何のために触るのか</strong>。画面名の羅列ではなく、目的とセットで記述します。</p>
         </div>
-        <p class="service-block-desc">
-          熟練者の頭の中にある経験・判断基準・ノウハウを引き出すには、「何を聞くか」が重要です。S.sentiaでは、お客様から提供いただいた既存資料をAIが分析し、独自の「暗黙知の4分類」（手順・概念・判断軸・自己流の工夫）に沿って、引き出すべき質問を設計します。
-        </p>
-
-        <!-- WHAT / WHY / IF（旧「ベテランの頭の中」セクションより移設） -->
-        <div class="tacit-summary">
-          <div class="tacit-box tacit-box--what">
-            <div class="tacit-box-tag">WHAT</div>
-            <p class="tacit-box-main">何をするか</p>
-            <p class="tacit-box-sub">マニュアルに書ける</p>
-          </div>
-          <div class="tacit-box tacit-box--why">
-            <div class="tacit-box-tag">WHY</div>
-            <p class="tacit-box-main">なぜそうするか</p>
-            <p class="tacit-box-sub">聞かないと出てこない</p>
-          </div>
-          <div class="tacit-box tacit-box--if">
-            <div class="tacit-box-tag">IF</div>
-            <p class="tacit-box-main">どの条件でそうするか</p>
-            <p class="tacit-box-sub">聞かないと出てこない</p>
-          </div>
+        <div class="sv-card">
+          <p class="sv-card-n">② FLOW</p>
+          <p class="sv-card-t">業務フロー</p>
+          <p class="sv-card-d">誰が、いつ、何をきっかけに動くのか。<strong>部署をまたぐ受け渡しと、月次・年次のサイクル</strong>まで含めて、業務全体の地図をつくります。</p>
         </div>
-        <p class="tacit-body">どの事例も、「何をするか（WHAT）」はマニュアルに書いてあります。それでも新人が動けないのは、その先の「なぜそうするか（WHY）」と「どの条件でそうするか（IF）」が言葉になっていないから。この2つは、意識して引き出さない限り、ベテランが退職する日まで頭の中に眠り続けます。</p>
-        <p class="tacit-closing">私たちは、インタビューを通じてこの「WHY」と「IF」を引き出し、<br>新しいスタッフでも再現できる形に変換します。</p>
+        <div class="sv-card">
+          <p class="sv-card-n">③ RULE</p>
+          <p class="sv-card-t">業務上の判断ルール</p>
+          <p class="sv-card-d">値引きをどこまで認めるか、例外にどう対応するか、何を優先するか。<strong>明文化されていない社内の判断基準</strong>を、条件つきの形で整理します。</p>
+        </div>
       </div>
-      <hr class="section-hr">
 
-      <!-- STEP 3 -->
-      <div class="service-block">
-        <div class="service-block-header">
-          <span class="service-number">03</span>
-          <h3 class="service-block-title">社内ナレッジポータル構築</h3>
+      <!-- 3つの手法 -->
+      <p class="sv-blocklabel">METHOD</p>
+      <h3 class="sv-blocktitle">3つの形で、残します</h3>
+      <div class="sv-grid3">
+        <div class="sv-card">
+          <p class="sv-card-n">言語化</p>
+          <p class="sv-card-t">手順に「なぜ」と「例外」を添える</p>
+          <p class="sv-card-d">操作手順だけでは再現できません。なぜその順番なのか、想定外のときはどうするのか。読んだ人が自分で判断できる情報まで書き切ります。</p>
         </div>
-        <p class="service-block-desc">
-          引き出した知識・情報を整理し、社内の知識やノウハウをまとめたナレッジポータルを構築します。一度作ってしまえば、入社・退職が続いたとしても、ここにアクセスすれば業務に必要な情報にたどり着け、どういう状況になっても会社を回し続けることができます。
-        </p>
+        <div class="sv-card">
+          <p class="sv-card-n">図式化</p>
+          <p class="sv-card-t">構造を、一目で分かる図に</p>
+          <p class="sv-card-d">業務の流れ、データの動き、期限の関係。文章では何度読んでも伝わらない構造を、図に置き換えます。新人が最初に見る一枚になります。</p>
+        </div>
+        <div class="sv-card">
+          <p class="sv-card-n">チャート化</p>
+          <p class="sv-card-t">迷ったときに、立ち返れる分岐に</p>
+          <p class="sv-card-d">判断の分かれ道をフローチャートに整理します。「この場合はどうする？」を人に聞かずに解決できる状態をつくります。</p>
+        </div>
+      </div>
 
-        <!-- 使用ツールについて -->
-        <div class="tool-note">
-          <div class="tool-note-ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.5 1.5 0 0 0 2.1 2.1l6-6a4 4 0 0 0 5.4-5.4l-2.3 2.3-2.1-2.1 2.3-2.3z" stroke="var(--primary)" stroke-width="1.7" stroke-linejoin="round"/>
-            </svg>
+      <!-- ご提供例（パッケージ） -->
+      <p class="sv-blocklabel">PACKAGE</p>
+      <h3 class="sv-blocktitle">ご提供例：顧客管理システムの操作を、仕組みにする</h3>
+      <div class="pkg-flow">
+        <div class="pkg-step">
+          <div class="pkg-step-n">1</div>
+          <p class="pkg-step-t">実際の操作を<br>見せていただく</p>
+          <p class="pkg-step-d">ご担当者が普段どおりに操作する様子に同席し、その場で疑問点をお伺いします。</p>
+        </div>
+        <div class="pkg-step">
+          <div class="pkg-step-n">2</div>
+          <p class="pkg-step-t">マニュアルを<br>作成する</p>
+          <p class="pkg-step-d">言語化・図式化・チャート化して、判断の根拠まで含んだマニュアルに仕上げます。</p>
+        </div>
+        <div class="pkg-step">
+          <div class="pkg-step-n">3</div>
+          <p class="pkg-step-t">システムに<br>埋め込む</p>
+          <p class="pkg-step-d">探しに行かなくても、作業する画面のすぐそばで読める状態にします。</p>
+        </div>
+        <div class="pkg-step">
+          <div class="pkg-step-n">4</div>
+          <p class="pkg-step-t">一部を<br>自動化する</p>
+          <p class="pkg-step-d">くり返しの転記・集計・通知など、機械に任せられる部分を切り出して自動化します。</p>
+          <div class="pkg-tools">
+            <span class="pkg-tool">GAS</span>
+            <span class="pkg-tool">Power Automate</span>
+            <span class="pkg-tool">Notion連携</span>
           </div>
+        </div>
+      </div>
+
+      <!-- 納品サンプル（Figures） -->
+      <p class="sv-blocklabel">SAMPLE</p>
+      <h3 class="sv-blocktitle">実際の成果物から、図の例を一部ご紹介します</h3>
+      <p class="sv-lead" style="margin-bottom:22px;">
+        以下は、保険代理店の「満期管理表の運用」を言語化・図式化した納品物からの抜粋です。手順を並べるだけでなく、<strong>どこが業務の本番なのか、なぜその作業が必要なのか</strong>までを図に含めています。
+      </p>
+
+      <div class="fig-box">
+        <p class="fig-cap">FIG.1 ／ 月次サイクル ― 作業のどこが本番か</p>
+        <p class="fig-hint">← 横にスクロールできます</p>
+        <div class="fig-scroll">
+          <svg viewBox="0 0 880 215" style="min-width:820px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="満期管理の月次サイクルを示すフロー図">
+            <defs>
+              <marker id="svcAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a1a2e"/></marker>
+              <marker id="svcArR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b8412a"/></marker>
+            </defs>
+            <g font-family="'Noto Sans JP',sans-serif">
+              <rect x="6" y="48" width="124" height="64" fill="#eef2fb" stroke="#3d6cb5" stroke-width="1.4"/>
+              <text x="68" y="72" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2e549a">きっかけ</text>
+              <text x="68" y="90" text-anchor="middle" font-size="11" fill="#1a1a2e">各社の満期一覧</text>
+              <text x="68" y="104" text-anchor="middle" font-size="11" fill="#1a1a2e">が出る（月1回）</text>
+              <line x1="134" y1="80" x2="158" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
+
+              <rect x="164" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
+              <text x="174" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 1</text>
+              <text x="220" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">前年版を</text>
+              <text x="220" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">複製・改名</text>
+              <line x1="280" y1="80" x2="304" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
+
+              <rect x="310" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
+              <text x="320" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 2</text>
+              <text x="366" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">当年版に</text>
+              <text x="366" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">初期化</text>
+              <line x1="426" y1="80" x2="450" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
+
+              <rect x="456" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
+              <text x="466" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 3</text>
+              <text x="512" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">各社の一覧</text>
+              <text x="512" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">を出力</text>
+              <line x1="572" y1="80" x2="596" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
+
+              <rect x="602" y="38" width="128" height="84" fill="#fbeee9" stroke="#b8412a" stroke-width="2"/>
+              <text x="612" y="57" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 4</text>
+              <text x="666" y="79" text-anchor="middle" font-size="13" font-weight="700" fill="#b8412a">照合</text>
+              <text x="666" y="97" text-anchor="middle" font-size="10.5" fill="#b8412a">ここが本番</text>
+              <text x="666" y="112" text-anchor="middle" font-size="10.5" fill="#b8412a">双方向で確認</text>
+              <line x1="734" y1="80" x2="758" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
+
+              <rect x="764" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
+              <text x="774" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 5-6</text>
+              <text x="820" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">運用開始</text>
+              <text x="820" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">進捗・期限管理</text>
+
+              <path d="M820 116 L820 162 L220 162 L220 118" fill="none" stroke="#b8412a" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#svcArR)"/>
+              <rect x="404" y="148" width="232" height="26" fill="#fbfaf7" stroke="#b8412a" stroke-dasharray="3 3"/>
+              <text x="520" y="166" text-anchor="middle" font-size="11" fill="#b8412a">毎週の社内会議で進捗を確認</text>
+              <text x="6" y="200" font-size="11" fill="#555">STEP 1〜4 が月1回の書き換え作業。慣れれば半日。STEP 5〜6 は満期月まで日々続く運用です。</text>
+            </g>
+          </svg>
+        </div>
+        <p class="fig-after">6つの工程を並べるだけでは、新人は全ての作業を同じ重さで受け取ります。<strong>「STEP 4 が本番」</strong>という重みづけは、ベテランの頭の中にしかない情報です。これを図に書き込むことが、言語化の中身です。</p>
+      </div>
+
+      <div class="fig-box">
+        <p class="fig-cap">FIG.2 ／ 双方向で差分を探す ― なぜ片方向では漏れるのか</p>
+        <p class="fig-hint">← 横にスクロールできます</p>
+        <div class="fig-scroll">
+          <svg viewBox="0 0 700 300" style="min-width:660px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="自社の管理表と外部データを双方向で照合する考え方の図">
+            <defs><marker id="svcAr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b8412a"/></marker></defs>
+            <g font-family="'Noto Sans JP',sans-serif">
+              <rect x="20" y="20" width="240" height="34" fill="#1a1a2e"/>
+              <text x="140" y="42" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">自社の管理表</text>
+              <rect x="440" y="20" width="240" height="34" fill="#3d6cb5"/>
+              <text x="560" y="42" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">取引先から届くデータ</text>
+
+              <rect x="20" y="76" width="660" height="94" fill="#fbeee9" stroke="#b8412a"/>
+              <text x="34" y="98" font-size="10" fill="#b8412a" font-family="monospace">DIRECTION A</text>
+              <path d="M255 118 L445 118" stroke="#b8412a" stroke-width="1.8" marker-end="url(#svcAr3)"/>
+              <text x="350" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#b8412a">管理表にあって、届いたデータにない</text>
+              <text x="350" y="138" text-anchor="middle" font-size="11" fill="#1a1a2e">→ 途中で解約されている／他社に移っている／内容が切り替わっている</text>
+              <text x="350" y="156" text-anchor="middle" font-size="11" fill="#1a1a2e">対象外として印をつけ、理由を備考欄に必ず書く</text>
+
+              <rect x="20" y="184" width="660" height="94" fill="#fff8e8" stroke="#b8412a" stroke-width="2"/>
+              <text x="34" y="206" font-size="10" fill="#b8412a" font-family="monospace">DIRECTION B ／ 漏れの直接原因</text>
+              <path d="M445 226 L255 226" stroke="#b8412a" stroke-width="1.8" marker-end="url(#svcAr3)"/>
+              <text x="350" y="220" text-anchor="middle" font-size="12" font-weight="700" fill="#b8412a">届いたデータにあって、管理表にない</text>
+              <text x="350" y="246" text-anchor="middle" font-size="11" fill="#1a1a2e">→ 記載漏れ。行を追加する</text>
+              <text x="350" y="264" text-anchor="middle" font-size="11" fill="#1a1a2e">担当者は管理表しか見ないため、放置すると誰も気づかないまま期限を過ぎる</text>
+            </g>
+          </svg>
+        </div>
+        <p class="fig-after">ベテランは当然のように両方向を見ています。しかしマニュアルには「照合する」としか書かれていない。<strong>片方向しか確認しないと、なぜ漏れるのか</strong>――その理由まで書くことで、はじめて手順が引き継げる形になります。</p>
+      </div>
+      <p class="fig-note">※ 実際の納品物から、企業・個人が特定されない形に加工した抜粋です。図は業種・業務に合わせて一から設計します。</p>
+    </div>
+  </section>
+
+
+  <!-- ================================================= -->
+  <!-- ★ ミドルCTA                                        -->
+  <!-- ================================================= -->
+  <section class="midcta-section" style="padding: 0 24px 72px; background: var(--bg-section);">
+    <div class="section-inner">
+      <div class="midcta">
+        <div>
+          <p class="midcta-eyebrow">FIRST STEP</p>
+          <p class="midcta-title">どの業務から言語化すべきか、45分で整理します。</p>
+          <p class="midcta-desc">「何から手をつけるべきか分からない」段階でのご相談がいちばん多いです。対象範囲と概算費用まで、初回のご相談でお伝えします。</p>
+        </div>
+        <div class="midcta-actions">
+          <a href="contact.html" class="btn-primary">無料相談・カテゴリ診断</a>
+          <a href="price.html" class="btn-ghost">料金プランを見る</a>
+          <p class="midcta-note">※ 初回相談・カテゴリ診断は無料です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================= -->
+  <!-- ★ SERVICE 02：業務のAI横断活用支援                 -->
+  <!-- ================================================= -->
+  <section class="sv-section sv-section--alt" id="service02">
+    <div class="section-inner">
+      <div class="sv-head">
+        <p class="sv-no">SERVICE 02</p>
+        <h2 class="sv-title">
+          業務のAI横断活用支援
+          <span class="sv-title-sub">AI活用の属人化を解消し、組織の標準にする</span>
+        </h2>
+        <p class="sv-lead">
+          「AIを使えるのは、社内で数人だけ」――これも属人化です。S.sentiaは一つの業務単位ではなく、<strong>組織全体でAIを活用できる環境を構築し、定着するまで支援</strong>します。
+        </p>
+      </div>
+
+      <!-- 提供3点 -->
+      <p class="sv-blocklabel">WHAT WE DO</p>
+      <h3 class="sv-blocktitle">ご提供する3つの支援</h3>
+      <div class="sv-grid3">
+        <div class="sv-card">
+          <p class="sv-card-n">① PLAN</p>
+          <p class="sv-card-t">最適な活用プランの提案</p>
+          <p class="sv-card-d">組織の環境・業務内容・人員構成に合わせて、<strong>どこにAIを効かせると効果が大きいか</strong>を設計します。流行のツールを一律に入れる提案はしません。</p>
+        </div>
+        <div class="sv-card">
+          <p class="sv-card-n">② BUILD</p>
+          <p class="sv-card-t">システムの構築支援</p>
+          <p class="sv-card-d">すでにお使いの基盤の上に構築します。<strong>Google Workspace / Microsoft 365 / Notion</strong> に対応。新しいツールを増やさずに、今の環境を活かします。</p>
+        </div>
+        <div class="sv-card">
+          <p class="sv-card-n">③ TRAIN</p>
+          <p class="sv-card-t">定着のための実践型研修</p>
+          <p class="sv-card-d">操作説明では定着しません。<strong>自社の実データ・実業務で手を動かす</strong>研修をおこない、明日から使える状態までお持ちします。</p>
+        </div>
+      </div>
+
+      <!-- 横断活用の図 -->
+      <p class="sv-blocklabel">HOW IT WORKS</p>
+      <h3 class="sv-blocktitle">「アプリごと」ではなく、「業務を横断して」使える形に</h3>
+      <p class="sv-lead" style="margin-bottom:24px;">
+        AIは単体のチャット画面で使うものではありません。文書・表・会議・ファイル保管がひとつの基盤でつながると、<strong>普段の業務のなかにAIが入り込みます</strong>。以下は Google Workspace を基盤にした場合の全体像です。
+      </p>
+
+      <div class="fig-box aihub">
+        <p class="fig-cap">FIG.3 ／ 業務を横断するAI活用（Google Workspace の例）</p>
+        <p class="fig-hint">← 横にスクロールできます</p>
+        <div class="fig-scroll">
+          <svg viewBox="0 0 720 400" style="min-width:680px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="組織のAIが各業務アプリを横断してつながる図">
+            <g font-family="'Noto Sans JP',sans-serif">
+              <!-- 接続線 -->
+              <g stroke="#b9c8e2" stroke-width="1.6">
+                <line x1="360" y1="205" x2="360" y2="57"/>
+                <line x1="360" y1="205" x2="476" y2="113"/>
+                <line x1="360" y1="205" x2="504" y2="238"/>
+                <line x1="360" y1="205" x2="424" y2="338"/>
+                <line x1="360" y1="205" x2="296" y2="338"/>
+                <line x1="360" y1="205" x2="216" y2="238"/>
+                <line x1="360" y1="205" x2="244" y2="113"/>
+              </g>
+              <!-- 中央 -->
+              <circle cx="360" cy="205" r="64" fill="#3d6cb5"/>
+              <text x="360" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">組織のAI</text>
+              <text x="360" y="218" text-anchor="middle" font-size="9.5" fill="#dce6f7">管理者が一元管理</text>
+
+              <!-- ノード -->
+              <g>
+                <rect x="301" y="31" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="360" y="52" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ブラウザ</text>
+                <text x="360" y="69" text-anchor="middle" font-size="9.5" fill="#555">開いている画面を読む</text>
+              </g>
+              <g>
+                <rect x="417" y="87" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="476" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドキュメント</text>
+                <text x="476" y="125" text-anchor="middle" font-size="9.5" fill="#555">下書き・体裁を整える</text>
+              </g>
+              <g>
+                <rect x="445" y="212" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="504" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スプレッドシート</text>
+                <text x="504" y="250" text-anchor="middle" font-size="9.5" fill="#555">集計・数式・差分照合</text>
+              </g>
+              <g>
+                <rect x="365" y="312" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="424" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スライド</text>
+                <text x="424" y="350" text-anchor="middle" font-size="9.5" fill="#555">構成・レイアウト</text>
+              </g>
+              <g>
+                <rect x="237" y="312" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="296" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">会議（Meet）</text>
+                <text x="296" y="350" text-anchor="middle" font-size="9.5" fill="#555">文字起こし・要約</text>
+              </g>
+              <g>
+                <rect x="157" y="212" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="216" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドライブ</text>
+                <text x="216" y="250" text-anchor="middle" font-size="9.5" fill="#555">資料の横断検索</text>
+              </g>
+              <g>
+                <rect x="185" y="87" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <text x="244" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ノートブック</text>
+                <text x="244" y="125" text-anchor="middle" font-size="9.5" fill="#555">自社専用AIをつくる</text>
+              </g>
+              <text x="360" y="390" text-anchor="middle" font-size="10.5" fill="#555">同じ基盤の上にあるため、会議の記録が資料に、資料が専用AIの知識になります。</text>
+            </g>
+          </svg>
+        </div>
+        <p class="fig-after">個人が自分のアカウントで使うAIは、成果がその人の中に残ります。<strong>組織の基盤の上で使うAIは、成果が組織に残ります。</strong>ここが、AI活用の属人化を解消する分かれ目です。</p>
+      </div>
+
+      <!-- 8つの活用ポイント -->
+      <p class="sv-blocklabel">EXAMPLES</p>
+      <h3 class="sv-blocktitle">実際にできるようになること</h3>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-n">1</div>
           <div>
-            <strong class="tool-note-title">納品ツールについて</strong>
-            <p>標準は、月額料金に利用料・保守まで含んだ<strong>弊社の自社アプリ（wiki）</strong>でお渡しします。すでにNotionをご利用の企業様は、納品先としてNotionをお選びいただくことも可能です（料金は個別相談）。御社の環境に合わせて、最適な形でお渡しします。</p>
+            <p class="cap-t">組織として、全員のアカウントを管理する</p>
+            <p class="cap-d">誰がどう使っているかを管理者が把握できる状態にします。担当者が退職してもデータが組織に残ります。</p>
           </div>
         </div>
-
-        <!-- Wikiの中身イメージ -->
-        <div class="sub-section">
-          <p class="sub-section-label">Inside the Wiki</p>
-          <h4 class="sub-section-title">完成する社内ナレッジポータルの中身</h4>
-          <p class="sub-section-desc">左に業務カテゴリ、右に各ページ。手順だけでなく、ベテランの「判断のコツ」までページ内に書き込みます。</p>
-          <div class="wiki-mock">
-            <div class="wiki-side">
-              <div class="wiki-side-cat">▼ 営業</div>
-              <div class="wiki-side-item">初回訪問</div>
-              <div class="wiki-side-item">ヒアリング</div>
-              <div class="wiki-side-item">見積</div>
-              <div class="wiki-side-item">営業方針</div>
-              <div class="wiki-side-cat">▼ 商品知識</div>
-              <div class="wiki-side-item">商品A / 商品B</div>
-              <div class="wiki-side-item">FAQ</div>
-              <div class="wiki-side-cat">▼ システム</div>
-              <div class="wiki-side-item">CRM / 受注 / 請求</div>
-              <div class="wiki-side-cat">▼ 新人コース</div>
-              <div class="wiki-side-item">Phase 1 / Phase 2</div>
-            </div>
-            <div class="wiki-main">
-              <div class="wiki-main-bc">営業方針</div>
-              <div class="wiki-main-h">営業行動指針</div>
-              <div class="wiki-callout">
-                <strong style="display:block; font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:2px;">🎯 提案スタイルの基本</strong>
-                <ul style="margin:0 0 0 14px; padding:0; list-style:disc; font-size:0.78rem; line-height:1.8; color:var(--text-muted);">
-                  <li>「物売り」を脱し、相手が"自分ごと"として捉えられる提案を目指す</li>
-                  <li>顧客情報・データをもとに仮説を立てて提案する(根拠のない提案はしない)</li>
-                  <li>他社・他業界の事例と自分の意見・価値観をセットで伝える</li>
-                  <li>自身の経験・知識を交えたストーリーで語る(情報の羅列に終わらせない)</li>
-                </ul>
-              </div>
-              <div class="wiki-callout">
-                <strong style="display:block; font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:2px;">🗓️ スケジュール管理の型</strong>
-                <ul style="margin:0 0 0 14px; padding:0; list-style:disc; font-size:0.78rem; line-height:1.8; color:var(--text-muted);">
-                  <li>金曜日までに翌週の予定を確定させる(当週アポは原則禁止)</li>
-                  <li>「頭を使う業務」は集中時間に、「移動中にできる業務」は隙間時間に分類する</li>
-                  <li>メール返信・経費処理などは時間帯を決めてまとめて処理する(都度対応は集中を妨げる)</li>
-                </ul>
-              </div>
-              <div class="wiki-callout">
-                <strong style="display:block; font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:2px;">🔄 PDCA・振り返りの習慣</strong>
-                <ul style="margin:0 0 0 14px; padding:0; list-style:disc; font-size:0.78rem; line-height:1.8; color:var(--text-muted);">
-                  <li>仮説提案の後は必ず振り返りを行い、次の提案に活かす</li>
-                  <li>気づきや情報は上長・関係部署へ積極的に共有する</li>
-                  <li>上長同行(同席依頼)の判断基準を明確に持つ:
-                    <ul style="margin:2px 0 0 14px; list-style:circle; font-size:0.78rem; line-height:1.8; color:var(--text-muted);">
-                      <li>他社事例の補完が必要なとき</li>
-                      <li>意思決定者へのアプローチで"場の格"が必要なとき</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="wiki-callout">
-                <strong style="display:block; font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:2px;">⏱️ 時間・集中力の管理</strong>
-                <ul style="margin:0 0 0 14px; padding:0; list-style:disc; font-size:0.78rem; line-height:1.8; color:var(--text-muted);">
-                  <li>一日の始めは「頭を使う仕事(企画・見積・分析など)」から着手する</li>
-                  <li>業務を「オフィスでしかできないこと」「移動中でもできること」に事前分類して計画を立てる</li>
-                  <li>どんな些細な気づきも必ずメモに残す(スマホ・音声・AIツールを活用)</li>
-                </ul>
-              </div>
-            </div>
+        <div class="cap-card">
+          <div class="cap-n">2</div>
+          <div>
+            <p class="cap-t">ブラウザにAIが常駐し、見ている画面を読む</p>
+            <p class="cap-d">開いているページの内容をそのまま前提に相談できます。コピー＆ペーストの手間がなくなります。</p>
           </div>
-          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:10px;text-align:center;">※ 構成イメージです。実際の社内ナレッジポータルサンプルは STEP④ 下部のリンクからご覧いただけます。</p>
         </div>
-
+        <div class="cap-card">
+          <div class="cap-n">3</div>
+          <div>
+            <p class="cap-t">文書の下書き・編集を任せる</p>
+            <p class="cap-d">案内文・督促文・報告書のたたき台を作成。既存文書の書式や文体に合わせて整えることもできます。</p>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-n">4</div>
+          <div>
+            <p class="cap-t">表の作成・数式の組み立てを任せる</p>
+            <p class="cap-d">一覧表の作成、計算式の挿入、複数シートを横断した差分チェックまで対応します。</p>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-n">5</div>
+          <div>
+            <p class="cap-t">資料のレイアウトを整える</p>
+            <p class="cap-d">文章だけのスライドを、読みやすい構成とレイアウトに再構成します。デザインの得意・不得意に依存しません。</p>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-n">6</div>
+          <div>
+            <p class="cap-t">会議を自動で記録し、要約する</p>
+            <p class="cap-d">カレンダーと連動して会議を記録、文字起こしと要約を作成し、決定事項とToDoを自動で共有します。</p>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-n">7</div>
+          <div>
+            <p class="cap-t">社内の資料を横断して検索する</p>
+            <p class="cap-d">「あの案件の最新のやりとりは？」に、保存場所を覚えていなくても答えが返ります。過去資料が使える資産になります。</p>
+          </div>
+        </div>
+        <div class="cap-card">
+          <div class="cap-n">8</div>
+          <div>
+            <p class="cap-t">自社専用のAIをつくる</p>
+            <p class="cap-d">社内資料・業務フロー・成功事例だけを読み込ませ、その範囲からしか答えないAIを用意します。一般論での回答を避けられます。</p>
+          </div>
+        </div>
       </div>
-      <hr class="section-hr">
 
-      <!-- STEP 4 -->
-      <div class="service-block">
-        <div class="service-block-header">
-          <span class="service-number">04</span>
-          <h3 class="service-block-title">学習コース設計</h3>
+      <!-- Before / After -->
+      <p class="sv-blocklabel">BEFORE / AFTER</p>
+      <h3 class="sv-blocktitle">たとえば、シートをまたいだ確認作業</h3>
+      <div class="ba2">
+        <div class="ba2-panel">
+          <span class="ba2-label">BEFORE</span>
+          <table class="ba2-tbl">
+            <thead><tr><th>会社名</th><th>請求額</th></tr></thead>
+            <tbody>
+              <tr><td>A社</td><td class="num">¥120,000</td></tr>
+              <tr><td>B社</td><td class="num">¥85,000</td></tr>
+              <tr><td>C社</td><td class="num">¥200,000</td></tr>
+            </tbody>
+          </table>
+          <p class="ba2-msg">別シートの入金一覧と、1行ずつ目で追って突き合わせる。件数が増えるほど、見落としが起きる。</p>
         </div>
-        <p class="service-block-desc">
-          ナレッジベースの情報を「フェーズ」「Unit」単位で整理し、習熟順に学べる学習コースを設計します。新人が迷わず進められるロードマップを提供し、上長の指導工数を最小化します。
+        <div class="ba2-panel ba2-panel--after">
+          <span class="ba2-label">AFTER</span>
+          <table class="ba2-tbl">
+            <thead><tr><th>会社名</th><th>請求額</th><th>照合</th></tr></thead>
+            <tbody>
+              <tr><td>A社</td><td class="num">¥120,000</td><td class="ba2-ok">✓</td></tr>
+              <tr><td>B社</td><td class="num">¥85,000</td><td class="ba2-ok">✓</td></tr>
+              <tr><td>C社</td><td class="num">¥200,000</td><td class="ba2-flag">✗</td></tr>
+            </tbody>
+          </table>
+          <p class="ba2-msg">請求と入金の合計が一致しません。C社が請求 ¥200,000 に対し入金 ¥190,000 ― 差額 ¥10,000 をご確認ください。</p>
+        </div>
+      </div>
+      <p class="fig-note" style="margin-top:14px;">※ 数値はイメージです。実際には御社のシート構成に合わせて設計します。</p>
+
+      <!-- ご提供例 -->
+      <p class="sv-blocklabel">PACKAGE</p>
+      <h3 class="sv-blocktitle">ご提供例</h3>
+      <div class="ex-grid">
+        <div class="ex-card">
+          <span class="ex-tag">保険代理店</span>
+          <p class="ex-t">運営管理のあらゆる業務でAIを使える環境を構築</p>
+          <p class="ex-d">契約管理・顧客対応・社内文書作成・会議記録まで、日常業務の各場面にAIを組み込み、全員が同じ水準で使える状態を整備します。</p>
+          <p class="ex-base">基盤：Google Workspace</p>
+        </div>
+        <div class="ex-card">
+          <span class="ex-tag">旅行会社</span>
+          <p class="ex-t">膨大な案件資料・マニュアルを横断検索できるナレッジ環境</p>
+          <p class="ex-d">積み上がった案件資料と各種マニュアルを整理・構造化し、必要な情報にAI経由でたどり着ける状態にします。「あの資料どこ？」がなくなります。</p>
+          <p class="ex-base">基盤：Google Workspace</p>
+        </div>
+        <div class="ex-card">
+          <span class="ex-tag">専門職</span>
+          <p class="ex-t">専門職のナレッジに特化したAIチャットボット</p>
+          <p class="ex-d">現場で判断に迷う場面を想定し、自社の業務知識だけを参照して答えるチャットボットを構築。一般論ではなく、自社の基準で回答します。</p>
+          <p class="ex-base">基盤：Microsoft 365</p>
+        </div>
+      </div>
+      <p class="ex-disclaimer">※ 上記は現在ご提供可能な内容の例です。御社の基盤・業務に合わせて設計しますので、まずは現状をお聞かせください。</p>
+    </div>
+  </section>
+
+
+  <!-- ================================================= -->
+  <!-- ★ 両サービス共通の結び                             -->
+  <!-- ================================================= -->
+  <section style="padding: 0 24px 76px; background: var(--bg);">
+    <div class="section-inner">
+      <div class="closing-band">
+        <p>
+          2つのサービスに共通しているのは、<strong>まず現場の業務を実際に見せていただき、インタビューをさせていただくこと</strong>です。これまで無意識・感覚でおこなわれてきた業務を、細部まで言語化する。そこがS.sentiaの強みであり、<strong>マニュアルの作成やシステムの構築は、あくまでその手段</strong>です。<br>
+          道具を入れることが目的になると、仕組みは使われません。順番を、逆にしません。
         </p>
-
-        <!-- 新人はどう学ぶか -->
-        <div class="sub-section">
-          <p class="sub-section-label">How they learn</p>
-          <h4 class="sub-section-title">新人は、実際にこう学ぶ</h4>
-          <p class="sub-section-desc">Unitを開けば、教材から理解度チェックまでが1本につながっています。「教える」から「自分で進める」へ。</p>
-          <div class="learn-flow">
-            <div class="learn-step">
-              <!-- ロードマップ：格子状のパス -->
-              <div class="learn-step-ico">
-                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="6" width="9" height="7" rx="1.5" fill="#3d6cb5"/>
-                  <rect x="13" y="6" width="9" height="7" rx="1.5" fill="#3d6cb5" opacity=".45"/>
-                  <rect x="2" y="19" width="9" height="7" rx="1.5" fill="#3d6cb5" opacity=".45"/>
-                  <rect x="13" y="19" width="9" height="7" rx="1.5" fill="#3d6cb5"/>
-                  <line x1="11" y1="9.5" x2="13" y2="9.5" stroke="#3d6cb5" stroke-width="1.5"/>
-                  <line x1="22" y1="13" x2="22" y2="19" stroke="#3d6cb5" stroke-width="1.5"/>
-                  <line x1="11" y1="22.5" x2="13" y2="22.5" stroke="#3d6cb5" stroke-width="1.5"/>
-                  <line x1="7" y1="13" x2="7" y2="19" stroke="#3d6cb5" stroke-width="1.5"/>
-                  <circle cx="27" cy="16" r="3" fill="#3d6cb5"/>
-                  <line x1="22" y1="16" x2="24" y2="16" stroke="#3d6cb5" stroke-width="1.5"/>
-                </svg>
-              </div>
-              <div class="learn-step-t">フェーズを選ぶ</div>
-              <div class="learn-step-s">習熟順のロードマップ</div>
-            </div>
-            <div class="learn-step">
-              <!-- フォルダ -->
-              <div class="learn-step-ico">
-                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 10C3 8.9 3.9 8 5 8H13L15 11H27C28.1 11 29 11.9 29 13V24C29 25.1 28.1 26 27 26H5C3.9 26 3 25.1 3 24V10Z" fill="#3d6cb5" opacity=".2"/>
-                  <path d="M3 13C3 11.9 3.9 11 5 11H27C28.1 11 29 11.9 29 13V24C29 25.1 28.1 26 27 26H5C3.9 26 3 25.1 3 24V13Z" fill="#3d6cb5"/>
-                  <line x1="11" y1="18.5" x2="21" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="16" y1="15" x2="16" y2="22" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="learn-step-t">Unitを開く</div>
-              <div class="learn-step-s">学ぶ単元を選択</div>
-            </div>
-            <div class="learn-step">
-              <!-- 再生ボタン（学習コンテンツ） -->
-              <div class="learn-step-ico">
-                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="6" width="26" height="18" rx="2.5" fill="#3d6cb5" opacity=".15"/>
-                  <rect x="3" y="6" width="26" height="18" rx="2.5" stroke="#3d6cb5" stroke-width="1.8"/>
-                  <polygon points="13,10.5 13,21.5 23,16" fill="#3d6cb5"/>
-                  <rect x="8" y="27" width="16" height="2" rx="1" fill="#3d6cb5" opacity=".4"/>
-                </svg>
-              </div>
-              <div class="learn-step-t">動画・文章で学ぶ</div>
-              <div class="learn-step-s">手順とコツを理解</div>
-            </div>
-            <div class="learn-step">
-              <!-- チェックマーク -->
-              <div class="learn-step-ico">
-                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="16" cy="16" r="13" fill="#3d6cb5" opacity=".12"/>
-                  <circle cx="16" cy="16" r="13" stroke="#3d6cb5" stroke-width="1.8"/>
-                  <polyline points="9,16.5 14,21.5 23,11" stroke="#3d6cb5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </svg>
-              </div>
-              <div class="learn-step-t">理解度チェック</div>
-              <div class="learn-step-s">定着を確認</div>
-            </div>
-            <div class="learn-step">
-              <!-- 右矢印（次へ） -->
-              <div class="learn-step-ico">
-                <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="16" cy="16" r="13" fill="#3d6cb5"/>
-                  <polyline points="13,10 20,16 13,22" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                </svg>
-              </div>
-              <div class="learn-step-t">次のUnitへ</div>
-              <div class="learn-step-s">迷わず自走</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 納品物一覧 -->
-      <div class="sub-section" style="margin-bottom:0;">
-        <p class="sub-section-label">Summary</p>
-        <h4 class="sub-section-title">納品物一覧</h4>
-        <p class="sub-section-desc">プロジェクト完了時に、お手元に残るものの一覧です。</p>
-        <div class="deliverables-cols">
-          <!-- 左カラム：納品物一覧の表 -->
-          <div class="deliverables-col-left">
-            <div class="table-wrapper">
-              <table class="table-fit">
-                <thead>
-                  <tr>
-                    <th>納品物</th>
-                    <th>内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>社内ナレッジポータル</td>
-                    <td>業務手順・FAQ・判断基準（WHY・IFまで言語化）を、ご利用ツールに合わせて構造化</td>
-                  </tr>
-                  <tr>
-                    <td>新人教育コース</td>
-                    <td>フェーズ・Unit構成の学習ロードマップと理解度チェック</td>
-                  </tr>
-                  <tr>
-                    <td>ノウハウ・判断基準一覧</td>
-                    <td>インタビューで引き出した判断軸・例外・自己流の工夫の記録</td>
-                  </tr>
-                  <tr>
-                    <td>検索できる土台</td>
-                    <td>検索／AIが参照できるナレッジベースとしての整備</td>
-                  </tr>
-                  <tr>
-                    <td>運用ガイド</td>
-                    <td>納品後の更新・追記の進め方、今後のAI活用の方針</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- 右カラム：社内ナレッジポータルサンプル -->
-          <div class="deliverables-col-right">
-            <a href="https://app.notion.com/p/9d54557b42f247ca824a6b520670f3a1"
-               target="_blank" rel="noopener noreferrer"
-               style="display: block; border: 1.5px solid #c8d8f0; border-radius: 10px; overflow: hidden; text-decoration: none; box-shadow: 0 2px 8px rgba(61,108,181,0.10);">
-              <img src="wiki-sample.png"
-                   alt="社内ナレッジポータルサンプル（地域密着型不動産会社）"
-                   style="width: 100%; height: auto; display: block;">
-            </a>
-            <p style="font-size: 0.85rem; color: #888; margin-top: 0.6rem; text-align: center;">
-              クリックすると実際のサンプルが開きます
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ★ Before / After -->
-  <section style="padding: 72px 24px; background: var(--bg);">
-    <div class="section-inner">
-      <p class="section-label">Before / After</p>
-      <h2 class="section-title">教育担当者の1週間が、こう変わる。</h2>
-      <div class="section-divider"></div>
-      <p class="sub-section-desc" style="margin-bottom:28px;">新人からの「これどこに書いてありますか？」が減り、同じ説明のくり返しから解放されます。下は、新人の質問対応にかかる1日の時間のイメージです。</p>
-      <div class="ba-grid">
-        <div class="ba-card ba-card--before">
-          <div class="ba-head">
-            <span class="ba-pill">導入前</span>
-            <h4>その都度、対面で対応</h4>
-          </div>
-          <ul class="ba-week">
-            <li><span class="ba-day">月</span><span class="ba-val">質問対応 30分</span></li>
-            <li><span class="ba-day">火</span><span class="ba-val">質問対応 45分</span></li>
-            <li><span class="ba-day">水</span><span class="ba-val">質問対応 60分</span></li>
-            <li><span class="ba-day">木</span><span class="ba-val">質問対応 40分</span></li>
-            <li><span class="ba-day">金</span><span class="ba-val">質問対応 50分</span></li>
-            <li style="border-top: 1px solid var(--border); margin-top: 4px; padding-top: 8px;"><span class="ba-day" style="font-weight:700; color:var(--text);">週合計</span><span class="ba-val">225分</span></li>
-          </ul>
-          <p class="ba-foot">人によって教える内容にバラつき。<strong>同じ質問が何度も</strong>くり返される。</p>
-        </div>
-        <div class="ba-card ba-card--after">
-          <div class="ba-head">
-            <span class="ba-pill">導入後</span>
-            <h4>まずWikiで自己解決</h4>
-          </div>
-          <ul class="ba-week">
-            <li><span class="ba-day">月</span><span class="ba-val">質問対応 10分</span></li>
-            <li><span class="ba-day">火</span><span class="ba-val">質問対応 5分</span></li>
-            <li><span class="ba-day">水</span><span class="ba-val">質問対応 15分</span></li>
-            <li><span class="ba-day">木</span><span class="ba-val">質問対応 5分</span></li>
-            <li><span class="ba-day">金</span><span class="ba-val">質問対応 10分</span></li>
-            <li style="border-top: 1px solid var(--border); margin-top: 4px; padding-top: 8px;"><span class="ba-day" style="font-weight:700; color:var(--text);">週合計</span><span class="ba-val">45分</span></li>
-          </ul>
-          <p class="ba-foot">新人は<strong>Wiki検索で自己解決</strong>。担当者は「分からないところだけ」に集中できる。</p>
-        </div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:14px;text-align:center;">※ 時間はイメージです。実際の削減効果は下記の導入実績をご覧ください。</p>
-    </div>
-  </section>
-
-  <!-- 導入実績 -->
-  <section style="padding: 72px 24px; background: var(--bg-section);">
-    <div class="section-inner">
-      <div class="section-label">Results</div>
-      <h2 class="section-title">導入実績</h2>
-
-      <div class="case-grid">
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-badge">75% 研修時間削減</div>
-          <div class="case-meta">保険代理店 A社｜北海道内・従業員15名・新人年3〜4名入社</div>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">課題</div>
-          <p>新人が入るたびにベテラン社員が個別に対面研修。担当者によって教える内容にバラつきがあり、「誰に聞いても答えが違う」状態が続いていた。</p>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">取り組み</div>
-          <p>特定の保険商品の学習に特化した社内ナレッジポータルを開発。学習フェーズ・Unit構造で新人が自走できる環境を構築。</p>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">結果</div>
-          <p>対面研修 <strong>20時間 → 5時間（75%削減）</strong>。残りはWikiコースによる自己学習に移行。着手から納品まで約3週間。</p>
-        </div>
-
-        <div class="case-quote">
-          「Wikiができてから、新人に聞かれる回数が明らかに減りました。自分の時間が戻ってきた感覚があります。」
-          <div class="case-quote-author">— 教育担当マネージャー（保険代理店A社）</div>
-        </div>
-      </div>
-
-      <div class="case-card">
-        <div class="case-header">
-          <div class="case-badge">50% 独り立ち期間短縮</div>
-          <div class="case-meta">旅行代理店 B社｜北海道内・従業員20名・中途採用中心</div>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">課題</div>
-          <p>営業フロー・サービス知識・システム操作が口頭とバラバラな資料に分散。新人が何をどの順に覚えればいいか分からず、独り立ちまでに長い時間がかかっていた。</p>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">取り組み</div>
-          <p>営業の業務フロー・サービス知識・システムマニュアルを網羅した総合Wikiを開発。入社フェーズに沿った学習ロードマップを設計。</p>
-        </div>
-
-        <div class="case-block">
-          <div class="case-block-label">結果</div>
-          <p>基本業務を1人でこなせるまでの期間が <strong>6ヶ月 → 3ヶ月（50%短縮）</strong>。着手から納品まで約4週間。</p>
-        </div>
-
-        <div class="case-quote">
-          「何をどの順番で覚えればいいかが一目でわかるようになり、新人からの『何をすればいいですか？』という質問がほぼなくなりました。」
-          <div class="case-quote-author">— 営業マネージャー（旅行代理店B社）</div>
-        </div>
-      </div>
-      </div><!-- /.case-grid -->
-
-    </div>
-  </section>
-
-
-  <!-- ★ 不安払拭（はじめての外部委託でも） -->
-  <section class="assure-section">
-    <div class="section-inner">
-      <p class="section-label">Before You Ask</p>
-      <h2 class="section-title">はじめての外部委託でも、安心して進められます。</h2>
-      <div class="section-divider"></div>
-      <p class="assure-lead">
-        100万円規模の外部委託を初めて検討するとき、不安になるのは当然です。ご相談前に、よくいただく<span class="nobr">4つの不安にお答えします。</span>
-      </p>
-      <div class="assure-grid">
-        <div class="assure-card">
-          <div class="assure-q">誰が担当しますか？</div>
-          <div class="assure-a">インタビューから設計・構築まで、<strong>すべての工程を代表が直接担当</strong>します。外注や担当者の入れ替えによる品質のばらつきはありません。</div>
-        </div>
-        <div class="assure-card">
-          <div class="assure-q">対象範囲が、途中で膨らみませんか？</div>
-          <div class="assure-a">初回の<strong>無料「カテゴリ診断」</strong>で対象範囲と概算費用を明確にしてから着手します。想定外の追加費用が後から出ない設計です。</div>
-        </div>
-        <div class="assure-card">
-          <div class="assure-q">どのくらいで終わりますか？</div>
-          <div class="assure-a">着手から納品まで<strong>最短3〜4週間</strong>。プロジェクト単位でお請けするので、ずるずると長引くことはありません。</div>
-        </div>
-        <div class="assure-card">
-          <div class="assure-q">高額なのに、成果が出なかったら？</div>
-          <div class="assure-a">まず<strong>1つの業務領域から始めるStarterプラン</strong>をご用意しています。実際に動く成果物を確認してから、範囲を広げるかを判断できます。</div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ★ 信頼の証（方法論で選ばれる） -->
-  <section class="trust-section">
-    <div class="section-inner">
-      <p class="section-label">Why S.sentia</p>
-      <h2 class="section-title">「実績数」ではなく、"方法"で選ばれています。</h2>
-      <div class="section-divider"></div>
-      <p class="trust-lead">
-        2026年4月創業。まだ「導入社数No.1」ではありません。それでもご相談をいただけるのは、属人化を解消するための<strong style="color:var(--primary-dark);">再現できる方法</strong>を体系として持っているからです。感覚や気合いではなく、決まった手順で知識を引き出します。
-      </p>
-      <div class="method-grid">
-        <div class="method-card">
-          <span class="method-tag">FRAMEWORK</span>
-          <h3>暗黙知の4分類</h3>
-          <p>手順・概念・判断軸・自己流の工夫。「何を聞き出せば知識が再現できるか」を4つに整理した、独自のフレームワークです。</p>
-        </div>
-        <div class="method-card">
-          <span class="method-tag">METHOD</span>
-          <h3>8つのプルーブ</h3>
-          <p>ベテラン本人も無意識にやっている「判断の奥」まで引き出すための、8つの質問アプローチ。表面的なマニュアルで終わらせません。</p>
-        </div>
-        <div class="method-card">
-          <span class="method-tag">AI-ASSISTED</span>
-          <h3>AIによる質問設計</h3>
-          <p>お預かりした既存資料をAIが分析し、抜け漏れのない深掘りの質問を設計。ヒアリングの質を、担当者の勘に頼りません。</p>
-        </div>
-        <div class="method-card">
-          <span class="method-tag">DEMO</span>
-          <h3>動く成果物を、先に見られる</h3>
-          <p>完成イメージは言葉ではなく、実物のサンプルで確認できます。「何ができあがるか分からない」不安をなくします。</p>
-        </div>
-      </div>    </div>
-  </section>
 
   <!-- CTA -->
   <div class="cta-band">
