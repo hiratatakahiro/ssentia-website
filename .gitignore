@@ -17,3 +17,4 @@
 *.pptx
 .DS_Store
 ~$*
+.claude/
