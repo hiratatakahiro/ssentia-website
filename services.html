@@ -10,7 +10,7 @@
   <meta name="description" content="S.sentiaは現場の業務を実際に見せていただき、無意識・感覚でおこなわれてきた仕事を言語化します。①業務の属人化解消（システム操作・業務フロー・判断ルールの言語化・図式化・チャート化）②業務のAI横断活用支援（Google Workspace / Microsoft 365 / Notion の構築と定着研修）。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -2217,6 +2217,155 @@
       .fig-box { padding: 14px 14px 12px; }
       .closing-band { padding: 22px 20px; }
     }
+
+    /* ==========================================================
+       DESIGN REFRESH ― 2026-07
+       既存定義を上書きする刷新レイヤー。
+       方向性が確定したら、上の定義群と統合する。
+       ========================================================== */
+    :root{
+      --paper:#f6f5f2;
+      --ink:#16191f;
+      --ink-soft:#4e535c;
+      --rule:#d7d3ca;
+      --rule-fine:#e8e5df;
+      --numeral:#c3bdb1;
+      --panel:#1b1f27;
+    }
+    .serif, .section-title, .sv-title, .sv-blocktitle, .branch-card-t,
+    .core-step-t, .sv-card-t, .cap-t, .pkg-panel-title, .pkg-row-t{
+      font-family:'Noto Serif JP', serif; font-weight:600;
+      letter-spacing:0.015em; font-feature-settings:"palt" 1;
+    }
+
+    /* ---- 面の切り替え（青みのある灰色をやめ、紙色に） ---- */
+    .core-section{ background:#fff; padding:88px 24px 92px; }
+    .sv-section{ background:var(--paper); padding:88px 24px 96px; }
+    .sv-section--alt{ background:#fff; }
+    .closing-wrap{ background:var(--paper); padding:0 24px 96px; }
+
+    /* ---- 共通コア ---- */
+    .core-section .section-label{ font-size:0.67rem; letter-spacing:0.28em; color:var(--ink-soft); }
+    .core-section .section-title{ color:var(--ink); }
+    .core-section .section-divider{ width:34px; height:1px; background:var(--ink); border-radius:0; margin-bottom:34px; }
+    .core-lead{ text-align:left; margin:0 0 60px; max-width:740px; line-height:2.2; color:var(--ink-soft); }
+    .core-lead strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+
+    .core-steps{ grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--ink); margin-bottom:76px; }
+    .core-step{ position:relative; background:none; border:0; border-left:1px solid var(--rule-fine);
+      border-radius:0; padding:30px 32px 0; }
+    .core-step:first-child{ border-left:0; padding-left:0; }
+    .core-step::before{ content:""; position:absolute; top:-4px; left:32px; width:7px; height:7px; background:var(--ink); }
+    .core-step:first-child::before{ left:0; }
+    .core-step-n{ display:block; border:0; border-radius:0; padding:0; margin-bottom:10px;
+      font-family:'Noto Serif JP',serif; font-size:1.7rem; font-weight:400;
+      color:var(--numeral); letter-spacing:0.04em; line-height:1; }
+    .core-step-t{ font-size:1.12rem; color:var(--ink); margin-bottom:12px; }
+    .core-step-d{ font-size:0.85rem; line-height:2.05; color:var(--ink-soft); }
+
+    .core-branch-lead{ text-align:left; font-size:0.86rem; font-weight:400; letter-spacing:0.06em;
+      color:var(--ink-soft); margin-bottom:18px; }
+    .core-branch{ gap:20px; }
+    .branch-card{ background:var(--paper); border:1px solid var(--rule); border-radius:0;
+      padding:32px 32px 28px; transition:background .25s, border-color .25s; }
+    .branch-card:hover{ background:#fff; border-color:var(--ink); transform:none; box-shadow:none; }
+    .branch-card-no{ font-size:0.64rem; letter-spacing:0.26em; color:var(--ink-soft); margin-bottom:12px; }
+    .branch-card-t{ font-size:1.22rem; color:var(--ink); margin-bottom:12px; }
+    .branch-card-d{ font-size:0.85rem; line-height:2.0; color:var(--ink-soft); }
+    .branch-card-go{ margin-top:16px; font-size:0.76rem; font-weight:400; letter-spacing:0.1em; color:var(--primary-dark); }
+
+    /* ---- サービス見出し ---- */
+    .sv-head{ margin-bottom:10px; }
+    .sv-no{ font-size:0.66rem; letter-spacing:0.3em; color:var(--ink-soft); margin-bottom:18px; }
+    .sv-title{ font-size:clamp(1.6rem,3.6vw,2.15rem); color:var(--ink); line-height:1.5; margin-bottom:18px; }
+    .sv-title-sub{ display:inline-block; font-family:'Noto Sans JP',sans-serif; font-size:0.82rem;
+      font-weight:400; letter-spacing:0.08em; color:var(--ink-soft);
+      margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); }
+    .sv-lead{ line-height:2.2; color:var(--ink-soft); }
+    .sv-lead strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+
+    .sv-blocklabel{ display:flex; align-items:center; gap:14px; font-size:0.64rem; font-weight:400;
+      letter-spacing:0.28em; color:var(--ink-soft); margin:72px 0 14px; }
+    .sv-blocklabel::before{ content:""; flex:none; width:26px; height:1px; background:var(--ink); }
+    .sv-blocktitle{ font-size:clamp(1.2rem,2.4vw,1.55rem); color:var(--ink); line-height:1.65; margin-bottom:32px; }
+
+    /* ---- 3項目（罫線とセリフ数字。囲みをやめる） ---- */
+    .sv-grid3{ gap:0; border-top:1px solid var(--ink); }
+    .sv-card, .sv-section--alt .sv-card{ background:none; border:0; border-left:1px solid var(--rule-fine);
+      border-radius:0; padding:28px 32px 0; }
+    .sv-card:first-child{ border-left:0; padding-left:0; }
+    .sv-card-n{ font-family:'Noto Serif JP',serif; font-size:1.7rem; font-weight:400;
+      color:var(--numeral); letter-spacing:0.04em; line-height:1; margin-bottom:14px; }
+    .sv-card-n span{ margin-left:14px; font-family:'Noto Sans JP',sans-serif; font-size:0.6rem;
+      font-weight:400; letter-spacing:0.22em; color:var(--ink-soft); vertical-align:0.42em; }
+    .sv-card-t{ font-size:1.06rem; color:var(--ink); margin-bottom:12px; line-height:1.6; }
+    .sv-card-d{ font-size:0.85rem; line-height:2.05; color:var(--ink-soft); }
+    .sv-card-d strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+
+    /* ---- ダークパネル（ご提供例） ---- */
+    .pkg-panel{ background:var(--panel); color:#fff; padding:52px 48px 48px; margin-top:76px; }
+    .pkg-panel-head{ padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,0.18); margin-bottom:6px; }
+    .pkg-panel-label{ font-size:0.64rem; letter-spacing:0.3em; color:rgba(255,255,255,0.45); margin-bottom:14px; }
+    .pkg-panel-title{ font-size:clamp(1.15rem,2.3vw,1.5rem); color:#fff; line-height:1.6; }
+    .pkg-row{ display:flex; gap:32px; align-items:flex-start; padding:28px 0;
+      border-bottom:1px solid rgba(255,255,255,0.1); }
+    .pkg-rows .pkg-row:last-child{ border-bottom:0; padding-bottom:6px; }
+    .pkg-row-n{ flex:none; width:78px; font-family:'Noto Serif JP',serif; font-size:1.35rem;
+      font-weight:400; letter-spacing:0.04em; line-height:1.55; color:var(--primary-light); padding-top:2px; }
+    .pkg-row-body{ flex:1; min-width:0; }
+    .pkg-row-t{ font-size:1.02rem; color:#fff; line-height:1.65; margin-bottom:8px; }
+    .pkg-row-d{ font-size:0.85rem; line-height:2.0; color:rgba(255,255,255,0.62); }
+    .pkg-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .pkg-tags span{ font-size:0.68rem; letter-spacing:0.06em; color:rgba(255,255,255,0.78);
+      border:1px solid rgba(255,255,255,0.3); padding:4px 11px; }
+    .pkg-panel-note{ font-size:0.74rem; line-height:1.9; color:rgba(255,255,255,0.42); margin-top:26px; }
+
+    /* ---- 活用ポイント（囲みをやめて定義リストに） ---- */
+    .cap-grid{ grid-template-columns:1fr 1fr; gap:0 48px; border-top:1px solid var(--ink); }
+    .cap-card{ background:none; border:0; border-bottom:1px solid var(--rule-fine); border-radius:0;
+      padding:24px 0; gap:20px; }
+    .cap-n{ width:auto; min-width:26px; height:auto; background:none; border-radius:0; display:block;
+      font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:400;
+      color:var(--numeral); line-height:1.5; }
+    .cap-t{ font-size:0.98rem; color:var(--ink); margin-bottom:6px; line-height:1.65; }
+    .cap-d{ font-size:0.83rem; line-height:2.0; color:var(--ink-soft); }
+
+    /* ---- 図版 ---- */
+    .fig-box{ background:var(--paper); border:1px solid var(--rule); border-radius:0; padding:26px 26px 20px; }
+    .fig-cap{ font-size:0.64rem; letter-spacing:0.2em; color:var(--ink-soft); margin-bottom:16px; }
+    .fig-after{ border-top:1px solid var(--rule-fine); color:var(--ink-soft); line-height:1.95; padding-top:14px; margin-top:16px; }
+    .fig-after strong{ color:var(--primary-dark); }
+    .fig-note{ font-size:0.74rem; color:var(--ink-soft); }
+    .fig-hint{ color:var(--numeral); }
+
+    /* ---- 結び ---- */
+    .closing-q{ max-width:840px; border-top:1px solid var(--ink); border-bottom:1px solid var(--rule);
+      padding:44px 0 40px; }
+    .closing-q p{ font-family:'Noto Serif JP',serif; font-size:clamp(1rem,2vw,1.24rem); font-weight:400;
+      line-height:2.25; color:var(--ink); letter-spacing:0.01em; }
+    .closing-q p strong{ font-weight:600; }
+    .closing-q-last{ margin-top:26px; }
+    .closing-sig{ margin-top:20px; font-size:0.76rem; letter-spacing:0.14em; color:var(--ink-soft); }
+
+    @media (max-width:900px){
+      .core-steps{ grid-template-columns:1fr; border-top:0; }
+      .core-step{ border-left:0; border-top:1px solid var(--ink); padding:26px 0 30px; }
+      .core-step::before{ left:0; }
+      .sv-grid3{ grid-template-columns:1fr; border-top:0; }
+      .sv-card, .sv-section--alt .sv-card{ border-left:0; border-top:1px solid var(--ink); padding:26px 0 30px; }
+      .cap-grid{ grid-template-columns:1fr; gap:0; }
+    }
+    @media (max-width:640px){
+      .core-section{ padding:60px 20px 64px; }
+      .sv-section{ padding:60px 20px 68px; }
+      .closing-wrap{ padding:0 20px 68px; }
+      .pkg-panel{ padding:36px 22px 32px; margin-top:56px; }
+      .pkg-row{ flex-direction:column; gap:10px; padding:24px 0; }
+      .pkg-row-n{ width:auto; font-size:1.15rem; }
+      .sv-blocklabel{ margin-top:56px; }
+      .fig-box{ padding:18px 16px 14px; }
+      .closing-q{ padding:32px 0 30px; }
+    }
   </style>
 </head>
 <body>
@@ -2277,17 +2426,17 @@
 
       <div class="core-steps">
         <div class="core-step">
-          <span class="core-step-n">STEP 01</span>
+          <span class="core-step-n">01</span>
           <p class="core-step-t">見る</p>
           <p class="core-step-d">現場に同席し、実際の操作・作業をそのまま見せていただきます。整えられた資料ではなく、画面の動きと手の順番を見ます。</p>
         </div>
         <div class="core-step">
-          <span class="core-step-n">STEP 02</span>
+          <span class="core-step-n">02</span>
           <p class="core-step-t">訊く</p>
           <p class="core-step-d">「なぜその順番か」「例外のときどう判断しているか」まで掘ります。ご本人も説明したことのない判断の軸を、言葉にしていきます。</p>
         </div>
         <div class="core-step">
-          <span class="core-step-n">STEP 03</span>
+          <span class="core-step-n">03</span>
           <p class="core-step-t">残す</p>
           <p class="core-step-d">言葉と図にして、誰が読んでも同じ判断ができる形に整えます。日々の業務で実際に開かれる場所に置くところまで設計します。</p>
         </div>
@@ -2333,189 +2482,65 @@
       <h3 class="sv-blocktitle">言語化する、3つの領域</h3>
       <div class="sv-grid3">
         <div class="sv-card">
-          <p class="sv-card-n">① SYSTEM</p>
+          <p class="sv-card-n">01<span>SYSTEM</span></p>
           <p class="sv-card-t">システムなどの操作</p>
           <p class="sv-card-d">顧客管理システム、基幹システム、スプレッドシート。<strong>どの画面を、どの順に、何のために触るのか</strong>。画面名の羅列ではなく、目的とセットで記述します。</p>
         </div>
         <div class="sv-card">
-          <p class="sv-card-n">② FLOW</p>
+          <p class="sv-card-n">02<span>FLOW</span></p>
           <p class="sv-card-t">業務フロー</p>
           <p class="sv-card-d">誰が、いつ、何をきっかけに動くのか。<strong>部署をまたぐ受け渡しと、月次・年次のサイクル</strong>まで含めて、業務全体の地図をつくります。</p>
         </div>
         <div class="sv-card">
-          <p class="sv-card-n">③ RULE</p>
+          <p class="sv-card-n">03<span>RULE</span></p>
           <p class="sv-card-t">業務上の判断ルール</p>
           <p class="sv-card-d">値引きをどこまで認めるか、例外にどう対応するか、何を優先するか。<strong>明文化されていない社内の判断基準</strong>を、条件つきの形で整理します。</p>
         </div>
       </div>
 
-      <!-- 3つの手法 -->
-      <p class="sv-blocklabel">METHOD</p>
-      <h3 class="sv-blocktitle">3つの形で、残します</h3>
-      <div class="sv-grid3">
-        <div class="sv-card">
-          <p class="sv-card-n">言語化</p>
-          <p class="sv-card-t">手順に「なぜ」と「例外」を添える</p>
-          <p class="sv-card-d">操作手順だけでは再現できません。なぜその順番なのか、想定外のときはどうするのか。読んだ人が自分で判断できる情報まで書き切ります。</p>
-        </div>
-        <div class="sv-card">
-          <p class="sv-card-n">図式化</p>
-          <p class="sv-card-t">構造を、一目で分かる図に</p>
-          <p class="sv-card-d">業務の流れ、データの動き、期限の関係。文章では何度読んでも伝わらない構造を、図に置き換えます。新人が最初に見る一枚になります。</p>
-        </div>
-        <div class="sv-card">
-          <p class="sv-card-n">チャート化</p>
-          <p class="sv-card-t">迷ったときに、立ち返れる分岐に</p>
-          <p class="sv-card-d">判断の分かれ道をフローチャートに整理します。「この場合はどうする？」を人に聞かずに解決できる状態をつくります。</p>
-        </div>
-      </div>
-
       <!-- ご提供例（パッケージ） -->
-      <p class="sv-blocklabel">PACKAGE</p>
-      <h3 class="sv-blocktitle">ご提供例：顧客管理システムの操作を、仕組みにする</h3>
-      <div class="pkg-flow">
-        <div class="pkg-step">
-          <div class="pkg-step-n">1</div>
-          <p class="pkg-step-t">実際の操作を<br>見せていただく</p>
-          <p class="pkg-step-d">ご担当者が普段どおりに操作する様子に同席し、その場で疑問点をお伺いします。</p>
+      <div class="pkg-panel">
+        <div class="pkg-panel-head">
+          <p class="pkg-panel-label">PACKAGE</p>
+          <p class="pkg-panel-title">ご提供例：顧客管理システムの操作を、仕組みにする</p>
         </div>
-        <div class="pkg-step">
-          <div class="pkg-step-n">2</div>
-          <p class="pkg-step-t">マニュアルを<br>作成する</p>
-          <p class="pkg-step-d">言語化・図式化・チャート化して、判断の根拠まで含んだマニュアルに仕上げます。</p>
-        </div>
-        <div class="pkg-step">
-          <div class="pkg-step-n">3</div>
-          <p class="pkg-step-t">システムに<br>埋め込む</p>
-          <p class="pkg-step-d">探しに行かなくても、作業する画面のすぐそばで読める状態にします。</p>
-        </div>
-        <div class="pkg-step">
-          <div class="pkg-step-n">4</div>
-          <p class="pkg-step-t">一部を<br>自動化する</p>
-          <p class="pkg-step-d">くり返しの転記・集計・通知など、機械に任せられる部分を切り出して自動化します。</p>
-          <div class="pkg-tools">
-            <span class="pkg-tool">GAS</span>
-            <span class="pkg-tool">Power Automate</span>
-            <span class="pkg-tool">Notion連携</span>
+        <div class="pkg-rows">
+          <div class="pkg-row">
+            <p class="pkg-row-n">01</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">実際の操作を、見せていただく</p>
+              <p class="pkg-row-d">ご担当者が普段どおりに操作する様子に同席し、その場で疑問点をお伺いします。整えられた手順書ではなく、実際の手の動きを見ます。</p>
+            </div>
+          </div>
+          <div class="pkg-row">
+            <p class="pkg-row-n">02</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">マニュアルを作成する</p>
+              <p class="pkg-row-d">言語化・図式化・チャート化して、判断の根拠まで含んだマニュアルに仕上げます。手順だけでなく「なぜ」と「例外」を書き切ります。</p>
+            </div>
+          </div>
+          <div class="pkg-row">
+            <p class="pkg-row-n">03</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">システムに埋め込む</p>
+              <p class="pkg-row-d">探しに行かなくても、作業する画面のすぐそばで読める状態にします。開かれないマニュアルは、無いのと同じです。</p>
+            </div>
+          </div>
+          <div class="pkg-row">
+            <p class="pkg-row-n">04</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">一部を自動化する</p>
+              <p class="pkg-row-d">くり返しの転記・集計・通知など、機械に任せられる部分を切り出して自動化します。</p>
+              <div class="pkg-tags">
+                <span>GAS</span>
+                <span>Power Automate</span>
+                <span>Notion連携</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 納品サンプル（Figures） -->
-      <p class="sv-blocklabel">SAMPLE</p>
-      <h3 class="sv-blocktitle">実際の成果物から、図の例を一部ご紹介します</h3>
-      <p class="sv-lead" style="margin-bottom:22px;">
-        以下は、保険代理店の「満期管理表の運用」を言語化・図式化した納品物からの抜粋です。手順を並べるだけでなく、<strong>どこが業務の本番なのか、なぜその作業が必要なのか</strong>までを図に含めています。
-      </p>
-
-      <div class="fig-box">
-        <p class="fig-cap">FIG.1 ／ 月次サイクル ― 作業のどこが本番か</p>
-        <p class="fig-hint">← 横にスクロールできます</p>
-        <div class="fig-scroll">
-          <svg viewBox="0 0 880 215" style="min-width:820px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="満期管理の月次サイクルを示すフロー図">
-            <defs>
-              <marker id="svcAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a1a2e"/></marker>
-              <marker id="svcArR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b8412a"/></marker>
-            </defs>
-            <g font-family="'Noto Sans JP',sans-serif">
-              <rect x="6" y="48" width="124" height="64" fill="#eef2fb" stroke="#3d6cb5" stroke-width="1.4"/>
-              <text x="68" y="72" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2e549a">きっかけ</text>
-              <text x="68" y="90" text-anchor="middle" font-size="11" fill="#1a1a2e">各社の満期一覧</text>
-              <text x="68" y="104" text-anchor="middle" font-size="11" fill="#1a1a2e">が出る（月1回）</text>
-              <line x1="134" y1="80" x2="158" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
-
-              <rect x="164" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
-              <text x="174" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 1</text>
-              <text x="220" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">前年版を</text>
-              <text x="220" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">複製・改名</text>
-              <line x1="280" y1="80" x2="304" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
-
-              <rect x="310" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
-              <text x="320" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 2</text>
-              <text x="366" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">当年版に</text>
-              <text x="366" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">初期化</text>
-              <line x1="426" y1="80" x2="450" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
-
-              <rect x="456" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
-              <text x="466" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 3</text>
-              <text x="512" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">各社の一覧</text>
-              <text x="512" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">を出力</text>
-              <line x1="572" y1="80" x2="596" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
-
-              <rect x="602" y="38" width="128" height="84" fill="#fbeee9" stroke="#b8412a" stroke-width="2"/>
-              <text x="612" y="57" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 4</text>
-              <text x="666" y="79" text-anchor="middle" font-size="13" font-weight="700" fill="#b8412a">照合</text>
-              <text x="666" y="97" text-anchor="middle" font-size="10.5" fill="#b8412a">ここが本番</text>
-              <text x="666" y="112" text-anchor="middle" font-size="10.5" fill="#b8412a">双方向で確認</text>
-              <line x1="734" y1="80" x2="758" y2="80" stroke="#1a1a2e" stroke-width="1.4" marker-end="url(#svcAr)"/>
-
-              <rect x="764" y="48" width="112" height="64" fill="#fff" stroke="#8a95a8" stroke-width="1.2"/>
-              <text x="774" y="66" font-size="9.5" fill="#b8412a" font-family="monospace">STEP 5-6</text>
-              <text x="820" y="86" text-anchor="middle" font-size="11.5" fill="#1a1a2e">運用開始</text>
-              <text x="820" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">進捗・期限管理</text>
-
-              <path d="M820 116 L820 162 L220 162 L220 118" fill="none" stroke="#b8412a" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#svcArR)"/>
-              <rect x="404" y="148" width="232" height="26" fill="#fbfaf7" stroke="#b8412a" stroke-dasharray="3 3"/>
-              <text x="520" y="166" text-anchor="middle" font-size="11" fill="#b8412a">毎週の社内会議で進捗を確認</text>
-              <text x="6" y="200" font-size="11" fill="#555">STEP 1〜4 が月1回の書き換え作業。慣れれば半日。STEP 5〜6 は満期月まで日々続く運用です。</text>
-            </g>
-          </svg>
-        </div>
-        <p class="fig-after">6つの工程を並べるだけでは、新人は全ての作業を同じ重さで受け取ります。<strong>「STEP 4 が本番」</strong>という重みづけは、ベテランの頭の中にしかない情報です。これを図に書き込むことが、言語化の中身です。</p>
-      </div>
-
-      <div class="fig-box">
-        <p class="fig-cap">FIG.2 ／ 双方向で差分を探す ― なぜ片方向では漏れるのか</p>
-        <p class="fig-hint">← 横にスクロールできます</p>
-        <div class="fig-scroll">
-          <svg viewBox="0 0 700 300" style="min-width:660px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="自社の管理表と外部データを双方向で照合する考え方の図">
-            <defs><marker id="svcAr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b8412a"/></marker></defs>
-            <g font-family="'Noto Sans JP',sans-serif">
-              <rect x="20" y="20" width="240" height="34" fill="#1a1a2e"/>
-              <text x="140" y="42" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">自社の管理表</text>
-              <rect x="440" y="20" width="240" height="34" fill="#3d6cb5"/>
-              <text x="560" y="42" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">取引先から届くデータ</text>
-
-              <rect x="20" y="76" width="660" height="94" fill="#fbeee9" stroke="#b8412a"/>
-              <text x="34" y="98" font-size="10" fill="#b8412a" font-family="monospace">DIRECTION A</text>
-              <path d="M255 104 L445 104" stroke="#b8412a" stroke-width="1.8" marker-end="url(#svcAr3)"/>
-              <text x="350" y="127" text-anchor="middle" font-size="12" font-weight="700" fill="#b8412a">管理表にあって、届いたデータにない</text>
-              <text x="350" y="147" text-anchor="middle" font-size="11" fill="#1a1a2e">→ 途中で解約されている／他社に移っている／内容が切り替わっている</text>
-              <text x="350" y="164" text-anchor="middle" font-size="11" fill="#1a1a2e">対象外として印をつけ、理由を備考欄に必ず書く</text>
-
-              <rect x="20" y="184" width="660" height="94" fill="#fff8e8" stroke="#b8412a" stroke-width="2"/>
-              <text x="34" y="206" font-size="10" fill="#b8412a" font-family="monospace">DIRECTION B ／ 漏れの直接原因</text>
-              <path d="M445 212 L255 212" stroke="#b8412a" stroke-width="1.8" marker-end="url(#svcAr3)"/>
-              <text x="350" y="235" text-anchor="middle" font-size="12" font-weight="700" fill="#b8412a">届いたデータにあって、管理表にない</text>
-              <text x="350" y="255" text-anchor="middle" font-size="11" fill="#1a1a2e">→ 記載漏れ。行を追加する</text>
-              <text x="350" y="272" text-anchor="middle" font-size="11" fill="#1a1a2e">担当者は管理表しか見ないため、放置すると誰も気づかないまま期限を過ぎる</text>
-            </g>
-          </svg>
-        </div>
-        <p class="fig-after">ベテランは当然のように両方向を見ています。しかしマニュアルには「照合する」としか書かれていない。<strong>片方向しか確認しないと、なぜ漏れるのか</strong>――その理由まで書くことで、はじめて手順が引き継げる形になります。</p>
-      </div>
-      <p class="fig-note">※ 実際の納品物から、企業・個人が特定されない形に加工した抜粋です。図は業種・業務に合わせて一から設計します。</p>
-    </div>
-  </section>
-
-
-  <!-- ================================================= -->
-  <!-- ★ ミドルCTA                                        -->
-  <!-- ================================================= -->
-  <section class="midcta-section" style="padding: 0 24px 72px; background: var(--bg-section);">
-    <div class="section-inner">
-      <div class="midcta">
-        <div>
-          <p class="midcta-eyebrow">FIRST STEP</p>
-          <p class="midcta-title">どの業務から言語化すべきか、45分で整理します。</p>
-          <p class="midcta-desc">「何から手をつけるべきか分からない」段階でのご相談がいちばん多いです。対象範囲と概算費用まで、初回のご相談でお伝えします。</p>
-        </div>
-        <div class="midcta-actions">
-          <a href="contact.html" class="btn-primary">無料相談・カテゴリ診断</a>
-          <a href="price.html" class="btn-ghost">料金プランを見る</a>
-          <p class="midcta-note">※ 初回相談・カテゴリ診断は無料です。</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -2541,17 +2566,17 @@
       <h3 class="sv-blocktitle">ご提供する3つの支援</h3>
       <div class="sv-grid3">
         <div class="sv-card">
-          <p class="sv-card-n">① PLAN</p>
+          <p class="sv-card-n">01<span>PLAN</span></p>
           <p class="sv-card-t">最適な活用プランの提案</p>
           <p class="sv-card-d">組織の環境・業務内容・人員構成に合わせて、<strong>どこにAIを効かせると効果が大きいか</strong>を設計します。流行のツールを一律に入れる提案はしません。</p>
         </div>
         <div class="sv-card">
-          <p class="sv-card-n">② BUILD</p>
+          <p class="sv-card-n">02<span>BUILD</span></p>
           <p class="sv-card-t">システムの構築支援</p>
           <p class="sv-card-d">すでにお使いの基盤の上に構築します。<strong>Google Workspace / Microsoft 365 / Notion</strong> に対応。新しいツールを増やさずに、今の環境を活かします。</p>
         </div>
         <div class="sv-card">
-          <p class="sv-card-n">③ TRAIN</p>
+          <p class="sv-card-n">03<span>TRAIN</span></p>
           <p class="sv-card-t">定着のための実践型研修</p>
           <p class="sv-card-d">操作説明では定着しません。<strong>自社の実データ・実業務で手を動かす</strong>研修をおこない、明日から使える状態までお持ちします。</p>
         </div>
@@ -2571,7 +2596,7 @@
           <svg viewBox="0 0 720 400" style="min-width:680px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="組織のAIが各業務アプリを横断してつながる図">
             <g font-family="'Noto Sans JP',sans-serif">
               <!-- 接続線 -->
-              <g stroke="#b9c8e2" stroke-width="1.6">
+              <g stroke="#c6c1b6" stroke-width="1.2">
                 <line x1="360" y1="205" x2="360" y2="57"/>
                 <line x1="360" y1="205" x2="476" y2="113"/>
                 <line x1="360" y1="205" x2="504" y2="238"/>
@@ -2587,37 +2612,37 @@
 
               <!-- ノード -->
               <g>
-                <rect x="301" y="31" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="301" y="31" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="360" y="52" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ブラウザ</text>
                 <text x="360" y="69" text-anchor="middle" font-size="9.5" fill="#555">開いている画面を読む</text>
               </g>
               <g>
-                <rect x="417" y="87" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="417" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="476" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドキュメント</text>
                 <text x="476" y="125" text-anchor="middle" font-size="9.5" fill="#555">下書き・体裁を整える</text>
               </g>
               <g>
-                <rect x="445" y="212" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="445" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="504" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スプレッドシート</text>
                 <text x="504" y="250" text-anchor="middle" font-size="9.5" fill="#555">集計・数式・差分照合</text>
               </g>
               <g>
-                <rect x="365" y="312" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="365" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="424" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スライド</text>
                 <text x="424" y="350" text-anchor="middle" font-size="9.5" fill="#555">構成・レイアウト</text>
               </g>
               <g>
-                <rect x="237" y="312" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="237" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="296" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">会議（Meet）</text>
                 <text x="296" y="350" text-anchor="middle" font-size="9.5" fill="#555">文字起こし・要約</text>
               </g>
               <g>
-                <rect x="157" y="212" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="157" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="216" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドライブ</text>
                 <text x="216" y="250" text-anchor="middle" font-size="9.5" fill="#555">資料の横断検索</text>
               </g>
               <g>
-                <rect x="185" y="87" width="118" height="52" rx="6" fill="#fff" stroke="#3d6cb5" stroke-width="1.3"/>
+                <rect x="185" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
                 <text x="244" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ノートブック</text>
                 <text x="244" y="125" text-anchor="middle" font-size="9.5" fill="#555">自社専用AIをつくる</text>
               </g>
@@ -2690,61 +2715,40 @@
         </div>
       </div>
 
-      <!-- Before / After -->
-      <p class="sv-blocklabel">BEFORE / AFTER</p>
-      <h3 class="sv-blocktitle">たとえば、シートをまたいだ確認作業</h3>
-      <div class="ba2">
-        <div class="ba2-panel">
-          <span class="ba2-label">BEFORE</span>
-          <table class="ba2-tbl">
-            <thead><tr><th>会社名</th><th>請求額</th></tr></thead>
-            <tbody>
-              <tr><td>A社</td><td class="num">¥120,000</td></tr>
-              <tr><td>B社</td><td class="num">¥85,000</td></tr>
-              <tr><td>C社</td><td class="num">¥200,000</td></tr>
-            </tbody>
-          </table>
-          <p class="ba2-msg">別シートの入金一覧と、1行ずつ目で追って突き合わせる。件数が増えるほど、見落としが起きる。</p>
-        </div>
-        <div class="ba2-panel ba2-panel--after">
-          <span class="ba2-label">AFTER</span>
-          <table class="ba2-tbl">
-            <thead><tr><th>会社名</th><th>請求額</th><th>照合</th></tr></thead>
-            <tbody>
-              <tr><td>A社</td><td class="num">¥120,000</td><td class="ba2-ok">✓</td></tr>
-              <tr><td>B社</td><td class="num">¥85,000</td><td class="ba2-ok">✓</td></tr>
-              <tr><td>C社</td><td class="num">¥200,000</td><td class="ba2-flag">✗</td></tr>
-            </tbody>
-          </table>
-          <p class="ba2-msg">請求と入金の合計が一致しません。C社が請求 ¥200,000 に対し入金 ¥190,000 ― 差額 ¥10,000 をご確認ください。</p>
-        </div>
-      </div>
-      <p class="fig-note" style="margin-top:14px;">※ 数値はイメージです。実際には御社のシート構成に合わせて設計します。</p>
-
       <!-- ご提供例 -->
-      <p class="sv-blocklabel">PACKAGE</p>
-      <h3 class="sv-blocktitle">ご提供例</h3>
-      <div class="ex-grid">
-        <div class="ex-card">
-          <span class="ex-tag">保険代理店</span>
-          <p class="ex-t">運営管理のあらゆる業務でAIを使える環境を構築</p>
-          <p class="ex-d">契約管理・顧客対応・社内文書作成・会議記録まで、日常業務の各場面にAIを組み込み、全員が同じ水準で使える状態を整備します。</p>
-          <p class="ex-base">基盤：Google Workspace</p>
+      <div class="pkg-panel">
+        <div class="pkg-panel-head">
+          <p class="pkg-panel-label">PACKAGE</p>
+          <p class="pkg-panel-title">ご提供例</p>
         </div>
-        <div class="ex-card">
-          <span class="ex-tag">旅行会社</span>
-          <p class="ex-t">膨大な案件資料・マニュアルを横断検索できるナレッジ環境</p>
-          <p class="ex-d">積み上がった案件資料と各種マニュアルを整理・構造化し、必要な情報にAI経由でたどり着ける状態にします。「あの資料どこ？」がなくなります。</p>
-          <p class="ex-base">基盤：Google Workspace</p>
+        <div class="pkg-rows">
+          <div class="pkg-row">
+            <p class="pkg-row-n">保険<br>代理店</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">運営管理のあらゆる業務でAIを使える環境を構築</p>
+              <p class="pkg-row-d">契約管理・顧客対応・社内文書作成・会議記録まで、日常業務の各場面にAIを組み込み、全員が同じ水準で使える状態を整備します。</p>
+              <div class="pkg-tags"><span>Google Workspace</span></div>
+            </div>
+          </div>
+          <div class="pkg-row">
+            <p class="pkg-row-n">旅行<br>会社</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">膨大な案件資料・マニュアルを横断検索できるナレッジ環境</p>
+              <p class="pkg-row-d">積み上がった案件資料と各種マニュアルを整理・構造化し、必要な情報にAI経由でたどり着ける状態にします。「あの資料どこ？」がなくなります。</p>
+              <div class="pkg-tags"><span>Google Workspace</span></div>
+            </div>
+          </div>
+          <div class="pkg-row">
+            <p class="pkg-row-n">専門職</p>
+            <div class="pkg-row-body">
+              <p class="pkg-row-t">専門職のナレッジに特化したAIチャットボット</p>
+              <p class="pkg-row-d">現場で判断に迷う場面を想定し、自社の業務知識だけを参照して答えるチャットボットを構築。一般論ではなく、自社の基準で回答します。</p>
+              <div class="pkg-tags"><span>Microsoft 365</span></div>
+            </div>
+          </div>
         </div>
-        <div class="ex-card">
-          <span class="ex-tag">専門職</span>
-          <p class="ex-t">専門職のナレッジに特化したAIチャットボット</p>
-          <p class="ex-d">現場で判断に迷う場面を想定し、自社の業務知識だけを参照して答えるチャットボットを構築。一般論ではなく、自社の基準で回答します。</p>
-          <p class="ex-base">基盤：Microsoft 365</p>
-        </div>
+        <p class="pkg-panel-note">※ 上記は現在ご提供可能な内容の例です。御社の基盤・業務に合わせて設計しますので、まずは現状をお聞かせください。</p>
       </div>
-      <p class="ex-disclaimer">※ 上記は現在ご提供可能な内容の例です。御社の基盤・業務に合わせて設計しますので、まずは現状をお聞かせください。</p>
     </div>
   </section>
 
@@ -2752,14 +2756,13 @@
   <!-- ================================================= -->
   <!-- ★ 両サービス共通の結び                             -->
   <!-- ================================================= -->
-  <section style="padding: 0 24px 76px; background: var(--bg);">
+  <section class="closing-wrap">
     <div class="section-inner">
-      <div class="closing-band">
-        <p>
-          2つのサービスに共通しているのは、<strong>まず現場の業務を実際に見せていただき、インタビューをさせていただくこと</strong>です。これまで無意識・感覚でおこなわれてきた業務を、細部まで言語化する。そこがS.sentiaの強みであり、<strong>マニュアルの作成やシステムの構築は、あくまでその手段</strong>です。<br>
-          道具を入れることが目的になると、仕組みは使われません。順番を、逆にしません。
-        </p>
+      <div class="closing-q">
+        <p>2つのサービスに共通しているのは、<strong>まず現場の業務を実際に見せていただき、インタビューをさせていただくこと</strong>です。これまで無意識・感覚でおこなわれてきた業務を、細部まで言語化する。そこがS.sentiaの強みであり、<strong>マニュアルの作成やシステムの構築は、あくまでその手段</strong>です。</p>
+        <p class="closing-q-last">道具を入れることが目的になると、仕組みは使われません。順番を、逆にしません。</p>
       </div>
+      <p class="closing-sig">S.sentia株式会社　代表　平田 喬大</p>
     </div>
   </section>
 
