@@ -32,6 +32,7 @@
     html { scroll-behavior: smooth; }
 
     body {
+      overflow-x: clip;
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text);
       background: var(--bg);
@@ -226,52 +227,9 @@
       background: var(--primary);
       border-radius: 2px;
       margin-bottom: 36px;
-    }    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      min-width: 540px;
-      font-size: 0.9rem;
     }
 
-    thead tr {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    thead th {
-      padding: 14px 20px;
-      text-align: left;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-
-    tbody tr {
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    tbody tr:last-child {
-      border-bottom: none;
-    }
-
-    tbody tr:hover {
-      background: var(--bg-section);
-    }
-
-    tbody td {
-      padding: 14px 20px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      vertical-align: top;
-    }
-
-    tbody td:first-child {
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-    }/* ===== CTA BAND ===== */
+    /* ===== CTA BAND ===== */
     .cta-band {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       color: #fff;
@@ -375,7 +333,9 @@
 
       section {
         padding: 52px 20px;
-      }.footer-inner {
+      }
+
+      .footer-inner {
         flex-direction: column;
         gap: 24px;
       }
@@ -589,7 +549,9 @@
       line-height: 1.5;
     }
     .sv-card-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
-    .sv-card-d strong { color: var(--text); font-weight: 700; }.sv-section--alt .pkg-step { background: var(--bg-section); }/* --- 納品サンプル図（実際の成果物の抜粋） --- */
+    .sv-card-d strong { color: var(--text); font-weight: 700; }
+
+    .sv-section--alt .pkg-step { background: var(--bg-section); }/* --- 納品サンプル図（実際の成果物の抜粋） --- */
     .fig-box {
       background: #fbfaf7;
       border: 1px solid #ddd8cd;
@@ -614,7 +576,9 @@
       margin-top: 12px;
       padding-top: 10px;
     }
-    .fig-after strong { color: #b8412a; font-weight: 700; }    .fig-hint {
+    .fig-after strong { color: #b8412a; font-weight: 700; }
+
+    .fig-hint {
       display: none;
       font-size: 0.72rem;
       color: #a09789;
@@ -654,14 +618,21 @@
       margin-bottom: 4px;
       line-height: 1.5;
     }
-    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }/* min-width は既存の table{min-width:540px}/* color は既存の thead tr{color:#fff}.sv-section--alt .ex-card { background: var(--bg-section); }/* --- レスポンシブ --- */
+    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }
+
+    /* ----- レスポンシブ ----- */
     @media (max-width: 900px) {
       .core-steps { grid-template-columns: 1fr; gap: 14px; }
       .core-branch { grid-template-columns: 1fr; }
-      .sv-grid3 { grid-template-columns: 1fr; }      .cap-grid { grid-template-columns: 1fr; }    }
+      .sv-grid3 { grid-template-columns: 1fr; }
+      .cap-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 640px) {
-      .core-section, .sv-section { padding: 56px 20px; }.fig-hint { display: block; }
-      .fig-box { padding: 14px 14px 12px; }    }
+      .core-section, .sv-section { padding: 56px 20px; }
+      .fig-hint { display: block; }
+      .fig-box { padding: 14px 14px 12px; }
+    }
 
     /* ==========================================================
        LAYOUT LAYER ― 2026-07
@@ -773,7 +744,9 @@
       letter-spacing:0.12em; color:var(--primary); margin-bottom:14px; }
     .fig-after{ border-top:1px solid var(--border); color:var(--text-muted);
       line-height:1.9; padding-top:14px; margin-top:16px; }
-    .fig-after strong{ color:var(--primary-dark); }    .fig-hint{ color:var(--text-muted); }
+    .fig-after strong{ color:var(--primary-dark); }
+
+    .fig-hint{ color:var(--text-muted); }
 
     /* ---- 結び ---- */
     .closing-q{ max-width:840px; border-top:2px solid var(--primary);
