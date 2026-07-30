@@ -1,0 +1,11 @@
+# 配信対象から除外（.gitignore をすり抜けた場合の二重防御）
+*.bak
+*.old
+*.tmp
+*.orig
+*.md
+*.txt
+*.pdf
+*.docx
+*.xlsx
+*.pptx
