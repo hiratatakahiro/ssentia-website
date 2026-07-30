@@ -271,39 +271,7 @@
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
-    }/* ===== PRICING NOTE ===== */
-    .pricing-note {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 28px 32px;
-      margin-top: 48px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .pricing-note-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-      line-height: 1;
-      margin-top: 2px;
-    }
-
-    .pricing-note h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .pricing-note p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    /* ===== CTA BAND ===== */
+    }/* ===== CTA BAND ===== */
     .cta-band {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       color: #fff;
@@ -489,87 +457,7 @@
         transform: translateX(50%);
       }
       .learn-step:not(:last-child) { margin-bottom: 22px; }
-    }/* ===== ミドルCTA（料金・無料診断への導線） ===== */
-    .midcta-section { padding: 8px 24px 72px; background: var(--bg); }
-    .midcta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      background: linear-gradient(135deg, #eef2fb 0%, #e3ecfa 100%);
-      border: 1px solid #cdddf4;
-      border-radius: 14px;
-      padding: 32px 36px;
-    }
-    .midcta-eyebrow {
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .midcta-title {
-      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-    .midcta-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-    .midcta-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-shrink: 0;
-      min-width: 240px;
-    }
-
-    /* ===== ボタン（明るい背景用） ===== */
-    .btn-primary {
-      display: block;
-      text-align: center;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 14px 28px;
-      border-radius: 6px;
-      letter-spacing: 0.03em;
-      box-shadow: 0 4px 14px rgba(61,108,181,0.28);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
-
-    .btn-ghost {
-      display: block;
-      text-align: center;
-      background: #fff;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 13px 28px;
-      border: 1.5px solid var(--primary);
-      border-radius: 6px;
-      letter-spacing: 0.03em;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-ghost:hover { background: #f0f4fc; transform: translateY(-2px); }
-
-    .midcta-note {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 2px;
-      line-height: 1.5;
-    }
-
-    /* CTAバンド内の補助リンク */
+    }/* CTAバンド内の補助リンク */
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
@@ -587,34 +475,12 @@
     }
     .cta-pricelink:hover { color: #fff; }
 
-    @media (max-width: 768px) {
-      .midcta {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 28px 22px;
-        gap: 22px;
-      }
-      .midcta-actions { min-width: 0; }
-    }
 
     /* ▲▲▲ 追加CSSここまで ▲▲▲ */
 
     /* ===== TABLE FIT (no scroll, compact) ===== */
     .table-fit { min-width: 0; font-size: 0.82rem; }/* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
-    .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 18px; }
-
-    /* 納品ツール注記 */
-    .tool-note {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: #eef2fb; border: 1px solid #d6e0f2; border-radius: 10px;
-      padding: 20px 24px; margin-top: 20px;
-    }
-    .tool-note-ico {
-      flex-shrink: 0; width: 40px; height: 40px; border-radius: 9px;
-      background: #fff; display: flex; align-items: center; justify-content: center;
-    }
-    .tool-note-title { display: block; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
-    .tool-note p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.85; }/* フローティングCTA */
+    .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 18px; }/* フローティングCTA */
     .floatc {
       position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 8px;
       background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem;
@@ -791,57 +657,7 @@
       line-height: 1.5;
     }
     .sv-card-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
-    .sv-card-d strong { color: var(--text); font-weight: 700; }
-
-    /* --- 提供パッケージのステップ（横並び・番号つき） --- */
-    .pkg-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    .pkg-step {
-      position: relative;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 16px;
-    }
-    .sv-section--alt .pkg-step { background: var(--bg-section); }
-    .pkg-step-n {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 12px;
-    }
-    .pkg-step-t {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.55;
-      margin-bottom: 6px;
-    }
-    .pkg-step-d { font-size: 0.82rem; line-height: 1.8; color: var(--text-muted); }
-    .pkg-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-    .pkg-tool {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      background: #eef2fb;
-      border: 1px solid #cdddf4;
-      border-radius: 3px;
-      padding: 2px 7px;
-      letter-spacing: 0.02em;
-    }
-
-    /* --- 納品サンプル図（実際の成果物の抜粋） --- */
+    .sv-card-d strong { color: var(--text); font-weight: 700; }.sv-section--alt .pkg-step { background: var(--bg-section); }/* --- 納品サンプル図（実際の成果物の抜粋） --- */
     .fig-box {
       background: #fbfaf7;
       border: 1px solid #ddd8cd;
@@ -866,14 +682,7 @@
       margin-top: 12px;
       padding-top: 10px;
     }
-    .fig-after strong { color: #b8412a; font-weight: 700; }
-    .fig-note {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-top: 4px;
-    }
-    .fig-hint {
+    .fig-after strong { color: #b8412a; font-weight: 700; }    .fig-hint {
       display: none;
       font-size: 0.72rem;
       color: #a09789;
@@ -913,114 +722,7 @@
       margin-bottom: 4px;
       line-height: 1.5;
     }
-    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }
-
-    /* --- Before / After（AI活用の具体イメージ） --- */
-    .ba2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .ba2-panel {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px;
-      background: #fff;
-    }
-    .ba2-panel--after { border-color: var(--primary); background: #f7faff; }
-    .ba2-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 3px 9px;
-      border-radius: 3px;
-      margin-bottom: 12px;
-      background: #efefef;
-      color: #666;
-    }
-    .ba2-panel--after .ba2-label { background: var(--primary); color: #fff; }
-    /* min-width は既存の table{min-width:540px} の打ち消し（スマホで横あふれするため） */
-    .ba2-tbl { width: 100%; min-width: 0; border-collapse: collapse; font-size: 0.78rem; }
-    .ba2-tbl th, .ba2-tbl td {
-      border: 1px solid var(--border);
-      padding: 5px 8px;
-      text-align: left;
-      font-weight: 400;
-      white-space: nowrap;
-    }
-    /* color は既存の thead tr{color:#fff} の打ち消し（薄い背景に白文字で読めなくなるため） */
-    .ba2-tbl th { background: #f0f3f8; color: var(--text); font-weight: 700; font-size: 0.74rem; }
-    .ba2-tbl td.num { text-align: right; }
-    .ba2-flag { color: #b8412a; font-weight: 700; }
-    .ba2-ok { color: var(--primary-dark); font-weight: 700; }
-    .ba2-msg {
-      font-size: 0.8rem;
-      line-height: 1.75;
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 6px;
-      background: #f6f6f4;
-      color: var(--text-muted);
-    }
-    .ba2-panel--after .ba2-msg { background: #eaf1fd; color: var(--primary-dark); }
-
-    /* --- ご提供例カード --- */
-    .ex-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .ex-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px 20px;
-    }
-    .sv-section--alt .ex-card { background: var(--bg-section); }
-    .ex-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--primary-dark);
-      background: #eef2fb;
-      border-radius: 3px;
-      padding: 3px 9px;
-      margin-bottom: 12px;
-    }
-    .ex-t {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-    .ex-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
-    .ex-base {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
-    }
-    .ex-disclaimer {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-top: 14px;
-    }
-
-    /* --- 共通の結び --- */
-    .closing-band {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--primary);
-      border-radius: 8px;
-      padding: 26px 28px;
-      margin-top: 8px;
-    }
-    .closing-band p {
-      font-size: 0.95rem;
-      line-height: 2.0;
-      color: var(--text-muted);
-    }
-    .closing-band strong { color: var(--text); font-weight: 700; }
-
-    /* --- レスポンシブ --- */
+    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }/* min-width は既存の table{min-width:540px}/* color は既存の thead tr{color:#fff}.sv-section--alt .ex-card { background: var(--bg-section); }/* --- レスポンシブ --- */
     @media (max-width: 900px) {
       .core-steps { grid-template-columns: 1fr; gap: 14px; }
       .core-branch { grid-template-columns: 1fr; }
@@ -1030,13 +732,8 @@
       .ex-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
-      .core-section, .sv-section { padding: 56px 20px; }
-      .pkg-flow { grid-template-columns: 1fr; }
-      .ba2 { grid-template-columns: 1fr; }
-      .fig-hint { display: block; }
-      .fig-box { padding: 14px 14px 12px; }
-      .closing-band { padding: 22px 20px; }
-    }
+      .core-section, .sv-section { padding: 56px 20px; }.fig-hint { display: block; }
+      .fig-box { padding: 14px 14px 12px; }    }
 
     /* ==========================================================
        LAYOUT LAYER ― 2026-07
@@ -1148,9 +845,7 @@
       letter-spacing:0.12em; color:var(--primary); margin-bottom:14px; }
     .fig-after{ border-top:1px solid var(--border); color:var(--text-muted);
       line-height:1.9; padding-top:14px; margin-top:16px; }
-    .fig-after strong{ color:var(--primary-dark); }
-    .fig-note{ font-size:0.76rem; color:var(--text-muted); }
-    .fig-hint{ color:var(--text-muted); }
+    .fig-after strong{ color:var(--primary-dark); }    .fig-hint{ color:var(--text-muted); }
 
     /* ---- 結び ---- */
     .closing-q{ max-width:840px; border-top:2px solid var(--primary);
