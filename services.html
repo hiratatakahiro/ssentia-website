@@ -10,7 +10,7 @@
   <meta name="description" content="S.sentiaは現場の業務を実際に見せていただき、無意識・感覚でおこなわれてきた仕事を言語化します。①業務の属人化解消（システム操作・業務フロー・判断ルールの言語化・図式化・チャート化）②業務のAI横断活用支援（Google Workspace / Microsoft 365 / Notion の構築と定着研修）。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -2219,152 +2219,147 @@
     }
 
     /* ==========================================================
-       DESIGN REFRESH ― 2026-07
-       既存定義を上書きする刷新レイヤー。
+       LAYOUT LAYER ― 2026-07
+       既存定義を上書きするレイヤー。
+       書体・配色はサイト共通のまま、構成（罫線組み・パネル）のみを担う。
        方向性が確定したら、上の定義群と統合する。
        ========================================================== */
     :root{
-      --paper:#f6f5f2;
-      --ink:#16191f;
-      --ink-soft:#4e535c;
-      --rule:#d7d3ca;
-      --rule-fine:#e8e5df;
-      --numeral:#c3bdb1;
-      --panel:#1b1f27;
-    }
-    .serif, .section-title, .sv-title, .sv-blocktitle, .branch-card-t,
-    .core-step-t, .sv-card-t, .cap-t, .pkg-panel-title, .pkg-row-t{
-      font-family:'Noto Serif JP', serif; font-weight:600;
-      letter-spacing:0.015em; font-feature-settings:"palt" 1;
+      --rule-fine:#e9eef6;   /* 項目間の細い区切り罫 */
+      --numeral:#b8c3d4;     /* 連番など、控えめに置く数字 */
+      --panel:#0f1a2e;       /* パネル地。フッターと同色 */
     }
 
-    /* ---- 面の切り替え（青みのある灰色をやめ、紙色に） ---- */
-    .core-section{ background:#fff; padding:88px 24px 92px; }
-    .sv-section{ background:var(--paper); padding:88px 24px 96px; }
-    .sv-section--alt{ background:#fff; }
-    .closing-wrap{ background:var(--paper); padding:0 24px 96px; }
+    /* ---- 面の構成 ---- */
+    .core-section{ background:var(--bg); padding:88px 24px 92px; }
+    .sv-section{ background:var(--bg-section); padding:88px 24px 96px; }
+    .sv-section--alt{ background:var(--bg); }
+    .closing-wrap{ background:var(--bg-section); padding:0 24px 96px; }
 
     /* ---- 共通コア ---- */
-    .core-section .section-label{ font-size:0.67rem; letter-spacing:0.28em; color:var(--ink-soft); }
-    .core-section .section-title{ color:var(--ink); }
-    .core-section .section-divider{ width:34px; height:1px; background:var(--ink); border-radius:0; margin-bottom:34px; }
-    .core-lead{ text-align:left; margin:0 0 60px; max-width:740px; line-height:2.2; color:var(--ink-soft); }
-    .core-lead strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+    .core-section .section-divider{ margin-bottom:34px; }
+    .core-lead{ text-align:left; margin:0 0 60px; max-width:740px; line-height:2.15; }
 
-    .core-steps{ grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--ink); margin-bottom:76px; }
-    .core-step{ position:relative; background:none; border:0; border-left:1px solid var(--rule-fine);
-      border-radius:0; padding:30px 32px 0; }
+    .core-steps{ grid-template-columns:repeat(3,1fr); gap:0;
+      border-top:1px solid var(--primary); margin-bottom:76px; }
+    .core-step{ position:relative; background:none; border:0;
+      border-left:1px solid var(--rule-fine); border-radius:0; padding:30px 32px 0; }
     .core-step:first-child{ border-left:0; padding-left:0; }
-    .core-step::before{ content:""; position:absolute; top:-4px; left:32px; width:7px; height:7px; background:var(--ink); }
+    .core-step::before{ content:""; position:absolute; top:-4px; left:32px;
+      width:7px; height:7px; background:var(--primary); }
     .core-step:first-child::before{ left:0; }
     .core-step-n{ display:block; border:0; border-radius:0; padding:0; margin-bottom:10px;
-      font-family:'Noto Serif JP',serif; font-size:1.7rem; font-weight:400;
-      color:var(--numeral); letter-spacing:0.04em; line-height:1; }
-    .core-step-t{ font-size:1.12rem; color:var(--ink); margin-bottom:12px; }
-    .core-step-d{ font-size:0.85rem; line-height:2.05; color:var(--ink-soft); }
+      font-size:1.6rem; font-weight:300; color:var(--numeral); letter-spacing:0.06em; line-height:1; }
+    .core-step-t{ font-size:1.1rem; margin-bottom:12px; }
+    .core-step-d{ font-size:0.85rem; line-height:2.0; }
 
-    .core-branch-lead{ text-align:left; font-size:0.86rem; font-weight:400; letter-spacing:0.06em;
-      color:var(--ink-soft); margin-bottom:18px; }
+    .core-branch-lead{ text-align:left; font-size:0.88rem; font-weight:500;
+      color:var(--text-muted); margin-bottom:18px; }
     .core-branch{ gap:20px; }
-    .branch-card{ background:var(--paper); border:1px solid var(--rule); border-radius:0;
-      padding:32px 32px 28px; transition:background .25s, border-color .25s; }
-    .branch-card:hover{ background:#fff; border-color:var(--ink); transform:none; box-shadow:none; }
-    .branch-card-no{ font-size:0.64rem; letter-spacing:0.26em; color:var(--ink-soft); margin-bottom:12px; }
-    .branch-card-t{ font-size:1.22rem; color:var(--ink); margin-bottom:12px; }
-    .branch-card-d{ font-size:0.85rem; line-height:2.0; color:var(--ink-soft); }
-    .branch-card-go{ margin-top:16px; font-size:0.76rem; font-weight:400; letter-spacing:0.1em; color:var(--primary-dark); }
+    .branch-card{ background:var(--bg-section); border:1px solid var(--border); border-radius:8px;
+      padding:30px 30px 26px; transition:background .25s, border-color .25s; }
+    .branch-card:hover{ background:#fff; border-color:var(--primary); transform:none;
+      box-shadow:0 6px 18px rgba(61,108,181,0.10); }
+    .branch-card-no{ font-size:0.68rem; letter-spacing:0.2em; margin-bottom:12px; }
+    .branch-card-t{ font-size:1.2rem; margin-bottom:12px; }
+    .branch-card-d{ font-size:0.85rem; line-height:1.95; }
+    .branch-card-go{ margin-top:16px; font-size:0.78rem; letter-spacing:0.06em; }
 
     /* ---- サービス見出し ---- */
     .sv-head{ margin-bottom:10px; }
-    .sv-no{ font-size:0.66rem; letter-spacing:0.3em; color:var(--ink-soft); margin-bottom:18px; }
-    .sv-title{ font-size:clamp(1.6rem,3.6vw,2.15rem); color:var(--ink); line-height:1.5; margin-bottom:18px; }
-    .sv-title-sub{ display:inline-block; font-family:'Noto Sans JP',sans-serif; font-size:0.82rem;
-      font-weight:400; letter-spacing:0.08em; color:var(--ink-soft);
-      margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); }
-    .sv-lead{ line-height:2.2; color:var(--ink-soft); }
-    .sv-lead strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+    .sv-no{ font-size:0.7rem; letter-spacing:0.22em; margin-bottom:16px; }
+    .sv-title{ font-size:clamp(1.55rem,3.6vw,2.05rem); line-height:1.5; margin-bottom:16px; }
+    .sv-title-sub{ display:block; border:0; padding:0; margin-top:12px;
+      font-size:0.86rem; font-weight:500; letter-spacing:0.04em; color:var(--primary-dark); }
+    .sv-lead{ line-height:2.1; }
 
-    .sv-blocklabel{ display:flex; align-items:center; gap:14px; font-size:0.64rem; font-weight:400;
-      letter-spacing:0.28em; color:var(--ink-soft); margin:72px 0 14px; }
-    .sv-blocklabel::before{ content:""; flex:none; width:26px; height:1px; background:var(--ink); }
-    .sv-blocktitle{ font-size:clamp(1.2rem,2.4vw,1.55rem); color:var(--ink); line-height:1.65; margin-bottom:32px; }
+    .sv-blocklabel{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.2em; color:var(--primary); margin:72px 0 12px; }
+    .sv-blocklabel::before{ content:""; flex:none; width:24px; height:1px; background:var(--primary); }
+    .sv-blocktitle{ font-size:clamp(1.18rem,2.4vw,1.5rem); line-height:1.6; margin-bottom:30px; }
 
-    /* ---- 3項目（罫線とセリフ数字。囲みをやめる） ---- */
-    .sv-grid3{ gap:0; border-top:1px solid var(--ink); }
-    .sv-card, .sv-section--alt .sv-card{ background:none; border:0; border-left:1px solid var(--rule-fine);
-      border-radius:0; padding:28px 32px 0; }
+    /* ---- 3項目（囲みではなく罫線で分ける） ---- */
+    .sv-grid3{ gap:0; border-top:1px solid var(--primary); }
+    .sv-card, .sv-section--alt .sv-card{ background:none; border:0;
+      border-left:1px solid var(--rule-fine); border-radius:0; padding:28px 32px 0; }
     .sv-card:first-child{ border-left:0; padding-left:0; }
-    .sv-card-n{ font-family:'Noto Serif JP',serif; font-size:1.7rem; font-weight:400;
-      color:var(--numeral); letter-spacing:0.04em; line-height:1; margin-bottom:14px; }
-    .sv-card-n span{ margin-left:14px; font-family:'Noto Sans JP',sans-serif; font-size:0.6rem;
-      font-weight:400; letter-spacing:0.22em; color:var(--ink-soft); vertical-align:0.42em; }
-    .sv-card-t{ font-size:1.06rem; color:var(--ink); margin-bottom:12px; line-height:1.6; }
-    .sv-card-d{ font-size:0.85rem; line-height:2.05; color:var(--ink-soft); }
-    .sv-card-d strong{ color:var(--ink); font-weight:600; border-bottom:1px solid rgba(61,108,181,0.4); }
+    .sv-card-n{ font-size:1.6rem; font-weight:300; color:var(--numeral);
+      letter-spacing:0.06em; line-height:1; margin-bottom:14px; }
+    .sv-card-n span{ margin-left:14px; font-size:0.64rem; font-weight:700;
+      letter-spacing:0.18em; color:var(--primary); vertical-align:0.45em; }
+    .sv-card-t{ font-size:1.04rem; margin-bottom:12px; line-height:1.6; }
+    .sv-card-d{ font-size:0.85rem; line-height:2.0; }
 
-    /* ---- ダークパネル（ご提供例） ---- */
-    .pkg-panel{ background:var(--panel); color:#fff; padding:52px 48px 48px; margin-top:76px; }
-    .pkg-panel-head{ padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,0.18); margin-bottom:6px; }
-    .pkg-panel-label{ font-size:0.64rem; letter-spacing:0.3em; color:rgba(255,255,255,0.45); margin-bottom:14px; }
-    .pkg-panel-title{ font-size:clamp(1.15rem,2.3vw,1.5rem); color:#fff; line-height:1.6; }
-    .pkg-row{ display:flex; gap:32px; align-items:flex-start; padding:28px 0;
+    /* ---- パネル（ご提供例） ---- */
+    .pkg-panel{ background:var(--panel); color:#fff; border-radius:10px;
+      padding:48px 44px 44px; margin-top:72px; }
+    .pkg-panel-head{ padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.18); margin-bottom:6px; }
+    .pkg-panel-label{ font-size:0.7rem; font-weight:700; letter-spacing:0.2em;
+      color:#8fb0dd; margin-bottom:12px; }
+    .pkg-panel-title{ font-size:clamp(1.12rem,2.3vw,1.45rem); font-weight:700; color:#fff; line-height:1.6; }
+    .pkg-row{ display:flex; gap:30px; align-items:flex-start; padding:26px 0;
       border-bottom:1px solid rgba(255,255,255,0.1); }
     .pkg-rows .pkg-row:last-child{ border-bottom:0; padding-bottom:6px; }
-    .pkg-row-n{ flex:none; width:78px; font-family:'Noto Serif JP',serif; font-size:1.35rem;
-      font-weight:400; letter-spacing:0.04em; line-height:1.55; color:var(--primary-light); padding-top:2px; }
+    .pkg-row-n{ flex:none; width:78px; font-size:1.3rem; font-weight:300;
+      letter-spacing:0.06em; line-height:1.5; color:#8fb0dd; padding-top:2px; }
     .pkg-row-body{ flex:1; min-width:0; }
-    .pkg-row-t{ font-size:1.02rem; color:#fff; line-height:1.65; margin-bottom:8px; }
-    .pkg-row-d{ font-size:0.85rem; line-height:2.0; color:rgba(255,255,255,0.62); }
+    .pkg-row-t{ font-size:1.0rem; font-weight:700; color:#fff; line-height:1.65; margin-bottom:8px; }
+    .pkg-row-d{ font-size:0.85rem; line-height:1.95; color:rgba(255,255,255,0.66); }
     .pkg-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
-    .pkg-tags span{ font-size:0.68rem; letter-spacing:0.06em; color:rgba(255,255,255,0.78);
-      border:1px solid rgba(255,255,255,0.3); padding:4px 11px; }
-    .pkg-panel-note{ font-size:0.74rem; line-height:1.9; color:rgba(255,255,255,0.42); margin-top:26px; }
+    .pkg-tags span{ font-size:0.7rem; font-weight:500; letter-spacing:0.04em;
+      color:rgba(255,255,255,0.82); border:1px solid rgba(255,255,255,0.32);
+      border-radius:3px; padding:4px 11px; }
+    .pkg-panel-note{ font-size:0.75rem; line-height:1.85; color:rgba(255,255,255,0.45); margin-top:24px; }
 
-    /* ---- 活用ポイント（囲みをやめて定義リストに） ---- */
-    .cap-grid{ grid-template-columns:1fr 1fr; gap:0 48px; border-top:1px solid var(--ink); }
-    .cap-card{ background:none; border:0; border-bottom:1px solid var(--rule-fine); border-radius:0;
-      padding:24px 0; gap:20px; }
-    .cap-n{ width:auto; min-width:26px; height:auto; background:none; border-radius:0; display:block;
-      font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:400;
-      color:var(--numeral); line-height:1.5; }
-    .cap-t{ font-size:0.98rem; color:var(--ink); margin-bottom:6px; line-height:1.65; }
-    .cap-d{ font-size:0.83rem; line-height:2.0; color:var(--ink-soft); }
+    /* ---- 活用ポイント（囲みではなく罫線で分ける） ---- */
+    .cap-grid{ grid-template-columns:1fr 1fr; gap:0 46px; border-top:1px solid var(--primary); }
+    .cap-card{ background:none; border:0; border-bottom:1px solid var(--rule-fine);
+      border-radius:0; padding:22px 0; gap:18px; }
+    .cap-n{ width:auto; min-width:24px; height:auto; background:none; border-radius:0; display:block;
+      font-size:1.05rem; font-weight:300; color:var(--numeral); line-height:1.5; }
+    .cap-t{ font-size:0.96rem; margin-bottom:6px; line-height:1.65; }
+    .cap-d{ font-size:0.83rem; line-height:1.95; }
 
     /* ---- 図版 ---- */
-    .fig-box{ background:var(--paper); border:1px solid var(--rule); border-radius:0; padding:26px 26px 20px; }
-    .fig-cap{ font-size:0.64rem; letter-spacing:0.2em; color:var(--ink-soft); margin-bottom:16px; }
-    .fig-after{ border-top:1px solid var(--rule-fine); color:var(--ink-soft); line-height:1.95; padding-top:14px; margin-top:16px; }
+    .fig-box{ background:var(--bg-section); border:1px solid var(--border); border-radius:8px;
+      padding:24px 24px 20px; }
+    .sv-section--alt .fig-box{ background:var(--bg-section); }
+    .fig-cap{ font-family:'Noto Sans JP', sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.12em; color:var(--primary); margin-bottom:14px; }
+    .fig-after{ border-top:1px solid var(--border); color:var(--text-muted);
+      line-height:1.9; padding-top:14px; margin-top:16px; }
     .fig-after strong{ color:var(--primary-dark); }
-    .fig-note{ font-size:0.74rem; color:var(--ink-soft); }
-    .fig-hint{ color:var(--numeral); }
+    .fig-note{ font-size:0.76rem; color:var(--text-muted); }
+    .fig-hint{ color:var(--text-muted); }
 
     /* ---- 結び ---- */
-    .closing-q{ max-width:840px; border-top:1px solid var(--ink); border-bottom:1px solid var(--rule);
-      padding:44px 0 40px; }
-    .closing-q p{ font-family:'Noto Serif JP',serif; font-size:clamp(1rem,2vw,1.24rem); font-weight:400;
-      line-height:2.25; color:var(--ink); letter-spacing:0.01em; }
-    .closing-q p strong{ font-weight:600; }
-    .closing-q-last{ margin-top:26px; }
-    .closing-sig{ margin-top:20px; font-size:0.76rem; letter-spacing:0.14em; color:var(--ink-soft); }
+    .closing-q{ max-width:840px; border-top:2px solid var(--primary);
+      border-bottom:1px solid var(--border); padding:40px 0 36px; }
+    .closing-q p{ font-size:clamp(0.96rem,2vw,1.14rem); font-weight:400;
+      line-height:2.15; color:var(--text); }
+    .closing-q p strong{ font-weight:700; }
+    .closing-q-last{ margin-top:24px; }
+    .closing-sig{ margin-top:18px; font-size:0.78rem; letter-spacing:0.1em; color:var(--text-muted); }
 
     @media (max-width:900px){
       .core-steps{ grid-template-columns:1fr; border-top:0; }
-      .core-step{ border-left:0; border-top:1px solid var(--ink); padding:26px 0 30px; }
+      .core-step{ border-left:0; border-top:1px solid var(--primary); padding:26px 0 30px; }
       .core-step::before{ left:0; }
       .sv-grid3{ grid-template-columns:1fr; border-top:0; }
-      .sv-card, .sv-section--alt .sv-card{ border-left:0; border-top:1px solid var(--ink); padding:26px 0 30px; }
+      .sv-card, .sv-section--alt .sv-card{ border-left:0; border-top:1px solid var(--primary);
+        padding:26px 0 30px; }
       .cap-grid{ grid-template-columns:1fr; gap:0; }
     }
     @media (max-width:640px){
       .core-section{ padding:60px 20px 64px; }
       .sv-section{ padding:60px 20px 68px; }
       .closing-wrap{ padding:0 20px 68px; }
-      .pkg-panel{ padding:36px 22px 32px; margin-top:56px; }
+      .pkg-panel{ padding:34px 22px 30px; margin-top:56px; }
       .pkg-row{ flex-direction:column; gap:10px; padding:24px 0; }
-      .pkg-row-n{ width:auto; font-size:1.15rem; }
+      .pkg-row-n{ width:auto; font-size:1.1rem; }
       .sv-blocklabel{ margin-top:56px; }
       .fig-box{ padding:18px 16px 14px; }
-      .closing-q{ padding:32px 0 30px; }
+      .closing-q{ padding:30px 0 28px; }
     }
   </style>
 </head>
@@ -2596,7 +2591,7 @@
           <svg viewBox="0 0 720 400" style="min-width:680px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="組織のAIが各業務アプリを横断してつながる図">
             <g font-family="'Noto Sans JP',sans-serif">
               <!-- 接続線 -->
-              <g stroke="#c6c1b6" stroke-width="1.2">
+              <g stroke="#b9c8e2" stroke-width="1.4">
                 <line x1="360" y1="205" x2="360" y2="57"/>
                 <line x1="360" y1="205" x2="476" y2="113"/>
                 <line x1="360" y1="205" x2="504" y2="238"/>
@@ -2612,37 +2607,37 @@
 
               <!-- ノード -->
               <g>
-                <rect x="301" y="31" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="301" y="31" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="360" y="52" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ブラウザ</text>
                 <text x="360" y="69" text-anchor="middle" font-size="9.5" fill="#555">開いている画面を読む</text>
               </g>
               <g>
-                <rect x="417" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="417" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="476" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドキュメント</text>
                 <text x="476" y="125" text-anchor="middle" font-size="9.5" fill="#555">下書き・体裁を整える</text>
               </g>
               <g>
-                <rect x="445" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="445" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="504" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スプレッドシート</text>
                 <text x="504" y="250" text-anchor="middle" font-size="9.5" fill="#555">集計・数式・差分照合</text>
               </g>
               <g>
-                <rect x="365" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="365" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="424" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スライド</text>
                 <text x="424" y="350" text-anchor="middle" font-size="9.5" fill="#555">構成・レイアウト</text>
               </g>
               <g>
-                <rect x="237" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="237" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="296" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">会議（Meet）</text>
                 <text x="296" y="350" text-anchor="middle" font-size="9.5" fill="#555">文字起こし・要約</text>
               </g>
               <g>
-                <rect x="157" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="157" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="216" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドライブ</text>
                 <text x="216" y="250" text-anchor="middle" font-size="9.5" fill="#555">資料の横断検索</text>
               </g>
               <g>
-                <rect x="185" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#2b3038" stroke-width="1"/>
+                <rect x="185" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
                 <text x="244" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ノートブック</text>
                 <text x="244" y="125" text-anchor="middle" font-size="9.5" fill="#555">自社専用AIをつくる</text>
               </g>
