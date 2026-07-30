@@ -226,25 +226,7 @@
       background: var(--primary);
       border-radius: 2px;
       margin-bottom: 36px;
-    }/* ===== TABLE ===== */
-    .table-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 8px;
-      box-shadow: 0 2px 16px rgba(61,108,181,0.08);
-      margin-bottom: 8px;
-    }
-
-    .scroll-hint {
-      display: none;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-align: right;
-      margin-bottom: 6px;
-      letter-spacing: 0.04em;
-    }
-
-    table {
+    }    table {
       width: 100%;
       border-collapse: collapse;
       background: #fff;
@@ -289,17 +271,6 @@
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e8eef8;
-      color: var(--primary);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.04em;
     }/* ===== PRICING NOTE ===== */
     .pricing-note {
       background: #fff;
@@ -498,241 +469,7 @@
     }
 
     @media (max-width: 480px) {
-      section { padding: 40px 16px; }    }
-
-    /* ===== SUB SECTION ===== */
-    .sub-section { margin-top: 40px; }
-
-    .sub-section-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-
-    .sub-section-title {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .sub-section-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      line-height: 1.8;
-    }
-
-    /* ===== BADGES ===== */
-    .badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-    .badge-green  { background: #e6f4ea; color: #2d7a4f; }
-    .badge-blue   { background: #e8eef8; color: var(--primary); }
-    .badge-purple { background: #ede8f8; color: #6b4fb0; }
-    .badge-orange { background: #fef0e4; color: #c06010; }
-
-    /* ===== TABLE VARIANTS ===== */
-    .table-medium { min-width: 600px; }
-    .table-wide   { min-width: 720px; }
-    .table-xl     { min-width: 840px; }
-
-    .table-wrap-first tbody td:first-child { white-space: normal; }
-
-    .table-compare thead tr { background: #f0f4fb; }
-    .table-compare thead th { color: var(--primary); }
-    .table-compare .th-accent {
-      background: var(--primary) !important;
-      color: #fff !important;
-    }tr.row-hl td {
-      background: #e8eef8;
-      font-weight: 700;
-      color: var(--text);
-    }    .sym-good { color: #2d7a4f; font-weight: 700; }
-    .sym-fair { color: #b07020; font-weight: 700; }
-    /* ===== SECTION HR DIVIDER ===== */
-    .section-hr {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 40px 0;
-    }
-
-    /* ===== COMPACT TABLE (flow) ===== */
-    .table-compact thead th,
-    .table-compact tbody td {
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-
-    /* ===== COMPARISON TABLE FONT SIZE ===== */
-    .table-font-sm {
-      font-size: 0.775rem;
-    }    .ai-levels {
-      margin: 12px 0 0 8px;
-      padding-left: 16px;
-      list-style: disc;
-    }
-    .ai-levels li {
-      margin-bottom: 6px;
-      line-height: 1.8;
-      font-size: 0.92rem;
-      color: #444;
-    }
-    .badge-option {
-      display: inline-block;
-      background: #dce8f7;
-      color: #3d6cb5;
-      font-size: 0.72rem;
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-left: 10px;
-      font-weight: bold;
-      vertical-align: middle;
-      letter-spacing: 0.03em;
-    }
-/* 一本の価値フロー図 */
-    .value-flow {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      justify-content: center;
-      gap: 0;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 20px;
-      margin-bottom: 56px;
-      box-shadow: 0 2px 16px rgba(61,108,181,0.07);
-    }
-
-    .vf-node {
-      position: relative;
-      flex: 1 1 110px;
-      min-width: 96px;
-      max-width: 150px;
-      text-align: center;
-      padding: 8px 6px;
-    }
-
-    .vf-node:not(:last-child)::after {
-      content: '›';
-      position: absolute;
-      right: -7px;
-      top: 38px;
-      transform: translateY(-50%);
-      font-size: 1.6rem;
-      line-height: 1;
-      color: var(--primary-light);
-      font-weight: 300;
-    }
-
-    .vf-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 10px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      background: #e8eef8;
-      color: var(--primary);
-    }
-    .vf-node--start .vf-icon { background: #f0f2f5; color: var(--text-muted); }
-    .vf-node--goal  .vf-icon { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(61,108,181,0.35); }
-
-    .vf-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.45;
-    }
-    .vf-node--goal .vf-title { color: var(--primary-dark); }
-
-    .vf-sub {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.4;
-    }/* ===== AIが何をしているか（STEP01内） ===== */
-    .ai-flow {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px;
-      margin-top: 8px;
-    }
-    .ai-node {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 16px;
-      position: relative;
-    }
-    .ai-node--ai {
-      background: #eef2fb;
-      border-color: #c8d8f0;
-    }
-    .ai-node-tag {
-      display: inline-block;
-      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
-      padding: 2px 9px; border-radius: 20px;
-      background: #e8eef8; color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .ai-node--ai .ai-node-tag { background: var(--primary); color: #fff; }
-    .ai-node-t { font-size: 0.85rem; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 4px; }
-    .ai-node-d { font-size: 0.76rem; color: var(--text-muted); line-height: 1.65; }
-
-    /* ===== Before / After ===== */
-    .ba-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 8px;
-    }
-    .ba-card {
-      border-radius: 10px;
-      padding: 24px 24px 26px;
-      border: 1px solid var(--border);
-    }
-    .ba-card--before { background: #f6f7f9; }
-    .ba-card--after  { background: #f0f5ff; border-color: #c8d8f0; }
-    .ba-head {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
-    }
-    .ba-pill {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-      padding: 4px 14px; border-radius: 20px;
-    }
-    .ba-card--before .ba-pill { background: #e2e4e8; color: #666; }
-    .ba-card--after  .ba-pill { background: var(--primary); color: #fff; }
-    .ba-head h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); }
-
-    .ba-week { list-style: none; }
-    .ba-week li {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 0.83rem; padding: 7px 0;
-      border-bottom: 1px dashed var(--border);
-    }
-    .ba-week li:last-child { border-bottom: none; }
-    .ba-day { color: var(--text-muted); font-weight: 500; }
-    .ba-val { font-weight: 700; }
-    .ba-card--before .ba-val { color: #b04a2f; }
-    .ba-card--after  .ba-val { color: #2d7a4f; }
-    .ba-foot {
-      margin-top: 14px; font-size: 0.8rem; line-height: 1.7; color: var(--text-muted);
-    }
-    .ba-foot strong { color: var(--text); }/* ===== レスポンシブ（追加分） ===== */
+      section { padding: 40px 16px; }    }/* ===== レスポンシブ（追加分） ===== */
     @media (max-width: 768px) {
       .deliver-grid { grid-template-columns: 1fr; }
       .ai-flow      { grid-template-columns: 1fr; }
@@ -863,9 +600,7 @@
     /* ▲▲▲ 追加CSSここまで ▲▲▲ */
 
     /* ===== TABLE FIT (no scroll, compact) ===== */
-    .table-fit { min-width: 0; font-size: 0.82rem; }
-    .table-fit thead th,
-    .table-fit tbody td { padding: 10px 12px; }    /* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
+    .table-fit { min-width: 0; font-size: 0.82rem; }/* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
     .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 18px; }
 
     /* 納品ツール注記 */
@@ -889,9 +624,7 @@
     .floatc svg { flex-shrink: 0; }
 
     @media (max-width: 768px) {.floatc { right: 14px; bottom: 14px; padding: 12px 20px; font-size: 0.85rem; }
-    }/* fix: 「社内ナレッジポータル化」の末尾「化」だけが折り返すのを防止（1行に収める） */
-    .vf-title--long { white-space: nowrap; font-size: 0.74rem; letter-spacing: -0.01em; }
-
+    }
     /* ===================================================== */
     /* ===== 2026-07 抜本改訂：共通コア＋2サービス構成 ===== */
     /* ===================================================== */
