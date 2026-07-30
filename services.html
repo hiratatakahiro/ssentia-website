@@ -375,45 +375,7 @@
 
       section {
         padding: 52px 20px;
-      }
-
-      .tacit-section {
-        padding: 52px 20px;
-      }
-
-      .service-block {
-        margin-bottom: 48px;
-      }
-
-      .service-block-desc {
-        padding-left: 0;
-      }
-
-      .scroll-hint {
-        display: block;
-      }
-
-      .flow-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .flow-step:not(:last-child)::after {
-        content: '↓';
-        right: auto;
-        top: auto;
-        bottom: -16px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 1.4rem;
-      }
-
-      .pricing-note {
-        flex-direction: column;
-        gap: 12px;
-        padding: 24px 20px;
-      }
-
-      .footer-inner {
+      }.footer-inner {
         flex-direction: column;
         gap: 24px;
       }
@@ -429,35 +391,11 @@
 
       .section-divider {
         margin-bottom: 24px;
-      }
-
-      .sub-section {
-        margin-top: 28px;
-      }
-    }
+      }    }
 
     @media (max-width: 480px) {
       section { padding: 40px 16px; }    }/* ===== レスポンシブ（追加分） ===== */
-    @media (max-width: 768px) {
-      .deliver-grid { grid-template-columns: 1fr; }
-      .ai-flow      { grid-template-columns: 1fr; }
-      .ba-grid      { grid-template-columns: 1fr; }
-      .fit-grid     { grid-template-columns: 1fr; }
-
-      .value-flow { padding: 24px 16px; }
-      .vf-node { flex-basis: 30%; max-width: none; }
-      .vf-node:not(:last-child)::after { display: none; }
-
-      .wiki-mock { grid-template-columns: 1fr; }
-      .wiki-side { border-right: none; border-bottom: 1px solid var(--border); }
-
-      .learn-step { flex-basis: 100%; margin-right: 0; }
-      .learn-step:not(:last-child)::after {
-        content: '↓'; right: 50%; top: auto; bottom: -16px;
-        transform: translateX(50%);
-      }
-      .learn-step:not(:last-child) { margin-bottom: 22px; }
-    }/* CTAバンド内の補助リンク */
+/* CTAバンド内の補助リンク */
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
@@ -473,13 +411,7 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    .cta-pricelink:hover { color: #fff; }
-
-
-    /* ▲▲▲ 追加CSSここまで ▲▲▲ */
-
-    /* ===== TABLE FIT (no scroll, compact) ===== */
-    .table-fit { min-width: 0; font-size: 0.82rem; }/* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
+    .cta-pricelink:hover { color: #fff; }/* ===== 追加：納品ツール注記・不安払拭・信頼の証・フローティングCTA ===== */
     .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.65); margin-top: 18px; }/* フローティングCTA */
     .floatc {
       position: fixed; right: 20px; bottom: 20px; z-index: 90; display: inline-flex; align-items: center; gap: 8px;
@@ -726,11 +658,7 @@
     @media (max-width: 900px) {
       .core-steps { grid-template-columns: 1fr; gap: 14px; }
       .core-branch { grid-template-columns: 1fr; }
-      .sv-grid3 { grid-template-columns: 1fr; }
-      .pkg-flow { grid-template-columns: 1fr 1fr; }
-      .cap-grid { grid-template-columns: 1fr; }
-      .ex-grid { grid-template-columns: 1fr; }
-    }
+      .sv-grid3 { grid-template-columns: 1fr; }      .cap-grid { grid-template-columns: 1fr; }    }
     @media (max-width: 640px) {
       .core-section, .sv-section { padding: 56px 20px; }.fig-hint { display: block; }
       .fig-box { padding: 14px 14px 12px; }    }
