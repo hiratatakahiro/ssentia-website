@@ -216,6 +216,33 @@
       section{ padding:52px 20px; }
       .value-lead-wrap{ padding:40px 20px 0; }
     }
+    /* ===== SERVICE 02：業務のAI横断活用支援 ===== */
+    .ai-note-top{ background:#FFF8EC; border-left:4px solid #C8912F; border-radius:8px; padding:16px 22px; max-width:1000px; margin:14px auto 0; font-size:0.88rem; line-height:1.85; color:#6B4C14; }
+    .ai-note-top a{ color:#8A5D10; font-weight:700; }
+    .ai-scope{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:26px; }
+    .ai-scope-col{ border:1px solid var(--border); border-radius:10px; padding:20px 22px; background:#fff; }
+    .ai-scope-col--out{ background:#FDF7F5; border-color:#E6CEC6; }
+    .ai-scope-t{ font-size:0.92rem; font-weight:700; margin-bottom:14px; padding-bottom:9px; border-bottom:1px solid var(--border); }
+    .ai-scope-col--in .ai-scope-t{ color:var(--primary-dark); }
+    .ai-scope-col--out .ai-scope-t{ color:#A2472C; border-bottom-color:#E6CEC6; }
+    .ai-scope-list{ list-style:none; }
+    .ai-scope-list li{ font-size:0.86rem; line-height:1.85; color:var(--text-muted); padding-left:1.4em; position:relative; margin-bottom:9px; }
+    .ai-scope-list li:last-child{ margin-bottom:0; }
+    .ai-scope-list strong{ color:var(--text); font-weight:700; }
+    .ai-scope-col--in .ai-scope-list li::before{ content:"\2713"; position:absolute; left:0; color:var(--primary); font-weight:700; }
+    .ai-scope-col--out .ai-scope-list li::before{ content:"\00D7"; position:absolute; left:0; color:#A2472C; font-weight:700; }
+    .ai-which{ border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:10px; padding:24px 26px; margin-top:34px; background:#fff; }
+    .ai-which-t{ font-size:1rem; font-weight:700; margin-bottom:14px; }
+    .ai-which-row{ display:flex; gap:16px; align-items:flex-start; padding:13px 0; border-bottom:1px dashed var(--border); }
+    .ai-which-row:last-of-type{ border-bottom:none; }
+    .ai-which-if{ flex:1; font-size:0.88rem; line-height:1.8; color:var(--text-muted); }
+    .ai-which-then{ flex-shrink:0; width:210px; font-size:0.88rem; font-weight:700; line-height:1.8; color:var(--primary-dark); }
+    .ai-which-foot{ margin-top:16px; padding:15px 18px; background:#EEF5FF; border-radius:6px; font-size:0.86rem; line-height:1.9; color:#0C3D6E; }
+    @media(max-width:820px){
+      .ai-scope{ grid-template-columns:1fr; }
+      .ai-which-row{ flex-direction:column; gap:5px; }
+      .ai-which-then{ width:auto; }
+    }
   </style>
 </head>
 <body>
@@ -262,6 +289,10 @@
     <div class="value-lead">
       <p>S.sentiaのサービスは、単なる「Wiki構築」ではなく、<strong>知識と経験を組織に残す仕組みづくり</strong>です。年間数十時間にのぼる引き継ぎ・新人教育の時間削減を目指します。多くのお客様は「担当者への依存を減らしたい」「新人教育を効率化したい」という課題から導入されています。</p>
     </div>
+    <p class="ai-note-top">
+      本ページの料金は、<strong>業務の属人化解消</strong>（社内マニュアル・wikiの構築）のものです。<br>
+      <strong>業務のAI横断活用支援</strong>の料金は、<a href="#ai-support">こちらをご覧ください</a>。
+    </p>
   </div>
 
   <!-- ① 費用シミュレーター -->
@@ -419,10 +450,68 @@
     </div>
   </section>
 
+  <!-- ⑤ SERVICE 02：業務のAI横断活用支援 -->
+  <section id="ai-support">
+    <div class="section-inner">
+      <p class="section-label">AI Support</p>
+      <h2 class="section-title">業務のAI横断活用支援</h2>
+      <p class="section-sub">上記のWiki構築とは別のサービスです。組織全体でAIを活用できる環境を構築し、定着するまで支援します。</p>
+      <div class="section-divider"></div>
+
+      <table class="tier-table">
+        <thead>
+          <tr><th>項目</th><th>費用（税込）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>初期費用（活用プランの設計・環境構築）</td><td class="tier-price">50万円〜</td></tr>
+          <tr><td>実践型研修</td><td class="tier-price">10万円〜 ／ 1回</td></tr>
+        </tbody>
+      </table>
+      <p class="members-note" style="margin-top:16px;">※ 初期費用は、<strong>ご利用ライセンス数</strong>と<strong>ご提案するAI活用の数</strong>によって変動します。研修は初期費用に含まれません。必要な回数は、環境と人数を踏まえてご相談のうえ決定します。</p>
+      <p class="members-note" style="margin-top:6px;">※ Google Workspace / Microsoft 365 / Notion の<strong>ライセンス費用は御社でのご契約となり、上記には含まれません</strong>。必要なプランと概算額は、ご提案時にあわせてお伝えします。</p>
+
+      <div class="ai-scope">
+        <div class="ai-scope-col ai-scope-col--in">
+          <p class="ai-scope-t">この費用に含まれるもの</p>
+          <ul class="ai-scope-list">
+            <li>現状の業務・IT環境のヒアリングと、AI活用プランの設計</li>
+            <li>Google Workspace / Microsoft 365 / Notion 上での環境構築</li>
+            <li>管理者設定・権限設計・運用ルールの整備</li>
+            <li>自社専用AI（社内資料を参照して回答するもの）の構築</li>
+          </ul>
+        </div>
+        <div class="ai-scope-col ai-scope-col--out">
+          <p class="ai-scope-t">この費用に含まれないもの</p>
+          <ul class="ai-scope-list">
+            <li><strong>業務知識の言語化・マニュアル化</strong>（業務の属人化解消の範囲です）</li>
+            <li>各サービスのライセンス費用（御社でのご契約）</li>
+            <li>既存システムの改修・新規開発</li>
+            <li>実践型研修（1回 10万円〜で別途）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-which">
+        <p class="ai-which-t">どちらを先に検討すべきか</p>
+        <div class="ai-which-row">
+          <p class="ai-which-if">ベテランの頭の中にある業務知識を、組織に残したい</p>
+          <p class="ai-which-then">→ 業務の属人化解消<br>（初期費用 100万円〜）</p>
+        </div>
+        <div class="ai-which-row">
+          <p class="ai-which-if">道具は入っているのに使われていない。AIを使えるのが社内で数人だけ</p>
+          <p class="ai-which-then">→ 業務のAI横断活用支援<br>（初期費用 50万円〜）</p>
+        </div>
+        <p class="ai-which-foot">
+          <strong>両方に当てはまる場合は、言語化を先にお勧めします。</strong>AIが参照できる業務知識が整っていない状態で環境だけを整えても、回答の質は上がりません。順番を逆にすると、道具を入れたのに使われないという結果になります。
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- 無料相談CTA -->
   <div class="cta-band">
     <p class="cta-eyebrow">どのプランが最適か分からない方へ</p>
-    <h2>30分の無料相談で、貴社に合ったプランをご提案します</h2>
+    <h2>45分の無料相談で、貴社に合ったプランをご提案します</h2>
     <p>「料金は見たけれど、自社に当てはまるか分からない」<br>そんな段階でも大丈夫です。まずはお気軽にご相談ください。初回相談は無料です。</p>
     <a href="contact.html" class="btn-outline">無料相談を申し込む</a>
   </div>
