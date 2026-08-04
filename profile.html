@@ -233,61 +233,10 @@
       margin: 0 auto;
     }
 
-    /* ===== VALUES SECTION ===== */
-    .values-section {
-      background: var(--bg-section);
-      padding: 72px 24px;
-    }
-
-    .values-lead {
-      font-size: 0.97rem;
-      color: var(--text-muted);
-      line-height: 1.9;
-      margin-bottom: 36px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .value-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 22px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .value-check {
-      width: 26px;
-      height: 26px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-top: 1px;
-    }
-
-    .value-card p {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
     /* ===== PROFILE SECTION ===== */
     .profile-section {
       padding: 80px 24px;
-      background: var(--bg);
+      background: var(--bg-section);
     }
 
     .profile-card {
@@ -353,171 +302,33 @@
       margin-top: 4px;
     }
 
-    /* 経験カードグリッド */
-    .exp-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    /* プロフィール定義リスト */
+    .profile-list {
       margin-top: 4px;
+      border-top: 1px solid var(--border);
     }
 
-    .exp-card {
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .profile-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .exp-icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-
-    .exp-label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    /* ===== MESSAGE SECTION ===== */
-    .message-section {
-      background: var(--bg-section);
-      padding: 72px 24px;
-    }
-
-    .message-body {
-      font-size: 0.97rem;
-      color: var(--text-muted);
-      line-height: 2.1;
-      border-left: 4px solid var(--primary);
-      padding: 24px 28px;
-      background: #fff;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .message-body p {
-      margin-bottom: 14px;
-    }
-
-    .message-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ===== PROMISE SECTION ===== */
-    .promise-section {
-      background: var(--bg);
-      padding: 72px 24px;
-    }
-
-    .promise-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .promise-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 24px;
-    }
-
-    .promise-icon {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .profile-row dt {
       font-size: 0.85rem;
       font-weight: 700;
-      margin-top: 1px;
-    }
-
-    .promise-item p {
-      font-size: 0.97rem;
-      color: var(--text);
-      line-height: 1.7;
-      font-weight: 500;
-    }
-
-    /* ===== IDEAL CLIENTS SECTION ===== */
-    .clients-section {
-      background: var(--bg);
-      padding: 72px 24px;
-    }
-
-    .clients-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 4px;
-    }
-
-    .clients-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.97rem;
-      color: var(--text);
-      line-height: 1.7;
-      padding: 14px 20px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-section);
-    }
-
-    .clients-list li::before {
-      content: '・';
       color: var(--primary);
-      font-weight: 700;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      line-height: 1.7;
+      letter-spacing: 0.08em;
+      line-height: 1.9;
     }
 
-    /* ===== SFO PHOTO SECTION ===== */
-    .photo-section {
-      padding: 72px 24px;
-      background: var(--bg);
-    }
-
-    .photo-figure {
+    .profile-row dd {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.95;
       margin: 0;
-      text-align: center;
-    }
-
-    .photo-figure img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    }
-
-    .photo-caption {
-      margin-top: 0.75rem;
-      font-size: 0.88rem;
-      color: #666;
-      line-height: 1.8;
-      font-style: italic;
-      border-left: 3px solid var(--primary);
-      padding-left: 0.9rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
     }
 
     /* ===== CTA BAND ===== */
@@ -711,10 +522,6 @@
 
       .logo-name { font-size: 1.35rem; }
 
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-
       .profile-card {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -736,8 +543,10 @@
         text-align: left;
       }
 
-      .exp-grid {
-        grid-template-columns: 1fr 1fr;
+      .profile-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 16px 0;
       }
 
       .footer-inner {
@@ -758,21 +567,11 @@
       .company-table td {
         padding: 14px 16px;
       }
-
-      .message-body {
-        padding: 20px 20px;
-      }
     }
 
     @media (max-width: 480px) {
-      .exp-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .photo-section { padding: 52px 20px; }
       .company-section { padding: 52px 20px; }
-
-      .photo-caption { font-size: 0.84rem; }
+      .profile-section { padding: 52px 20px; }
     }
   </style>
 </head>
@@ -815,160 +614,11 @@
 
   <!-- ① PAGE HERO -->
   <div class="page-hero">
-    <p class="page-hero-label">Our Vision</p>
-    <h1>ベテランが去っても、知恵が残る組織を、日本中につくる。</h1>
+    <p class="page-hero-label">About</p>
+    <h1>S.sentia株式会社について</h1>
   </div>
 
-  <!-- ② S.sentiaが大切にしていること -->
-  <section class="values-section">
-    <div class="section-inner">
-      <p class="section-label">Our Values</p>
-      <h2 class="section-title">S.sentiaが大切にしていること</h2>
-      <div class="section-divider"></div>
-      <p class="values-lead">私たちはシステム会社ではありません。AIを導入する会社でもありません。<br>現場で本当に使われ続ける仕組みを作る会社です。<br>これこそが、本質的＝Essentialな課題解決です。</p>
-      <div class="values-grid">
-        <div class="value-card">
-          <span class="value-check">✔</span>
-          <p>意味のある仕組みを作る。</p>
-        </div>
-        <div class="value-card">
-          <span class="value-check">✔</span>
-          <p>現場の文脈を理解して、設計する。</p>
-        </div>
-        <div class="value-card">
-          <span class="value-check">✔</span>
-          <p>誰が担当になっても、機能し続ける。</p>
-        </div>
-        <div class="value-card">
-          <span class="value-check">✔</span>
-          <p>使われ続けることに、責任を持つ。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ③ 代表プロフィール -->
-  <section class="profile-section">
-    <div class="section-inner">
-      <div class="profile-card">
-        <!-- 左カラム：写真＋名前 -->
-        <div class="profile-avatar-wrap">
-          <div class="profile-avatar">
-            <img src="profile2.png" alt="平田 喬大">
-          </div>
-          <div class="profile-title-block">
-            <p class="profile-company">S.sentia株式会社</p>
-            <p class="profile-position">代表取締役</p>
-            <p class="profile-name">平田 喬大</p>
-            <p class="profile-name-en">HIRATA TAKAHIRO</p>
-          </div>
-        </div>
-        <!-- 右カラム：経験カード -->
-        <div class="profile-body">
-          <p class="section-label">Profile</p>
-          <h2 class="section-title">こんな経験があります</h2>
-          <div class="section-divider"></div>
-          <div class="exp-grid">
-            <div class="exp-card">
-              <span class="exp-icon">📋</span>
-              <span class="exp-label">営業・企画</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">🏢</span>
-              <span class="exp-label">金融・旅行・<br>教育業界</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">👥</span>
-              <span class="exp-label">管理職</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">🎓</span>
-              <span class="exp-label">教育・研修設計</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">🔄</span>
-              <span class="exp-label">業務プロセス改善</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">💻</span>
-              <span class="exp-label">Claude Codeによる<br>アプリ・Webサイト構築</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">📝</span>
-              <span class="exp-label">Notion<br>上級プログラム修了</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">☁️</span>
-              <span class="exp-label">Google Cloud<br>Generative AI Leader認定</span>
-            </div>
-            <div class="exp-card">
-              <span class="exp-icon">📊</span>
-              <span class="exp-label">FP2級</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ④ ご挨拶（短縮版） -->
-  <section class="message-section">
-    <div class="section-inner">
-      <p class="section-label">Message</p>
-      <h2 class="section-title">代表よりひとこと</h2>
-      <div class="section-divider"></div>
-      <div class="message-body">
-        <p>私は、"優秀な人がいる会社"よりも、"誰でも力を発揮できる会社"のほうが強いと考えています。</p>
-        <p>多くの企業では、情報やノウハウが個人の中に眠ったままになっています。私たちはそれらを整理し、AIやデジタルを活用しながら、誰もが安心して働ける仕組みづくりを支援します。</p>
-        <p>システムを導入することが目的ではありません。現場に定着し、長く使われる仕組みを一緒につくることを大切にしています。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑤ お客様との約束 -->
-  <section class="promise-section">
-    <div class="section-inner">
-      <p class="section-label">Promise</p>
-      <h2 class="section-title">お客様との約束</h2>
-      <div class="section-divider"></div>
-      <div class="promise-list">
-        <div class="promise-item">
-          <span class="promise-icon">✓</span>
-          <p>わからないことは、わからないとお伝えします。</p>
-        </div>
-        <div class="promise-item">
-          <span class="promise-icon">✓</span>
-          <p>必要のないシステムは勧めません。</p>
-        </div>
-        <div class="promise-item">
-          <span class="promise-icon">✓</span>
-          <p>現場で使われることを最優先に考えます。</p>
-        </div>
-        <div class="promise-item">
-          <span class="promise-icon">✓</span>
-          <p>構築して終わりではなく、定着まで伴走します。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑥ こんな企業に向いています -->
-  <section class="clients-section" style="background: var(--bg-section);">
-    <div class="section-inner">
-      <p class="section-label">Ideal Clients</p>
-      <h2 class="section-title">こんな企業に向いています</h2>
-      <div class="section-divider"></div>
-      <ul class="clients-list">
-        <li>社員10〜100名程度の中小企業</li>
-        <li>業務知識やノウハウが属人化している</li>
-        <li>社内に研修や教育担当がいない</li>
-        <li>頻繁に求人を出している</li>
-        <li>教育コストや引き継ぎの負担を減らしたい</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ⑩ 会社概要 -->
+  <!-- ② 会社概要 -->
   <section class="company-section">
     <div class="company-inner">
       <p class="section-label">Company</p>
@@ -1044,7 +694,55 @@
     </div>
   </section>
 
-  <!-- ⑪ CTA -->
+  <!-- ③ 代表者プロフィール -->
+  <section class="profile-section">
+    <div class="section-inner">
+      <div class="profile-card">
+        <!-- 左カラム：写真＋名前 -->
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar">
+            <img src="profile2.png" alt="平田 喬大">
+          </div>
+          <div class="profile-title-block">
+            <p class="profile-company">S.sentia株式会社</p>
+            <p class="profile-position">代表取締役</p>
+            <p class="profile-name">平田 喬大</p>
+            <p class="profile-name-en">HIRATA TAKAHIRO</p>
+          </div>
+        </div>
+        <!-- 右カラム：経験カード -->
+        <div class="profile-body">
+          <p class="section-label">Profile</p>
+          <h2 class="section-title">代表者プロフィール</h2>
+          <div class="section-divider"></div>
+          <dl class="profile-list">
+            <div class="profile-row">
+              <dt>出身</dt>
+              <dd>1985年、熊本県生まれ。関西・北陸・九州での勤務を経て、2022年12月より札幌在住。</dd>
+            </div>
+            <div class="profile-row">
+              <dt>前職</dt>
+              <dd>11年間にわたり教育旅行・留学業界に従事し、全国の学校のグローバル教育を支援。社内の人材育成に携わるなかで、「自分のようなベテランがいなくなっても、残ったメンバーで仕事が回る環境をつくりたい」と考え、半年をかけて現場で日々発生する業務の手順や判断基準、効率的な進め方といった、無意識におこなっていた業務を棚卸し。いつでもどこでも参照できるナレッジポータルを構築した。</dd>
+            </div>
+            <div class="profile-row">
+              <dt>資格</dt>
+              <dd>Google AI Generative Leader認定 ／ Notion上級プログラム修了</dd>
+            </div>
+            <div class="profile-row">
+              <dt>その他</dt>
+              <dd>総合旅行業務取扱管理者 ／ ファイナンシャル・プランニング技能士2級</dd>
+            </div>
+            <div class="profile-row">
+              <dt>人物</dt>
+              <dd>論理より直感で動く右脳派。運動・勉強・仕事をルーティンとするストイックな生活スタイルで、何にでも興味を持つ探究心の塊。</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ CTA -->
   <div class="cta-band">
     <h2>まずはお気軽にご相談ください</h2>
     <p>
