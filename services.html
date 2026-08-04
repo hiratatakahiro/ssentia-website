@@ -399,38 +399,6 @@
     }
     .core-lead strong { color: var(--text); font-weight: 700; }
 
-    .core-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 48px;
-    }
-    .core-step {
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 26px 22px;
-    }
-    .core-step-n {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      border-radius: 3px;
-      padding: 2px 8px;
-      margin-bottom: 12px;
-    }
-    .core-step-t {
-      font-size: 1.06rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    .core-step-d { font-size: 0.86rem; line-height: 1.85; color: var(--text-muted); }
-
     .core-branch-lead {
       text-align: center;
       font-size: 0.95rem;
@@ -622,7 +590,6 @@
 
     /* ----- レスポンシブ ----- */
     @media (max-width: 900px) {
-      .core-steps { grid-template-columns: 1fr; gap: 14px; }
       .core-branch { grid-template-columns: 1fr; }
       .sv-grid3 { grid-template-columns: 1fr; }
       .cap-grid { grid-template-columns: 1fr; }
@@ -656,30 +623,22 @@
     .core-section .section-divider{ margin-bottom:34px; }
     .core-lead{ text-align:left; margin:0 0 60px; max-width:740px; line-height:2.15; }
 
-    .core-steps{ grid-template-columns:repeat(3,1fr); gap:0;
-      border-top:1px solid var(--primary); margin-bottom:76px; }
-    .core-step{ position:relative; background:none; border:0;
-      border-left:1px solid var(--rule-fine); border-radius:0; padding:30px 32px 0; }
-    .core-step:first-child{ border-left:0; padding-left:0; }
-    .core-step::before{ content:""; position:absolute; top:-4px; left:32px;
-      width:7px; height:7px; background:var(--primary); }
-    .core-step:first-child::before{ left:0; }
-    .core-step-n{ display:block; border:0; border-radius:0; padding:0; margin-bottom:10px;
-      font-size:1.6rem; font-weight:300; color:var(--numeral); letter-spacing:0.06em; line-height:1; }
-    .core-step-t{ font-size:1.1rem; margin-bottom:12px; }
-    .core-step-d{ font-size:0.85rem; line-height:2.0; }
-
     .core-branch-lead{ text-align:left; font-size:0.88rem; font-weight:500;
       color:var(--text-muted); margin-bottom:18px; }
     .core-branch{ gap:20px; }
-    .branch-card{ background:var(--bg-section); border:1px solid var(--border); border-radius:8px;
-      padding:30px 30px 26px; transition:background .25s, border-color .25s; }
-    .branch-card:hover{ background:#fff; border-color:var(--primary); transform:none;
-      box-shadow:0 6px 18px rgba(61,108,181,0.10); }
-    .branch-card-no{ font-size:0.68rem; letter-spacing:0.2em; margin-bottom:12px; }
-    .branch-card-t{ font-size:1.2rem; margin-bottom:12px; }
-    .branch-card-d{ font-size:0.85rem; line-height:1.95; }
-    .branch-card-go{ margin-top:16px; font-size:0.78rem; letter-spacing:0.06em; }
+    .branch-card{ background:var(--panel); border:1px solid var(--panel); border-radius:10px;
+      padding:34px 32px 30px; transition:background .25s, border-color .25s, transform .25s;
+      display:block; }
+    .branch-card:hover{ background:#16253f; border-color:var(--primary-light); transform:translateY(-3px);
+      box-shadow:0 10px 26px rgba(15,26,46,0.22); }
+    .branch-card-no{ font-size:0.68rem; font-weight:700; letter-spacing:0.2em;
+      color:#8fb0dd; margin-bottom:14px; }
+    .branch-card-t{ font-size:1.32rem; font-weight:700; color:#fff; margin-bottom:14px; line-height:1.5; }
+    .branch-card-d{ font-size:0.85rem; line-height:1.95; color:rgba(255,255,255,0.72); }
+    .branch-card-go{ display:inline-block; margin-top:20px; font-size:0.78rem; font-weight:700;
+      letter-spacing:0.06em; color:#fff; border:1px solid rgba(255,255,255,0.45);
+      border-radius:4px; padding:8px 18px; }
+    .branch-card:hover .branch-card-go{ background:var(--primary); border-color:var(--primary); }
 
     /* ---- サービス見出し ---- */
     .sv-head{ margin-bottom:10px; }
@@ -706,26 +665,78 @@
     .sv-card-t{ font-size:1.04rem; margin-bottom:12px; line-height:1.6; }
     .sv-card-d{ font-size:0.85rem; line-height:2.0; }
 
-    /* ---- パネル（ご提供例） ---- */
-    .pkg-panel{ background:var(--panel); color:#fff; border-radius:10px;
+    /* ---- 業務アーキテクトプロセス図 ---- */
+    .flow-label{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.2em; color:var(--primary); margin:0 0 12px; }
+    .flow-label::before{ content:""; flex:none; width:24px; height:1px; background:var(--primary); }
+    .flow-title{ font-size:clamp(1.18rem,2.4vw,1.5rem); font-weight:700; color:var(--text);
+      line-height:1.6; margin:0 0 30px; }
+    .flow{ display:flex; flex-direction:column; margin-bottom:76px; }
+    .flow-row{ display:flex; align-items:center; gap:18px; padding:20px 24px;
+      background:var(--bg-section); border:1px solid var(--border); border-radius:10px; }
+    .flow-row--goal{ background:#eef3fb; border-color:var(--primary); }
+    .flow-ico{ flex:none; width:46px; height:46px; border-radius:50%; background:#fff;
+      border:1px solid var(--border); color:var(--primary);
+      display:flex; align-items:center; justify-content:center; }
+    .flow-ico--goal{ background:var(--primary); border-color:var(--primary); color:#fff; }
+    .flow-ico svg{ width:24px; height:24px; }
+    .flow-body{ min-width:0; }
+    .flow-t{ font-size:1.0rem; font-weight:700; color:var(--text); line-height:1.6; margin:0 0 4px; }
+    .flow-d{ font-size:0.84rem; line-height:1.85; color:var(--text-muted); margin:0; }
+    .flow-link{ display:flex; justify-content:center; color:#b8c3d4; padding:8px 0; }
+    .flow-link svg{ width:22px; height:22px; }
+    .flow-note{ text-align:center; font-size:0.82rem; font-weight:500; color:var(--text-muted);
+      margin:0 0 16px; letter-spacing:0.04em; }
+    .flow-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; align-items:stretch; }
+    .flow-card{ background:#fff; border:1px solid var(--border); border-top:3px solid var(--primary);
+      border-radius:8px; padding:22px 18px 20px; text-align:center; }
+    .flow-card-ico{ color:var(--primary); display:flex; justify-content:center; margin-bottom:12px; }
+    .flow-card-ico svg{ width:28px; height:28px; }
+    .flow-card-n{ font-size:0.72rem; font-weight:700; letter-spacing:0.18em;
+      color:var(--primary); margin:0 0 6px; }
+    .flow-card-t{ font-size:0.92rem; font-weight:700; color:var(--text); line-height:1.6; margin:0 0 6px; }
+    .flow-card-d{ font-size:0.78rem; line-height:1.75; color:var(--text-muted); margin:0; }
+
+    @media (max-width:860px){
+      .flow-grid{ grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:520px){
+      .flow-grid{ grid-template-columns:1fr; }
+      .flow-row{ padding:18px 18px; gap:14px; }
+      .flow-ico{ width:40px; height:40px; }
+      .flow-ico svg{ width:21px; height:21px; }
+    }
+
+    /* ---- パネル（ご提供例）：白地 ---- */
+    .pkg-panel{ background:#fff; color:var(--text); border:1px solid var(--border); border-radius:10px;
       padding:48px 44px 44px; margin-top:72px; }
-    .pkg-panel-head{ padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.18); margin-bottom:6px; }
+    .pkg-panel-head{ padding-bottom:24px; border-bottom:1px solid var(--primary); margin-bottom:6px; }
     .pkg-panel-label{ font-size:0.7rem; font-weight:700; letter-spacing:0.2em;
-      color:#8fb0dd; margin-bottom:12px; }
-    .pkg-panel-title{ font-size:clamp(1.12rem,2.3vw,1.45rem); font-weight:700; color:#fff; line-height:1.6; }
-    .pkg-row{ display:flex; gap:30px; align-items:flex-start; padding:26px 0;
-      border-bottom:1px solid rgba(255,255,255,0.1); }
+      color:var(--primary); margin-bottom:12px; }
+    .pkg-panel-title{ font-size:clamp(1.12rem,2.3vw,1.45rem); font-weight:700; color:var(--text); line-height:1.6; }
+    .pkg-row{ display:flex; gap:26px; align-items:flex-start; padding:26px 0;
+      border-bottom:1px solid var(--rule-fine); }
     .pkg-rows .pkg-row:last-child{ border-bottom:0; padding-bottom:6px; }
-    .pkg-row-n{ flex:none; width:78px; font-size:1.3rem; font-weight:300;
-      letter-spacing:0.06em; line-height:1.5; color:#8fb0dd; padding-top:2px; }
+    .pkg-row-n{ flex:none; width:60px; font-size:1.3rem; font-weight:300;
+      letter-spacing:0.06em; line-height:1.5; color:var(--numeral); padding-top:2px; }
+    .pkg-fig{ flex:none; width:150px; }
+    .pkg-fig svg{ width:100%; height:auto; display:block; }
     .pkg-row-body{ flex:1; min-width:0; }
-    .pkg-row-t{ font-size:1.0rem; font-weight:700; color:#fff; line-height:1.65; margin-bottom:8px; }
-    .pkg-row-d{ font-size:0.85rem; line-height:1.95; color:rgba(255,255,255,0.66); }
+    .pkg-row-t{ font-size:1.0rem; font-weight:700; color:var(--text); line-height:1.65; margin-bottom:8px; }
+    .pkg-row-d{ font-size:0.85rem; line-height:1.95; color:var(--text-muted); }
     .pkg-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
     .pkg-tags span{ font-size:0.7rem; font-weight:500; letter-spacing:0.04em;
-      color:rgba(255,255,255,0.82); border:1px solid rgba(255,255,255,0.32);
+      color:var(--primary); background:var(--bg-section); border:1px solid var(--border);
       border-radius:3px; padding:4px 11px; }
-    .pkg-panel-note{ font-size:0.75rem; line-height:1.85; color:rgba(255,255,255,0.45); margin-top:24px; }
+    .pkg-panel-note{ font-size:0.75rem; line-height:1.85; color:#8a8f9a; margin-top:24px; }
+
+    @media (max-width:720px){
+      .pkg-panel{ padding:34px 24px 30px; }
+      .pkg-row{ flex-wrap:wrap; gap:14px; }
+      .pkg-row-n{ width:auto; }
+      .pkg-fig{ width:100%; max-width:200px; }
+      .pkg-row-body{ flex-basis:100%; }
+    }
 
     /* ---- 活用ポイント（囲みではなく罫線で分ける） ---- */
     .cap-grid{ grid-template-columns:1fr 1fr; gap:0 46px; border-top:1px solid var(--primary); }
@@ -758,9 +769,6 @@
     .closing-sig{ margin-top:18px; font-size:0.78rem; letter-spacing:0.1em; color:var(--text-muted); }
 
     @media (max-width:900px){
-      .core-steps{ grid-template-columns:1fr; border-top:0; }
-      .core-step{ border-left:0; border-top:1px solid var(--primary); padding:26px 0 30px; }
-      .core-step::before{ left:0; }
       .sv-grid3{ grid-template-columns:1fr; border-top:0; }
       .sv-card, .sv-section--alt .sv-card{ border-left:0; border-top:1px solid var(--primary);
         padding:26px 0 30px; }
@@ -831,26 +839,114 @@
       <h2 class="section-title">私たちの仕事は、「言語化」です。</h2>
       <div class="section-divider"></div>
       <p class="core-lead">
-        マニュアルも、社内wikiも、AIも、すべては手段です。<br>
         S.sentiaの本体は、<strong>現場の業務を実際に見せていただき、インタビューを通して、これまで無意識・感覚でおこなわれてきた仕事を細部まで言葉にする</strong>こと。ここを省いてつくられた仕組みは、必ず使われずに終わります。
       </p>
 
-      <div class="core-steps">
-        <div class="core-step">
-          <span class="core-step-n">01</span>
-          <p class="core-step-t">見る</p>
-          <p class="core-step-d">現場に同席し、実際の操作・作業をそのまま見せていただきます。整えられた資料ではなく、画面の動きと手の順番を見ます。</p>
+      <p class="flow-label">PROCESS</p>
+      <h3 class="flow-title">業務アーキテクト プロセス</h3>
+
+      <div class="flow">
+
+        <div class="flow-row">
+          <div class="flow-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/>
+            </svg>
+          </div>
+          <div class="flow-body">
+            <p class="flow-t">業務を棚卸しする</p>
+            <p class="flow-d">現場を実際に見せていただき、動画・写真・インタビューで記録します。</p>
+          </div>
         </div>
-        <div class="core-step">
-          <span class="core-step-n">02</span>
-          <p class="core-step-t">訊く</p>
-          <p class="core-step-d">「なぜその順番か」「例外のときどう判断しているか」まで掘ります。ご本人も説明したことのない判断の軸を、言葉にしていきます。</p>
+
+        <div class="flow-link" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
-        <div class="core-step">
-          <span class="core-step-n">03</span>
-          <p class="core-step-t">残す</p>
-          <p class="core-step-d">言葉と図にして、誰が読んでも同じ判断ができる形に整えます。日々の業務で実際に開かれる場所に置くところまで設計します。</p>
+
+        <div class="flow-row">
+          <div class="flow-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="19" r="2.2"/>
+              <path d="M12 7.2V11M6 16.8V11h12v5.8"/>
+            </svg>
+          </div>
+          <div class="flow-body">
+            <p class="flow-t">優先度と手段を判定する</p>
+            <p class="flow-d">どの業務から手をつけ、どの方法で解決するかを決めます。</p>
+          </div>
         </div>
+
+        <div class="flow-link" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+
+        <p class="flow-note">業務ごとに、4つの手段から選びます</p>
+
+        <div class="flow-grid">
+
+          <div class="flow-card">
+            <div class="flow-card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>
+              </svg>
+            </div>
+            <p class="flow-card-n">A</p>
+            <p class="flow-card-t">言語化して置く</p>
+            <p class="flow-card-d">マニュアル／社内wiki</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/>
+              </svg>
+            </div>
+            <p class="flow-card-n">B</p>
+            <p class="flow-card-t">必要なときに届ける</p>
+            <p class="flow-card-d">メール・チャット通知</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V4M9.5 17h5"/><path d="M9 13h.01M15 13h.01"/>
+              </svg>
+            </div>
+            <p class="flow-card-n">C</p>
+            <p class="flow-card-t">作業を半自動化する</p>
+            <p class="flow-card-d">AI・スクリプト活用</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M6.5 7h.01M9 7h.01"/>
+              </svg>
+            </div>
+            <p class="flow-card-n">D</p>
+            <p class="flow-card-t">仕組みを入れ替える</p>
+            <p class="flow-card-d">業務特化の専用システム</p>
+          </div>
+
+        </div>
+
+        <div class="flow-link" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+
+        <div class="flow-row flow-row--goal">
+          <div class="flow-ico flow-ico--goal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/>
+            </svg>
+          </div>
+          <div class="flow-body">
+            <p class="flow-t">再現性のある業務が残る</p>
+            <p class="flow-d">誰が担当しても、同じ品質で仕事が回る状態へ。構築後も定期的に見直し、更新まで伴走します。</p>
+          </div>
+        </div>
+
       </div>
 
       <p class="core-branch-lead">この言語化を、2つの形でご提供しています。</p>
@@ -918,6 +1014,20 @@
         <div class="pkg-rows">
           <div class="pkg-row">
             <p class="pkg-row-n">01</p>
+            <div class="pkg-fig">
+              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="14" y="14" width="104" height="66" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
+                <path d="M14 28h104" stroke="#3d6cb5" stroke-width="1.2"/>
+                <circle cx="22" cy="21" r="2" fill="#3d6cb5"/><circle cx="30" cy="21" r="2" fill="#3d6cb5"/>
+                <rect x="24" y="38" width="40" height="5" rx="2.5" fill="#9db8dd"/>
+                <rect x="24" y="50" width="58" height="5" rx="2.5" fill="#9db8dd"/>
+                <rect x="24" y="62" width="30" height="5" rx="2.5" fill="#9db8dd"/>
+                <path d="M52 80h28M66 80v8M54 88h24" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M92 56l16 22-6 1-3 7-7-30z" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M118 30c6-8 18-8 24 0-6 8-18 8-24 0z" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
+                <circle cx="130" cy="30" r="3" fill="#3d6cb5"/>
+              </svg>
+            </div>
             <div class="pkg-row-body">
               <p class="pkg-row-t">実際の操作を、見せていただく</p>
               <p class="pkg-row-d">ご担当者が普段どおりに操作する様子に同席し、その場で疑問点をお伺いします。整えられた手順書ではなく、実際の手の動きを見ます。</p>
@@ -925,6 +1035,18 @@
           </div>
           <div class="pkg-row">
             <p class="pkg-row-n">02</p>
+            <div class="pkg-fig">
+              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="38" y="6" width="64" height="78" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.4"/>
+                <rect x="24" y="14" width="64" height="78" rx="4" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
+                <rect x="34" y="28" width="44" height="5" rx="2.5" fill="#3d6cb5"/>
+                <rect x="34" y="42" width="36" height="4" rx="2" fill="#9db8dd"/>
+                <rect x="34" y="54" width="44" height="4" rx="2" fill="#9db8dd"/>
+                <rect x="34" y="66" width="26" height="4" rx="2" fill="#9db8dd"/>
+                <circle cx="114" cy="70" r="17" fill="#3d6cb5"/>
+                <path d="M106 70l6 6 11-12" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <div class="pkg-row-body">
               <p class="pkg-row-t">マニュアルを作成する</p>
               <p class="pkg-row-d">言語化・図式化・チャート化して、判断の根拠まで含んだマニュアルに仕上げます。手順だけでなく「なぜ」と「例外」を書き切ります。</p>
@@ -932,6 +1054,21 @@
           </div>
           <div class="pkg-row">
             <p class="pkg-row-n">03</p>
+            <div class="pkg-fig">
+              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="10" y="16" width="130" height="72" rx="4" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
+                <path d="M10 30h130" stroke="#3d6cb5" stroke-width="1.2"/>
+                <circle cx="18" cy="23" r="2" fill="#3d6cb5"/><circle cx="26" cy="23" r="2" fill="#3d6cb5"/>
+                <rect x="20" y="42" width="52" height="5" rx="2.5" fill="#9db8dd"/>
+                <rect x="20" y="54" width="38" height="5" rx="2.5" fill="#9db8dd"/>
+                <rect x="20" y="66" width="46" height="5" rx="2.5" fill="#9db8dd"/>
+                <rect x="86" y="36" width="46" height="46" rx="3" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
+                <rect x="93" y="44" width="32" height="4" rx="2" fill="#3d6cb5"/>
+                <rect x="93" y="55" width="26" height="3" rx="1.5" fill="#9db8dd"/>
+                <rect x="93" y="63" width="30" height="3" rx="1.5" fill="#9db8dd"/>
+                <rect x="93" y="71" width="20" height="3" rx="1.5" fill="#9db8dd"/>
+              </svg>
+            </div>
             <div class="pkg-row-body">
               <p class="pkg-row-t">システムに埋め込む</p>
               <p class="pkg-row-d">探しに行かなくても、作業する画面のすぐそばで読める状態にします。開かれないマニュアルは、無いのと同じです。</p>
@@ -939,6 +1076,22 @@
           </div>
           <div class="pkg-row">
             <p class="pkg-row-n">04</p>
+            <div class="pkg-fig">
+              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="8" y="26" width="46" height="48" rx="3" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.5"/>
+                <path d="M8 38h46M8 50h46M8 62h46M26 26v48" stroke="#9db8dd" stroke-width="1"/>
+                <path d="M56 50h14" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M66 46l4 4-4 4" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="98" cy="50" r="16" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
+                <rect x="94" y="28" width="8" height="7" rx="1.5" fill="#3d6cb5"/>
+                <rect x="94" y="65" width="8" height="7" rx="1.5" fill="#3d6cb5"/>
+                <rect x="76" y="46" width="7" height="8" rx="1.5" fill="#3d6cb5"/>
+                <rect x="113" y="46" width="7" height="8" rx="1.5" fill="#3d6cb5"/>
+                <circle cx="98" cy="50" r="6" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
+                <path d="M124 50h10" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M130 46l4 4-4 4" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <div class="pkg-row-body">
               <p class="pkg-row-t">一部を自動化する</p>
               <p class="pkg-row-d">くり返しの転記・集計・通知など、機械に任せられる部分を切り出して自動化します。</p>

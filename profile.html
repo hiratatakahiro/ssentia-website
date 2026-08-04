@@ -233,6 +233,49 @@
       margin: 0 auto;
     }
 
+    /* ===== ABOUT（index.html より移設） ===== */
+    .about-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .about-logo {
+      height: 120px;
+      width: auto;
+      margin-bottom: -18px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+      line-height: 1.9;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .about-layout { grid-template-columns: 1fr; gap: 40px; }
+      .about-left,
+      .about-values { width: 100%; }
+      .about-values { margin-top: 2rem; }
+      .about-logo { height: 84px; }
+    }
+
     /* ===== PROFILE SECTION ===== */
     .profile-section {
       padding: 80px 24px;
@@ -738,6 +781,150 @@
             </div>
           </dl>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" style="background-color: #ffffff; padding: 80px 24px;">
+    <div class="section-inner">
+      <div class="about-layout">
+        <div class="about-left">
+          <div class="about-heading-row">
+            <div>
+              <p class="section-label">Our Value</p>
+              <h2 class="section-title">私たちが大事にしていること</h2>
+            </div>
+            <img src="S.sentia_logo3.png" alt="S.sentia ロゴ" class="about-logo">
+          </div>
+          <div class="section-divider"></div>
+          <div class="about-text">
+            <p>
+              S.sentia株式会社は、組織の中に眠るノウハウや判断基準を引き出し、人に依存しない仕組みへと変える会社です。
+            </p>
+            <p>
+              社員一人ひとりの経験や判断を言語化し、社内ナレッジポータルや研修教材として体系化することで、人が変わっても仕事の品質が維持される組織づくりを支援しています。
+            </p>
+            <p>
+              人手不足、転職の活性化、ミドルマネジメント業務の複雑化──。<br>
+              多くの現場を見てきた私たちは、「人を増やすこと」よりも、「人が変わっても組織が回る仕組みをつくること」が、中小企業の競争力につながると考えています。
+            </p>
+
+            <!-- 成果リスト -->
+            <p style="margin-bottom: 12px;">それによって、次のような結果につながります。</p>
+            <ul style="
+              list-style: none;
+              padding: 0;
+              margin: 0 0 20px 0;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            ">
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="
+                  color: #3d6cb5;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  flex-shrink: 0;
+                  margin-top: 1px;
+                ">✓</span>
+                <span style="font-size: 0.95rem; color: #555; line-height: 1.75;">人が変わっても仕事が止まらない</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="
+                  color: #3d6cb5;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  flex-shrink: 0;
+                  margin-top: 1px;
+                ">✓</span>
+                <span style="font-size: 0.95rem; color: #555; line-height: 1.75;">管理職の負担が減り、本来の仕事に集中できる</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="
+                  color: #3d6cb5;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  flex-shrink: 0;
+                  margin-top: 1px;
+                ">✓</span>
+                <span style="font-size: 0.95rem; color: #555; line-height: 1.75;">顧客満足度が上がる</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="
+                  color: #3d6cb5;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  flex-shrink: 0;
+                  margin-top: 1px;
+                ">✓</span>
+                <span style="font-size: 0.95rem; color: #555; line-height: 1.75;">入社希望者が増える</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px;">
+                <span style="
+                  color: #3d6cb5;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  flex-shrink: 0;
+                  margin-top: 1px;
+                ">✓</span>
+                <span style="font-size: 0.95rem; color: #555; line-height: 1.75;">組織全体の成長スピードが上がる</span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        <div class="about-values">
+          <svg width="100%" viewBox="114 30 453 424" role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>S.sentia バリュー Venn 図</title>
+            <desc>個人の知恵・言語化の技術・組織の仕組みが交差し、中心にEssential Knowledgeが生まれる</desc>
+            <style>
+              .venn-lbl{font-size:14px;font-weight:500;fill:#1a2a4a;font-family:'Noto Sans JP',sans-serif}
+              .venn-sub{font-size:12px;fill:#666;font-family:'Noto Sans JP',sans-serif}
+              .venn-ct{font-size:12px;font-weight:500;fill:#fff;font-family:'Noto Sans JP',sans-serif}
+              .venn-ce{font-size:10px;fill:rgba(255,255,255,0.75);font-family:'Noto Sans JP',sans-serif;letter-spacing:0.5px}
+              .venn-c-top{fill:#3d6cb5;fill-opacity:.45}
+              .venn-c-bl{fill:#c57a2e;fill-opacity:.40}
+              .venn-c-br{fill:#25998a;fill-opacity:.40}
+              .venn-cen{fill:#3d6cb5}
+              @media(prefers-color-scheme:dark){
+                .venn-c-top{fill:#5c8dd4;fill-opacity:.55}
+                .venn-c-bl{fill:#d4954e;fill-opacity:.55}
+                .venn-c-br{fill:#39b8a7;fill-opacity:.55}
+                .venn-cen{fill:#3d6cb5}
+                .venn-lbl{fill:#f0f0f0}
+                .venn-sub{fill:#aaa}
+              }
+            </style>
+            <circle class="venn-c-top" cx="340" cy="175" r="130"/>
+            <circle class="venn-c-bl" cx="262" cy="309" r="130"/>
+            <circle class="venn-c-br" cx="418" cy="309" r="130"/>
+            <circle class="venn-cen" cx="340" cy="263" r="52"/>
+            <text class="venn-ce" x="340" y="245" text-anchor="middle">▲</text>
+            <text class="venn-ct" x="340" y="262" text-anchor="middle">Essential</text>
+            <text class="venn-ct" x="340" y="277" text-anchor="middle">Knowledge</text>
+            <text class="venn-lbl" x="340" y="108" text-anchor="middle">言語化の技術</text>
+            <text class="venn-sub" x="340" y="125" text-anchor="middle">S.sentiaの専門性</text>
+            <text class="venn-lbl" x="200" y="318" text-anchor="middle">個人の知恵</text>
+            <text class="venn-sub" x="200" y="335" text-anchor="middle">属人化されたノウハウ</text>
+            <text class="venn-lbl" x="480" y="318" text-anchor="middle">組織の仕組み</text>
+            <text class="venn-sub" x="480" y="335" text-anchor="middle">共有と継承</text>
+          </svg>
+        </div>
+      </div>
+
+      <div style="
+        border-top: 1px solid #dde4ef;
+        margin-top: 40px;
+        padding-top: 28px;
+      ">
+        <p style="
+          font-size: 0.96rem;
+          color: #555;
+          line-height: 1.9;
+        ">
+          人の頭の中にある思考プロセスを引き出し、組織が再利用できる仕組みを創りたい。そうした想いから、S.sentiaは生まれました。
+        </p>
       </div>
     </div>
   </section>
