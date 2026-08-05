@@ -666,8 +666,40 @@
 
     /* ---- 業務アーキテクトプロセス図（画像版） ---- */
     .flow-img-wrap{ margin-bottom:76px; }
+    .flow-img-btn{ position:relative; display:block; width:100%; padding:0;
+      border:0; background:none; cursor:zoom-in; -webkit-tap-highlight-color:transparent; }
+    .flow-img-btn:focus-visible{ outline:2px solid var(--primary); outline-offset:3px; }
     .flow-img{ display:block; width:100%; height:auto; border:1px solid var(--border);
       border-radius:10px; }
+    .flow-img-zoom{ position:absolute; right:12px; bottom:12px;
+      width:38px; height:38px; border-radius:50%;
+      background:#fff; border:1px solid var(--border); color:var(--primary);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 2px 8px rgba(15,26,46,0.14); }
+    .flow-img-zoom svg{ width:19px; height:19px; }
+
+    /* ---- プロセス図 ライトボックス ---- */
+    .lightbox{ position:fixed; inset:0; z-index:9000; background:rgba(15,26,46,0.94); }
+    .lightbox[hidden]{ display:none; }
+    .lightbox-scroll{ width:100%; height:100%; overflow:auto;
+      -webkit-overflow-scrolling:touch; padding:64px 14px 52px; }
+    .lightbox-img{ display:block; margin:0 auto; width:100%; max-width:1400px;
+      height:auto; background:#fff; border-radius:6px; }
+    .lightbox-close{ position:fixed; top:12px; right:12px; z-index:2;
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.32);
+      color:#fff; display:flex; align-items:center; justify-content:center;
+      cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .lightbox-close svg{ width:20px; height:20px; }
+    .lightbox-close:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+    .lightbox-hint{ position:fixed; left:0; right:0; bottom:16px; margin:0;
+      text-align:center; font-size:0.72rem; letter-spacing:0.04em;
+      color:rgba(255,255,255,0.66); pointer-events:none; }
+
+    @media (max-width:860px){
+      .lightbox-scroll{ padding:64px 0 52px; }
+      .lightbox-img{ width:1200px; max-width:none; margin:0; border-radius:0; }
+    }
 
     /* ---- 業務アーキテクトプロセス図（旧SVG版・現在未使用） ---- */
     .flow-label{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
@@ -839,7 +871,14 @@
       <h3 class="flow-title">業務アーキテクト プロセス</h3>
 
       <div class="flow-img-wrap">
-        <img src="./images/flow-process.png" alt="S.sentia 業務アーキテクト プロセス図" class="flow-img" loading="lazy">
+        <button type="button" class="flow-img-btn" id="flowImgBtn" aria-label="プロセス図を拡大表示する">
+          <img src="./images/flow-process.png" alt="S.sentia 業務アーキテクト プロセス図" class="flow-img" loading="lazy">
+          <span class="flow-img-zoom" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/>
+            </svg>
+          </span>
+        </button>
       </div>
 
       <p class="core-branch-lead">この言語化を、2つの形でご提供しています。</p>
@@ -1242,6 +1281,19 @@
     </div>
   </footer>
 
+  <!-- プロセス図 ライトボックス -->
+  <div class="lightbox" id="flowLightbox" role="dialog" aria-modal="true" aria-label="業務アーキテクト プロセス図" hidden>
+    <button type="button" class="lightbox-close" id="flowLightboxClose" aria-label="拡大表示を閉じる">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+    <div class="lightbox-scroll" id="flowLightboxScroll">
+      <img src="./images/flow-process.png" alt="S.sentia 業務アーキテクト プロセス図（拡大表示）" class="lightbox-img">
+    </div>
+    <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
+  </div>
+
   <!-- フローティングCTA -->
   <a href="contact.html" class="floatc" aria-label="無料で相談する">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1266,6 +1318,45 @@
         hamburger.classList.remove('open');
       });
     });
+
+    /* ---- プロセス図 ライトボックス ---- */
+    (function () {
+      const trigger = document.getElementById('flowImgBtn');
+      const box     = document.getElementById('flowLightbox');
+      const closeBtn = document.getElementById('flowLightboxClose');
+      const scroller = document.getElementById('flowLightboxScroll');
+      if (!trigger || !box || !closeBtn || !scroller) return;
+
+      let prevOverflow = '';
+
+      function open() {
+        box.hidden = false;
+        prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        scroller.scrollTop = 0;
+        // 横長画像なので、開いた直後は中央付近を見せる
+        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
+        closeBtn.focus();
+      }
+
+      function close() {
+        box.hidden = true;
+        document.body.style.overflow = prevOverflow;
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+
+      // 背景（画像の外側）タップで閉じる
+      scroller.addEventListener('click', (e) => {
+        if (e.target === scroller) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !box.hidden) close();
+      });
+    })();
   </script>
 
   <script type="application/ld+json">
