@@ -534,8 +534,6 @@
       color: #8a8375;
       margin-bottom: 12px;
     }
-    .fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .fig-scroll svg { display: block; height: auto; }
     .fig-after {
       font-size: 0.82rem;
       line-height: 1.8;
@@ -545,13 +543,6 @@
       padding-top: 10px;
     }
     .fig-after strong { color: #b8412a; font-weight: 700; }
-
-    .fig-hint {
-      display: none;
-      font-size: 0.72rem;
-      color: #a09789;
-      margin-bottom: 8px;
-    }
 
     /* --- AI横断活用ハブ図 --- */
     .aihub { margin-bottom: 26px; }
@@ -597,7 +588,6 @@
 
     @media (max-width: 640px) {
       .core-section, .sv-section { padding: 56px 20px; }
-      .fig-hint { display: block; }
       .fig-box { padding: 14px 14px 12px; }
     }
 
@@ -666,6 +656,7 @@
 
     /* ---- 業務アーキテクトプロセス図（画像版） ---- */
     .flow-img-wrap{ margin-bottom:76px; }
+    .fig-box .flow-img-wrap{ margin-bottom:0; }
     .flow-img-btn{ position:relative; display:block; width:100%; padding:0;
       border:0; background:none; cursor:zoom-in; -webkit-tap-highlight-color:transparent; }
     .flow-img-btn:focus-visible{ outline:2px solid var(--primary); outline-offset:3px; }
@@ -792,8 +783,6 @@
     .fig-after{ border-top:1px solid var(--border); color:var(--text-muted);
       line-height:1.9; padding-top:14px; margin-top:16px; }
     .fig-after strong{ color:var(--primary-dark); }
-
-    .fig-hint{ color:var(--text-muted); }
 
     @media (max-width:900px){
       .sv-grid3{ grid-template-columns:1fr; border-top:0; }
@@ -1087,66 +1076,17 @@
 
       <div class="fig-box aihub">
         <p class="fig-cap">FIG.3 ／ 業務を横断するAI活用（Google Workspace の例）</p>
-        <p class="fig-hint">← 横にスクロールできます</p>
-        <div class="fig-scroll">
-          <svg viewBox="0 0 720 400" style="min-width:680px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="組織のAIが各業務アプリを横断してつながる図">
-            <g font-family="'Noto Sans JP',sans-serif">
-              <!-- 接続線 -->
-              <g stroke="#b9c8e2" stroke-width="1.4">
-                <line x1="360" y1="205" x2="360" y2="57"/>
-                <line x1="360" y1="205" x2="476" y2="113"/>
-                <line x1="360" y1="205" x2="504" y2="238"/>
-                <line x1="360" y1="205" x2="424" y2="338"/>
-                <line x1="360" y1="205" x2="296" y2="338"/>
-                <line x1="360" y1="205" x2="216" y2="238"/>
-                <line x1="360" y1="205" x2="244" y2="113"/>
-              </g>
-              <!-- 中央 -->
-              <circle cx="360" cy="205" r="64" fill="#3d6cb5"/>
-              <text x="360" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">組織のAI</text>
-              <text x="360" y="218" text-anchor="middle" font-size="9.5" fill="#dce6f7">管理者が一元管理</text>
-
-              <!-- ノード -->
-              <g>
-                <rect x="301" y="31" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="360" y="52" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ブラウザ</text>
-                <text x="360" y="69" text-anchor="middle" font-size="9.5" fill="#555">開いている画面を読む</text>
-              </g>
-              <g>
-                <rect x="417" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="476" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドキュメント</text>
-                <text x="476" y="125" text-anchor="middle" font-size="9.5" fill="#555">下書き・体裁を整える</text>
-              </g>
-              <g>
-                <rect x="445" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="504" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スプレッドシート</text>
-                <text x="504" y="250" text-anchor="middle" font-size="9.5" fill="#555">集計・数式・差分照合</text>
-              </g>
-              <g>
-                <rect x="365" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="424" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">スライド</text>
-                <text x="424" y="350" text-anchor="middle" font-size="9.5" fill="#555">構成・レイアウト</text>
-              </g>
-              <g>
-                <rect x="237" y="312" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="296" y="333" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">会議（Meet）</text>
-                <text x="296" y="350" text-anchor="middle" font-size="9.5" fill="#555">文字起こし・要約</text>
-              </g>
-              <g>
-                <rect x="157" y="212" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="216" y="233" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ドライブ</text>
-                <text x="216" y="250" text-anchor="middle" font-size="9.5" fill="#555">資料の横断検索</text>
-              </g>
-              <g>
-                <rect x="185" y="87" width="118" height="52" rx="0" fill="#fff" stroke="#3d6cb5" stroke-width="1.2"/>
-                <text x="244" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a2e">ノートブック</text>
-                <text x="244" y="125" text-anchor="middle" font-size="9.5" fill="#555">自社専用AIをつくる</text>
-              </g>
-              <text x="360" y="390" text-anchor="middle" font-size="10.5" fill="#555">同じ基盤の上にあるため、会議の記録が資料に、資料が専用AIの知識になります。</text>
-            </g>
-          </svg>
+        <div class="flow-img-wrap">
+          <button type="button" class="flow-img-btn" id="aihubImgBtn" aria-label="図を拡大表示する">
+            <img src="./images/ai-hub-diagram.png" alt="組織のAIが各業務アプリ（Chrome/ブラウザ・ドキュメント・スプレッドシート・スライド・Meet・ドライブ・Gemini Notebook）を横断してつながる図" class="flow-img" loading="lazy">
+            <span class="flow-img-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/>
+              </svg>
+            </span>
+          </button>
         </div>
-        <p class="fig-after">個人が自分のアカウントで使うAIは、成果がその人の中に残ります。<strong>組織の基盤の上で使うAIは、成果が組織に残ります。</strong>ここが、AI活用の属人化を解消する分かれ目です。</p>
+        <p class="fig-after">同じ基盤の上にあるため、会議の記録が資料に、資料が専用AIの知識になります。個人が自分のアカウントで使うAIは、成果がその人の中に残ります。<strong>組織の基盤の上で使うAIは、成果が組織に残ります。</strong>ここが、AI活用の属人化を解消する分かれ目です。</p>
       </div>
 
       <!-- 8つの活用ポイント -->
@@ -1294,6 +1234,19 @@
     <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
   </div>
 
+  <!-- AI横断活用図 ライトボックス -->
+  <div class="lightbox" id="aihubLightbox" role="dialog" aria-modal="true" aria-label="業務を横断するAI活用の図" hidden>
+    <button type="button" class="lightbox-close" id="aihubLightboxClose" aria-label="拡大表示を閉じる">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+    <div class="lightbox-scroll" id="aihubLightboxScroll">
+      <img src="./images/ai-hub-diagram.png" alt="組織のAIが各業務アプリ（Chrome/ブラウザ・ドキュメント・スプレッドシート・スライド・Meet・ドライブ・Gemini Notebook）を横断してつながる図（拡大表示）" class="lightbox-img">
+    </div>
+    <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
+  </div>
+
   <!-- フローティングCTA -->
   <a href="contact.html" class="floatc" aria-label="無料で相談する">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1349,6 +1302,43 @@
       closeBtn.addEventListener('click', close);
 
       // 背景（画像の外側）タップで閉じる
+      scroller.addEventListener('click', (e) => {
+        if (e.target === scroller) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !box.hidden) close();
+      });
+    })();
+
+    /* ---- AI横断活用図 ライトボックス ---- */
+    (function () {
+      const trigger = document.getElementById('aihubImgBtn');
+      const box     = document.getElementById('aihubLightbox');
+      const closeBtn = document.getElementById('aihubLightboxClose');
+      const scroller = document.getElementById('aihubLightboxScroll');
+      if (!trigger || !box || !closeBtn || !scroller) return;
+
+      let prevOverflow = '';
+
+      function open() {
+        box.hidden = false;
+        prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        scroller.scrollTop = 0;
+        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
+        closeBtn.focus();
+      }
+
+      function close() {
+        box.hidden = true;
+        document.body.style.overflow = prevOverflow;
+        trigger.focus();
+      }
+
+      trigger.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+
       scroller.addEventListener('click', (e) => {
         if (e.target === scroller) close();
       });
