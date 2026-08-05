@@ -637,6 +637,27 @@
       font-size:0.86rem; font-weight:500; letter-spacing:0.04em; color:var(--primary-dark); }
     .sv-lead{ line-height:2.1; }
 
+    /* ---- サービス見出しバナー ---- */
+    .sv-banner{ display:flex; align-items:center; gap:clamp(18px,3vw,28px);
+      background:var(--primary); border-radius:10px;
+      padding:clamp(26px,3vw,34px) clamp(24px,3.4vw,36px); margin-bottom:26px; }
+    .sv-banner-no{ flex:0 0 auto; padding-right:clamp(18px,3vw,28px);
+      border-right:1px solid rgba(255,255,255,0.30); }
+    .sv-banner-lbl{ font-size:0.62rem; font-weight:700; letter-spacing:0.22em;
+      color:#d8e5f7; margin-bottom:4px; }
+    .sv-banner-num{ font-size:clamp(2.6rem,6.4vw,3.5rem); font-weight:700;
+      line-height:1; color:#fff; letter-spacing:0.01em; }
+    .sv-banner-txt{ min-width:0; }
+    .sv-banner .sv-title{ color:#fff; margin-bottom:0; }
+    .sv-banner .sv-title-sub{ color:#d8e5f7; margin-top:12px; }
+    @media (max-width:640px){
+      .sv-banner{ flex-direction:column; align-items:flex-start; gap:16px;
+        padding:24px 22px 26px; }
+      .sv-banner-no{ display:flex; align-items:baseline; gap:12px; width:100%;
+        padding:0 0 14px; border-right:0; border-bottom:1px solid rgba(255,255,255,0.30); }
+      .sv-banner-lbl{ margin-bottom:0; }
+    }
+
     .sv-blocklabel{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
       letter-spacing:0.2em; color:var(--primary); margin:72px 0 12px; }
     .sv-blocklabel::before{ content:""; flex:none; width:24px; height:1px; background:var(--primary); }
@@ -897,11 +918,18 @@
   <section class="sv-section" id="service01">
     <div class="section-inner">
       <div class="sv-head">
-        <p class="sv-no">SERVICE 01</p>
-        <h2 class="sv-title">
-          業務の属人化解消
-          <span class="sv-title-sub">言語化・図式化・チャート化して、組織の資産にする</span>
-        </h2>
+        <div class="sv-banner">
+          <div class="sv-banner-no">
+            <p class="sv-banner-lbl">SERVICE</p>
+            <p class="sv-banner-num">01</p>
+          </div>
+          <div class="sv-banner-txt">
+            <h2 class="sv-title">
+              業務の属人化解消
+              <span class="sv-title-sub">言語化・図式化・チャート化して、組織の資産にする</span>
+            </h2>
+          </div>
+        </div>
         <p class="sv-lead">
           「あの人しか分からない」「聞かないと進まない」をなくします。細かいニュアンスまで含めて、<strong>読めば同じ判断ができる状態</strong>まで落とし込みます。
         </p>
@@ -1038,11 +1066,18 @@
   <section class="sv-section sv-section--alt" id="service02">
     <div class="section-inner">
       <div class="sv-head">
-        <p class="sv-no">SERVICE 02</p>
-        <h2 class="sv-title">
-          業務のAI横断活用支援
-          <span class="sv-title-sub">AI活用の属人化を解消し、組織の標準にする</span>
-        </h2>
+        <div class="sv-banner">
+          <div class="sv-banner-no">
+            <p class="sv-banner-lbl">SERVICE</p>
+            <p class="sv-banner-num">02</p>
+          </div>
+          <div class="sv-banner-txt">
+            <h2 class="sv-title">
+              業務のAI横断活用支援
+              <span class="sv-title-sub">AI活用の属人化を解消し、組織の標準にする</span>
+            </h2>
+          </div>
+        </div>
         <p class="sv-lead">
           「AIを使えるのは、社内で数人だけ」――これも属人化です。S.sentiaは一つの業務単位ではなく、<strong>組織全体でAIを活用できる環境を構築し、定着するまで支援</strong>します。
         </p>
