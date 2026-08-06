@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560" role="img" aria-label="業務アプリのアイコンとAIアシスタント付き作業画面のイラスト">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EDF3FD"/>
+      <stop offset="55%" stop-color="#F5F9FF"/>
+      <stop offset="100%" stop-color="#EAF2FB"/>
+    </linearGradient>
+    <linearGradient id="cBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5B8DF6"/><stop offset="100%" stop-color="#2F6FED"/></linearGradient>
+    <linearGradient id="cRed" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F4736A"/><stop offset="100%" stop-color="#E24A3E"/></linearGradient>
+    <linearGradient id="cGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4FC782"/><stop offset="100%" stop-color="#1E9E55"/></linearGradient>
+    <linearGradient id="cAmber2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FCC94F"/><stop offset="100%" stop-color="#EFA61B"/></linearGradient>
+    <linearGradient id="cPurple" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A279FF"/><stop offset="100%" stop-color="#7040F0"/></linearGradient>
+    <linearGradient id="cTeal" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3ED0E6"/><stop offset="100%" stop-color="#0AA5C4"/></linearGradient>
+    <linearGradient id="cPink2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F776B4"/><stop offset="100%" stop-color="#DB2F86"/></linearGradient>
+    <linearGradient id="cAI" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7C6BFF"/><stop offset="55%" stop-color="#3F7BF0"/><stop offset="100%" stop-color="#22B8CF"/></linearGradient>
+
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1B3A63" flood-opacity="0.16"/>
+    </filter>
+    <filter id="softer" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#1B3A63" flood-opacity="0.13"/>
+    </filter>
+    <filter id="win" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#12315A" flood-opacity="0.18"/>
+    </filter>
+
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="2.5" cy="2.5" r="1.8" fill="#2F6FED" opacity="0.10"/>
+    </pattern>
+
+    <clipPath id="winClip"><rect x="546" y="96" width="640" height="372" rx="18"/></clipPath>
+  </defs>
+
+  <!-- ===== background ===== -->
+  <rect width="1600" height="560" fill="url(#bg)"/>
+  <rect width="1600" height="560" fill="url(#dots)"/>
+  <circle cx="185" cy="90" r="210" fill="#2F6FED" opacity="0.06"/>
+  <circle cx="1470" cy="470" r="240" fill="#7040F0" opacity="0.06"/>
+  <circle cx="1330" cy="70" r="120" fill="#0AA5C4" opacity="0.07"/>
+
+  <!-- ===== dotted connectors ===== -->
+  <g fill="none" stroke="#7C93B5" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 14" opacity="0.42">
+    <path d="M300 128 C400 150 452 190 520 216"/>
+    <path d="M200 200 C320 232 420 256 522 272"/>
+    <path d="M312 318 C392 330 452 340 522 336"/>
+  </g>
+
+  <!-- ===== main window ===== -->
+  <g filter="url(#win)">
+    <rect x="546" y="96" width="640" height="372" rx="18" fill="#FFFFFF"/>
+  </g>
+  <g clip-path="url(#winClip)">
+    <!-- title bar -->
+    <rect x="546" y="96" width="640" height="46" fill="#EEF3FA"/>
+    <circle cx="576" cy="119" r="6.5" fill="#F4736A"/>
+    <circle cx="598" cy="119" r="6.5" fill="#FCC94F"/>
+    <circle cx="620" cy="119" r="6.5" fill="#4FC782"/>
+    <rect x="650" y="110" width="230" height="18" rx="9" fill="#FFFFFF"/>
+    <rect x="664" y="116" width="120" height="6" rx="3" fill="#C3D0E0"/>
+    <line x1="546" y1="142" x2="1186" y2="142" stroke="#DCE6F2" stroke-width="2"/>
+
+    <!-- ===== document pane ===== -->
+    <rect x="576" y="172" width="176" height="17" rx="8.5" fill="#2E4360"/>
+    <rect x="576" y="210" width="330" height="10" rx="5" fill="#CBD8E7"/>
+    <rect x="576" y="232" width="286" height="10" rx="5" fill="#CBD8E7"/>
+    <rect x="576" y="254" width="312" height="10" rx="5" fill="#CBD8E7"/>
+
+    <!-- mini spreadsheet -->
+    <rect x="576" y="292" width="348" height="146" rx="8" fill="#F8FAFD" stroke="#E1E9F3" stroke-width="2"/>
+    <path d="M576 300 a8 8 0 0 1 8-8 h332 a8 8 0 0 1 8 8 v22 h-348 z" fill="url(#cGreen)"/>
+    <g fill="#FFFFFF" opacity="0.9">
+      <rect x="594" y="302" width="48" height="8" rx="4"/>
+      <rect x="682" y="302" width="48" height="8" rx="4"/>
+      <rect x="770" y="302" width="48" height="8" rx="4"/>
+      <rect x="856" y="302" width="42" height="8" rx="4"/>
+    </g>
+    <g stroke="#E1E9F3" stroke-width="2">
+      <line x1="576" y1="352" x2="924" y2="352"/>
+      <line x1="576" y1="382" x2="924" y2="382"/>
+      <line x1="576" y1="412" x2="924" y2="412"/>
+      <line x1="666" y1="322" x2="666" y2="438"/>
+      <line x1="754" y1="322" x2="754" y2="438"/>
+      <line x1="842" y1="322" x2="842" y2="438"/>
+    </g>
+    <g fill="#B9C8DA">
+      <rect x="594" y="333" width="52" height="8" rx="4"/><rect x="684" y="333" width="44" height="8" rx="4"/><rect x="772" y="333" width="48" height="8" rx="4"/>
+      <rect x="594" y="363" width="44" height="8" rx="4"/><rect x="684" y="363" width="50" height="8" rx="4"/><rect x="772" y="363" width="40" height="8" rx="4"/>
+      <rect x="594" y="393" width="50" height="8" rx="4"/><rect x="684" y="393" width="42" height="8" rx="4"/><rect x="772" y="393" width="46" height="8" rx="4"/>
+      <rect x="594" y="422" width="46" height="8" rx="4"/><rect x="684" y="422" width="48" height="8" rx="4"/><rect x="772" y="422" width="44" height="8" rx="4"/>
+    </g>
+    <!-- highlighted cell -->
+    <rect x="844" y="354" width="78" height="28" fill="#2F6FED" opacity="0.14"/>
+    <rect x="858" y="363" width="50" height="9" rx="4.5" fill="#2F6FED"/>
+    <g fill="#22A05C">
+      <rect x="858" y="333" width="46" height="8" rx="4"/>
+      <rect x="858" y="393" width="40" height="8" rx="4"/>
+      <rect x="858" y="422" width="48" height="8" rx="4"/>
+    </g>
+
+    <!-- ===== AI side panel ===== -->
+    <rect x="952" y="142" width="234" height="326" fill="#E7EEFC"/>
+    <line x1="952" y1="142" x2="952" y2="468" stroke="#CFDBF5" stroke-width="2"/>
+    <g transform="translate(978,168) scale(0.26)">
+      <path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="url(#cAI)"/>
+    </g>
+    <rect x="1012" y="172" width="86" height="13" rx="6.5" fill="#7C6BFF" opacity="0.75"/>
+
+    <rect x="978" y="216" width="180" height="9" rx="4.5" fill="#AFC0EE"/>
+    <rect x="978" y="236" width="152" height="9" rx="4.5" fill="#AFC0EE"/>
+    <rect x="978" y="256" width="172" height="9" rx="4.5" fill="#AFC0EE"/>
+    <rect x="978" y="276" width="108" height="9" rx="4.5" fill="#AFC0EE"/>
+
+    <line x1="978" y1="312" x2="1158" y2="312" stroke="#CFDBF5" stroke-width="2"/>
+
+    <rect x="978" y="336" width="180" height="9" rx="4.5" fill="#C2CFF2"/>
+    <rect x="978" y="356" width="140" height="9" rx="4.5" fill="#C2CFF2"/>
+
+    <rect x="978" y="398" width="164" height="40" rx="20" fill="url(#cAI)"/>
+    <g transform="translate(996,409) scale(0.2)">
+      <path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#FFFFFF"/>
+    </g>
+    <rect x="1026" y="414" width="94" height="9" rx="4.5" fill="#FFFFFF" opacity="0.92"/>
+  </g>
+
+  <!-- AI badge overlapping window corner -->
+  <g filter="url(#softer)">
+    <circle cx="1186" cy="128" r="40" fill="url(#cAI)"/>
+  </g>
+  <g transform="translate(1162,104) scale(0.48)">
+    <path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- ===== left icon cluster ===== -->
+  <!-- mail -->
+  <g filter="url(#soft)"><rect x="86" y="146" width="96" height="96" rx="24" fill="url(#cRed)"/></g>
+  <g transform="translate(110,170) scale(0.48)" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="24" width="80" height="52" rx="9"/>
+    <path d="M15 31 L50 57 L85 31"/>
+  </g>
+
+  <!-- document -->
+  <g filter="url(#soft)"><rect x="212" y="76" width="82" height="82" rx="21" fill="url(#cBlue)"/></g>
+  <g transform="translate(232,96) scale(0.42)" fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="22" y="10" width="56" height="80" rx="8"/>
+    <path d="M37 36 h26 M37 52 h26 M37 68 h16"/>
+  </g>
+
+  <!-- spreadsheet -->
+  <g filter="url(#soft)"><rect x="206" y="268" width="92" height="92" rx="23" fill="url(#cGreen)"/></g>
+  <g transform="translate(229,291) scale(0.46)" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="18" width="76" height="64" rx="9"/>
+    <path d="M12 40 h76 M42 18 v64 M66 18 v64"/>
+  </g>
+
+  <!-- calendar -->
+  <g filter="url(#soft)"><rect x="96" y="330" width="80" height="80" rx="20" fill="url(#cPurple)"/></g>
+  <g transform="translate(116,350) scale(0.4)" fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="22" width="76" height="66" rx="10"/>
+    <path d="M12 44 h76 M32 12 v18 M68 12 v18"/>
+  </g>
+
+  <!-- slides -->
+  <g filter="url(#soft)"><rect x="342" y="188" width="76" height="76" rx="19" fill="url(#cAmber2)"/></g>
+  <g transform="translate(361,207) scale(0.38)" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="18" width="76" height="64" rx="9"/>
+    <path d="M32 66 v-14 M50 66 v-30 M68 66 v-22"/>
+  </g>
+
+  <!-- ===== right icon cluster ===== -->
+  <!-- video meeting -->
+  <g filter="url(#soft)"><rect x="1256" y="132" width="96" height="96" rx="24" fill="url(#cTeal)"/></g>
+  <g transform="translate(1280,156) scale(0.48)" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="28" width="54" height="44" rx="10"/>
+    <path d="M64 44 L90 30 v40 L64 56 z"/>
+  </g>
+
+  <!-- chat -->
+  <g filter="url(#soft)"><rect x="1424" y="246" width="84" height="84" rx="21" fill="url(#cPink2)"/></g>
+  <g transform="translate(1445,267) scale(0.42)" fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 28 a10 10 0 0 1 10-10 h52 a10 10 0 0 1 10 10 v30 a10 10 0 0 1 -10 10 h-32 l-20 14 v-14 h-0.5 a10 10 0 0 1 -9.5 -10 z"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="1462" cy="286" r="3.4"/><circle cx="1474" cy="286" r="3.4"/><circle cx="1486" cy="286" r="3.4"/>
+  </g>
+
+  <!-- cloud -->
+  <g filter="url(#soft)"><rect x="1262" y="330" width="88" height="88" rx="22" fill="url(#cBlue)"/></g>
+  <g transform="translate(1284,352) scale(0.44)" fill="none" stroke="#FFFFFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 74 h40 a17 17 0 0 0 1 -34 a23 23 0 0 0 -44 -6 a16 16 0 0 0 3 40 z"/>
+  </g>
+
+
+  <!-- ===== ambient sparkles ===== -->
+  <g opacity="0.85">
+    <g transform="translate(468,96) scale(0.3)"><path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#7C6BFF" opacity="0.55"/></g>
+    <g transform="translate(430,430) scale(0.22)"><path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#22B8CF" opacity="0.55"/></g>
+    <g transform="translate(1420,120) scale(0.2)"><path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#2F6FED" opacity="0.5"/></g>
+    <g transform="translate(120,470) scale(0.24)"><path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#EFA61B" opacity="0.55"/></g>
+    <g transform="translate(1480,420) scale(0.26)"><path d="M50 2 C55 32 68 45 98 50 C68 55 55 68 50 98 C45 68 32 55 2 50 C32 45 45 32 50 2 Z" fill="#DB2F86" opacity="0.4"/></g>
+  </g>
+</svg>

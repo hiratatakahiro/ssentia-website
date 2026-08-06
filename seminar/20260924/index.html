@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Workspace / Microsoft 365導入法人向け 生成AI活用セミナー｜2026年9月24日 札幌開催｜S.sentia株式会社</title>
+  <meta name="description" content="生成AIの導入・定着にお悩みの法人向け無料セミナー。Google Workspace / Microsoft 365の生成AI拡張機能の実践的な使い方と、現場定着の進め方を解説します。2026年9月24日（木）札幌エルプラザ開催・参加無料・定員15名。">
+  <link rel="canonical" href="https://www.ssentia.co.jp/seminar/20260924/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ssentia.co.jp/seminar/20260924/">
+  <meta property="og:title" content="Google Workspace / Microsoft 365導入法人向け 生成AI活用セミナー｜2026年9月24日 札幌開催">
+  <meta property="og:description" content="生成AIの導入や定着でお悩みの法人様へ。拡張機能の実践例と、現場に定着させるための進め方を解説します。参加無料・定員15名・事前申込制。">
+  <meta property="og:image" content="https://www.ssentia.co.jp/images/seminar-20260924-ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root{
+      --primary:#3d6cb5; --primary-dark:#2e549a; --primary-light:#5a85c9;
+      --text:#1a1a2e; --text-muted:#555; --bg:#fff; --bg-section:#f7f9fc; --border:#dde4ef;
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Noto Sans JP',sans-serif; color:var(--text); background:var(--bg); line-height:1.8; }
+
+    /* HEADER */
+    header{ position:sticky; top:0; z-index:100; width:100%; height:120px; background:var(--primary); display:flex; align-items:center; box-shadow:0 2px 12px rgba(61,108,181,0.18); }
+    .header-inner{ max-width:1100px; width:100%; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; }
+    .logo{ display:flex; flex-direction:row; align-items:center; gap:12px; text-decoration:none; }
+    .logo-img{ height:52px; width:auto; }
+    .logo-text{ display:flex; flex-direction:column; gap:2px; }
+    .logo-name{ font-size:1.75rem; font-weight:700; color:#fff; letter-spacing:0.04em; line-height:1.2; }
+    .logo-tagline{ font-size:0.7rem; font-weight:300; color:rgba(255,255,255,0.75); letter-spacing:0.08em; }
+    nav{ display:flex; gap:8px; align-items:center; }
+    nav a{ color:rgba(255,255,255,0.9); text-decoration:none; font-size:0.88rem; font-weight:500; padding:8px 16px; border-radius:4px; transition:background .2s,color .2s; letter-spacing:0.04em; }
+    nav a:hover, nav a.active{ background:rgba(255,255,255,0.15); color:#fff; }
+    .hamburger{ display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+    .hamburger span{ display:block; width:24px; height:2px; background:#fff; border-radius:2px; transition:transform .3s,opacity .3s; }
+    .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity:0; }
+    .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    .nav-drawer{ display:none; position:fixed; top:120px; left:0; right:0; background:var(--primary-dark); padding:12px 0 20px; z-index:99; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .nav-drawer.open{ display:block; }
+    .nav-drawer a{ display:block; color:#fff; text-decoration:none; padding:12px 28px; font-size:0.95rem; font-weight:500; letter-spacing:0.04em; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .nav-drawer a:last-child{ border-bottom:none; }
+    .nav-drawer a:hover{ background:rgba(255,255,255,0.1); }
+
+    /* SECTION BASE */
+    section{ padding:72px 24px; }
+    .section-inner{ max-width:1000px; margin:0 auto; }
+    .section-label{ font-size:0.75rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:10px; }
+    .section-title{ font-size:clamp(1.3rem,2.5vw,1.75rem); font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
+    .section-lead{ font-size:0.95rem; color:var(--text-muted); line-height:1.9; margin-bottom:28px; max-width:760px; }
+    .section-divider{ width:48px; height:3px; background:var(--primary); border-radius:2px; margin-bottom:32px; }
+    .alt-bg{ background:var(--bg-section); }
+
+    /* CTA BAND */
+    .cta-band{ background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%); color:#fff; text-align:center; padding:72px 24px; }
+    .cta-eyebrow{ font-size:0.85rem; color:rgba(255,255,255,0.85); margin-bottom:10px; font-weight:500; }
+    .cta-band h2{ font-size:clamp(1.3rem,3vw,1.8rem); font-weight:700; margin-bottom:14px; letter-spacing:0.03em; }
+    .cta-band p{ font-size:0.95rem; color:rgba(255,255,255,0.8); margin-bottom:36px; line-height:1.8; }
+    .btn-outline{ display:inline-block; border:2px solid rgba(255,255,255,0.85); color:#fff; text-decoration:none; font-weight:700; font-size:0.9rem; padding:14px 36px; border-radius:4px; letter-spacing:0.06em; transition:background .2s,color .2s,transform .2s; }
+    .btn-outline:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
+
+    /* FOOTER */
+    footer{ background:#0f1a2e; color:rgba(255,255,255,0.55); padding:48px 24px 32px; }
+    .footer-inner{ max-width:1000px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; margin-bottom:40px; }
+    .footer-logo{ font-size:1.3rem; font-weight:700; color:#fff; text-decoration:none; display:block; margin-bottom:8px; }
+    .footer-tagline{ font-size:0.75rem; font-weight:300; letter-spacing:0.1em; color:rgba(255,255,255,0.4); font-style:italic; }
+    .footer-nav{ display:flex; gap:24px; }
+    .footer-nav a{ color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.85rem; transition:color .2s; }
+    .footer-nav a:hover{ color:#fff; }
+    .footer-bottom{ max-width:1000px; margin:0 auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.78rem; letter-spacing:0.04em; }
+
+    /* ===== SEMINAR LP 固有 ===== */
+
+    /* 開催終了後バナー（HTMLはコメントアウト状態。開催後に有効化する） */
+    .seminar-ended{ background:#EEF5FF; border-bottom:1px solid var(--border); padding:24px; text-align:center; }
+    .seminar-ended__title{ font-size:1rem; font-weight:700; color:var(--primary-dark); margin-bottom:8px; }
+    .seminar-ended__text{ font-size:0.88rem; color:var(--text-muted); line-height:1.9; max-width:720px; margin:0 auto 14px; }
+    .seminar-ended__link{ display:inline-block; color:var(--primary); font-weight:700; font-size:0.9rem; text-decoration:underline; }
+
+    /* HERO */
+    .sem-hero{ background:var(--bg-section); padding:36px 24px 60px; }
+    .sem-hero-inner{ max-width:1000px; margin:0 auto; }
+    .sem-banner{ width:100%; height:auto; display:block; border-radius:12px; }
+    .sem-label{ display:inline-block; margin-top:30px; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; color:var(--primary-dark); background:#EEF5FF; border:1px solid var(--border); border-radius:20px; padding:6px 18px; }
+    .sem-hero h1{ font-size:clamp(1.4rem,3.4vw,2.1rem); font-weight:700; line-height:1.5; letter-spacing:0.02em; margin:18px 0 14px; }
+    .sem-hero-lead{ font-size:1rem; color:var(--text-muted); line-height:1.9; margin-bottom:20px; }
+    .sem-when{ display:inline-block; background:#fff; border:1px solid var(--border); border-left:4px solid var(--primary); border-radius:8px; padding:14px 20px; font-size:0.95rem; font-weight:700; color:var(--text); line-height:1.8; margin-bottom:28px; }
+    .sem-cta{ display:inline-block; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; font-size:1rem; padding:16px 48px; border-radius:4px; letter-spacing:0.06em; box-shadow:0 4px 16px rgba(61,108,181,0.28); transition:background .2s,transform .2s; }
+    .sem-cta:hover{ background:var(--primary-dark); transform:translateY(-2px); }
+    .sem-cta-note{ font-size:0.85rem; color:var(--text-muted); margin-top:14px; }
+
+    /* 課題提起 */
+    .sem-grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .sem-problem{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px 22px; box-shadow:0 2px 12px rgba(0,0,0,0.05); display:flex; align-items:flex-start; gap:14px; }
+    .sem-problem-num{ display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:var(--primary); color:#fff; font-size:0.8rem; font-weight:700; flex-shrink:0; margin-top:2px; }
+    .sem-problem p{ font-size:0.95rem; font-weight:500; line-height:1.75; }
+
+    /* セミナー内容カード */
+    .sem-badge{ display:inline-block; font-size:0.75rem; font-weight:700; color:var(--primary-dark); background:#EEF5FF; border-radius:4px; padding:5px 14px; margin-bottom:24px; letter-spacing:0.04em; }
+    .sem-grid4{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .sem-card{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:26px 24px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .sem-card-no{ font-size:0.78rem; font-weight:700; letter-spacing:0.14em; color:var(--primary); margin-bottom:8px; }
+    .sem-card h3{ font-size:1rem; font-weight:700; line-height:1.6; margin-bottom:10px; }
+    .sem-card p{ font-size:0.88rem; color:var(--text-muted); line-height:1.85; }
+
+    /* 助成金 */
+    .sem-note-box{ background:#EEF5FF; border-left:4px solid var(--primary); border-radius:8px; padding:24px 28px; }
+    .sem-note-box p{ font-size:0.93rem; line-height:1.95; color:var(--text); }
+    .sem-fineprint{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); }
+    .sem-fineprint li{ list-style:none; font-size:0.78rem; color:var(--text-muted); line-height:1.85; margin-bottom:6px; }
+    .sem-fineprint li:last-child{ margin-bottom:0; }
+
+    /* 講師紹介 */
+    .sem-speaker{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:30px 32px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .sem-speaker-name{ font-size:1.3rem; font-weight:700; letter-spacing:0.03em; }
+    .sem-speaker-name span{ font-size:0.85rem; font-weight:500; color:var(--text-muted); margin-left:10px; letter-spacing:0; }
+    .sem-speaker-role{ font-size:0.9rem; color:var(--primary); font-weight:700; margin-top:6px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    .sem-speaker-list{ margin-top:20px; }
+    .sem-speaker-row{ display:flex; gap:20px; padding:12px 0; border-bottom:1px dashed var(--border); }
+    .sem-speaker-row:last-child{ border-bottom:none; }
+    .sem-speaker-row dt{ flex-shrink:0; width:72px; font-size:0.85rem; font-weight:700; color:var(--primary-dark); }
+    .sem-speaker-row dd{ flex:1; font-size:0.88rem; color:var(--text-muted); line-height:1.9; }
+
+    /* 開催概要 */
+    .sem-dl{ background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    .sem-dl-row{ display:flex; border-bottom:1px solid #f0f2f5; }
+    .sem-dl-row:last-child{ border-bottom:none; }
+    .sem-dl-row dt{ flex-shrink:0; width:150px; background:var(--bg-section); padding:18px 22px; font-size:0.88rem; font-weight:700; color:var(--primary-dark); }
+    .sem-dl-row dd{ flex:1; padding:18px 22px; font-size:0.9rem; line-height:1.85; }
+    .sem-dl-note{ display:block; font-size:0.8rem; color:var(--text-muted); margin-top:4px; }
+
+    /* 問い合わせ */
+    .sem-contact{ font-size:0.93rem; line-height:2; }
+    .sem-contact-name{ font-size:1.05rem; font-weight:700; margin-bottom:8px; }
+    .sem-contact a{ color:var(--primary); font-weight:700; text-decoration:none; }
+    .sem-contact a:hover{ text-decoration:underline; }
+    .sem-contact-link{ display:inline-block; margin-top:18px; border:2px solid var(--primary); color:var(--primary); text-decoration:none; font-weight:700; font-size:0.9rem; padding:12px 32px; border-radius:4px; letter-spacing:0.04em; transition:background .2s,color .2s; }
+    .sem-contact-link:hover{ background:var(--primary); color:#fff; text-decoration:none; }
+
+    /* モバイル固定CTAバー（PCでは非表示） */
+    .sem-fixed{ display:none; }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav{ display:none; }
+      .hamburger{ display:flex; }
+      .footer-inner{ flex-direction:column; gap:24px; }
+      .footer-nav{ flex-wrap:wrap; gap:16px; }
+      .logo-name{ font-size:1.35rem; }
+      .sem-grid3, .sem-grid4{ grid-template-columns:1fr; }
+      .sem-dl-row{ flex-direction:column; }
+      .sem-dl-row dt{ width:auto; padding:12px 18px 8px; }
+      .sem-dl-row dd{ padding:0 18px 16px; }
+      .sem-speaker{ padding:24px 22px; }
+      .sem-speaker-row{ flex-direction:column; gap:2px; }
+      .sem-speaker-row dt{ width:auto; }
+      /* 固定CTAバーの高さぶんフッター下に余白を確保する */
+      body{ padding-bottom:88px; }
+      .sem-fixed{ display:block; position:fixed; left:0; right:0; bottom:0; z-index:98; background:rgba(255,255,255,0.97); border-top:1px solid var(--border); box-shadow:0 -2px 12px rgba(0,0,0,0.10); padding:10px 16px calc(10px + env(safe-area-inset-bottom)); }
+      .sem-fixed a{ display:block; text-align:center; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; font-size:0.98rem; padding:14px; border-radius:4px; letter-spacing:0.04em; }
+      .sem-fixed-note{ display:block; text-align:center; font-size:0.72rem; color:var(--text-muted); margin-top:6px; }
+    }
+    @media(max-width:480px){
+      section{ padding:52px 20px; }
+      .sem-hero{ padding:24px 20px 44px; }
+      .sem-cta{ display:block; text-align:center; padding:16px 20px; }
+      .sem-note-box{ padding:20px 18px; }
+      .sem-speaker-name{ font-size:1.15rem; }
+      .sem-speaker-name span{ display:block; margin-left:0; margin-top:4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/index.html" class="logo">
+        <img src="/logo_white.png" alt="S.sentia株式会社" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-name">S.sentia株式会社</span>
+          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
+        </div>
+      </a>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/price.html">Price</a>
+        <a href="/profile.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/price.html">Price</a>
+    <a href="/profile.html">About</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+
+  <!-- ▼ 開催終了後にこのコメントを外して有効化する
+  <div class="seminar-ended">
+    <p class="seminar-ended__title">本セミナーは終了しました。</p>
+    <p class="seminar-ended__text">
+      多数のご参加ありがとうございました。次回開催のご案内をご希望の方、
+      個別のご相談をご希望の方は、お問い合わせよりご連絡ください。
+    </p>
+    <a class="seminar-ended__link" href="/contact.html">お問い合わせはこちら</a>
+  </div>
+  ▲ ここまで -->
+
+  <!-- 開催終了後の作業手順
+       1. 上記 seminar-ended ブロックのコメントを外す
+       2. 主CTA（申込ボタン）を非表示にする、またはお問い合わせへのリンクに差し替える
+       3. モバイル固定CTAバーを非表示にする
+       4. JSON-LD の offers.availability を https://schema.org/SoldOut に変更する
+          （eventStatus は EventScheduled のままでよい。過去イベントを表す値は存在しない）
+       5. sitemap.xml の priority を下げる
+  -->
+
+  <!-- ① ヒーロー -->
+  <div class="sem-hero">
+    <div class="sem-hero-inner">
+      <img src="/images/seminar_banner_1600x560.svg"
+           width="1600" height="560" alt="" aria-hidden="true"
+           fetchpriority="high" decoding="async" class="sem-banner">
+      <p class="sem-label">札幌開催 ｜ 参加無料 ｜ 事前申込制</p>
+      <h1>Google Workspace / Microsoft 365導入法人向け 生成AI活用セミナー</h1>
+      <p class="sem-hero-lead">生成AIの導入や定着でお悩みの法人様へ</p>
+      <p class="sem-when">2026年9月24日（木）16:00〜17:00 ／ 札幌エルプラザ 4F 大研修室C</p>
+      <div>
+        <a class="sem-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfnXUkKmAHg40d6noyT6BVXA8-JyRUfO8gndw1TCz1fYyLzqQ/viewform" target="_blank" rel="noopener">参加を申し込む</a>
+        <p class="sem-cta-note">申込締切 9月18日（金）／ 定員15名・先着順</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 課題提起 -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Problem</p>
+      <h2 class="section-title">こんな課題をお持ちの総務・管理部門の方へ</h2>
+      <div class="section-divider"></div>
+      <div class="sem-grid3">
+        <div class="sem-problem">
+          <span class="sem-problem-num">1</span>
+          <p>個々では使っているが、会社としては何もできていない</p>
+        </div>
+        <div class="sem-problem">
+          <span class="sem-problem-num">2</span>
+          <p>使ったことはあるが、現場での活用方法が分からない</p>
+        </div>
+        <div class="sem-problem">
+          <span class="sem-problem-num">3</span>
+          <p>導入したものの、現場に定着していない</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ セミナー概要 -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2 class="section-title">セミナー概要</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">
+        人材育成・業務プロセス改善を支援する札幌発のスタートアップ S.sentia株式会社の代表 平田が、現場で生成AIを活用してきた経験を活かし、実践型の生成AI研修を提供しています。本セミナーでは、その研修内容の一部を特別に無料で公開いたします。
+      </p>
+    </div>
+  </section>
+
+  <!-- ④ セミナーで紹介する内容 -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Contents</p>
+      <h2 class="section-title">セミナーで紹介する内容</h2>
+      <div class="section-divider"></div>
+      <p class="sem-badge">40分・デモを交えてご紹介します</p>
+      <div class="sem-grid4">
+        <div class="sem-card">
+          <p class="sem-card-no">01</p>
+          <h3>AIの拡張機能とは？</h3>
+          <p>Google Workspace、Copilot for Microsoft 365など、普段お使いのアプリと生成AIを連携したサービスの特徴。</p>
+        </div>
+        <div class="sem-card">
+          <p class="sem-card-no">02</p>
+          <h3>拡張機能の実践例</h3>
+          <p>Gemini for Google Workspaceの具体的な使い方、現場での応用方法について紹介します。</p>
+        </div>
+        <div class="sem-card">
+          <p class="sem-card-no">03</p>
+          <h3>Meetを使った商談・会議の議事録術</h3>
+          <p>録画・文字起こし・要約までを自動で。商談メモの作成にかかる時間を大きく減らす記録方法。</p>
+        </div>
+        <div class="sem-card">
+          <p class="sem-card-no">04</p>
+          <h3>現場に定着させるためのアドバイス</h3>
+          <p>「一部の人だけが使っている」状態から抜け出すために、組織として押さえておきたい進め方。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 助成金のご案内 -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <p class="section-label">Subsidy</p>
+      <h2 class="section-title">人材開発支援助成金を活用した生成AI研修コースについて</h2>
+      <div class="section-divider"></div>
+      <div class="sem-note-box">
+        <p>
+          セミナーの最後に、人材開発支援助成金を活用した生成AI研修コースについてご紹介いたします。助成金の申請方法については、セミナー後半で提携の社会保険労務士よりご案内いたします。
+        </p>
+        <ul class="sem-fineprint">
+          <li>※ 助成金の支給を保証するものではありません。支給要件の充足および支給可否の判断は管轄労働局によります。</li>
+          <li>※ 制度内容は変更される場合があります。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ 講師紹介 -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Speaker</p>
+      <h2 class="section-title">講師紹介</h2>
+      <div class="section-divider"></div>
+      <div class="sem-speaker">
+        <p class="sem-speaker-name">平田 喬大<span>ひらた たかひろ</span></p>
+        <p class="sem-speaker-role">S.sentia株式会社 代表取締役／業務プロセス改善コンサルタント</p>
+        <dl class="sem-speaker-list">
+          <div class="sem-speaker-row">
+            <dt>出身</dt>
+            <dd>1985年、熊本県生まれ。関西・北陸・九州での勤務を経て、2022年12月より札幌在住。</dd>
+          </div>
+          <div class="sem-speaker-row">
+            <dt>前職</dt>
+            <dd>11年間にわたり教育旅行・留学業界に従事し、全国の学校のグローバル教育を支援。社内の人材育成に携わるなかで、「自分のようなベテランがいなくなっても、残ったメンバーで仕事が回る環境をつくりたい」と考え、半年をかけて現場で日々発生する業務の手順や判断基準、効率的な進め方といった、無意識におこなっていた業務を棚卸し。いつでもどこでも参照できるナレッジポータルを構築した。</dd>
+          </div>
+          <div class="sem-speaker-row">
+            <dt>資格</dt>
+            <dd>Google AI Generative Leader認定 ／ Notion上級プログラム修了</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 開催概要 -->
+  <section class="alt-bg">
+    <div class="section-inner">
+      <p class="section-label">Outline</p>
+      <h2 class="section-title">開催概要</h2>
+      <div class="section-divider"></div>
+      <dl class="sem-dl">
+        <div class="sem-dl-row">
+          <dt>日時</dt>
+          <dd>2026年9月24日（木）16:00〜17:00（受付 15:30〜）</dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>会場</dt>
+          <dd>
+            札幌エルプラザ 4F 大研修室C ／ 〒060-0808 札幌市北区北8条西3丁目
+            <!-- TODO: アクセス情報を追記 -->
+          </dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>対象</dt>
+          <dd>
+            経営者・総務・人事・情報システムご担当者
+            <span class="sem-dl-note">※ 同業他社・個人事業主の方のご参加はお断りしております。</span>
+          </dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>参加費</dt>
+          <dd>無料（事前申込制）</dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>定員</dt>
+          <dd>15名（先着順）</dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>申込締切</dt>
+          <dd>2026年9月18日（金）</dd>
+        </div>
+        <div class="sem-dl-row">
+          <dt>主催</dt>
+          <dd>S.sentia株式会社</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ⑧ 最終CTA -->
+  <div class="cta-band">
+    <p class="cta-eyebrow">参加無料・事前申込制</p>
+    <h2>生成AIの活用を、会社としての取り組みに。</h2>
+    <p>申込締切 2026年9月18日（金）／ 定員15名・先着順</p>
+    <a class="btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSfnXUkKmAHg40d6noyT6BVXA8-JyRUfO8gndw1TCz1fYyLzqQ/viewform" target="_blank" rel="noopener">参加を申し込む</a>
+  </div>
+
+  <!-- ⑨ 問い合わせ -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="section-divider"></div>
+      <div class="sem-contact">
+        <p class="sem-contact-name">S.sentia株式会社</p>
+        <p>〒001-0010 札幌市北区北10条西3丁目23-1 THE PEAK SAPPORO 1F</p>
+        <p>TEL: <a href="tel:09073982183">090-7398-2183</a></p>
+        <a class="sem-contact-link" href="/contact.html">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a href="/index.html" class="footer-logo">S.sentia株式会社</a>
+        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="/index.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/price.html">Price</a>
+        <a href="/profile.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">&copy; 2026 S.sentia Co., Ltd. All rights reserved.</div>
+  </footer>
+
+  <!-- モバイル固定CTAバー -->
+  <div class="sem-fixed">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnXUkKmAHg40d6noyT6BVXA8-JyRUfO8gndw1TCz1fYyLzqQ/viewform" target="_blank" rel="noopener">参加を申し込む</a>
+    <span class="sem-fixed-note">申込締切 9月18日（金）／ 定員15名・先着順</span>
+  </div>
+
+  <script>
+    // ハンバーガー
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { navDrawer.classList.remove('open'); hamburger.classList.remove('open'); });
+    });
+  </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Google Workspace / Microsoft 365導入法人向け 生成AI活用セミナー",
+  "description": "生成AIの導入や定着でお悩みの法人様向けの無料セミナー。生成AIの拡張機能の実践例と、現場に定着させるための進め方を解説します。",
+  "startDate": "2026-09-24T16:00+09:00",
+  "endDate": "2026-09-24T17:00+09:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "image": "https://www.ssentia.co.jp/images/seminar-20260924-ogp.png",
+  "location": {
+    "@type": "Place",
+    "name": "札幌エルプラザ 4F 大研修室C",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "060-0808",
+      "addressRegion": "北海道",
+      "addressLocality": "札幌市北区",
+      "streetAddress": "北8条西3丁目",
+      "addressCountry": "JP"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "S.sentia株式会社",
+    "url": "https://www.ssentia.co.jp/"
+  },
+  "performer": {
+    "@type": "Person",
+    "name": "平田 喬大"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY",
+    "availability": "https://schema.org/InStock",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSfnXUkKmAHg40d6noyT6BVXA8-JyRUfO8gndw1TCz1fYyLzqQ/viewform",
+    "validFrom": "2026-08-06T00:00+09:00"
+  },
+  "url": "https://www.ssentia.co.jp/seminar/20260924/"
+}
+</script>
+</body>
+</html>
