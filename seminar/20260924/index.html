@@ -138,7 +138,13 @@
     .sem-fineprint li:last-child{ margin-bottom:0; }
 
     /* 講師紹介 */
-    .sem-speaker{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:30px 32px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+    /* PCはテキスト左・写真右。DOM順は写真が先なので order で入れ替える
+       （モバイルでは写真を氏名の上に置きたいため、DOM順は写真先頭のままにする） */
+    .sem-speaker{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:30px 32px; box-shadow:0 2px 12px rgba(0,0,0,0.05); display:flex; align-items:flex-start; gap:32px; }
+    .sem-speaker-body{ order:1; flex:1; min-width:0; }
+    /* 円形の実装は profile.html の .profile-avatar に合わせる */
+    .sem-speaker-photo{ order:2; flex-shrink:0; width:200px; height:200px; border-radius:50%; overflow:hidden; border:4px solid var(--border); }
+    .sem-speaker-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
     .sem-speaker-name{ font-size:1.3rem; font-weight:700; letter-spacing:0.03em; }
     .sem-speaker-name span{ font-size:0.85rem; font-weight:500; color:var(--text-muted); margin-left:10px; letter-spacing:0; }
     .sem-speaker-role{ font-size:0.9rem; color:var(--primary); font-weight:700; margin-top:6px; padding-bottom:20px; border-bottom:1px solid var(--border); }
@@ -191,7 +197,10 @@
       .sem-dl-row{ flex-direction:column; }
       .sem-dl-row dt{ width:auto; padding:12px 18px 8px; }
       .sem-dl-row dd{ padding:0 18px 16px; }
-      .sem-speaker{ padding:24px 22px; }
+      /* 写真を氏名の上に中央揃えで配置（DOM順どおり） */
+      .sem-speaker{ padding:24px 22px; flex-direction:column; align-items:center; gap:20px; }
+      .sem-speaker-photo{ order:1; width:140px; height:140px; }
+      .sem-speaker-body{ order:2; width:100%; }
       .sem-speaker-row{ flex-direction:column; gap:2px; }
       .sem-speaker-row dt{ width:auto; }
       /* 固定CTAバーの高さぶんフッター下に余白を確保する */
@@ -382,6 +391,13 @@
       <h2 class="section-title">講師紹介</h2>
       <div class="section-divider"></div>
       <div class="sem-speaker">
+        <div class="sem-speaker-photo">
+          <img src="/images/hirata-profile.jpg"
+               width="400" height="400"
+               alt="S.sentia株式会社 代表取締役 平田喬大"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="sem-speaker-body">
         <p class="sem-speaker-name">平田 喬大<span>ひらた たかひろ</span></p>
         <p class="sem-speaker-role">S.sentia株式会社 代表取締役／業務プロセス改善コンサルタント</p>
         <dl class="sem-speaker-list">
@@ -398,6 +414,7 @@
             <dd>Google AI Generative Leader認定 ／ Notion上級プログラム修了</dd>
           </div>
         </dl>
+        </div>
       </div>
     </div>
   </section>
