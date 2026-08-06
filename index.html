@@ -184,6 +184,64 @@
       background: rgba(255,255,255,0.1);
     }
 
+    /* ===== NOTICE BAR ===== */
+    .notice-bar {
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notice-bar-link {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+
+    .notice-bar-link:hover {
+      opacity: 0.75;
+    }
+
+    .notice-tag {
+      flex-shrink: 0;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 3px;
+    }
+
+    .notice-arrow {
+      margin-left: auto;
+      flex-shrink: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .notice-arrow {
+        display: none;
+      }
+
+      .notice-bar-link {
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 14px;
+      }
+
+      .notice-tag {
+        margin-top: 2px;
+      }
+    }
+
     /* ===== HERO ===== */
     .hero {
       background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./home.jpeg') center/cover no-repeat;
@@ -1037,6 +1095,15 @@
     <a href="profile.html">About</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- NOTICE BAR -->
+  <div class="notice-bar">
+    <a href="https://www.ssentia.co.jp/seminar/20260924/" class="notice-bar-link">
+      <span class="notice-tag">SEMINAR</span>
+      <span class="notice-text">9/24開催｜Google Workspace・M365導入法人向け 生成AI活用セミナー</span>
+      <span class="notice-arrow">→</span>
+    </a>
   </div>
 
   <!-- HERO -->
