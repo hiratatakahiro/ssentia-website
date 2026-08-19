@@ -18,3 +18,7 @@
 .DS_Store
 ~$*
 .claude/
+
+# 公開停止したページ（ローカルには残す）
+faq.html
+faq.jpeg

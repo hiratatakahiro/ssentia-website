@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/faq.html",
+      "destination": "/services.html",
+      "permanent": true
+    }
+  ]
+}

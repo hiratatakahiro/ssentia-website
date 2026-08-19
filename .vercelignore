@@ -9,3 +9,7 @@
 *.docx
 *.xlsx
 *.pptx
+
+# 公開停止したページ
+faq.html
+faq.jpeg
