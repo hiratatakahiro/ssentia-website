@@ -425,7 +425,7 @@
       border-radius: 8px;
       padding: 26px 28px;
       max-width: 780px;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       background: #fff;
     }
     .wwh-row {
@@ -443,6 +443,52 @@
       letter-spacing: 0.04em;
     }
     .wwh-val { font-weight: 500; font-size: 0.95rem; line-height: 1.7; }
+
+    /* ---- S1: ゴール（4つの到達状態） ---- */
+    .goal-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-left: 12px;
+      border-left: 3px solid var(--primary);
+      line-height: 1.7;
+    }
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .goal-card {
+      border: 2px solid var(--primary);
+      border-radius: 14px;
+      background: #fff;
+      padding: 26px 18px 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .goal-icon {
+      width: 62px;
+      height: 62px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .goal-icon svg { width: 100%; height: 100%; display: block; }
+    .goal-t {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .goal-d {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
 
     /* ---- S2: 課題提起 ---- */
     .pain-grid {
@@ -695,6 +741,11 @@
       .tech-grid { grid-template-columns: 1fr; }
       .wwh-row { flex-direction: column; gap: 2px; }
       .wwh-box { padding: 20px 20px; }
+      .goal-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .goal-card { padding: 22px 12px 18px; }
+      .goal-icon { width: 52px; height: 52px; }
+      .goal-t { font-size: 0.92rem; }
+      .goal-d { font-size: 0.76rem; }
       .note-panel { padding: 22px 20px 20px; margin-top: 36px; }
     }
     .sp-only { display: none; }
@@ -765,13 +816,83 @@
         </div>
         <div class="wwh-row">
           <span class="wwh-key">How</span>
-          <span class="wwh-val">業務フローを棚卸しし、言語化する</span>
+          <span class="wwh-val">業務フローを棚卸し・言語化する</span>
         </div>
         <div class="wwh-row">
           <span class="wwh-key">Why</span>
-          <span class="wwh-val">再現性のある業務環境・育成環境をつくるため</span>
+          <span class="wwh-val">再現性のある業務環境を作りたい</span>
         </div>
       </div>
+
+      <p class="goal-label">仕組みが整うと、組織はこう変わります。</p>
+      <div class="goal-grid">
+        <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 6 12 13v16c0 12.7 8.3 24.5 20 28 4-1.2 7.6-3.6 10.6-6.8"/>
+              <path d="M52 30V13L32 6"/>
+              <circle cx="30" cy="27" r="6.4"/>
+              <path d="M30 15.6v4M30 34.4v4M18.6 27h4M37.4 27h4M22 19l2.8 2.8M35.2 32.2 38 35M38 19l-2.8 2.8M24.8 32.2 22 35"/>
+              <circle cx="45" cy="45" r="10"/>
+              <path d="m40.6 45.2 3 3 5.8-6.2"/>
+            </svg>
+          </div>
+          <p class="goal-t">属人化リスクの解消</p>
+          <p class="goal-d">急な離脱でも<br>業務が止まらない</p>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="7.5"/>
+              <path d="M4 39v-4c0-5.5 5.4-10 12-10 1.6 0 3.2.3 4.6.8"/>
+              <circle cx="48" cy="16" r="7.5"/>
+              <path d="M60 39v-4c0-5.5-5.4-10-12-10-1.6 0-3.2.3-4.6.8"/>
+              <circle cx="32" cy="22" r="8.5"/>
+              <path d="M18 48v-3c0-6.6 6.3-12 14-12s14 5.4 14 12v3"/>
+              <circle cx="32" cy="48" r="11"/>
+              <path d="M32 42v12M26 48h12"/>
+            </svg>
+          </div>
+          <p class="goal-t">採用の幅が広がる</p>
+          <p class="goal-d">未経験者でも<br>採用できる</p>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="27" cy="20" r="9"/>
+              <path d="M9 50v-3c0-7.2 8-13 18-13 2 0 4 .2 5.8.7"/>
+              <path d="m21 33 6 8 6-8"/>
+              <circle cx="46" cy="45" r="11"/>
+              <path d="m41.2 45.2 3.4 3.4 6.2-6.8"/>
+            </svg>
+          </div>
+          <p class="goal-t">マネージャーの<br>管理負荷の軽減</p>
+          <p class="goal-d">手直し・クレーム対応の削減</p>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 14h20l3 6H19z"/>
+              <path d="M21 20v10h22V20"/>
+              <path d="M28 30v-4h8v4"/>
+              <path d="M8 42h14l2 5H6z"/>
+              <path d="M9 47v9h12v-9"/>
+              <path d="M42 42h14l2 5H40z"/>
+              <path d="M43 47v9h12v-9"/>
+              <path d="M32 30v6M32 36 18 42M32 36l14 6"/>
+              <circle cx="32" cy="36" r="2.6"/>
+              <circle cx="17" cy="41" r="2.4"/>
+              <circle cx="47" cy="41" r="2.4"/>
+            </svg>
+          </div>
+          <p class="goal-t">他店舗展開・大量採用</p>
+          <p class="goal-d">教育の質を落とさずに<br>拡大対応できる</p>
+        </div>
+      </div>
+
       <a href="contact.html" class="btn-fill">無料診断を申し込む</a>
     </div>
   </section>
