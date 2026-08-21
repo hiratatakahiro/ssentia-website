@@ -3,7 +3,7 @@
     {
       "source": "/faq.html",
       "destination": "/services.html",
-      "permanent": true
+      "permanent": false
     },
     {
       "source": "/price.html",
