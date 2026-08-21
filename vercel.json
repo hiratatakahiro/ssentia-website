@@ -4,6 +4,11 @@
       "source": "/faq.html",
       "destination": "/services.html",
       "permanent": true
+    },
+    {
+      "source": "/price.html",
+      "destination": "/services.html",
+      "permanent": false
     }
   ]
 }
