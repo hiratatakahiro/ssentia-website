@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サービス紹介｜人材育成の仕組みづくりと属人化解消 | S.sentia株式会社</title>
-  <meta name="description" content="S.sentiaは現場の業務を実際に見せていただき、無意識・感覚でおこなわれてきた仕事を言語化します。①業務の属人化解消（システム操作・業務フロー・判断ルールの言語化・図式化・チャート化）②人材育成の仕組みづくり（育成プロセスの設計・ナレッジ基盤の構築・生成AIの実践型研修）。札幌を拠点に、中小企業の業務と育成を支援しています。">
+  <meta name="description" content="S.sentiaは、業務の棚卸しと「症状」の診断から始め、社内wiki・マニュアル、オンボーディング表（育成計画表）、教える体制図、AI・ツールによる効率化を組み合わせた人材育成のパッケージを構築します。誰が担当しても同じ品質で業務が回る、属人化に強い組織づくりを支援します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -383,470 +383,299 @@
 
     @media (max-width: 768px) {.floatc { right: 14px; bottom: 14px; padding: 12px 20px; font-size: 0.85rem; }
     }
+
     /* ===================================================== */
-    /* ===== 2026-07 抜本改訂：共通コア＋2サービス構成 ===== */
+    /* ===== 2026-08 改訂：人材育成の仕組みづくり構成 ===== */
     /* ===================================================== */
 
-    /* --- 共通コア（言語化） --- */
-    .core-section { padding: 72px 24px; background: var(--bg); }
-    .core-lead {
-      font-size: 0.98rem;
-      line-height: 2.0;
-      color: var(--text-muted);
-      max-width: 760px;
-      margin: 0 auto 40px;
-      text-align: center;
-    }
-    .core-lead strong { color: var(--text); font-weight: 700; }
-
-    .core-branch-lead {
-      text-align: center;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-    .core-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .branch-card {
-      display: block;
+    /* ---- 汎用ボタン（塗り） ---- */
+    .btn-fill {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
       text-decoration: none;
-      background: #fff;
-      border: 1.5px solid var(--primary);
-      border-radius: 12px;
-      padding: 24px 24px 20px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px 36px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      box-shadow: 0 6px 18px rgba(46,84,154,0.28);
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .branch-card:hover {
-      background: #f4f7fd;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(61,108,181,0.13);
-    }
-    .branch-card-no {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .branch-card-t {
-      font-size: 1.14rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.5;
-      margin-bottom: 8px;
-    }
-    .branch-card-d { font-size: 0.86rem; line-height: 1.8; color: var(--text-muted); }
-    .branch-card-go {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
+    .btn-fill:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(46,84,154,0.36); }
 
-    /* --- サービスセクション共通 --- */
-    .sv-section { padding: 76px 24px; background: var(--bg-section); }
-    .sv-section--alt { background: var(--bg); }
-    .sv-head { margin-bottom: 34px; }
-    .sv-no {
-      font-size: 0.74rem;
+    /* ---- S1: リード ---- */
+    .lead-copy {
+      font-size: clamp(1.55rem, 3.6vw, 2.2rem);
       font-weight: 700;
-      letter-spacing: 0.18em;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    .sv-title {
-      font-size: clamp(1.5rem, 3.6vw, 2rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
-    .sv-title-sub {
-      display: block;
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--primary-dark);
-      letter-spacing: 0.04em;
-      margin-top: 8px;
-    }
-    .sv-lead {
-      font-size: 0.95rem;
-      line-height: 2.0;
-      color: var(--text-muted);
-      max-width: 780px;
-    }
-    .sv-lead strong { color: var(--text); font-weight: 700; }
-    .sv-blocklabel {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: var(--primary);
-      margin: 52px 0 8px;
-    }
-    .sv-blocktitle {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
       margin-bottom: 20px;
-      line-height: 1.5;
     }
+    .lead-copy .accent { color: var(--primary); }
+    .lead-text {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 2.0;
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .wwh-box {
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 26px 28px;
+      max-width: 780px;
+      margin-bottom: 36px;
+      background: #fff;
+    }
+    .wwh-row {
+      display: flex;
+      gap: 18px;
+      padding: 10px 0;
+      align-items: baseline;
+    }
+    .wwh-row + .wwh-row { border-top: 1px solid var(--border); }
+    .wwh-key {
+      flex: 0 0 64px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+    .wwh-val { font-weight: 500; font-size: 0.95rem; line-height: 1.7; }
 
-    /* --- 対象3領域 / 手法3点 の汎用カード --- */
-    .sv-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .sv-card {
+    /* ---- S2: 課題提起 ---- */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .pain-card {
       background: #fff;
       border: 1px solid var(--border);
-      border-top: 3px solid var(--primary);
-      border-radius: 10px;
-      padding: 22px 20px;
+      border-radius: 8px;
+      padding: 24px 26px;
+      box-shadow: 0 2px 10px rgba(15,26,46,0.04);
     }
-    .sv-section--alt .sv-card { background: var(--bg-section); }
-    .sv-card-n {
+    .pain-card h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .pain-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
+    .pain-conclusion {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      padding: 26px 28px;
+      text-align: center;
+    }
+    .pain-conclusion .strong-line {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .pain-conclusion p { font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.8; }
+
+    /* ---- S3: 研修会社との違い ---- */
+    .diff-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 2.0; max-width: 760px; margin-bottom: 32px; }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .diff-col {
+      border-radius: 8px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      background: var(--bg-section);
+    }
+    .diff-col.ours {
+      background: #fff;
+      border: 2px solid var(--primary);
+      box-shadow: 0 6px 20px rgba(61,108,181,0.12);
+    }
+    .diff-tag {
+      display: inline-block;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-    .sv-card-t {
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    .sv-card-d { font-size: 0.85rem; line-height: 1.85; color: var(--text-muted); }
-    .sv-card-d strong { color: var(--text); font-weight: 700; }
-
-    .sv-section--alt .pkg-step { background: var(--bg-section); }/* --- 納品サンプル図（実際の成果物の抜粋） --- */
-    .fig-box {
-      background: #fbfaf7;
-      border: 1px solid #ddd8cd;
-      border-radius: 8px;
-      padding: 18px 18px 14px;
-      margin-bottom: 18px;
-    }
-    .fig-cap {
-      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: #8a8375;
+      padding: 4px 12px;
+      border-radius: 20px;
       margin-bottom: 12px;
-    }
-    .fig-after {
-      font-size: 0.82rem;
-      line-height: 1.8;
+      background: #e2e8f2;
       color: var(--text-muted);
-      border-top: 1px dashed #ddd8cd;
-      margin-top: 12px;
-      padding-top: 10px;
     }
-    .fig-after strong { color: #b8412a; font-weight: 700; }
+    .diff-col.ours .diff-tag { background: var(--primary); color: #fff; }
+    .diff-col h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+    .diff-col .diff-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; }
+    .diff-col ul { list-style: none; }
+    .diff-col li {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      padding: 8px 0 8px 22px;
+      position: relative;
+      border-top: 1px solid var(--border);
+    }
+    .diff-col li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 17px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #b9c5d8;
+    }
+    .diff-col.ours li::before { background: var(--primary); }
 
-    /* --- AI横断活用ハブ図 --- */
-    .aihub { margin-bottom: 26px; }
-
-    /* --- AI活用の8ポイント --- */
-    .cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .cap-card {
-      display: flex;
-      gap: 14px;
-      background: var(--bg-section);
+    /* ---- S4: 診断フロー ---- */
+    .flow-step {
+      background: #fff;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 18px;
+      border-radius: 8px;
+      padding: 26px 28px;
+      max-width: 820px;
+      margin: 0 auto;
     }
-    .cap-n {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 5px;
+    .flow-step + .flow-arrow { text-align: center; color: var(--primary); font-size: 1.3rem; line-height: 1; padding: 10px 0; max-width: 820px; margin: 0 auto; }
+    .flow-step-label {
+      display: inline-block;
       background: var(--primary);
       color: #fff;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 12px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .flow-step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .flow-step p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.9; }
+    .flow-fig {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--bg-section);
+      text-align: center;
+    }
+    .flow-fig img { width: 100%; max-width: 520px; height: auto; border-radius: 4px; }
+    .flow-fig figcaption { font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; }
+
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .symptom-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+    .symptom-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .symptom-name .sy-n { color: var(--primary); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; display: block; margin-bottom: 2px; }
+    .symptom-means { font-size: 0.85rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 10px; }
+    .symptom-means b { color: var(--text); font-weight: 700; }
+    .symptom-to {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ---- S5: パッケージ ---- */
+    .pkg-note {
+      font-size: 0.95rem;
+      line-height: 2.0;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+    .pkg-note b { color: var(--text); }
+    .deliv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .deliv-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(15,26,46,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    .deliv-img {
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border);
+      padding: 18px;
+      text-align: center;
+    }
+    .deliv-img img { width: 100%; max-width: 420px; height: auto; border-radius: 4px; }
+    .deliv-img.deliv-img-alt {
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .cap-t {
-      font-size: 0.95rem;
+      min-height: 120px;
+      font-size: 0.85rem;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-      line-height: 1.5;
+      color: var(--primary);
+      letter-spacing: 0.04em;
     }
-    .cap-d { font-size: 0.83rem; line-height: 1.8; color: var(--text-muted); }
-
-    /* ----- レスポンシブ ----- */
-    @media (max-width: 900px) {
-      .core-branch { grid-template-columns: 1fr; }
-      .sv-grid3 { grid-template-columns: 1fr; }
-      .cap-grid { grid-template-columns: 1fr; }
+    .deliv-body { padding: 22px 26px 26px; }
+    .deliv-n { font-size: 0.75rem; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 4px; }
+    .deliv-body h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; line-height: 1.6; }
+    .deliv-goal {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: #eef3fa;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      line-height: 1.7;
     }
+    .deliv-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
 
-    @media (max-width: 640px) {
-      .core-section, .sv-section { padding: 56px 20px; }
-      .fig-box { padding: 14px 14px 12px; }
+    /* ---- S6: 技術基盤 ---- */
+    .tech-lead { font-size: 0.95rem; color: var(--text-muted); line-height: 2.0; max-width: 760px; margin-bottom: 28px; }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
-
-    /* ==========================================================
-       LAYOUT LAYER ― 2026-07
-       既存定義を上書きするレイヤー。
-       書体・配色はサイト共通のまま、構成（罫線組み・パネル）のみを担う。
-       方向性が確定したら、上の定義群と統合する。
-       ========================================================== */
-    :root{
-      --rule-fine:#e9eef6;   /* 項目間の細い区切り罫 */
-      --numeral:#b8c3d4;     /* 連番など、控えめに置く数字 */
-      --panel:#0f1a2e;       /* パネル地。フッターと同色 */
+    .tech-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
     }
+    .tech-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; line-height: 1.6; }
+    .tech-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.8; }
 
-    /* ---- 面の構成 ---- */
-    .core-section{ background:var(--bg); padding:88px 24px 92px; }
-    .sv-section{ background:var(--bg-section); padding:88px 24px 96px; }
-    .sv-section--alt{ background:var(--bg); }
-
-    /* ---- 共通コア ---- */
-    .core-section .section-divider{ margin-bottom:34px; }
-    .core-lead{ text-align:left; margin:0 0 60px; max-width:740px; line-height:2.15; }
-
-    .core-branch-lead{ text-align:left; font-size:0.88rem; font-weight:500;
-      color:var(--text-muted); margin-bottom:18px; }
-    .core-branch{ gap:20px; }
-    .branch-card{ background:#eaf1fa; border:1px solid #d3e0f2; border-radius:10px;
-      padding:34px 32px 30px; transition:background .25s, border-color .25s, transform .25s;
-      display:block; }
-    .branch-card:hover{ background:#e1eaf7; border-color:var(--primary-light); transform:translateY(-3px);
-      box-shadow:0 10px 26px rgba(61,108,181,0.16); }
-    .branch-card-no{ font-size:0.68rem; font-weight:700; letter-spacing:0.2em;
-      color:var(--primary); margin-bottom:14px; }
-    .branch-card-t{ font-size:1.32rem; font-weight:700; color:var(--text); margin-bottom:14px; line-height:1.5; }
-    .branch-card-d{ font-size:0.85rem; line-height:1.95; color:var(--text-muted); }
-    .branch-card-go{ display:inline-block; margin-top:20px; font-size:0.78rem; font-weight:700;
-      letter-spacing:0.06em; color:#fff; background:var(--primary); border:1px solid var(--primary);
-      border-radius:4px; padding:9px 20px; transition:background .25s, border-color .25s; }
-    .branch-card:hover .branch-card-go{ background:var(--primary-dark); border-color:var(--primary-dark); }
-
-    /* ---- サービス見出し ---- */
-    .sv-head{ margin-bottom:10px; }
-    .sv-no{ font-size:0.7rem; letter-spacing:0.22em; margin-bottom:16px; }
-    .sv-title{ font-size:clamp(1.55rem,3.6vw,2.05rem); line-height:1.5; margin-bottom:16px; }
-    .sv-title-sub{ display:block; border:0; padding:0; margin-top:12px;
-      font-size:0.86rem; font-weight:500; letter-spacing:0.04em; color:var(--primary-dark); }
-    .sv-lead{ line-height:2.1; }
-
-    /* ---- サービス見出しバナー ---- */
-    .sv-banner{ display:flex; align-items:center; gap:clamp(18px,3vw,28px);
-      background:var(--primary); border-radius:10px;
-      padding:clamp(26px,3vw,34px) clamp(24px,3.4vw,36px); margin-bottom:26px; }
-    .sv-banner-no{ flex:0 0 auto; padding-right:clamp(18px,3vw,28px);
-      border-right:1px solid rgba(255,255,255,0.30); }
-    .sv-banner-lbl{ font-size:0.62rem; font-weight:700; letter-spacing:0.22em;
-      color:#d8e5f7; margin-bottom:4px; }
-    .sv-banner-num{ font-size:clamp(2.6rem,6.4vw,3.5rem); font-weight:700;
-      line-height:1; color:#fff; letter-spacing:0.01em; }
-    .sv-banner-txt{ min-width:0; }
-    .sv-banner .sv-title{ color:#fff; margin-bottom:0; }
-    .sv-banner .sv-title-sub{ color:#d8e5f7; margin-top:12px; }
-    @media (max-width:640px){
-      .sv-banner{ flex-direction:column; align-items:flex-start; gap:16px;
-        padding:24px 22px 26px; }
-      .sv-banner-no{ display:flex; align-items:baseline; gap:12px; width:100%;
-        padding:0 0 14px; border-right:0; border-bottom:1px solid rgba(255,255,255,0.30); }
-      .sv-banner-lbl{ margin-bottom:0; }
+    /* ---- CTA補足 ---- */
+    .cta-reassure {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.92);
+      font-weight: 500;
+      margin-bottom: 30px;
     }
 
-    .sv-blocklabel{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
-      letter-spacing:0.2em; color:var(--primary); margin:72px 0 12px; }
-    .sv-blocklabel::before{ content:""; flex:none; width:24px; height:1px; background:var(--primary); }
-    .sv-blocktitle{ font-size:clamp(1.18rem,2.4vw,1.5rem); line-height:1.6; margin-bottom:30px; }
-
-    /* ---- 3項目（囲みではなく罫線で分ける） ---- */
-    .sv-grid3{ gap:0; border-top:1px solid var(--primary); }
-    .sv-card, .sv-section--alt .sv-card{ background:none; border:0;
-      border-left:1px solid var(--rule-fine); border-radius:0; padding:28px 32px 0; }
-    .sv-card:first-child{ border-left:0; padding-left:0; }
-    .sv-card-n{ font-size:1.6rem; font-weight:300; color:var(--numeral);
-      letter-spacing:0.06em; line-height:1; margin-bottom:14px; }
-    .sv-card-n span{ margin-left:14px; font-size:0.64rem; font-weight:700;
-      letter-spacing:0.18em; color:var(--primary); vertical-align:0.45em; }
-    .sv-card-t{ font-size:1.04rem; margin-bottom:12px; line-height:1.6; }
-    .sv-card-d{ font-size:0.85rem; line-height:2.0; }
-
-    /* ---- 業務アーキテクトプロセス図（画像版） ---- */
-    .flow-img-wrap{ margin-bottom:76px; }
-    .fig-box .flow-img-wrap{ margin-bottom:0; }
-    .flow-img-btn{ position:relative; display:block; width:100%; padding:0;
-      border:0; background:none; cursor:zoom-in; -webkit-tap-highlight-color:transparent; }
-    .flow-img-btn:focus-visible{ outline:2px solid var(--primary); outline-offset:3px; }
-    /* FIG.3（AI活用図）は縦横比が正方形寄りのため、埋め込み表示のみ幅を絞る */
-    #aihubImgBtn{ max-width:560px; margin:0 auto; }
-    .flow-img{ display:block; width:100%; height:auto; border:1px solid var(--border);
-      border-radius:10px; }
-    .flow-img-zoom{ position:absolute; right:12px; bottom:12px;
-      width:38px; height:38px; border-radius:50%;
-      background:#fff; border:1px solid var(--border); color:var(--primary);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 2px 8px rgba(15,26,46,0.14); }
-    .flow-img-zoom svg{ width:19px; height:19px; }
-
-    /* ---- プロセス図 ライトボックス ---- */
-    .lightbox{ position:fixed; inset:0; z-index:9000; background:rgba(15,26,46,0.94); }
-    .lightbox[hidden]{ display:none; }
-    .lightbox-scroll{ width:100%; height:100%; overflow:auto;
-      -webkit-overflow-scrolling:touch; padding:64px 14px 52px; }
-    .lightbox-img{ display:block; margin:0 auto; width:100%; max-width:1400px;
-      height:auto; background:#fff; border-radius:6px; }
-    .lightbox-close{ position:fixed; top:12px; right:12px; z-index:2;
-      width:44px; height:44px; border-radius:50%;
-      background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.32);
-      color:#fff; display:flex; align-items:center; justify-content:center;
-      cursor:pointer; -webkit-tap-highlight-color:transparent; }
-    .lightbox-close svg{ width:20px; height:20px; }
-    .lightbox-close:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
-    .lightbox-hint{ position:fixed; left:0; right:0; bottom:16px; margin:0;
-      text-align:center; font-size:0.72rem; letter-spacing:0.04em;
-      color:rgba(255,255,255,0.66); pointer-events:none; }
-
-    @media (max-width:860px){
-      .lightbox-scroll{ padding:64px 0 52px; }
-      .lightbox-img{ width:1200px; max-width:none; margin:0; border-radius:0; }
-    }
-
-    /* ---- 業務アーキテクトプロセス図（旧SVG版・現在未使用） ---- */
-    .flow-label{ display:flex; align-items:center; gap:12px; font-size:0.7rem; font-weight:700;
-      letter-spacing:0.2em; color:var(--primary); margin:0 0 12px; }
-    .flow-label::before{ content:""; flex:none; width:24px; height:1px; background:var(--primary); }
-    .flow-title{ font-size:clamp(1.18rem,2.4vw,1.5rem); font-weight:700; color:var(--text);
-      line-height:1.6; margin:0 0 30px; }
-    .flow{ display:flex; flex-direction:column; margin-bottom:76px; }
-    .flow-row{ display:flex; align-items:center; gap:18px; padding:20px 24px;
-      background:var(--bg-section); border:1px solid var(--border); border-radius:10px; }
-    .flow-row--goal{ background:#eef3fb; border-color:var(--primary); }
-    .flow-ico{ flex:none; width:46px; height:46px; border-radius:50%; background:#fff;
-      border:1px solid var(--border); color:var(--primary);
-      display:flex; align-items:center; justify-content:center; }
-    .flow-ico--goal{ background:var(--primary); border-color:var(--primary); color:#fff; }
-    .flow-ico svg{ width:24px; height:24px; }
-    .flow-body{ min-width:0; }
-    .flow-t{ font-size:1.0rem; font-weight:700; color:var(--text); line-height:1.6; margin:0 0 4px; }
-    .flow-d{ font-size:0.84rem; line-height:1.85; color:var(--text-muted); margin:0; }
-    .flow-link{ display:flex; justify-content:center; color:#b8c3d4; padding:8px 0; }
-    .flow-link svg{ width:22px; height:22px; }
-    .flow-note{ text-align:center; font-size:0.82rem; font-weight:500; color:var(--text-muted);
-      margin:0 0 16px; letter-spacing:0.04em; }
-    .flow-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; align-items:stretch; }
-    .flow-card{ background:#fff; border:1px solid var(--border); border-top:3px solid var(--primary);
-      border-radius:8px; padding:22px 18px 20px; text-align:center; }
-    .flow-card-ico{ color:var(--primary); display:flex; justify-content:center; margin-bottom:12px; }
-    .flow-card-ico svg{ width:28px; height:28px; }
-    .flow-card-n{ font-size:0.72rem; font-weight:700; letter-spacing:0.18em;
-      color:var(--primary); margin:0 0 6px; }
-    .flow-card-t{ font-size:0.92rem; font-weight:700; color:var(--text); line-height:1.6; margin:0 0 6px; }
-    .flow-card-d{ font-size:0.78rem; line-height:1.75; color:var(--text-muted); margin:0; }
-
-    @media (max-width:860px){
-      .flow-grid{ grid-template-columns:1fr 1fr; }
-    }
-    @media (max-width:520px){
-      .flow-grid{ grid-template-columns:1fr; }
-      .flow-row{ padding:18px 18px; gap:14px; }
-      .flow-ico{ width:40px; height:40px; }
-      .flow-ico svg{ width:21px; height:21px; }
-    }
-
-    /* ---- パネル（ご提供例）：白地 ---- */
-    .pkg-panel{ background:#fff; color:var(--text); border:1px solid var(--border); border-radius:10px;
-      padding:48px 44px 44px; margin-top:72px; }
-    .pkg-panel-head{ padding-bottom:24px; border-bottom:1px solid var(--primary); margin-bottom:6px; }
-    .pkg-panel-label{ font-size:0.7rem; font-weight:700; letter-spacing:0.2em;
-      color:var(--primary); margin-bottom:12px; }
-    .pkg-panel-title{ font-size:clamp(1.12rem,2.3vw,1.45rem); font-weight:700; color:var(--text); line-height:1.6; }
-    .pkg-row{ display:flex; gap:26px; align-items:flex-start; padding:26px 0;
-      border-bottom:1px solid var(--rule-fine); }
-    .pkg-rows .pkg-row:last-child{ border-bottom:0; padding-bottom:6px; }
-    .pkg-row-n{ flex:none; width:60px; font-size:1.3rem; font-weight:400;
-      letter-spacing:0.06em; line-height:1.5; color:#3d6cb5; padding-top:2px; }
-    .pkg-fig{ flex:none; width:150px; }
-    .pkg-fig svg{ width:100%; height:auto; display:block; }
-    .pkg-row-body{ flex:1; min-width:0; }
-    .pkg-row-t{ font-size:1.0rem; font-weight:700; color:var(--text); line-height:1.65; margin-bottom:8px; }
-    .pkg-row-d{ font-size:0.85rem; line-height:1.95; color:var(--text-muted); }
-    .pkg-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
-    .pkg-tags span{ font-size:0.7rem; font-weight:500; letter-spacing:0.04em;
-      color:var(--primary); background:var(--bg-section); border:1px solid var(--border);
-      border-radius:3px; padding:4px 11px; }
-    .pkg-panel-note{ font-size:0.75rem; line-height:1.85; color:#6b7280; margin-top:24px; }
-
-    @media (max-width:720px){
-      .pkg-panel{ padding:34px 24px 30px; }
-      .pkg-row{ flex-wrap:wrap; gap:14px; }
-      .pkg-row-n{ width:auto; }
-      .pkg-fig{ width:100%; max-width:200px; }
-      .pkg-row-body{ flex-basis:100%; }
-    }
-
-    /* ---- 活用ポイント（囲みではなく罫線で分ける） ---- */
-    .cap-grid{ grid-template-columns:1fr 1fr; gap:0 46px; border-top:1px solid var(--primary); }
-    .cap-card{ background:none; border:0; border-bottom:1px solid var(--rule-fine);
-      border-radius:0; padding:22px 0; gap:18px; }
-    .cap-n{ width:auto; min-width:24px; height:auto; background:none; border-radius:0; display:block;
-      font-size:1.05rem; font-weight:300; color:var(--numeral); line-height:1.5; }
-    .cap-t{ font-size:0.96rem; margin-bottom:6px; line-height:1.65; }
-    .cap-d{ font-size:0.83rem; line-height:1.95; }
-
-    /* ---- 図版 ---- */
-    .fig-box{ background:var(--bg-section); border:1px solid var(--border); border-radius:8px;
-      padding:24px 24px 20px; }
-    .sv-section--alt .fig-box{ background:var(--bg-section); }
-    .fig-cap{ font-family:'Noto Sans JP', sans-serif; font-size:0.7rem; font-weight:700;
-      letter-spacing:0.12em; color:var(--primary); margin-bottom:14px; }
-    .fig-after{ border-top:1px solid var(--border); color:var(--text-muted);
-      line-height:1.9; padding-top:14px; margin-top:16px; }
-    .fig-after strong{ color:var(--primary-dark); }
-
-    @media (max-width:900px){
-      .sv-grid3{ grid-template-columns:1fr; border-top:0; }
-      .sv-card, .sv-section--alt .sv-card{ border-left:0; border-top:1px solid var(--primary);
-        padding:26px 0 30px; }
-      .cap-grid{ grid-template-columns:1fr; gap:0; }
-    }
-    @media (max-width:640px){
-      .core-section{ padding:60px 20px 64px; }
-      .sv-section{ padding:60px 20px 68px; }
-      .pkg-panel{ padding:34px 22px 30px; margin-top:56px; }
-      .pkg-row{ flex-direction:column; gap:10px; padding:24px 0; }
-      .pkg-row-n{ width:auto; font-size:1.1rem; }
-      .sv-blocklabel{ margin-top:56px; }
-      .fig-box{ padding:18px 16px 14px; }
-    }
-
-    /* ==========================================================
-       ADD ― 2026-08：成果物ギャラリー／注記パネル
-       ========================================================== */
-    .deliv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
-    .deliv-card{ background:#fff; border:1px solid var(--border); border-radius:8px;
-      overflow:hidden; display:flex; flex-direction:column; }
-    .deliv-imgbtn{ display:block; width:100%; padding:0; border:0; background:#fff;
-      cursor:zoom-in; position:relative; }
-    .deliv-imgbtn:focus-visible{ outline:2px solid var(--primary); outline-offset:-2px; }
-    .deliv-img{ display:block; width:100%; height:216px; object-fit:contain;
-      object-position:center; background:#fff; padding:16px;
-      border-bottom:1px solid var(--rule-fine); }
-    .deliv-zoom{ position:absolute; right:12px; bottom:16px; width:30px; height:30px;
-      border-radius:50%; background:rgba(61,108,181,0.92); color:#fff;
-      display:flex; align-items:center; justify-content:center; }
-    .deliv-zoom svg{ width:16px; height:16px; }
-    .deliv-body{ padding:20px 22px 22px; }
-    .deliv-n{ font-size:0.66rem; font-weight:700; letter-spacing:0.18em;
-      color:var(--primary); margin:0 0 8px; }
-    .deliv-t{ font-size:1.02rem; font-weight:700; color:var(--text);
-      line-height:1.6; margin:0 0 8px; }
-    .deliv-d{ font-size:0.83rem; line-height:1.9; color:var(--text-muted); margin:0; }
-    .deliv-note{ font-size:0.75rem; line-height:1.85; color:#6b7280; margin-top:26px; }
-
+    /* ---- 助成金パネル ---- */
     .note-panel{ background:#eef3fb; border:1px solid #d3e0f2;
       border-left:3px solid var(--primary); border-radius:8px;
       padding:28px 30px 26px; margin-top:48px; }
@@ -860,14 +689,16 @@
     .note-panel-note{ font-size:0.76rem; line-height:1.9; color:#6b7280;
       border-top:1px solid #d3e0f2; margin-top:18px; padding-top:14px; }
 
-    @media (max-width:900px){
-      .deliv-grid{ grid-template-columns:1fr; }
+    /* ---- レスポンシブ（ページ固有） ---- */
+    @media (max-width: 768px) {
+      .pain-grid, .diff-grid, .symptom-grid, .deliv-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .wwh-row { flex-direction: column; gap: 2px; }
+      .wwh-box { padding: 20px 20px; }
+      .note-panel { padding: 22px 20px 20px; margin-top: 36px; }
     }
-    @media (max-width:640px){
-      .deliv-img{ height:184px; padding:12px; }
-      .deliv-body{ padding:18px 18px 20px; }
-      .note-panel{ padding:22px 20px 20px; margin-top:40px; }
-    }
+    .sp-only { display: none; }
+    @media (max-width: 480px) { .sp-only { display: inline; } }
   </style>
   <!-- OGP -->
   <link rel="canonical" href="https://www.ssentia.co.jp/services.html">
@@ -876,7 +707,7 @@
   <meta property="og:locale" content="ja_JP">
   <meta property="og:url" content="https://www.ssentia.co.jp/services.html">
   <meta property="og:title" content="サービス紹介｜人材育成の仕組みづくりと属人化解消 | S.sentia株式会社">
-  <meta property="og:description" content="S.sentiaは現場の業務を実際に見せていただき、無意識・感覚でおこなわれてきた仕事を言語化します。①業務の属人化解消（システム操作・業務フロー・判断ルールの言語化・図式化・チャート化）②人材育成の仕組みづくり（育成プロセスの設計・ナレッジ基盤の構築・生成AIの実践型研修）。札幌を拠点に、中小企業の業務と育成を支援しています。">
+  <meta property="og:description" content="S.sentiaは、業務の棚卸しと「症状」の診断から始め、社内wiki・マニュアル、オンボーディング表（育成計画表）、教える体制図、AI・ツールによる効率化を組み合わせた人材育成のパッケージを構築します。誰が担当しても同じ品質で業務が回る、属人化に強い組織づくりを支援します。">
   <meta property="og:image" content="https://www.ssentia.co.jp/images/ogp-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -897,7 +728,6 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="services.html" class="active">Services</a>
-        <a href="/seminar/20260924/">Seminar</a>
         <a href="profile.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -912,7 +742,6 @@
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="/seminar/20260924/">Seminar</a>
     <a href="profile.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -923,444 +752,240 @@
     <h1>サービス紹介</h1>
   </div>
 
-  <!-- ================================================= -->
-  <!-- ★ 共通コア：私たちの仕事は「言語化」です           -->
-  <!-- ================================================= -->
-  <section class="core-section">
+  <!-- S1: リード -->
+  <section>
     <div class="section-inner">
-      <p class="section-label">Our Core</p>
-      <h2 class="section-title">私たちの仕事は、「言語化」です。</h2>
+      <p class="section-label">Who we are</p>
+      <h2 class="lead-copy">誰が担当しても、<br class="sp-only">同じ品質で。</h2>
+      <p class="lead-text">S.sentiaは、感覚や経験でおこなわれてきた日々の業務を言語化し、「人が入れ替わっても業務が止まらない」「未経験者でも育てられる」組織の仕組みをつくる、業務プロセス改善コンサルタントです。属人化を解消し、人材育成の体制を整えることで、急な離脱にも、急な拡大にも耐えられる組織をつくります。</p>
+      <div class="wwh-box">
+        <div class="wwh-row">
+          <span class="wwh-key">What</span>
+          <span class="wwh-val">誰が担当しても、同じ品質で業務遂行できる状態を提供する</span>
+        </div>
+        <div class="wwh-row">
+          <span class="wwh-key">How</span>
+          <span class="wwh-val">業務フローを棚卸しし、言語化する</span>
+        </div>
+        <div class="wwh-row">
+          <span class="wwh-key">Why</span>
+          <span class="wwh-val">再現性のある業務環境・育成環境をつくるため</span>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-fill">無料診断を申し込む</a>
+    </div>
+  </section>
+
+  <!-- S2: 課題提起 -->
+  <section style="background: var(--bg-section);">
+    <div class="section-inner">
+      <p class="section-label">Issues</p>
+      <h2 class="section-title">こんな状態は、ありませんか？</h2>
       <div class="section-divider"></div>
-      <p class="core-lead">
-        S.sentiaの本体は、<strong>現場の業務を実際に見せていただき、インタビューを通して、これまで無意識・感覚でおこなわれてきた仕事を細部まで言葉にする</strong>こと。ここを省いてつくられた仕組みは、必ず使われずに終わります。
-      </p>
-
-      <p class="flow-label">PROCESS</p>
-      <h3 class="flow-title">業務アーキテクト プロセス</h3>
-
-      <div class="flow-img-wrap">
-        <button type="button" class="flow-img-btn" id="flowImgBtn" aria-label="プロセス図を拡大表示する">
-          <img src="./images/flow-process.png" alt="S.sentia 業務アーキテクト プロセス図" class="flow-img" loading="lazy">
-          <span class="flow-img-zoom" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/>
-            </svg>
-          </span>
-        </button>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>ベテランが辞めると、業務が止まる</h3>
+          <p>手順もノウハウも、特定の人の頭の中にしかない。引き継ぎのたびに、現場が混乱する。</p>
+        </div>
+        <div class="pain-card">
+          <h3>採用を「経験者」に限定せざるを得ない</h3>
+          <p>教える仕組みがないため、即戦力しか受け入れられず、採用の幅が狭まっている。</p>
+        </div>
+        <div class="pain-card">
+          <h3>教える人が、その都度バラバラ</h3>
+          <p>誰が教えるかで内容が変わり、育ち方に差が出る。教える側の負担も偏っている。</p>
+        </div>
+        <div class="pain-card">
+          <h3>人を増やしたいのに、教育が追いつかない</h3>
+          <p>店舗展開や増員を進めたいが、教育の質を保てず、拡大するほど品質がばらつく。</p>
+        </div>
       </div>
-
-      <p class="core-branch-lead">構築方法は、主に下記の2つです。</p>
-      <div class="core-branch">
-        <a href="#service01" class="branch-card">
-          <p class="branch-card-no">SERVICE 01</p>
-          <p class="branch-card-t">業務の属人化解消</p>
-          <p class="branch-card-d">個人の中にある業務知識を、組織の資産に変えます。システム操作・業務フロー・判断ルールを言語化・図式化・チャート化します。</p>
-          <span class="branch-card-go">詳しく見る →</span>
-        </a>
-        <a href="#service02" class="branch-card">
-          <p class="branch-card-no">SERVICE 02</p>
-          <p class="branch-card-t">人材育成の仕組みづくり</p>
-          <p class="branch-card-d">「誰が教えたか」で差がつく状態をなくします。育成の順序と到達点を設計し、教材の置き場所と研修までを整えます。</p>
-          <span class="branch-card-go">詳しく見る →</span>
-        </a>
+      <div class="pain-conclusion">
+        <p class="strong-line">原因は「人」ではなく、「仕組みがないこと」にあります。</p>
+        <p>S.sentiaは、育成を担当者の頑張りに委ねるのではなく、組織の仕組みに変えます。</p>
       </div>
     </div>
   </section>
 
-
-  <!-- ================================================= -->
-  <!-- ★ SERVICE 01：業務の属人化解消                     -->
-  <!-- ================================================= -->
-  <section class="sv-section" id="service01">
+  <!-- S3: 研修会社との違い -->
+  <section>
     <div class="section-inner">
-      <div class="sv-head">
-        <div class="sv-banner">
-          <div class="sv-banner-no">
-            <p class="sv-banner-lbl">SERVICE</p>
-            <p class="sv-banner-num">01</p>
-          </div>
-          <div class="sv-banner-txt">
-            <h2 class="sv-title">
-              業務の属人化解消
-              <span class="sv-title-sub">言語化・図式化・チャート化して、組織の資産にする</span>
-            </h2>
-          </div>
+      <p class="section-label">Difference</p>
+      <h2 class="section-title">教材は、すでに貴社の中にあります。</h2>
+      <div class="section-divider"></div>
+      <p class="diff-lead">研修会社が提供するのは、どの会社にも当てはまる「汎用知」。私たちが提供するのは、貴社の現場にしかない「自社固有知」です。貴社の手順・判断基準・先輩の段取りを引き出して言語化し、貴社だけの教材として社内に残します。</p>
+      <div class="diff-grid">
+        <div class="diff-col">
+          <span class="diff-tag">一般的な研修会社</span>
+          <h3>汎用知</h3>
+          <p class="diff-sub">どの会社にも当てはまる知識・スキル</p>
+          <ul>
+            <li>ビジネスマナー・汎用的なスキル研修</li>
+            <li>どの会社で受けても、同じ内容</li>
+            <li>受講して終わり。現場の業務には残りにくい</li>
+          </ul>
         </div>
-        <p class="sv-lead">
-          「あの人しか分からない」「聞かないと進まない」をなくします。細かいニュアンスまで含めて、<strong>読めば同じ判断ができる状態</strong>まで落とし込みます。
-        </p>
-      </div>
-
-      <!-- 対象3領域 -->
-      <p class="sv-blocklabel">SCOPE</p>
-      <h3 class="sv-blocktitle">言語化する、3つの領域</h3>
-      <div class="sv-grid3">
-        <div class="sv-card">
-          <p class="sv-card-n">01<span>SYSTEM</span></p>
-          <p class="sv-card-t">システムなどの操作</p>
-          <p class="sv-card-d">顧客管理システム、基幹システム、スプレッドシート。<strong>どの画面を、どの順に、何のために触るのか</strong>。画面名の羅列ではなく、目的とセットで記述します。</p>
-        </div>
-        <div class="sv-card">
-          <p class="sv-card-n">02<span>FLOW</span></p>
-          <p class="sv-card-t">業務フロー</p>
-          <p class="sv-card-d">誰が、いつ、何をきっかけに動くのか。<strong>部署をまたぐ受け渡しと、月次・年次のサイクル</strong>まで含めて、業務全体の地図をつくります。</p>
-        </div>
-        <div class="sv-card">
-          <p class="sv-card-n">03<span>RULE</span></p>
-          <p class="sv-card-t">業務上の判断ルール</p>
-          <p class="sv-card-d">値引きをどこまで認めるか、例外にどう対応するか、何を優先するか。<strong>明文化されていない社内の判断基準</strong>を、条件つきの形で整理します。</p>
+        <div class="diff-col ours">
+          <span class="diff-tag">S.sentia</span>
+          <h3>自社固有知</h3>
+          <p class="diff-sub">貴社の現場にしかない知識・判断</p>
+          <ul>
+            <li>貴社の手順・判断基準・先輩の段取りが教材になる</li>
+            <li>現場へのヒアリングで引き出し、言語化する</li>
+            <li>wiki・マニュアルとして社内に資産で残り続ける</li>
+          </ul>
         </div>
       </div>
-
-      <!-- ご提供例（パッケージ） -->
-      <div class="pkg-panel">
-        <div class="pkg-panel-head">
-          <p class="pkg-panel-label">PACKAGE</p>
-          <p class="pkg-panel-title">ご提供例：顧客管理システムの操作を、仕組みにする</p>
-        </div>
-        <div class="pkg-rows">
-          <div class="pkg-row">
-            <p class="pkg-row-n">01</p>
-            <div class="pkg-fig">
-              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="14" y="14" width="104" height="66" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
-                <path d="M14 28h104" stroke="#3d6cb5" stroke-width="1.2"/>
-                <circle cx="22" cy="21" r="2" fill="#3d6cb5"/><circle cx="30" cy="21" r="2" fill="#3d6cb5"/>
-                <rect x="24" y="38" width="40" height="5" rx="2.5" fill="#9db8dd"/>
-                <rect x="24" y="50" width="58" height="5" rx="2.5" fill="#9db8dd"/>
-                <rect x="24" y="62" width="30" height="5" rx="2.5" fill="#9db8dd"/>
-                <path d="M52 80h28M66 80v8M54 88h24" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M92 56l16 22-6 1-3 7-7-30z" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6" stroke-linejoin="round"/>
-                <path d="M118 30c6-8 18-8 24 0-6 8-18 8-24 0z" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
-                <circle cx="130" cy="30" r="3" fill="#3d6cb5"/>
-              </svg>
-            </div>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">実際の操作を、見せていただく</p>
-              <p class="pkg-row-d">ご担当者が普段どおりに操作する様子に同席し、その場で疑問点をお伺いします。整えられた手順書ではなく、実際の手の動きを見ます。</p>
-            </div>
-          </div>
-          <div class="pkg-row">
-            <p class="pkg-row-n">02</p>
-            <div class="pkg-fig">
-              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="38" y="6" width="64" height="78" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.4"/>
-                <rect x="24" y="14" width="64" height="78" rx="4" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
-                <rect x="34" y="28" width="44" height="5" rx="2.5" fill="#3d6cb5"/>
-                <rect x="34" y="42" width="36" height="4" rx="2" fill="#9db8dd"/>
-                <rect x="34" y="54" width="44" height="4" rx="2" fill="#9db8dd"/>
-                <rect x="34" y="66" width="26" height="4" rx="2" fill="#9db8dd"/>
-                <circle cx="114" cy="70" r="17" fill="#3d6cb5"/>
-                <path d="M106 70l6 6 11-12" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">マニュアルを作成する</p>
-              <p class="pkg-row-d">言語化・図式化・チャート化して、判断の根拠まで含んだマニュアルに仕上げます。手順だけでなく「なぜ」と「例外」を書き切ります。</p>
-            </div>
-          </div>
-          <div class="pkg-row">
-            <p class="pkg-row-n">03</p>
-            <div class="pkg-fig">
-              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="10" y="16" width="130" height="72" rx="4" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
-                <path d="M10 30h130" stroke="#3d6cb5" stroke-width="1.2"/>
-                <circle cx="18" cy="23" r="2" fill="#3d6cb5"/><circle cx="26" cy="23" r="2" fill="#3d6cb5"/>
-                <rect x="20" y="42" width="52" height="5" rx="2.5" fill="#9db8dd"/>
-                <rect x="20" y="54" width="38" height="5" rx="2.5" fill="#9db8dd"/>
-                <rect x="20" y="66" width="46" height="5" rx="2.5" fill="#9db8dd"/>
-                <rect x="86" y="36" width="46" height="46" rx="3" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
-                <rect x="93" y="44" width="32" height="4" rx="2" fill="#3d6cb5"/>
-                <rect x="93" y="55" width="26" height="3" rx="1.5" fill="#9db8dd"/>
-                <rect x="93" y="63" width="30" height="3" rx="1.5" fill="#9db8dd"/>
-                <rect x="93" y="71" width="20" height="3" rx="1.5" fill="#9db8dd"/>
-              </svg>
-            </div>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">システムに埋め込む</p>
-              <p class="pkg-row-d">探しに行かなくても、作業する画面のすぐそばで読める状態にします。開かれないマニュアルは、無いのと同じです。</p>
-            </div>
-          </div>
-          <div class="pkg-row">
-            <p class="pkg-row-n">04</p>
-            <div class="pkg-fig">
-              <svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="8" y="26" width="46" height="48" rx="3" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.5"/>
-                <path d="M8 38h46M8 50h46M8 62h46M26 26v48" stroke="#9db8dd" stroke-width="1"/>
-                <path d="M56 50h14" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M66 46l4 4-4 4" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="98" cy="50" r="16" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
-                <rect x="94" y="28" width="8" height="7" rx="1.5" fill="#3d6cb5"/>
-                <rect x="94" y="65" width="8" height="7" rx="1.5" fill="#3d6cb5"/>
-                <rect x="76" y="46" width="7" height="8" rx="1.5" fill="#3d6cb5"/>
-                <rect x="113" y="46" width="7" height="8" rx="1.5" fill="#3d6cb5"/>
-                <circle cx="98" cy="50" r="6" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
-                <path d="M124 50h10" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M130 46l4 4-4 4" stroke="#3d6cb5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">一部を自動化する</p>
-              <p class="pkg-row-d">くり返しの転記・集計・通知など、機械に任せられる部分を切り出して自動化します。</p>
-              <div class="pkg-tags">
-                <span>GAS</span>
-                <span>Power Automate</span>
-                <span>Notion連携</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-
-  <!-- ================================================= -->
-  <!-- ★ SERVICE 02：人材育成の仕組みづくり               -->
-  <!-- ================================================= -->
-  <section class="sv-section sv-section--alt" id="service02">
+  <!-- S4: 診断フロー -->
+  <section style="background: var(--bg-section);">
     <div class="section-inner">
-      <div class="sv-head">
-        <div class="sv-banner">
-          <div class="sv-banner-no">
-            <p class="sv-banner-lbl">SERVICE</p>
-            <p class="sv-banner-num">02</p>
-          </div>
-          <div class="sv-banner-txt">
-            <h2 class="sv-title">
-              人材育成の仕組みづくり
-              <span class="sv-title-sub">「誰が教えたか」で差がつく育成を、組織の標準にする</span>
-            </h2>
-          </div>
-        </div>
-        <p class="sv-lead">
-          新しく入った方が育つかどうかが、<strong>たまたま誰に付いたかで決まっていないでしょうか</strong>。育成もまた、属人化します。教える順序・到達点・使う教材を設計し、担当者が変わっても同じ水準まで引き上がる状態をつくります。
-        </p>
-      </div>
+      <p class="section-label">Process</p>
+      <h2 class="section-title">打ち手ありきではなく、「症状の診断」から始めます。</h2>
+      <div class="section-divider"></div>
 
-      <!-- 提供3点 -->
-      <p class="sv-blocklabel">WHAT WE DO</p>
-      <h3 class="sv-blocktitle">ご提供する3つの支援</h3>
-      <div class="sv-grid3">
-        <div class="sv-card">
-          <p class="sv-card-n">01<span>DESIGN</span></p>
-          <p class="sv-card-t">育成プロセスの設計</p>
-          <p class="sv-card-d">何を、どの順で、いつまでに。<strong>到達点を具体的な行動で定義</strong>し、担当者と期限を割り当てます。「見て覚えて」を、設計されたプロセスに置き換えます。</p>
+      <div class="flow-step">
+        <span class="flow-step-label">STEP 1</span>
+        <h3>業務の棚卸し</h3>
+        <p>部署・役割ごとに、全業務を洗い出します。まず「どんな仕事があるか」だけを一覧化し、深掘りは症状が判明してから、必要な業務にだけおこないます。</p>
+        <figure class="flow-fig">
+          <img src="./images/01_flow.png" alt="業務の棚卸しの成果物例：判断が分かれる箇所を明示した業務フロー図" loading="lazy">
+          <figcaption>成果物例：業務フロー図（判断が分かれる箇所を明示するのが要点）</figcaption>
+        </figure>
+      </div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-step">
+        <span class="flow-step-label">STEP 2</span>
+        <h3>症状の特定</h3>
+        <p>業務ごとに、いま何が起きているかを見立てます。「手順がないのか」「伝わっていないのか」「教える人がいないのか」——症状によって、打ち手が変わります。</p>
+      </div>
+      <div class="flow-arrow">▼</div>
+
+      <div class="symptom-grid">
+        <div class="symptom-card">
+          <p class="symptom-name"><span class="sy-n">症状 1</span>手順がどこにもない</p>
+          <p class="symptom-means"><b>手段：社員へのヒアリング</b><br>頭の中にある判断・自分流を引き出す</p>
+          <p class="symptom-to">→ 打ち手 A. 社内wikiの整備</p>
         </div>
-        <div class="sv-card">
-          <p class="sv-card-n">02<span>BASE</span></p>
-          <p class="sv-card-t">教材とナレッジ基盤の構築</p>
-          <p class="sv-card-d">SERVICE 01で言語化した業務が、そのまま教材になります。<strong>Google Workspace / Microsoft 365 / Notion</strong> の上に置き、探せば必ず見つかる状態にします。</p>
+        <div class="symptom-card">
+          <p class="symptom-name"><span class="sy-n">症状 2</span>進め方が分からない</p>
+          <p class="symptom-means"><b>手段：関連資料の回収</b><br>既存の手順書・帳票・実績を突き合わせる</p>
+          <p class="symptom-to">→ 打ち手 B. オンボーディング表の整備</p>
         </div>
-        <div class="sv-card">
-          <p class="sv-card-n">03<span>TRAIN</span></p>
-          <p class="sv-card-t">実践型研修の実施</p>
-          <p class="sv-card-d">操作説明では定着しません。<strong>自社の実データ・実業務で手を動かす</strong>研修をおこないます。生成AIの活用を中心に、明日から使える状態までお持ちします。</p>
+        <div class="symptom-card">
+          <p class="symptom-name"><span class="sy-n">症状 3</span>教える人が決まっていない</p>
+          <p class="symptom-means"><b>手段：担当とスキルの棚卸し</b><br>誰が何をできるか／教えられるかを一覧化</p>
+          <p class="symptom-to">→ 打ち手 C. 教える体制図の整備</p>
+        </div>
+        <div class="symptom-card">
+          <p class="symptom-name"><span class="sy-n">症状 4</span>手順そのものに無駄が多い</p>
+          <p class="symptom-means"><b>手段：業務のレコーディング</b><br>実作業を録画し、時間と手戻りを計測する</p>
+          <p class="symptom-to">→ 打ち手 D. AI・ツールによる効率化</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5: パッケージ（4つの打ち手） -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Package</p>
+      <h2 class="section-title">診断結果に応じて組み合わせる、4つの打ち手</h2>
+      <div class="section-divider"></div>
+      <p class="pkg-note">打ち手は単品売りではありません。診断で特定した症状に応じて組み合わせ、<b>人材育成のパッケージ</b>としてご提供します。すべての成果物は、貴社の実際の業務から作られます。</p>
+      <div class="deliv-grid">
+        <div class="deliv-card">
+          <div class="deliv-img">
+            <img src="./images/04_wiki.png" alt="社内wikiやマニュアルの構築イメージ" loading="lazy">
+          </div>
+          <div class="deliv-body">
+            <p class="deliv-n">打ち手 A</p>
+            <h3>社内wiki・マニュアルの構築</h3>
+            <p class="deliv-goal">新しく入った人が、聞かずに辿り着ける。</p>
+            <p>手順・概念・判断・先輩の自分流を言語化して格納します。更新担当と更新サイクルまで決めて、使われ続ける形にします。</p>
+          </div>
+        </div>
+        <div class="deliv-card">
+          <div class="deliv-img">
+            <img src="./images/02_onboarding.png" alt="オンボーディング表（育成計画表）のイメージ" loading="lazy">
+          </div>
+          <div class="deliv-body">
+            <p class="deliv-n">打ち手 B</p>
+            <h3>オンボーディング表（育成計画表）</h3>
+            <p class="deliv-goal">「3ヶ月後にできていること」が明文化されている。</p>
+            <p>1日目・1週目・1ヶ月・3ヶ月と、期間別の順路と到達基準を設計します。本人が自己チェックできる形にするのが要点です。</p>
+          </div>
+        </div>
+        <div class="deliv-card">
+          <div class="deliv-img">
+            <img src="./images/03_structure.png" alt="体制図（教育担当割り当て表）のイメージ" loading="lazy">
+          </div>
+          <div class="deliv-body">
+            <p class="deliv-n">打ち手 C</p>
+            <h3>教える体制図（教育担当の割り当て）</h3>
+            <p class="deliv-goal">主担当と代替担当が決まっている。属人化はここで切れます。</p>
+            <p>教える項目ごとに、主担当・代替担当・時期・教え方まで割り当てます。「その都度、誰かが教える」状態を終わらせます。</p>
+          </div>
+        </div>
+        <div class="deliv-card">
+          <div class="deliv-img deliv-img-alt">
+            Copilot ／ Gemini ／ Notion ／ 専用システム
+          </div>
+          <div class="deliv-body">
+            <p class="deliv-n">打ち手 D</p>
+            <h3>AI・ツールによる効率化</h3>
+            <p class="deliv-goal">無駄の多い手順は、仕組み化の前に効率化する。</p>
+            <p>実作業の録画から時間と手戻りを計測し、無駄が多い手順はAI・ツールで効率化してから仕組みに落とし込みます。</p>
+          </div>
         </div>
       </div>
 
       <!-- 助成金 -->
       <div class="note-panel">
-        <p class="note-panel-label">SUBSIDY</p>
+        <p class="note-panel-label">Subsidy</p>
         <p class="note-panel-title">研修費用は、人材開発支援助成金の対象となる場合があります</p>
         <p class="note-panel-d">厚生労働省の人材開発支援助成金には、事業展開や業務の変化に対応する人材の育成を支援するコースが設けられています。要件・支給額・申請の時期は年度や事業所の状況によって異なるため、御社が対象となるかどうかは個別の確認が必要です。</p>
         <a class="note-panel-link" href="/seminar/20260924/">生成AI活用セミナー（札幌・参加無料）のご案内 →</a>
         <p class="note-panel-note">※ S.sentiaがご提供するのは研修そのものです。助成金の申請手続きの代行および申請書類の作成支援は社会保険労務士の独占業務にあたるため、当社ではおこないません。ご希望の場合は、提携する社会保険労務士をご紹介いたします。</p>
       </div>
-
-      <!-- 目指す状態の図 -->
-      <p class="sv-blocklabel">HOW IT WORKS</p>
-      <h3 class="sv-blocktitle">目指すのは「個人が使える」ではなく、「組織に残る」状態</h3>
-      <p class="sv-lead" style="margin-bottom:24px;">
-        研修で扱うAIは、単体のチャット画面で使うものではありません。文書・表・会議・ファイル保管がひとつの基盤でつながると、<strong>普段の業務のなかにAIが入り込みます</strong>。以下は Google Workspace を基盤にした場合の全体像です。
-      </p>
-
-      <div class="fig-box aihub">
-        <p class="fig-cap">FIG.3 ／ 業務を横断するAI活用（Google Workspace の例）</p>
-        <div class="flow-img-wrap">
-          <button type="button" class="flow-img-btn" id="aihubImgBtn" aria-label="図を拡大表示する">
-            <img src="./images/ai-hub-diagram.png" alt="組織のAIが各業務アプリ（Chrome/ブラウザ・ドキュメント・スプレッドシート・スライド・Meet・ドライブ・Gemini Notebook）を横断してつながる図" class="flow-img" loading="lazy">
-            <span class="flow-img-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/>
-              </svg>
-            </span>
-          </button>
-        </div>
-        <p class="fig-after">同じ基盤の上にあるため、会議の記録が資料に、資料が専用AIの知識になります。個人が自分のアカウントで使うAIは、成果がその人の中に残ります。<strong>組織の基盤の上で使うAIは、成果が組織に残ります。</strong>ここが、AI活用の属人化を解消する分かれ目です。</p>
-      </div>
-
-      <!-- 8つの活用ポイント -->
-      <p class="sv-blocklabel">EXAMPLES</p>
-      <h3 class="sv-blocktitle">研修を通じて、できるようになること</h3>
-      <div class="cap-grid">
-        <div class="cap-card">
-          <div class="cap-n">1</div>
-          <div>
-            <p class="cap-t">組織として、全員のアカウントを管理する</p>
-            <p class="cap-d">誰がどう使っているかを管理者が把握できる状態にします。担当者が退職してもデータが組織に残ります。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">2</div>
-          <div>
-            <p class="cap-t">ブラウザにAIが常駐し、見ている画面を読む</p>
-            <p class="cap-d">開いているページの内容をそのまま前提に相談できます。コピー＆ペーストの手間がなくなります。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">3</div>
-          <div>
-            <p class="cap-t">文書の下書き・編集を任せる</p>
-            <p class="cap-d">案内文・督促文・報告書のたたき台を作成。既存文書の書式や文体に合わせて整えることもできます。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">4</div>
-          <div>
-            <p class="cap-t">表の作成・数式の組み立てを任せる</p>
-            <p class="cap-d">一覧表の作成、計算式の挿入、複数シートを横断した差分チェックまで対応します。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">5</div>
-          <div>
-            <p class="cap-t">資料のレイアウトを整える</p>
-            <p class="cap-d">文章だけのスライドを、読みやすい構成とレイアウトに再構成します。デザインの得意・不得意に依存しません。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">6</div>
-          <div>
-            <p class="cap-t">会議を自動で記録し、要約する</p>
-            <p class="cap-d">カレンダーと連動して会議を記録、文字起こしと要約を作成し、決定事項とToDoを自動で共有します。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">7</div>
-          <div>
-            <p class="cap-t">社内の資料を横断して検索する</p>
-            <p class="cap-d">「あの案件の最新のやりとりは？」に、保存場所を覚えていなくても答えが返ります。過去資料が使える資産になります。</p>
-          </div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-n">8</div>
-          <div>
-            <p class="cap-t">自社専用のAIをつくる</p>
-            <p class="cap-d">社内資料・業務フロー・成功事例だけを読み込ませ、その範囲からしか答えないAIを用意します。一般論での回答を避けられます。</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ご提供例 -->
-      <div class="pkg-panel">
-        <div class="pkg-panel-head">
-          <p class="pkg-panel-label">PACKAGE</p>
-          <p class="pkg-panel-title">ご提供例</p>
-        </div>
-        <div class="pkg-rows">
-          <div class="pkg-row">
-            <p class="pkg-row-n">保険<br>代理店</p>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">運営管理のあらゆる業務でAIを使える環境を構築</p>
-              <p class="pkg-row-d">契約管理・顧客対応・社内文書作成・会議記録まで、日常業務の各場面にAIを組み込み、全員が同じ水準で使える状態を整備します。</p>
-              <div class="pkg-tags"><span>Google Workspace</span></div>
-            </div>
-          </div>
-          <div class="pkg-row">
-            <p class="pkg-row-n">旅行<br>会社</p>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">膨大な案件資料・マニュアルを横断検索できるナレッジ環境</p>
-              <p class="pkg-row-d">積み上がった案件資料と各種マニュアルを整理・構造化し、必要な情報にAI経由でたどり着ける状態にします。「あの資料どこ？」がなくなります。</p>
-              <div class="pkg-tags"><span>Google Workspace</span></div>
-            </div>
-          </div>
-          <div class="pkg-row">
-            <p class="pkg-row-n">専門職</p>
-            <div class="pkg-row-body">
-              <p class="pkg-row-t">専門職のナレッジに特化したAIチャットボット</p>
-              <p class="pkg-row-d">現場で判断に迷う場面を想定し、自社の業務知識だけを参照して答えるチャットボットを構築。一般論ではなく、自社の基準で回答します。</p>
-              <div class="pkg-tags"><span>Microsoft 365</span></div>
-            </div>
-          </div>
-        </div>
-        <p class="pkg-panel-note">※ 上記は現在ご提供可能な内容の例です。御社の基盤・業務に合わせて設計しますので、まずは現状をお聞かせください。</p>
-      </div>
     </div>
   </section>
 
-
-  <!-- ================================================= -->
-  <!-- ★ 成果物：実際にお納めするもの                     -->
-  <!-- ================================================= -->
-  <section class="sv-section" id="deliverables">
+  <!-- S6: 技術基盤 -->
+  <section style="background: var(--bg-section);">
     <div class="section-inner">
-      <p class="sv-blocklabel">DELIVERABLES</p>
-      <h3 class="sv-blocktitle">実際にお納めするもの</h3>
-      <p class="sv-lead" style="margin-bottom:34px;">
-        言語化の成果は、提出して終わる報告書ではなく、<strong>現場で毎日開かれるもの</strong>としてお渡しします。以下は納品物の一部です。
-      </p>
-      <div class="deliv-grid">
-        <div class="deliv-card">
-          <button type="button" class="deliv-imgbtn" aria-label="業務フロー図を拡大表示する">
-            <img src="./images/01_flow.png" alt="部署をまたぐ業務の流れを整理した業務フロー図" class="deliv-img" loading="lazy">
-            <span class="deliv-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/></svg></span>
-          </button>
-          <div class="deliv-body">
-            <p class="deliv-n">SERVICE 01</p>
-            <p class="deliv-t">業務フロー図</p>
-            <p class="deliv-d">誰が、いつ、何をきっかけに動くのか。部署をまたぐ受け渡しと、月次・年次のサイクルまで含めた業務全体の地図です。</p>
-          </div>
+      <p class="section-label">Technology</p>
+      <h2 class="section-title">仕組みを支える、テクノロジー基盤</h2>
+      <div class="section-divider"></div>
+      <p class="tech-lead">つくった仕組みは、日々の業務で回り続けてはじめて意味を持ちます。新しいツールをむやみに増やすのではなく、すでにお使いの基盤の上に構築します。</p>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>業務横断的なAI活用</h3>
+          <p>Microsoft 365 / Google Workspace / Notion を基盤に、業務をまたいでAIが使える環境を整えます。</p>
         </div>
-        <div class="deliv-card">
-          <button type="button" class="deliv-imgbtn" aria-label="オンボーディング表を拡大表示する">
-            <img src="./images/02_onboarding.png" alt="入社後の到達点・担当者・期限を整理したオンボーディング表" class="deliv-img" loading="lazy">
-            <span class="deliv-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/></svg></span>
-          </button>
-          <div class="deliv-body">
-            <p class="deliv-n">SERVICE 02</p>
-            <p class="deliv-t">オンボーディング表</p>
-            <p class="deliv-d">入社後に何をどの順で覚えるか、誰が教え、いつまでに到達するか。育成の進み具合が本人にも上長にも見える形にします。</p>
-          </div>
+        <div class="tech-card">
+          <h3>AIエージェント構築</h3>
+          <p>定型的な業務は、AIエージェントに任せられる形に設計します。</p>
         </div>
-        <div class="deliv-card">
-          <button type="button" class="deliv-imgbtn" aria-label="体制図を拡大表示する">
-            <img src="./images/03_structure.png" alt="役割と責任範囲、相談先を明示した組織体制図" class="deliv-img" loading="lazy">
-            <span class="deliv-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/></svg></span>
-          </button>
-          <div class="deliv-body">
-            <p class="deliv-n">SERVICE 02</p>
-            <p class="deliv-t">体制図</p>
-            <p class="deliv-d">誰が何の責任を持ち、迷ったときは誰に聞くのか。役割と相談先を明示し、新しく入った人が動き出せる状態にします。</p>
-          </div>
-        </div>
-        <div class="deliv-card">
-          <button type="button" class="deliv-imgbtn" aria-label="社内wikiを拡大表示する">
-            <img src="./images/04_wiki.png" alt="マニュアル・業務フロー・判断ルールを集約した社内wiki" class="deliv-img" loading="lazy">
-            <span class="deliv-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/><path d="M11 8.4v5.2M8.4 11h5.2"/></svg></span>
-          </button>
-          <div class="deliv-body">
-            <p class="deliv-n">SERVICE 01 ＋ 02</p>
-            <p class="deliv-t">社内wiki</p>
-            <p class="deliv-d">マニュアル・フロー・判断ルールの置き場所です。作業する画面のすぐそばから開ける状態にして、探す手間をなくします。</p>
-          </div>
+        <div class="tech-card">
+          <h3>独自アプリ・システム開発</h3>
+          <p>既存ツールで足りない部分は、業務に合わせた専用の仕組みを開発します。</p>
         </div>
       </div>
-      <p class="deliv-note">※ 掲載しているものは構成をお伝えするためのサンプルです。実際の納品物は、御社の業務・体制に合わせて作成します。</p>
     </div>
   </section>
-
 
   <!-- CTA -->
-  <div class="cta-band">
-    <h2>まずは、無料診断から。</h2>
-    <p>どこから手をつけるべきか、対象範囲と進め方を、初回45分のオンライン面談でお伝えします。<br>その場での契約や、しつこい営業は一切ありません。</p>
+  <section class="cta-band">
+    <h2>まずは、貴社の「症状」を見立てるところから。</h2>
+    <p class="cta-reassure">全案件、代表が直接担当します。担当者によるばらつきはありません。</p>
     <div class="cta-actions">
       <a href="contact.html" class="btn-outline">無料診断を申し込む</a>
     </div>
-    <p class="cta-note">※ 無料診断に費用は一切かかりません。オンライン（Google Meet / Microsoft Teams）で承ります。</p>
-  </div>
+    <p class="cta-note">※ 無料診断に費用は一切かかりません。オンライン（Google Meet / Microsoft Teams）でも承ります。</p>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -1372,7 +997,6 @@
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="/seminar/20260924/">Seminar</a>
         <a href="profile.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -1382,51 +1006,12 @@
     </div>
   </footer>
 
-  <!-- プロセス図 ライトボックス -->
-  <div class="lightbox" id="flowLightbox" role="dialog" aria-modal="true" aria-label="業務アーキテクト プロセス図" hidden>
-    <button type="button" class="lightbox-close" id="flowLightboxClose" aria-label="拡大表示を閉じる">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M6 6l12 12M18 6L6 18"/>
-      </svg>
-    </button>
-    <div class="lightbox-scroll" id="flowLightboxScroll">
-      <img src="./images/flow-process.png" alt="S.sentia 業務アーキテクト プロセス図（拡大表示）" class="lightbox-img">
-    </div>
-    <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
-  </div>
-
-  <!-- AI横断活用図 ライトボックス -->
-  <div class="lightbox" id="aihubLightbox" role="dialog" aria-modal="true" aria-label="業務を横断するAI活用の図" hidden>
-    <button type="button" class="lightbox-close" id="aihubLightboxClose" aria-label="拡大表示を閉じる">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M6 6l12 12M18 6L6 18"/>
-      </svg>
-    </button>
-    <div class="lightbox-scroll" id="aihubLightboxScroll">
-      <img src="./images/ai-hub-diagram.png" alt="組織のAIが各業務アプリ（Chrome/ブラウザ・ドキュメント・スプレッドシート・スライド・Meet・ドライブ・Gemini Notebook）を横断してつながる図（拡大表示）" class="lightbox-img">
-    </div>
-    <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
-  </div>
-
-  <!-- 成果物 ライトボックス -->
-  <div class="lightbox" id="delivLightbox" role="dialog" aria-modal="true" aria-label="成果物の拡大表示" hidden>
-    <button type="button" class="lightbox-close" id="delivLightboxClose" aria-label="拡大表示を閉じる">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <path d="M6 6l12 12M18 6L6 18"/>
-      </svg>
-    </button>
-    <div class="lightbox-scroll" id="delivLightboxScroll">
-      <img id="delivLightboxImg" alt="" class="lightbox-img">
-    </div>
-    <p class="lightbox-hint">ピンチ操作でさらに拡大できます</p>
-  </div>
-
   <!-- フローティングCTA -->
-  <a href="contact.html" class="floatc" aria-label="無料で相談する">
+  <a href="contact.html" class="floatc" aria-label="無料診断を申し込む">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.5-4.5a8.4 8.4 0 0 1-1-4A8.38 8.38 0 0 1 12 3.6a8.38 8.38 0 0 1 9 7.9z" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    無料診断はこちら
+    無料診断
   </a>
 
   <script>
@@ -1445,138 +1030,7 @@
         hamburger.classList.remove('open');
       });
     });
-
-    /* ---- プロセス図 ライトボックス ---- */
-    (function () {
-      const trigger = document.getElementById('flowImgBtn');
-      const box     = document.getElementById('flowLightbox');
-      const closeBtn = document.getElementById('flowLightboxClose');
-      const scroller = document.getElementById('flowLightboxScroll');
-      if (!trigger || !box || !closeBtn || !scroller) return;
-
-      let prevOverflow = '';
-
-      function open() {
-        box.hidden = false;
-        prevOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        scroller.scrollTop = 0;
-        // 横長画像なので、開いた直後は中央付近を見せる
-        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
-        closeBtn.focus();
-      }
-
-      function close() {
-        box.hidden = true;
-        document.body.style.overflow = prevOverflow;
-        trigger.focus();
-      }
-
-      trigger.addEventListener('click', open);
-      closeBtn.addEventListener('click', close);
-
-      // 背景（画像の外側）タップで閉じる
-      scroller.addEventListener('click', (e) => {
-        if (e.target === scroller) close();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !box.hidden) close();
-      });
-    })();
-
-    /* ---- AI横断活用図 ライトボックス ---- */
-    (function () {
-      const trigger = document.getElementById('aihubImgBtn');
-      const box     = document.getElementById('aihubLightbox');
-      const closeBtn = document.getElementById('aihubLightboxClose');
-      const scroller = document.getElementById('aihubLightboxScroll');
-      if (!trigger || !box || !closeBtn || !scroller) return;
-
-      let prevOverflow = '';
-
-      function open() {
-        box.hidden = false;
-        prevOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        scroller.scrollTop = 0;
-        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
-        closeBtn.focus();
-      }
-
-      function close() {
-        box.hidden = true;
-        document.body.style.overflow = prevOverflow;
-        trigger.focus();
-      }
-
-      trigger.addEventListener('click', open);
-      closeBtn.addEventListener('click', close);
-
-      scroller.addEventListener('click', (e) => {
-        if (e.target === scroller) close();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !box.hidden) close();
-      });
-    })();
-
-    /* ---- 成果物ギャラリー ライトボックス（4点を1つのダイアログで共用） ---- */
-    (function () {
-      const box      = document.getElementById('delivLightbox');
-      const closeBtn = document.getElementById('delivLightboxClose');
-      const scroller = document.getElementById('delivLightboxScroll');
-      const target   = document.getElementById('delivLightboxImg');
-      const triggers = document.querySelectorAll('.deliv-imgbtn');
-      if (!box || !closeBtn || !scroller || !target || !triggers.length) return;
-
-      let prevOverflow = '';
-      let lastTrigger  = null;
-
-      function open(btn) {
-        const src = btn.querySelector('img');
-        if (!src) return;
-        target.src = src.currentSrc || src.src;
-        target.alt = src.alt + '（拡大表示）';
-        lastTrigger = btn;
-        box.hidden = false;
-        prevOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        scroller.scrollTop = 0;
-        scroller.scrollLeft = (scroller.scrollWidth - scroller.clientWidth) / 2;
-        closeBtn.focus();
-      }
-
-      function close() {
-        box.hidden = true;
-        document.body.style.overflow = prevOverflow;
-        if (lastTrigger) lastTrigger.focus();
-      }
-
-      triggers.forEach(function (btn) {
-        btn.addEventListener('click', function () { open(btn); });
-      });
-      closeBtn.addEventListener('click', close);
-
-      scroller.addEventListener('click', (e) => {
-        if (e.target === scroller) close();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !box.hidden) close();
-      });
-    })();
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "S.sentia株式会社",
-    "url": "https://www.ssentia.co.jp",
-    "logo": "https://www.ssentia.co.jp/logo_white.png"
-  }
-  </script>
 </body>
 </html>
