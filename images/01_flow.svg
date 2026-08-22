@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380" role="img" aria-labelledby="ttl desc">
+<title id="ttl">業務の棚卸し（業務フロー図）</title>
+<desc id="desc">見積もり作成から契約書作成までの7ステップと、各ステップで使うツール・書式・連絡先へのリンクを示したサンプル図</desc>
+<style>
+.bg{fill:#ffffff;stroke:#e3e9f2;stroke-width:1}
+.hd{font:700 20px "Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;fill:#1e4a8a}
+.st{font:700 15px "Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;fill:#1b3a6b}
+.lk{font:400 12.5px "Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;fill:#2f66c0;text-decoration:underline}
+.nm{font:700 12px "Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;fill:#ffffff}
+.nt{font:400 12px "Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;fill:#8a93a0}
+.ax{stroke:#c9d6ea;stroke-width:1}
+.dot{fill:#3d6cb5}
+</style>
+<rect class="bg" x="0.5" y="0.5" width="679" height="379" rx="12"/>
+<text class="hd" x="40" y="46">① 業務の棚卸し（業務フロー図）</text>
+<line class="ax" x1="76" y1="100" x2="76" y2="296"/>
+<line class="ax" x1="356" y1="100" x2="356" y2="238"/>
+<circle class="dot" cx="76" cy="100" r="12"/><text class="nm" x="76" y="104" text-anchor="middle">1</text>
+<text class="st" x="108" y="105">見積もり作成</text>
+<text class="lk" x="108" y="127">クラウド見積Pro（見積作成ソフト）</text>
+<text class="lk" x="108" y="149">見積ソフト操作マニュアル.pdf</text>
+<circle class="dot" cx="76" cy="180" r="12"/><text class="nm" x="76" y="184" text-anchor="middle">2</text>
+<text class="st" x="108" y="185">上長承認</text>
+<text class="lk" x="108" y="207">決裁権限表・承認基準（社内wiki）</text>
+<circle class="dot" cx="76" cy="238" r="12"/><text class="nm" x="76" y="242" text-anchor="middle">3</text>
+<text class="st" x="108" y="243">提出</text>
+<text class="lk" x="108" y="265">送付状テンプレート.docx</text>
+<circle class="dot" cx="76" cy="296" r="12"/><text class="nm" x="76" y="300" text-anchor="middle">4</text>
+<text class="st" x="108" y="301">受注</text>
+<text class="lk" x="108" y="323">受注管理シート（スプレッドシート）</text>
+<circle class="dot" cx="356" cy="100" r="12"/><text class="nm" x="356" y="104" text-anchor="middle">5</text>
+<text class="st" x="388" y="105">関係部署へ連絡</text>
+<text class="lk" x="388" y="127">業務管理部　kanri@example.co.jp</text>
+<text class="lk" x="388" y="149">製造部　seizo@example.co.jp</text>
+<circle class="dot" cx="356" cy="180" r="12"/><text class="nm" x="356" y="184" text-anchor="middle">6</text>
+<text class="st" x="388" y="185">先方と打ち合わせ</text>
+<text class="lk" x="388" y="207">議事録テンプレート・過去議事録一覧</text>
+<circle class="dot" cx="356" cy="238" r="12"/><text class="nm" x="356" y="242" text-anchor="middle">7</text>
+<text class="st" x="388" y="243">契約書作成</text>
+<text class="lk" x="388" y="265">契約書フォーマット格納先（共有ドライブ）</text>
+<text class="nt" x="40" y="358">※ 各ステップから、使う道具・書式・連絡先に直接たどり着けるようにしておくのが要点</text>
+</svg>
