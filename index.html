@@ -1,1091 +1,390 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中小企業の人材育成の仕組みづくり・社内wiki構築支援 | S.sentia株式会社</title>
-  <meta name="description" content="経験や勘に頼っていた日々の業務を言語化し、誰が入っても回る仕組みに変えていきます。業務の棚卸しと症状の見立てから、社内wiki・マニュアル、オンボーディング表、教える体制図までを構築。中小企業の人材育成体制づくりを、札幌から支援します。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --primary: #3d6cb5;
-      --primary-dark: #2e549a;
-      --primary-light: #5a85c9;
-      --text: #1a1a2e;
-      --text-muted: #555;
-      --bg: #fff;
-      --bg-section: #f7f9fc;
-      --border: #dde4ef;
-    }
-
-    html, body {
-      overflow-x: clip;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.8;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      width: 100%;
-      height: 120px;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 12px rgba(61,108,181,0.18);
-    }
-
-    .header-inner {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-img {
-      height: 52px;
-      width: auto;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .logo-name {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.04em;
-      line-height: 1.2;
-    }
-
-    .logo-tagline {
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.08em;
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    nav a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.2s, color 0.2s;
-      letter-spacing: 0.04em;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile nav */
-    .nav-drawer {
-      display: none;
-      position: fixed;
-      top: 120px;
-      left: 0;
-      right: 0;
-      background: var(--primary-dark);
-      padding: 12px 0 20px;
-      z-index: 99;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .nav-drawer.open {
-      display: block;
-    }
-
-    .nav-drawer a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-drawer a:last-child {
-      border-bottom: none;
-    }
-
-    .nav-drawer a:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    /* ===== NOTICE BAR ===== */
-    .notice-bar {
-      background: var(--bg-section);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .notice-bar-link {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.88rem;
-      letter-spacing: 0.03em;
-      transition: opacity 0.2s;
-    }
-
-    .notice-bar-link:hover {
-      opacity: 0.75;
-    }
-
-    .notice-tag {
-      flex-shrink: 0;
-      background: var(--primary);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 3px 10px;
-      border-radius: 3px;
-    }
-
-    .notice-arrow {
-      margin-left: auto;
-      flex-shrink: 0;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    @media (max-width: 768px) {
-      .notice-arrow {
-        display: none;
-      }
-
-      .notice-bar-link {
-        align-items: flex-start;
-        gap: 10px;
-        padding: 10px 14px;
-      }
-
-      .notice-tag {
-        margin-top: 2px;
-      }
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./home.jpeg') center/cover no-repeat;
-      color: #fff;
-      padding: 60px 24px 60px;
-      text-align: center;
-    }
-
-    .hero-inner {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .hero-en {
-      font-size: 0.82rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.3rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 28px;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-tagline {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 48px;
-      font-style: italic;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background: #3d6cb5;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 14px 36px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    }
-
-    .hero-cta:hover {
-      background: #2e549a;
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.16);
-    }
-
-    /* ===== SECTION BASE ===== */
-    section {
-      padding: 80px 24px;
-    }
-
-    .section-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      line-height: 1.4;
-    }
-
-    .section-divider {
-      width: 48px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-      margin-bottom: 40px;
-    }
-
-    /* ===== PROVIDE ===== */
-    .provide-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: start;
-      gap: 20px;
-    }
-
-    .provide-fig {
-      width: 100%;
-      max-width: 190px;
-      margin: 0 auto 20px;
-    }
-
-    .provide-fig svg { width: 100%; height: auto; display: block; }
-
-    .provide-num {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      color: #3d6cb5;
-      text-align: center;
-      margin: 0 0 8px;
-    }
-
-    .provide-head {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      line-height: 1.6;
-      text-align: center;
-      margin: 0 0 12px;
-    }
-
-    .provide-text {
-      font-size: 0.88rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      text-align: center;
-      margin: 0;
-    }
-
-    .provide-arrow {
-      width: 26px;
-      align-self: center;
-      padding-top: 40px;
-    }
-
-    .provide-arrow svg { width: 100%; height: auto; display: block; }
-
-    @media (max-width: 860px) {
-      .provide-grid { grid-template-columns: 1fr; gap: 8px; }
-      .provide-arrow {
-        transform: rotate(90deg);
-        margin: 4px auto 12px;
-        padding-top: 0;
-      }
-      .provide-fig { max-width: 150px; }
-    }
-
-    /* ===== SERVICES PREVIEW ===== */
-    .services-section {
-      background: var(--bg-section);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
-
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 32px 28px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(61,108,181,0.12);
-      transform: translateY(-3px);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .service-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-    }
-
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    .service-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .services-cta {
-      text-align: center;
-      margin-top: 48px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 13px 32px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 3px 12px rgba(61,108,181,0.25);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 18px rgba(61,108,181,0.3);
-    }
-
-    /* ===== CTA BAND ===== */
-    .cta-band {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 72px 24px;
-    }
-
-    .cta-band h2 {
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
-      font-weight: 700;
-      margin-bottom: 14px;
-      letter-spacing: 0.03em;
-    }
-
-    .cta-band p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 36px;
-      line-height: 1.8;
-    }
-
-    .btn-outline {
-      display: inline-block;
-      border: 2px solid rgba(255,255,255,0.85);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 12px 32px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-2px);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #0f1a2e;
-      color: rgba(255,255,255,0.55);
-      padding: 48px 24px 32px;
-    }
-
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-
-    .footer-logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .footer-tagline {
-      font-size: 0.75rem;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.4);
-      font-style: italic;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-nav a {
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-nav a:hover {
-      color: #fff;
-    }
-
-    .footer-bottom {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ===== WIKI IMAGE ===== */
-    .wiki-figure {
-      position: relative;
-      max-width: 900px;
-      margin: 48px auto 0;
-    }
-
-    .wiki-figure img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(61,108,181,0.15);
-    }
-
-    .wiki-figure figcaption {
-      font-size: 0.82rem;
-      color: #888;
-      text-align: center;
-      font-style: italic;
-      margin-top: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header {
-        height: 120px;
-      }
-
-      .logo-name {
-        font-size: 1.35rem;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .footer-nav {
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      section {
-        padding: 56px 20px;
-      }
-
-      .hero {
-        padding: 60px 20px;
-      }
-    }
-
-    /* 共感・課題提示セクション */
-    .pain-section {
-      background-color: #f5f7fa;
-      padding: 64px 24px;
-    }
-
-    .pain-target {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 32px;
-      line-height: 1.9;
-      text-align: center;
-    }
-
-    .pain-heading {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #3d6cb5;
-      margin-bottom: 32px;
-    }
-
-    .pain-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 600px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .pain-list li {
-      background-color: #fff;
-      border-left: 4px solid #3d6cb5;
-      padding: 14px 20px;
-      border-radius: 4px;
-      font-size: 0.97rem;
-      line-height: 1.7;
-      color: #333;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-
-    .pain-adoption {
-      margin-top: 28px;
-      font-size: 0.88rem;
-      color: #3d6cb5;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-
-    /* ===== APPROACH ===== */
-    .approach-section {
-      background: var(--bg-section);
-    }
-
-    .approach-compare {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-
-    .compare-card {
-      border-radius: 8px;
-      padding: 28px 24px;
-    }
-
-    .compare-card--generic {
-      background: #e9e9e9;
-      border: 1px solid #ccc;
-    }
-
-    .compare-card--ssentia {
-      background: #fff;
-      border-left: 4px solid var(--primary);
-      box-shadow: 0 2px 12px rgba(61,108,181,0.1);
-    }
-
-    .compare-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .compare-card--generic .compare-label {
-      color: #999;
-    }
-
-    .compare-card--ssentia .compare-label {
-      color: var(--primary);
-    }
-
-    .compare-question {
-      font-size: 0.97rem;
-      line-height: 1.85;
-      font-weight: 500;
-    }
-
-    .compare-card--generic .compare-question {
-      color: #888;
-    }
-
-    .compare-card--ssentia .compare-question {
-      color: var(--text);
-    }
-
-    .approach-closing {
-      text-align: center;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 0.03em;
-      padding-top: 8px;
-    }
-
-    @media (max-width: 640px) {
-      .approach-compare {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .method-tagline {
-      font-size: 0.97rem;
-      color: #555;
-      margin-top: 12px;
-      line-height: 1.85;
-      text-align: center;
-    }
-
-    .target-band {
-      background-color: #eef2fb;
-      border-left: 5px solid #3d6cb5;
-      padding: 20px 0;
-    }
-    .target-band .container p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #333;
-      line-height: 1.9;
-    }
-
-    .case-note {
-      font-size: 0.82rem;
-      color: #777;
-      margin-top: 10px;
-      padding: 10px 16px;
-      background: #f5f5f5;
-      border-radius: 4px;
-      border-left: 3px solid #bbb;
-      line-height: 1.8;
-    }
-
-    .rep-intro {
-      background: #f9f9f9;
-      padding: 64px 0;
-      border-top: 1px solid #ddd;
-    }
-    .rep-heading {
-      font-size: 1.4rem;
-      color: #3d6cb5;
-      margin-bottom: 24px;
-    }
-    .rep-body p {
-      color: #444;
-      line-height: 1.95;
-      margin-bottom: 16px;
-    }
-    .rep-link {
-      display: inline-block;
-      margin-top: 8px;
-      color: #3d6cb5;
-      font-weight: bold;
-      text-decoration: none;
-      border-bottom: 1px solid #3d6cb5;
-      padding-bottom: 2px;
-    }
-    .rep-link:hover {
-      opacity: 0.7;
-    }
-
-    .badge-option {
-      display: inline-block;
-      background: #dce8f7;
-      color: #3d6cb5;
-      font-size: 0.72rem;
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-left: 10px;
-      font-weight: bold;
-      vertical-align: middle;
-      letter-spacing: 0.03em;
-    }
-
-    /* ===== REPRESENTATIVE ===== */
-    .rep-section {
-      background: var(--bg-section);
-      padding: 80px 24px;
-    }
-
-    .rep-card {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .rep-avatar-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .rep-avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid var(--border);
-    }
-
-    .rep-title-block { text-align: center; }
-
-    .rep-company {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
-    }
-
-    .rep-position {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-    }
-
-    .rep-name {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.08em;
-      line-height: 1.3;
-    }
-
-    .rep-name-en {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      letter-spacing: 0.12em;
-      margin-top: 4px;
-    }
-
-    .rep-bio {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.95;
-      margin-bottom: 36px;
-    }
-
-    .rep-bio p { margin-bottom: 16px; }
-    .rep-bio p:last-child { margin-bottom: 0; }
-
-    .rep-career-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .rep-career-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .rep-career-item {
-      display: flex;
-      gap: 20px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-
-    .rep-career-item:last-child { border-bottom: none; }
-
-    .rep-career-year {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--primary);
-      min-width: 60px;
-      padding-top: 2px;
-      letter-spacing: 0.04em;
-    }
-
-    .rep-career-content p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .rep-card {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .rep-avatar-wrap {
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .rep-avatar {
-        width: 90px;
-        height: 90px;
-        flex-shrink: 0;
-      }
-
-      .rep-title-block { text-align: left; }
-    }
-
-    .approach-theory {
-      max-width: 860px;
-      margin: 2.5rem auto 0;
-      padding: 0 1rem;
-    }
-
-    .theory-heading {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1a2e4a;
-      margin-bottom: 1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .theory-body {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.9;
-      margin-bottom: 1.2rem;
-    }
-
-    .theory-sub {
-      font-size: 0.92rem;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .theory-table-wrapper {
-      overflow-x: auto;
-    }
-
-    .theory-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-    }
-
-    .theory-table thead tr {
-      background-color: #3d6cb5;
-      color: #fff;
-    }
-
-    .theory-table th {
-      padding: 0.75rem 1rem;
-      text-align: left;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    .theory-table td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid #e0e7f0;
-      color: #333;
-      vertical-align: top;
-      line-height: 1.7;
-    }
-
-    .theory-table tbody tr:nth-child(even) {
-      background-color: #f4f7fb;
-    }
-
-    .theory-table tbody tr:hover {
-      background-color: #eaf0f9;
-    }
-
-    @media (max-width: 640px) {
-      .theory-table th,
-      .theory-table td {
-        padding: 0.6rem 0.75rem;
-        font-size: 0.88rem;
-      }
-    }
-    @media (max-width: 640px) {
-      .problem-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
-  <!-- OGP -->
-  <link rel="canonical" href="https://www.ssentia.co.jp/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="S.sentia株式会社">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:url" content="https://www.ssentia.co.jp/">
-  <meta property="og:title" content="中小企業の人材育成の仕組みづくり・社内wiki構築支援 | S.sentia株式会社">
-  <meta property="og:description" content="経験や勘に頼っていた日々の業務を言語化し、誰が入っても回る仕組みに変えていきます。業務の棚卸しと症状の見立てから、社内wiki・マニュアル、オンボーディング表、教える体制図までを構築。中小企業の人材育成体制づくりを、札幌から支援します。">
-  <meta property="og:image" content="https://www.ssentia.co.jp/images/ogp-default.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中小企業の人材育成の仕組みづくり・社内wiki構築支援 | S.sentia株式会社</title>
+<meta name="description" content="経験や勘に頼っていた日々の業務を言語化し、誰が入っても回る仕組みに変えていきます。業務の棚卸しと症状の見立てから、社内wiki・マニュアル、オンボーディング表、教える体制図までを構築。中小企業の人材育成体制づくりを、札幌から支援します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<!-- OGP -->
+<link rel="canonical" href="https://www.ssentia.co.jp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S.sentia株式会社">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://www.ssentia.co.jp/">
+<meta property="og:title" content="中小企業の人材育成の仕組みづくり・社内wiki構築支援 | S.sentia株式会社">
+<meta property="og:description" content="経験や勘に頼っていた日々の業務を言語化し、誰が入っても回る仕組みに変えていきます。業務の棚卸しと症状の見立てから、社内wiki・マニュアル、オンボーディング表、教える体制図までを構築。中小企業の人材育成体制づくりを、札幌から支援します。">
+<meta property="og:image" content="https://www.ssentia.co.jp/images/ogp-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  :root{
+    --primary:#3d6cb5;
+    --primary-dark:#2e549a;
+    --ink:#2b2b2b;
+    --head:#14161a;
+    --muted:#7b8290;
+    --rule:#e6e8ec;
+    --sans:'Noto Sans JP',sans-serif;
+    --col:1000px;
+    --read:760px;
+    --pad:24px;
+    --shell:calc(1000px + 48px);
+  }
+
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.95;-webkit-font-smoothing:antialiased}
+
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--primary);z-index:200}
+
+  /* 既存の青ヘッダーを維持（B案の要点：会社サイトであることは崩さない） */
+  header{
+    position:sticky;top:0;z-index:100;width:100%;height:120px;background:var(--primary);
+    display:flex;align-items:center;box-shadow:0 2px 12px rgba(61,108,181,.18);
+  }
+  .hdr{
+    max-width:1100px;width:100%;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .logo{display:flex;flex-direction:row;align-items:center;gap:12px;text-decoration:none}
+  .logo-img{height:52px;width:auto}
+  .logo-text{display:flex;flex-direction:column;gap:2px}
+  .logo-name{font-size:1.75rem;font-weight:700;color:#fff;letter-spacing:.04em;line-height:1.2}
+  .logo-tag{font-size:.7rem;font-weight:300;color:rgba(255,255,255,.75);letter-spacing:.08em}
+  .hdr nav{display:flex;gap:8px;align-items:center}
+  .hdr nav a{
+    color:rgba(255,255,255,.9);text-decoration:none;font-size:.88rem;font-weight:500;
+    padding:8px 16px;border-radius:4px;letter-spacing:.04em;transition:.2s;
+  }
+  .hdr nav a:hover,.hdr nav a.on{background:rgba(255,255,255,.15);color:#fff}
+
+  /* ハンバーガー（640px以下で表示） */
+  .hamburger{
+    display:none;flex-direction:column;gap:5px;cursor:pointer;
+    padding:8px;background:none;border:none;
+  }
+  .hamburger span{
+    display:block;width:24px;height:2px;background:#fff;border-radius:2px;
+    transition:transform .3s,opacity .3s;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .nav-drawer{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--primary-dark);padding:12px 0 20px;z-index:99;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+  .nav-drawer.open{display:block}
+  .nav-drawer a{
+    display:block;color:#fff;text-decoration:none;padding:12px 28px;
+    font-size:.95rem;font-weight:500;letter-spacing:.04em;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-drawer a:last-child{border-bottom:none}
+
+  /* ===== HERO（旧トップの主張を維持） ===== */
+  .hero{
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('./home.jpeg') center/cover no-repeat;
+    color:#fff;padding:60px 24px;text-align:center;
+  }
+  .hero-inner{max-width:780px;margin:0 auto}
+  .hero-en{
+    font-size:.82rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:var(--sans);font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:700;
+    line-height:1.4;letter-spacing:.02em;color:#fff;margin-bottom:28px;
+  }
+  .hero-lead{
+    font-size:clamp(.95rem,2vw,1.1rem);font-weight:400;line-height:1.8;
+    color:rgba(255,255,255,.9);max-width:620px;margin:0 auto 40px;
+  }
+  .hero-cta{
+    display:inline-block;background:var(--primary);color:#fff;text-decoration:none;
+    font-weight:700;font-size:.95rem;padding:14px 36px;border-radius:4px;letter-spacing:.06em;
+    box-shadow:0 4px 16px rgba(0,0,0,.12);transition:background .2s,transform .2s,box-shadow .2s;
+  }
+  .hero-cta:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.16)}
+
+  .notice{background:#f7f9fc;border-bottom:1px solid var(--rule)}
+  .notice a{
+    max-width:1100px;margin:0 auto;padding:11px 24px;
+    display:flex;align-items:center;gap:12px;text-decoration:none;
+  }
+  .notice .tag{
+    font-size:.64rem;letter-spacing:.14em;font-weight:500;color:#fff;
+    background:var(--primary);padding:3px 9px;border-radius:2px;flex-shrink:0;
+  }
+  .notice .tx{font-size:.8rem;color:#4a5058;line-height:1.6}
+  .notice .ar{margin-left:auto;color:var(--primary);flex-shrink:0}
+
+  .wrap{max-width:var(--shell);margin:0 auto;padding:0 var(--pad)}
+
+  /* ===== 扉：1画面。CTAを置かず、読ませることに集中する ===== */
+  .door{
+    display:flex;flex-direction:column;justify-content:center;
+    max-width:var(--shell);margin:0 auto;padding:80px var(--pad) 40px;
+  }
+  .door > *{max-width:var(--read)}
+  .eyebrow{font-size:.72rem;letter-spacing:.18em;color:var(--primary);font-weight:500;margin-bottom:24px}
+  .door-h{
+    font-family:var(--sans);font-weight:700;
+    font-size:clamp(1.8rem,5.6vw,2.7rem);
+    line-height:1.5;letter-spacing:.02em;color:var(--head);margin-bottom:22px;
+  }
+  .lede{font-size:1.02rem;color:#4a5058;line-height:1.9;margin-bottom:38px}
+  .byline{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--rule)}
+  .avatar{
+    width:52px;height:52px;border-radius:50%;flex-shrink:0;
+    object-fit:cover;display:block;border:1px solid var(--rule);
+  }
+  .byline .n{font-size:.9rem;font-weight:500;color:var(--head);line-height:1.5}
+  .byline .m{font-size:.78rem;color:var(--muted);line-height:1.5}
+  .cue{margin-top:44px;font-size:.74rem;letter-spacing:.14em;color:var(--muted);display:flex;align-items:center;gap:10px}
+  .cue::after{content:"";width:34px;height:1px;background:var(--rule)}
+
+  /* ===== 本文 ===== */
+  article{padding:0 0 8px;display:grid;grid-template-columns:minmax(0,1fr);justify-items:start}
+  article > *{width:100%;max-width:var(--read)}
+  article > figure{max-width:var(--col)}
+  article > figure.fig-mail,
+  article > figure.fig-wiki{max-width:620px}
+  article > figure.fig-photo{max-width:70%}
+  article h3{
+    font-family:var(--sans);font-weight:700;
+    font-size:clamp(1.24rem,3.4vw,1.55rem);
+    line-height:1.6;color:var(--head);letter-spacing:.02em;margin:72px 0 26px;
+  }
+  article h3:first-child{margin-top:0}
+  article h3 .num{
+    display:block;font-family:var(--sans);font-weight:500;
+    font-size:.72rem;letter-spacing:.2em;color:var(--primary);margin-bottom:12px;
+  }
+  article p{font-size:17px;margin-bottom:1.65em}
+
+  .stats{
+    display:flex;flex-wrap:wrap;gap:8px 40px;margin:2.4em 0;padding:22px 0;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  }
+  .stats div{display:flex;align-items:baseline;gap:9px}
+  .stats .v{font-family:var(--sans);font-weight:700;font-size:2rem;color:var(--head);line-height:1}
+  .stats .k{font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+
+  figure{margin:2.6em 0}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+  figcaption{font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.7}
+
+  /* ===== 社内wikiの再現図（HTML/CSS：画像ではないためグリフ事故が起きない） ===== */
+  .wikiview{
+    border:1px solid var(--rule);border-radius:4px;
+    padding:22px 20px 20px;background:#fff;
+  }
+  .wv-cat{
+    background:#eef3fa;border-radius:5px;padding:9px 14px;
+    display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .wv-cat .mk{width:11px;height:11px;border-radius:2px;background:var(--primary);flex-shrink:0}
+  .wv-cat .tt{font-size:.9rem;font-weight:700;color:#1f3d6b;letter-spacing:.02em;line-height:1.5}
+  .wv-items{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:2px 26px;margin-bottom:24px;
+  }
+  .wv-items:last-child{margin-bottom:0}
+  .wv-i{display:flex;align-items:center;gap:9px;padding:5px 0;min-width:0}
+  .wv-i .doc{
+    width:11px;height:14px;flex-shrink:0;border:1px solid #b9c2d0;
+    border-radius:1px;background:#fff;position:relative;
+  }
+  .wv-i .doc::after{
+    content:"";position:absolute;left:2px;right:2px;top:3px;height:1px;
+    background:#c9d1dd;box-shadow:0 3px 0 #c9d1dd;
+  }
+  .wv-i span{
+    font-size:.83rem;line-height:1.6;color:#3a4049;
+    border-bottom:1px solid #dde3ec;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .wv-i.hot span{color:var(--primary);border-bottom-color:rgba(61,108,181,.4)}
+  .wv-div{height:1px;background:var(--rule);margin:0 0 22px}
+  .wv-more{font-size:.78rem;color:var(--muted);margin-top:20px;padding-top:16px;border-top:1px solid var(--rule)}
+
+  /* ===== 受信トレイの再現図（特定のメールソフトを模さない汎用UI） ===== */
+  .mailview{border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:#fff}
+  .mv-bar{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 14px;background:#f6f7f9;border-bottom:1px solid var(--rule);
+  }
+  .mv-search{
+    flex:1;min-width:0;background:#fff;border:1px solid #dfe3ea;border-radius:3px;
+    padding:6px 10px;font-size:.78rem;color:#a2a9b4;display:flex;align-items:center;gap:7px;
+  }
+  .mv-search .mag{
+    width:10px;height:10px;border:1.4px solid #a2a9b4;border-radius:50%;
+    flex-shrink:0;position:relative;
+  }
+  .mv-search .mag::after{
+    content:"";position:absolute;right:-4px;bottom:-3px;width:5px;height:1.4px;
+    background:#a2a9b4;transform:rotate(45deg);
+  }
+  .mv-body{display:grid;grid-template-columns:132px minmax(0,1fr)}
+  .mv-rail{background:#fafbfc;border-right:1px solid var(--rule);padding:12px 0}
+  .mv-f{
+    display:flex;align-items:center;gap:8px;padding:7px 14px;
+    font-size:.78rem;color:#5f6673;line-height:1.5;
+  }
+  .mv-f.on{background:#e9f0fa;color:#1f3d6b;font-weight:500}
+  .mv-f .ct{margin-left:auto;font-size:.7rem;color:var(--primary);font-weight:500;font-variant-numeric:tabular-nums}
+  .mv-f.on .ct{color:var(--primary)}
+  .mv-rail .grp{
+    font-size:.66rem;letter-spacing:.12em;color:#a2a9b4;
+    padding:14px 14px 6px;
+  }
+  .mv-list{position:relative;min-width:0}
+  .mv-row{
+    display:flex;gap:10px;padding:11px 14px;border-bottom:1px solid #f0f2f5;min-width:0;
+  }
+  .mv-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:7px}
+  .mv-dot.read{background:transparent}
+  .mv-tx{min-width:0;flex:1}
+  .mv-from{
+    font-size:.79rem;color:#2b2b2b;font-weight:500;line-height:1.5;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mv-row.read .mv-from{font-weight:400;color:#5f6673}
+  .mv-sub{
+    font-size:.79rem;color:#3a4049;line-height:1.6;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mv-snip{
+    font-size:.72rem;color:#a2a9b4;line-height:1.6;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mv-date{
+    font-size:.7rem;color:#a2a9b4;flex-shrink:0;padding-top:2px;
+    font-variant-numeric:tabular-nums;width:44px;text-align:right;
+  }
+  .mv-tx{flex:0 1 auto}
+  .mv-row .mv-date{margin-left:auto}
+  .mv-fade{
+    height:52px;
+    background:linear-gradient(to bottom,rgba(255,255,255,0),#fff 88%);
+    margin-top:-52px;position:relative;pointer-events:none;
+  }
+
+  /* ===== 記事から事業への接続 ===== */
+  .bridge{
+    margin-top:88px;padding:74px 0;
+    border-top:1px solid var(--rule);background:#fafbfd;
+  }
+  .b-label{font-size:.72rem;letter-spacing:.18em;color:var(--muted);font-weight:500;margin-bottom:20px}
+  .bridge p{font-size:16.5px;margin-bottom:1.6em;max-width:var(--read)}
+  .steps{
+    margin-top:36px;display:grid;align-items:start;
+    grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1fr);
+    gap:0 14px;
+  }
+  .step{border-top:1px solid #d8dee8;padding-top:18px}
+  .s-icon{width:52px;height:52px;color:var(--primary);margin-bottom:14px}
+  .s-icon svg{width:100%;height:100%;display:block}
+  .s-arrow{
+    display:flex;align-items:center;justify-content:center;
+    color:#b6c2d4;padding-top:44px;
+  }
+  .s-arrow svg{width:24px;height:24px;display:block}
+  .s-n{font-size:.7rem;letter-spacing:.16em;color:var(--primary);margin-bottom:7px}
+  .s-t{font-size:.98rem;font-weight:500;color:var(--head);margin-bottom:7px;line-height:1.6}
+  .s-d{font-size:.83rem;color:#5f6673;line-height:1.85}
+
+  /* ===== CTA帯 ===== */
+  .cta{background:var(--primary);padding:74px 24px;text-align:left}
+  .cta-in{max-width:var(--col);margin:0 auto}
+  .cta h3{
+    font-family:var(--sans);font-weight:700;font-size:clamp(1.2rem,3.4vw,1.5rem);
+    color:#fff;line-height:1.8;margin-bottom:24px;max-width:var(--read);
+  }
+  .cta p{font-size:.95rem;color:rgba(255,255,255,.88);margin-bottom:34px;line-height:1.9;max-width:var(--read)}
+  .acts{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-block;padding:15px 30px;font-size:.92rem;font-weight:500;text-decoration:none;border-radius:2px;letter-spacing:.03em;transition:.2s}
+  .btn-fill{background:#fff;color:var(--primary)}
+  .btn-fill:hover{background:#eef2f9}
+  .btn-line{border:1px solid rgba(255,255,255,.5);color:#fff}
+  .btn-line:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  .cta .note{font-size:.76rem;color:rgba(255,255,255,.68);margin-top:20px;line-height:1.8}
+
+  footer{border-top:1px solid var(--rule);padding:36px 0 44px}
+  .f-in{max-width:var(--shell);margin:0 auto;padding:0 var(--pad);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end}
+  .f-brand{font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--head);text-decoration:none}
+  .f-tag{font-size:.72rem;color:var(--muted);letter-spacing:.06em;margin-top:4px}
+  .f-nav{display:flex;gap:18px}
+  .f-nav a{font-size:.78rem;color:var(--muted);text-decoration:none;letter-spacing:.06em}
+  .f-nav a:hover{color:var(--primary)}
+  .f-c{max-width:var(--shell);margin:26px auto 0;padding:0 var(--pad);font-size:.7rem;color:#a8aeb8}
+
+  @media(max-width:768px){
+    .hdr nav{display:none}
+    .hamburger{display:flex}
+    .logo-name{font-size:1.35rem}
+  }
+  @media(max-width:640px){
+    .door{padding:56px 24px 48px}
+    .hero{padding:48px 20px}
+    article p{font-size:16.5px}
+    article h3{margin:58px 0 22px}
+    .steps{grid-template-columns:minmax(0,1fr);gap:0}
+    .s-arrow{padding:14px 0;transform:rotate(90deg)}
+    .step + .s-arrow + .step{margin-top:0}
+    .step{padding-top:16px}
+    .s-icon{width:46px;height:46px;margin-bottom:12px}
+    .stats{gap:8px 26px}
+    .notice .tx{font-size:.74rem}
+    .mv-body{grid-template-columns:minmax(0,1fr)}
+    .mv-rail{display:none}
+    .mv-snip{display:none}
+    .wv-items{grid-template-columns:minmax(0,1fr);gap:0}
+    .wikiview{padding:18px 14px 16px}
+    article > figure.fig-photo{max-width:100%}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-name">S.sentia株式会社</span>
-          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
-        </div>
-      </a>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="profile.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+<div class="progress" id="progress"></div>
 
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo">
+      <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-name">S.sentia株式会社</span>
+        <span class="logo-tag">Trends fade. Fundamentals endure.</span>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html" class="on">Home</a>
+      <a href="services.html">Services</a>
+      <a href="profile.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
   <!-- Mobile drawer -->
   <div class="nav-drawer" id="navDrawer">
     <a href="index.html">Home</a>
@@ -1093,679 +392,284 @@
     <a href="profile.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
+</header>
 
-  <!-- NOTICE BAR -->
-  <div class="notice-bar">
-    <a href="https://www.ssentia.co.jp/seminar/20260924/" class="notice-bar-link">
-      <span class="notice-tag">SEMINAR</span>
-      <span class="notice-text">9/24開催｜Google Workspace・M365導入法人向け 生成AI活用セミナー</span>
-      <span class="notice-arrow">→</span>
-    </a>
-  </div>
+<div class="notice">
+  <a href="https://www.ssentia.co.jp/seminar/20260924/">
+    <span class="tag">SEMINAR</span>
+    <span class="tx">9/24開催｜Google Workspace・M365導入法人向け 生成AI活用セミナー</span>
+    <span class="ar">→</span>
+  </a>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-en">For Small &amp; Medium Business</p>
-      <h1>感覚でやっている日々の業務を、<br>誰でも回せる仕組みに。</h1>
-      <p style="
-        font-size: clamp(0.95rem, 2vw, 1.1rem);
-        font-weight: 400;
-        line-height: 1.8;
-        color: rgba(255,255,255,0.9);
-        max-width: 620px;
-        margin: 0 auto 40px;
-      ">属人化を解消し、人が入れ替わっても育つ・回る体制をつくります。</p>
-      <a href="services.html" class="hero-cta">サービスを見る</a>
-    </div>
-  </section>
-
-  <!-- FOUNDER NOTE -->
-  <section style="background-color: #fafafa; padding: 80px 24px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-
-      <!-- ラベル -->
-      <p style="
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: #3d6cb5;
-        margin-bottom: 28px;
-      ">Founder's Note</p>
-
-      <h2 style="
-        font-size: clamp(1.3rem, 2.8vw, 1.8rem);
-        font-weight: 700;
-        color: #1a1a2e;
-        line-height: 1.5;
-        margin-bottom: 28px;
-      ">人に依存した業務運営は、会社にとって大きなリスクです。</h2>
-
-      <div class="section-divider"></div>
-
-      <!-- 本文 -->
-      <div style="
-        font-size: 1rem;
-        line-height: 2.1;
-        color: #333;
-      ">
-
-        <p style="margin-bottom: 1.6em;">
-          私が新人に何かを引き継ぐとき、よくこんなことがありました。
-        </p>
-
-        <!-- 内声（引用ブロック） -->
-        <blockquote style="
-          margin: 0 0 1.6em 0;
-          padding: 24px 28px;
-          background: #fff;
-          border-left: 4px solid #3d6cb5;
-          border-radius: 0 8px 8px 0;
-          box-shadow: 0 2px 12px rgba(61,108,181,0.07);
-          font-size: 0.97rem;
-          line-height: 2;
-          color: #444;
-          font-style: normal;
-        ">
-          「この案件や業務は特殊で、引き継ぐのは難しいから、このまま自分でやるか」
-        </blockquote>
-
-        <p style="margin-bottom: 1.6em;">
-          今思うと、これは新人にとっての成長の機会を奪うことになっていました。そして、こうしたことが増えるほど、私（ベテラン）が辞めると現場は混乱します。特に中小企業においては、人を育てる仕組みがなく、業務を特定の誰かに依存しているというのが現状です。
-        </p>
-
-      </div>
-
-
-    </div>
-  </section>
-  <!-- /FOUNDER NOTE -->
-
-  <!-- 共感・課題提示セクション -->
-  <section class="pain-section">
-    <div class="section-inner">
-      <p class="section-label">Problem</p>
-      <h2 class="section-title">こんなお悩みはありませんか？</h2>
-      <div class="section-divider"></div>
-      <p class="pain-target" style="color: #3d6cb5; font-weight: 700; font-size: 1.1rem;">誰かに教えようとして、「言葉にしづらいから、自分でやった方が早い」と思ったことはありませんか？<br>それは、いわゆる属人化の典型的な例であり、増えるほど会社にとっての見えないリスクとなります。</p>
-      <div class="problem-grid" style="
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-        margin-top: 2rem;
-        align-items: stretch;
-      ">
-
-        <div style="
-          background: #dce6f5;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-          padding: 1.75rem 1.5rem;
-          position: relative;
-          height: 100%;
-        ">
-          <div style="display: flex; align-items: flex-start; gap: 1rem;">
-            <span style="
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              min-width: 28px;
-              height: 28px;
-              background: #3d6cb5;
-              color: #ffffff;
-              border-radius: 50%;
-              font-size: 0.75rem;
-              font-weight: 700;
-              flex-shrink: 0;
-              margin-top: 2px;
-            ">1</span>
-            <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
-              人が入るたびに、同じことを何度も教えている
-            </p>
-          </div>
-        </div>
-
-        <div style="
-          background: #dce6f5;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-          padding: 1.75rem 1.5rem;
-          position: relative;
-          height: 100%;
-        ">
-          <div style="display: flex; align-items: flex-start; gap: 1rem;">
-            <span style="
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              min-width: 28px;
-              height: 28px;
-              background: #3d6cb5;
-              color: #ffffff;
-              border-radius: 50%;
-              font-size: 0.75rem;
-              font-weight: 700;
-              flex-shrink: 0;
-              margin-top: 2px;
-            ">2</span>
-            <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
-              自分にしかできない仕事があり、休みや退職が不安
-            </p>
-          </div>
-        </div>
-
-        <div style="
-          background: #dce6f5;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-          padding: 1.75rem 1.5rem;
-          position: relative;
-          height: 100%;
-        ">
-          <div style="display: flex; align-items: flex-start; gap: 1rem;">
-            <span style="
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              min-width: 28px;
-              height: 28px;
-              background: #3d6cb5;
-              color: #ffffff;
-              border-radius: 50%;
-              font-size: 0.75rem;
-              font-weight: 700;
-              flex-shrink: 0;
-              margin-top: 2px;
-            ">3</span>
-            <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
-              人によって仕事のやり方や品質にばらつきがある
-            </p>
-          </div>
-        </div>
-
-        <div style="
-          background: #dce6f5;
-          border-radius: 12px;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-          padding: 1.75rem 1.5rem;
-          position: relative;
-          height: 100%;
-        ">
-          <div style="display: flex; align-items: flex-start; gap: 1rem;">
-            <span style="
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              min-width: 28px;
-              height: 28px;
-              background: #3d6cb5;
-              color: #ffffff;
-              border-radius: 50%;
-              font-size: 0.75rem;
-              font-weight: 700;
-              flex-shrink: 0;
-              margin-top: 2px;
-            ">4</span>
-            <p style="margin: 0; font-size: 0.975rem; line-height: 1.7; font-weight: 500;">
-              業務の手順だけでなく、「なぜそう判断するのか」が共有されていない
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-<!-- RISK SECTION -->
-<section style="
-  background-color: #ffffff;
-  border-top: 1px solid #e8ecf2;
-  padding: 80px 24px;
-">
-  <div style="max-width: 720px; margin: 0 auto;">
-
-    <!-- ラベル -->
-    <p style="
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #3d6cb5;
-      margin-bottom: 12px;
-    ">Risk</p>
-
-    <!-- タイトル -->
-    <h2 style="
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      font-weight: 700;
-      color: #1a1a2e;
-      line-height: 1.4;
-      margin-bottom: 12px;
-    ">属人化を放置すると</h2>
-
-    <!-- サブコピー -->
-    <p style="
-      font-size: 0.92rem;
-      color: #6b7280;
-      margin-bottom: 48px;
-      letter-spacing: 0.03em;
-    ">業務の属人化は、時間とともに経営リスクへと変わっていきます。</p>
-
-    <!-- チェーンリスト -->
-    <div style="position: relative;">
-
-      <!-- 縦の連鎖ライン -->
-      <div style="
-        position: absolute;
-        left: 18px;
-        top: 28px;
-        bottom: 28px;
-        width: 2px;
-        background: linear-gradient(to bottom, #5a85c9, rgba(61,108,181,0.15));
-      "></div>
-
-      <!-- アイテム① -->
-      <div style="
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-        position: relative;
-      ">
-        <div style="
-          width: 38px;
-          height: 38px;
-          border-radius: 50%;
-          background: #5a85c9;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L8 10M8 12L8 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div style="
-          flex: 1;
-          background: #fbfcfe;
-          border: 1px solid #e3e9f2;
-          border-radius: 8px;
-          padding: 18px 22px;
-        ">
-          <p style="margin: 0; font-size: 0.97rem; color: #1a1a2e; line-height: 1.75; font-weight: 500;">
-            教える人の負担が増え続け、管理職が現場から離れられない
-          </p>
-        </div>
-      </div>
-
-      <!-- 矢印① -->
-      <div style="display: flex; align-items: center; padding: 6px 0 6px 48px;">
-        <span style="font-size: 0.78rem; color: #3d6cb5; letter-spacing: 0.08em;">さらに…</span>
-      </div>
-
-      <!-- アイテム② -->
-      <div style="
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-        position: relative;
-      ">
-        <div style="
-          width: 38px;
-          height: 38px;
-          border-radius: 50%;
-          background: #4d78bc;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L8 10M8 12L8 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div style="
-          flex: 1;
-          background: #fbfcfe;
-          border: 1px solid #e3e9f2;
-          border-radius: 8px;
-          padding: 18px 22px;
-        ">
-          <p style="margin: 0; font-size: 0.97rem; color: #1a1a2e; line-height: 1.75; font-weight: 500;">
-            担当者が辞めた瞬間、業務が止まる
-          </p>
-        </div>
-      </div>
-
-      <!-- 矢印② -->
-      <div style="display: flex; align-items: center; padding: 6px 0 6px 48px;">
-        <span style="font-size: 0.78rem; color: #3d6cb5; letter-spacing: 0.08em;">さらに…</span>
-      </div>
-
-      <!-- アイテム③ -->
-      <div style="
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-        position: relative;
-      ">
-        <div style="
-          width: 38px;
-          height: 38px;
-          border-radius: 50%;
-          background: #3d6cb5;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L8 10M8 12L8 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div style="
-          flex: 1;
-          background: #fbfcfe;
-          border: 1px solid #e3e9f2;
-          border-radius: 8px;
-          padding: 18px 22px;
-        ">
-          <p style="margin: 0; font-size: 0.97rem; color: #1a1a2e; line-height: 1.75; font-weight: 500;">
-            新人教育のたびに、同じ時間と労力を失い続ける
-          </p>
-        </div>
-      </div>
-
-      <!-- 矢印③ -->
-      <div style="display: flex; align-items: center; padding: 6px 0 6px 48px;">
-        <span style="font-size: 0.78rem; color: #3d6cb5; letter-spacing: 0.08em;">さらに…</span>
-      </div>
-
-      <!-- アイテム④ -->
-      <div style="
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-        position: relative;
-      ">
-        <div style="
-          width: 38px;
-          height: 38px;
-          border-radius: 50%;
-          background: #2e549a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L8 10M8 12L8 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div style="
-          flex: 1;
-          background: #fbfcfe;
-          border: 1px solid #e3e9f2;
-          border-radius: 8px;
-          padding: 18px 22px;
-        ">
-          <p style="margin: 0; font-size: 0.97rem; color: #1a1a2e; line-height: 1.75; font-weight: 500;">
-            人によって仕事の品質が変わり、顧客満足が安定しない
-          </p>
-        </div>
-      </div>
-
-      <!-- 矢印④ -->
-      <div style="display: flex; align-items: center; padding: 6px 0 6px 48px;">
-        <span style="font-size: 0.78rem; color: #3d6cb5; letter-spacing: 0.08em;">そして…</span>
-      </div>
-
-      <!-- アイテム⑤（最終・強調） -->
-      <div style="
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
-        position: relative;
-      ">
-        <div style="
-          width: 38px;
-          height: 38px;
-          border-radius: 50%;
-          background: #1e3c6e;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L8 10M8 12L8 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div style="
-          flex: 1;
-          background: #eef3fb;
-          border: 1px solid #3d6cb5;
-          border-radius: 8px;
-          padding: 18px 22px;
-        ">
-          <p style="margin: 0; font-size: 0.97rem; color: #1a1a2e; line-height: 1.75; font-weight: 700;">
-            採用コストがどんどん膨らんでいく
-          </p>
-        </div>
-      </div>
-
-    </div>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-en">For Small &amp; Medium Business</p>
+    <h1>感覚でやっている日々の業務を、<br>誰でも回せる仕組みに。</h1>
+    <p class="hero-lead">属人化を解消し、人が入れ替わっても育つ・回る体制をつくります。</p>
+    <a href="services.html" class="hero-cta">サービスを見る</a>
   </div>
 </section>
-<!-- /RISK SECTION -->
 
-<!-- PROVIDE SECTION -->
-<section style="background-color: #ffffff; padding: 80px 24px; border-top: 1px solid #e8ecf2;">
-  <div class="section-inner">
-    <p class="section-label">Solution</p>
-    <h2 class="section-title">S.sentiaが提供するもの</h2>
-    <div class="section-divider"></div>
-    <p style="text-align: center; color: #3d6cb5; font-weight: 600; font-size: clamp(1.05rem, 2.4vw, 1.3rem); line-height: 1.8; margin: 0 0 56px;">
-      新人に教えるつもりで、私たちに業務フローを教えてください。
-    </p>
-
-    <div class="provide-grid">
-
-      <div class="provide-item">
-        <div class="provide-fig">
-          <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="42" y="10" width="60" height="76" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.5"/>
-            <rect x="30" y="20" width="60" height="76" rx="4" fill="#ffffff" stroke="#3d6cb5" stroke-width="1.6"/>
-            <rect x="40" y="34" width="40" height="4" rx="2" fill="#9db8dd"/>
-            <rect x="40" y="46" width="32" height="4" rx="2" fill="#9db8dd"/>
-            <rect x="40" y="58" width="38" height="4" rx="2" fill="#9db8dd"/>
-            <circle cx="106" cy="66" r="20" fill="#ffffff" fill-opacity="0.92" stroke="#3d6cb5" stroke-width="2"/>
-            <path d="M120 80l14 14" stroke="#3d6cb5" stroke-width="3" stroke-linecap="round"/>
-            <path d="M98 66l6 6 11-12" stroke="#3d6cb5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="provide-num">01</p>
-        <p class="provide-head">業務を棚卸しする</p>
-        <p class="provide-text">部署・役割ごとに全業務を洗い出し、どこから手をつけるべきかを定義します。</p>
-      </div>
-
-      <div class="provide-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="#b8c9e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="provide-item">
-        <div class="provide-fig">
-          <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="55" y="8" width="50" height="24" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.5"/>
-            <path d="M80 32v14M22 46h116M22 46v12M60 46v12M100 46v12M138 46v12" stroke="#3d6cb5" stroke-width="1.2"/>
-            <rect x="8" y="58" width="28" height="30" rx="4" fill="#ffffff" stroke="#9db8dd" stroke-width="1.5"/>
-            <rect x="46" y="58" width="28" height="30" rx="4" fill="#3d6cb5"/>
-            <path d="M54 73l4 4 8-9" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="86" y="58" width="28" height="30" rx="4" fill="#ffffff" stroke="#9db8dd" stroke-width="1.5"/>
-            <rect x="124" y="58" width="28" height="30" rx="4" fill="#ffffff" stroke="#9db8dd" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <p class="provide-num">02</p>
-        <p class="provide-head">症状を見立てる</p>
-        <p class="provide-text">手順がないのか、伝わっていないのか、教える人がいないのか。症状によって打ち手が変わります。</p>
-      </div>
-
-      <div class="provide-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="#b8c9e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="provide-item">
-        <div class="provide-fig">
-          <svg viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="30" y="66" width="100" height="26" rx="4" fill="#eef3fb" stroke="#3d6cb5" stroke-width="1.6"/>
-            <rect x="44" y="38" width="72" height="26" rx="4" fill="#cfe0f5" stroke="#3d6cb5" stroke-width="1.6"/>
-            <rect x="58" y="10" width="44" height="26" rx="4" fill="#3d6cb5"/>
-            <path d="M72 23l5 5 9-10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="provide-num">03</p>
-        <p class="provide-head">仕組みを構築する</p>
-        <p class="provide-text">社内wiki・オンボーディング表・教える体制図。つくって終わりにせず、使われる状態まで伴走します。</p>
-      </div>
-
+<!-- 扉 -->
+<section class="door">
+  <p class="eyebrow">創業ストーリー</p>
+  <h2 class="door-h">放置し続けていた、<br>ムダな作業。</h2>
+  <p class="lede">11年間勤めた会社で、私は過去のメールを探す、ルールが書かれた資料を探す。この作業にどれくらいの時間を費やしたことか。それをやめるために作ったものが、起業に繋がった話です。</p>
+  <div class="byline">
+    <img src="images/hirata-profile.jpg" alt="平田 喬大" class="avatar">
+    <div>
+      <div class="n">平田 喬大</div>
+      <div class="m">S.sentia株式会社 代表取締役 ／ 2026.04 札幌</div>
     </div>
+  </div>
+  <p class="cue">読了 約6分</p>
+</section>
 
-    <p style="text-align:center; margin-top:44px;">
-      <a href="services.html" style="display:inline-block; border:2px solid #3d6cb5; color:#3d6cb5; text-decoration:none; font-weight:700; font-size:0.9rem; padding:12px 32px; border-radius:4px; letter-spacing:0.04em;">サービスの詳細を見る →</a>
-    </p>
+<div class="wrap">
+  <article>
+
+    <h3><span class="num">01</span>毎回、あのメールを探していた</h3>
+    <p>前職では業務範囲が多岐にわたっていて、覚えることが多くありました。それ自体は構いません。困ったのは、いざ何かの手順を確認しようとしたときに、どこを見ればいいのか分からなかったことです。</p>
+    <p>そもそもドキュメントになっていない。だから毎回、過去のメールやチャットをさかのぼることになります。</p>
+    <p>ある業務のたびに必ず参照する社内ルールがありました。それは一度メールで発信されただけで、どこにも清書されていない。私は毎回、そのメールを探していました。時間が経つほどメールは埋もれ、検索しても出てこない。見つからないことに苛立ちながら、それでもそのルールを書き留めることはしませんでした。「またその時にメールを探したらいいや。」そして次に同じ業務が来たときに探すのですが、なかなか見つからない。</p>
+    <p>情報元がメールだったのか、フォルダだったのかすら思い出せない。そういうことが頻繁に起きていました。</p>
+
+    <figure class="fig-mail">
+      <div class="mailview">
+        <div class="mv-bar">
+          <div class="mv-search"><span class="mag"></span><span>メールを検索</span></div>
+        </div>
+        <div class="mv-body">
+          <div class="mv-rail">
+            <div class="mv-f on">受信トレイ<span class="ct">1,284</span></div>
+            <div class="mv-f">下書き<span class="ct">12</span></div>
+            <div class="mv-f">送信済み</div>
+            <div class="mv-f">アーカイブ</div>
+            <div class="grp">フォルダー</div>
+            <div class="mv-f">社内連絡</div>
+            <div class="mv-f">案件別</div>
+            <div class="mv-f">あとで読む<span class="ct">96</span></div>
+          </div>
+          <div class="mv-list">
+            <div class="mv-row"><span class="mv-dot"></span><div class="mv-tx"><div class="mv-from">総務部</div><div class="mv-sub">【周知】経費精算フォーマット変更のお願い</div><div class="mv-snip">いつもお世話になっております。標記の件、来月分より…</div></div><div class="mv-date">14:32</div></div>
+            <div class="mv-row"><span class="mv-dot"></span><div class="mv-tx"><div class="mv-from">田中</div><div class="mv-sub">Re: Re: Re: 見積書の様式について</div><div class="mv-snip">ご確認ありがとうございます。それでしたら旧様式のまま…</div></div><div class="mv-date">11:07</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">システム管理者</div><div class="mv-sub">【重要】社内システム メンテナンスのお知らせ</div><div class="mv-snip">下記の日程でメンテナンスを実施いたします。作業中は…</div></div><div class="mv-date">9:45</div></div>
+            <div class="mv-row"><span class="mv-dot"></span><div class="mv-tx"><div class="mv-from">営業企画部</div><div class="mv-sub">来週の定例会議アジェンダ（第3版）</div><div class="mv-snip">度々の差し替えで恐れ入ります。最新版を添付します…</div></div><div class="mv-date">昨日</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">佐藤</div><div class="mv-sub">Fwd: 契約書テンプレート（最新版）</div><div class="mv-snip">念のため転送しておきます。前に送ったものと差分が…</div></div><div class="mv-date">昨日</div></div>
+            <div class="mv-row"><span class="mv-dot"></span><div class="mv-tx"><div class="mv-from">総務部</div><div class="mv-sub">備品発注の締切変更の件</div><div class="mv-snip">今月より締切を毎月20日に変更いたします。あわせて…</div></div><div class="mv-date">10/14</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">営業部長</div><div class="mv-sub">【周知】営業ルール改定について</div><div class="mv-snip">現行の運用を下記のとおり改めます。適用は次月から…</div></div><div class="mv-date">10/09</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">鈴木</div><div class="mv-sub">Re: 出張手配の件</div><div class="mv-snip">承知しました。手配は例年どおりの流れで進めます…</div></div><div class="mv-date">10/02</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">経理部</div><div class="mv-sub">Re: Re: 納期回答のルール確認</div><div class="mv-snip">以前ご案内した内容から変更はございません。過去メールを…</div></div><div class="mv-date">9/28</div></div>
+            <div class="mv-row read"><span class="mv-dot read"></span><div class="mv-tx"><div class="mv-from">高橋</div><div class="mv-sub">【再送】押印依頼の手順について</div><div class="mv-snip">先日お送りしたものが埋もれていたようですので再送します…</div></div><div class="mv-date">9/21</div></div>
+          </div>
+        </div>
+        <div class="mv-fade"></div>
+      </div>
+      <figcaption>当時の受信トレイの再現。毎回参照していたルールも、この中のどこかに一度だけ流れてきたメールとして埋もれていた。</figcaption>
+    </figure>
+
+    <h3><span class="num">02</span>いつかやろう</h3>
+    <p>私は、部屋が散らかっていたり、フォルダが整理されていない状態がとても苦手です。同じ理由で、ルールや業務フローが社内に確かにあるのに整理されていないことに、ずっとモヤモヤしていました。</p>
+    <p>とはいえ、みんな忙しい。整理する時間などないし、仮に時間があったとしても、業務の優先順位としては決して高くない。それも分かっていました。</p>
+    <p>「いつかやろう」そう思いながら、気づいたら11年が過ぎていました。</p>
+    <p>動いたのは、管理職になっていよいよ業務が回らなくなってからです。何度も同じことに時間を使いたくない。それだけの理由で、今後やるルーティン業務をすべて文字に起こそうと決めました。</p>
+
+    <h3><span class="num">03</span>3ヶ月かけて、業務を棚卸しした</h3>
+    <p>システムの使い方、備品の購入、見積もりの発注依頼、社内の連絡、営業ルール。営業職としての自分の業務を、約三ヶ月かけてNotionにすべて書き出しました。気づいたら、営業社員用の社内ポータルサイトが出来上がっていました。</p>
+    <div class="stats">
+      <div><span class="v">3</span><span class="k">ヶ月</span></div>
+      <div><span class="v">10</span><span class="k">カテゴリ</span></div>
+      <div><span class="v">50</span><span class="k">トピック</span></div>
+    </div>
+    <p>当然、大変な作業でしたが、整備してからは、確認したいことがあればそこにアクセスするだけで必要な情報が手に入るようになりました。情報を探すという、あの時間的ストレスから解放されました。</p>
+    <figure class="fig-wiki">
+      <div class="wikiview">
+
+        <div class="wv-cat"><span class="mk"></span><span class="tt">見積・受注関連</span></div>
+        <div class="wv-items">
+          <div class="wv-i"><span class="doc"></span><span>見積書の作成手順</span></div>
+          <div class="wv-i"><span class="doc"></span><span>納期回答のルール</span></div>
+          <div class="wv-i hot"><span class="doc"></span><span>値引き申請のフロー</span></div>
+          <div class="wv-i"><span class="doc"></span><span>請求書の発行依頼</span></div>
+          <div class="wv-i"><span class="doc"></span><span>受注入力の注意点</span></div>
+          <div class="wv-i"><span class="doc"></span><span>与信確認の進め方</span></div>
+          <div class="wv-i"><span class="doc"></span><span>契約書の保管場所</span></div>
+          <div class="wv-i"><span class="doc"></span><span>単価表の参照先</span></div>
+          <div class="wv-i"><span class="doc"></span><span>キャンセル時の処理</span></div>
+        </div>
+
+        <div class="wv-div"></div>
+
+        <div class="wv-cat"><span class="mk"></span><span class="tt">社内手続き関連</span></div>
+        <div class="wv-items">
+          <div class="wv-i"><span class="doc"></span><span>備品の購入申請</span></div>
+          <div class="wv-i"><span class="doc"></span><span>各種システムのログイン</span></div>
+          <div class="wv-i hot"><span class="doc"></span><span>経費精算の締め日</span></div>
+          <div class="wv-i"><span class="doc"></span><span>押印依頼の出し方</span></div>
+          <div class="wv-i"><span class="doc"></span><span>稟議の回し方</span></div>
+          <div class="wv-i"><span class="doc"></span><span>社用車の予約</span></div>
+          <div class="wv-i"><span class="doc"></span><span>出張手配の流れ</span></div>
+        </div>
+
+        <div class="wv-div"></div>
+
+        <div class="wv-cat"><span class="mk"></span><span class="tt">顧客対応関連</span></div>
+        <div class="wv-items">
+          <div class="wv-i"><span class="doc"></span><span>初回訪問前の準備</span></div>
+          <div class="wv-i"><span class="doc"></span><span>問い合わせの一次対応</span></div>
+          <div class="wv-i"><span class="doc"></span><span>クレーム初動の型</span></div>
+          <div class="wv-i"><span class="doc"></span><span>引き継ぎ時の申し送り</span></div>
+          <div class="wv-i"><span class="doc"></span><span>定期連絡のタイミング</span></div>
+        </div>
+
+        <div class="wv-more">ほか7カテゴリ ／ 全50トピック</div>
+      </div>
+      <figcaption>当時つくった社内ポータルの構成（内容は、実際のものから差し替えて再現）。</figcaption>
+    </figure>
+
+    <h3><span class="num">04</span>ナレッジポータルを研修教材として活用</h3>
+    <p>社内ポータルが形になったタイミングで、新しいスタッフを迎えることになりました。</p>
+    <p>自分が入社した頃を思い出すと、研修らしい研修は三日ほどで、あとは引き継ぎのOJTが中心でした。業務の全体像が見えず、あとどれくらい覚えなければいけないのかが分からない不安がありました。</p>
+    <p>逆に言えば、覚えるべきことが10のカテゴリと50のトピックにあらかじめ整理されていれば、その不安はかなり減るはずです。</p>
+    <p>幸い、彼は入社後この社内ポータルを毎日参照してくれました。個別案件を除けば、ここを見ればだいたい分かる、という状態まで来ました。感覚値ではありますが、過去の新人教育と比べて、教育にかかった時間は半分になりました。</p>
+
+    <h3><span class="num">05</span>見込み客ゼロで、会社をつくった</h3>
+    <p>同じ負担を抱えている管理職やリーダーは、きっとたくさんいる。そう思って、業務プロセスを改善する仕事を作ろうと、起業を決めました。</p>
+    <p>見込み客もいないままの、見切り発車でした。</p>
+    <p>それでも、情報が増える一方の世の中で、それを整理してナレッジとして使える状態にすることには、間違いなく価値があると思いました。そうして2026年4月、S.sentia株式会社が生まれました。</p>
+
+    <figure class="fig-photo">
+      <img src="images/photo_wide.jpg" alt="前職時代の平田喬大">
+      <figcaption>前職時代、視察先にて。この頃はまだ、会社をつくることになるとは思っていなかった。</figcaption>
+    </figure>
+
+  </article>
+</div>
+
+<!-- 記事 → 事業 -->
+<section class="bridge">
+  <div class="wrap">
+    <p class="b-label">いま、やっていること</p>
+    <p>再現性のある業務を構築し、誰が担当しても同じ品質で業務を遂行できる状態を、中小企業へ提供しています。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="s-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="14" y="12" width="36" height="44" rx="4"/>
+            <path d="M25 12V9a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v3z"/>
+            <path d="M22 28l4 4 7-8"/>
+            <path d="M38 30h8"/>
+            <path d="M22 44l4 4 7-8"/>
+            <path d="M38 46h8"/>
+          </svg>
+        </div>
+        <div class="s-n">01</div>
+        <div class="s-t">棚卸し</div>
+        <div class="s-d">部署・役割ごとに全業務を洗い出し、どこから手をつけるかを決めます。</div>
+      </div>
+      <div class="s-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12h14M12.5 6l6 6-6 6"/>
+        </svg>
+      </div>
+      <div class="step">
+        <div class="s-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M48 32V16a4 4 0 0 0-4-4H18a4 4 0 0 0-4 4v32a4 4 0 0 0 4 4h13"/>
+            <path d="M22 22h18M22 30h12"/>
+            <circle cx="42" cy="42" r="10"/>
+            <path d="M49.4 49.4 56 56"/>
+          </svg>
+        </div>
+        <div class="s-n">02</div>
+        <div class="s-t">見立て</div>
+        <div class="s-d">手順がないのか、伝わっていないのか、教える人がいないのか。症状で打ち手が変わります。</div>
+      </div>
+      <div class="s-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12h14M12.5 6l6 6-6 6"/>
+        </svg>
+      </div>
+      <div class="step">
+        <div class="s-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="24" y="8" width="16" height="12" rx="2"/>
+            <rect x="8" y="44" width="16" height="12" rx="2"/>
+            <rect x="24" y="44" width="16" height="12" rx="2"/>
+            <rect x="40" y="44" width="16" height="12" rx="2"/>
+            <path d="M32 20v14M16 34h32M16 34v10M32 34v10M48 34v10"/>
+          </svg>
+        </div>
+        <div class="s-n">03</div>
+        <div class="s-t">構築</div>
+        <div class="s-d">社内wiki・オンボーディング表・教える体制図。使われる状態まで伴走します。</div>
+      </div>
+    </div>
   </div>
 </section>
-<!-- /PROVIDE SECTION -->
 
-
-
-
-  <!-- CTA BAND -->
-  <div class="cta-band">
-    <h2>こんな状態でも大丈夫です</h2>
-
-    <ul style="
-      list-style: none;
-      padding: 0;
-      margin: 28px auto 24px;
-      display: inline-flex;
-      flex-direction: column;
-      gap: 14px;
-      text-align: left;
-    ">
-      <li style="display: flex; align-items: center; gap: 12px;">
-        <span style="
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 1rem;
-          flex-shrink: 0;
-        ">✓</span>
-        <span style="font-size: 0.97rem; color: rgba(255,255,255,0.92); line-height: 1.7;">マニュアルが一つもない</span>
-      </li>
-      <li style="display: flex; align-items: center; gap: 12px;">
-        <span style="
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 1rem;
-          flex-shrink: 0;
-        ">✓</span>
-        <span style="font-size: 0.97rem; color: rgba(255,255,255,0.92); line-height: 1.7;">整理すべきものが多すぎる</span>
-      </li>
-      <li style="display: flex; align-items: center; gap: 12px;">
-        <span style="
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 1rem;
-          flex-shrink: 0;
-        ">✓</span>
-        <span style="font-size: 0.97rem; color: rgba(255,255,255,0.92); line-height: 1.7;">何から始めればいいか分からない</span>
-      </li>
-      <li style="display: flex; align-items: center; gap: 12px;">
-        <span style="
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 1rem;
-          flex-shrink: 0;
-        ">✓</span>
-        <span style="font-size: 0.97rem; color: rgba(255,255,255,0.92); line-height: 1.7;">社内の協力が得られるか不安</span>
-      </li>
-    </ul>
-
-    <p style="
-      font-size: 1rem;
-      color: rgba(255,255,255,0.9);
-      font-weight: 500;
-      margin-bottom: 36px;
-      letter-spacing: 0.02em;
-    ">まずは、貴社の「症状」を見立てるところから。</p>
-
-    <a href="contact.html" class="btn-outline">無料診断を申し込む</a>
-
-    <p style="font-size:0.78rem; color:rgba(255,255,255,0.65); margin-top:18px;">※ 無料診断に費用は一切かかりません。オンライン（Google Meet / Microsoft Teams）でも承ります。</p>
+<section class="cta">
+  <div class="cta-in">
+    <h3>もし、同じような体験をお持ちの組織リーダーの方がいれば、<br>一度お話を聞かせてください。</h3>
+    <p>まずは、貴社の「症状」を見立てるところから始めます。手順がないのか、伝わっていないのか、教える人がいないのか。そこが分かれば、打ち手は決まります。</p>
+    <div class="acts">
+      <a href="contact.html" class="btn btn-fill">無料診断を申し込む</a>
+      <a href="services.html" class="btn btn-line">サービスを見る</a>
+    </div>
+    <p class="note">※ 無料診断に費用は一切かかりません。オンライン（Google Meet / Microsoft Teams）でも承ります。</p>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <a href="index.html" class="footer-logo">S.sentia株式会社</a>
-        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="profile.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<footer>
+  <div class="f-in">
+    <div>
+      <a href="index.html" class="f-brand">S.sentia株式会社</a>
+      <div class="f-tag">Trends fade. Fundamentals endure.</div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 S.sentia Co., Ltd. All rights reserved.
-    </div>
-  </footer>
+    <nav class="f-nav">
+      <a href="services.html">Services</a>
+      <a href="profile.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="f-c">&copy; 2026 S.sentia Co., Ltd. All rights reserved.</div>
+</footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navDrawer = document.getElementById('navDrawer');
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = navDrawer.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
-    });
-
-    // Close drawer when a link is tapped
-    navDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navDrawer.classList.remove('open');
-        hamburger.classList.remove('open');
-      });
-    });
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "S.sentia株式会社",
-    "url": "https://www.ssentia.co.jp",
-    "logo": "https://www.ssentia.co.jp/logo_white.png"
+<script>
+  var bar = document.getElementById('progress');
+  function tick(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
   }
-  </script>
+  window.addEventListener('scroll', tick, {passive:true});
+  window.addEventListener('resize', tick);
+  tick();
+
+  var hamburger = document.getElementById('hamburger');
+  var navDrawer = document.getElementById('navDrawer');
+  hamburger.addEventListener('click', function(){
+    var isOpen = navDrawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  navDrawer.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navDrawer.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "S.sentia株式会社",
+  "url": "https://www.ssentia.co.jp",
+  "logo": "https://www.ssentia.co.jp/logo_white.png"
+}
+</script>
 </body>
 </html>
