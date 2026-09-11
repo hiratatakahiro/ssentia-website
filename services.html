@@ -330,10 +330,13 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
+    /* ナビ5項目ではロゴ名が折り返すため、820px以下はハンバーガーに切り替える */
+    @media (max-width: 820px) {
       nav { display: none; }
       .hamburger { display: flex; }
+    }
 
+    @media (max-width: 768px) {
       section {
         padding: 52px 20px;
       }
@@ -612,6 +615,7 @@
         <a href="index.html">Home</a>
         <a href="services.html" class="active">Services</a>
         <a href="profile.html">About</a>
+        <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
@@ -626,6 +630,7 @@
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="profile.html">About</a>
+    <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
     <a href="contact.html">Contact</a>
   </div>
 
@@ -877,6 +882,7 @@
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="profile.html">About</a>
+        <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
