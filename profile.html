@@ -633,41 +633,28 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-</head>
+<style id="site-header-css">
+header.sh{position:sticky;top:0;z-index:100;display:block;width:100%;height:auto;min-height:0;background:#fff;color:#17365a;border-bottom:1px solid #e7edf3;box-shadow:none;font-family:'Noto Sans JP',sans-serif;line-height:1.6}
+header.sh *{box-sizing:border-box}
+header.sh .sh-head{max-width:1180px;margin:auto;padding:0 34px;height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+header.sh .sh-brand{display:block}
+header.sh .sh-brand img{display:block;width:205px;max-width:100%;height:auto}
+header.sh .sh-nav{display:flex;align-items:center;gap:29px}
+header.sh .sh-nav a,header.sh .sh-mobile a{font-size:.84rem;font-weight:600;text-decoration:none;color:#17365a;letter-spacing:normal;padding:0;background:none;border-radius:0}
+header.sh .sh-nav a:hover,header.sh .sh-mobile a:hover{color:#2369b3;background:none}
+header.sh .sh-nav a.sh-contact{background:#2369b3;color:#fff;padding:12px 18px;border-radius:999px}
+header.sh .sh-nav a.sh-contact:hover{background:#14558f;color:#fff}
+header.sh .sh-menu{display:none;background:none;border:0;color:#17365a;font-size:1.7rem;cursor:pointer;padding:0;font:inherit;font-size:1.7rem}
+header.sh .sh-mobile{display:none;padding:10px 34px 25px;border-top:1px solid #d9e6f0;background:#fff;position:static;box-shadow:none}
+header.sh .sh-mobile.open{display:block}
+header.sh .sh-mobile a{display:block;padding:11px 0;border:0}
+@media(max-width:900px){header.sh .sh-nav{display:none}header.sh .sh-menu{display:block}}
+@media(max-width:700px){header.sh .sh-head{padding:0 22px;height:70px}header.sh .sh-brand img{width:162px}header.sh .sh-mobile{padding:10px 22px 25px}}
+</style></head>
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="./logo_white.png" alt="S.sentia株式会社" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-name">S.sentia株式会社</span>
-          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
-        </div>
-      </a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="profile.html" class="active">About</a>
-        <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="nav-drawer" id="navDrawer">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="profile.html">About</a>
-    <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <header class="sh"><div class="sh-head"><a aria-label="S.sentia株式会社 ホーム" class="sh-brand" href="index.html"><img alt="S.sentia" src="S.sentia_logo_full.jpeg"></a><nav aria-label="メインナビゲーション" class="sh-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a class="sh-contact" href="contact.html">お問い合わせ →</a></nav><button aria-controls="navDrawer" aria-expanded="false" aria-label="メニューを開く" class="sh-menu" id="hamburger">☰</button></div><nav aria-label="モバイルナビゲーション" class="sh-mobile" id="navDrawer"><a href="index.html">Home</a><a href="services.html">Services</a><a href="profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a href="contact.html">お問い合わせ</a></nav></header>
 
   <!-- ① PAGE HERO -->
   <div class="page-hero">
