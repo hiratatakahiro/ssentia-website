@@ -274,18 +274,32 @@ footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
 .sem-hero{padding:64px 24px 72px;background-color:#f5f9fd;background-image:linear-gradient(128deg,transparent 0%,transparent 64.9%,rgba(117,164,204,.14) 65%,transparent 65.2%),linear-gradient(143deg,transparent 0%,transparent 76.8%,rgba(117,164,204,.10) 77%,transparent 77.2%),radial-gradient(ellipse at 94% 10%,rgba(187,216,239,.34),transparent 46%),linear-gradient(105deg,#fff 0%,#f8fbfe 47%,#eaf3fa 100%)}
 .sem-hero-inner{max-width:1180px}.sem-series,.sem-series+.sem-label{margin-top:0}.sem-series{background:#2369b3}.sem-label{background:#fff;border:1px solid #d9e6f0;color:#2369b3}.sem-hero h1{font-size:clamp(1.85rem,3.7vw,2.8rem);color:#17365a;line-height:1.45;margin:24px 0 12px}.sem-hero-lead{color:#52677d}.sem-when{box-shadow:none;border-left-color:#2369b3}.sem-cta{border-radius:7px;box-shadow:none;background:#2369b3}.sem-cta:hover{background:#14558f}.sem-card,.sem-problem,.sem-speaker,.sem-dl{box-shadow:0 8px 28px rgba(28,75,128,.04);border-color:#dce7f1}.sem-card h3{color:#17365a}.cta-band{background:#2369b3}.sem-contact-link{border-radius:7px}.sem-fixed a{border-radius:7px}
 @media(max-width:768px){.sem-hero{padding:48px 22px 55px}.sem-hero h1{font-size:clamp(1.7rem,6vw,2.3rem)}}
+.sem-hero--banner{padding:32px 24px 0;background:#fff}
+.sem-hero--banner .sem-banner{box-shadow:0 8px 28px rgba(28,75,128,.08);border:1px solid #e7edf3}
+.sem-sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sem-entry{padding:48px 24px 64px}
+.sem-entry .sem-hero-lead{margin-top:20px}
+@media(max-width:768px){.sem-hero--banner{padding:20px 16px 0}.sem-entry{padding:32px 22px 48px}}
 </style></head>
 <body>
 
   <header class="sh"><div class="sh-head"><a aria-label="S.sentia株式会社 ホーム" class="sh-brand" href="/index.html"><img alt="S.sentia" src="/S.sentia_logo_full.jpeg"></a><nav aria-label="メインナビゲーション" class="sh-nav"><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a class="sh-contact" href="/contact.html">お問い合わせ →</a></nav><button aria-controls="navDrawer" aria-expanded="false" aria-label="メニューを開く" class="sh-menu" id="hamburger">☰</button></div><nav aria-label="モバイルナビゲーション" class="sh-mobile" id="navDrawer"><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a href="/contact.html">お問い合わせ</a></nav></header>
 
-  <!-- ① ヒーロー -->
-  <div class="sem-hero">
+  <!-- ① トップバナー -->
+  <div class="sem-hero sem-hero--banner">
+    <div class="sem-hero-inner">
+      <h1 class="sem-sr-only">ChatGPT実務活用セミナー【札幌開催】</h1>
+      <img class="sem-banner" src="/images/seminar-20261210-banner.png"
+           width="2117" height="743"
+           alt="ChatGPT実務活用セミナー　意外と知らないChatGPTの便利な機能を知り、実務に活かしてみよう！！　2026年12月10日（木）15:30〜16:30（受付15:00〜）札幌エルプラザ 4F 大研修室C"
+           decoding="async">
+    </div>
+  </div>
+
+  <!-- ② 開催情報・申込 -->
+  <div class="sem-hero sem-entry">
     <div class="sem-hero-inner">
       <p><span class="sem-series">生成AI活用セミナー 第2弾</span><span class="sem-label">参加無料 ｜ 事前申込制</span></p>
-      <h1>
-        ChatGPT実務活用セミナー【札幌開催】
-      </h1>
       <p class="sem-hero-lead">使ってはいるけど、楽になっている気がしない――そんなChatGPTユーザーの方へ</p>
       <div class="sem-hero-detail">
         <div class="sem-hero-when">
