@@ -159,6 +159,11 @@
     .sem-dl-row:last-child{ border-bottom:none; }
     .sem-dl-row dt{ flex-shrink:0; width:150px; background:var(--bg-section); padding:18px 22px; font-size:0.88rem; font-weight:700; color:var(--primary-dark); }
     .sem-dl-row dd{ flex:1; padding:18px 22px; font-size:0.9rem; line-height:1.85; }
+    .sem-dl-split{ display:flex; border-top:1px solid #f0f2f5; }
+    .sem-dl-split-rows{ flex:1; min-width:0; }
+    .sem-dl-photo{ flex:0 0 300px; margin:0; padding:18px 22px 18px 0; display:flex; flex-direction:column; justify-content:center; }
+    .sem-dl-photo img{ display:block; width:100%; height:auto; border-radius:8px; border:1px solid var(--border); }
+    .sem-dl-photo figcaption{ margin-top:8px; font-size:0.82rem; font-weight:700; color:var(--primary-dark); text-align:center; }
     .sem-dl-access{ display:block; font-size:0.85rem; color:var(--text-muted); line-height:1.85; margin-top:10px; padding-top:10px; border-top:1px dashed var(--border); }
     .sem-dl-note{ display:block; font-size:0.8rem; color:var(--text-muted); margin-top:4px; }
 
@@ -197,6 +202,8 @@
         border-top:1px solid var(--border);
       }
       .sem-dl-row{ flex-direction:column; }
+      .sem-dl-split{ flex-direction:column; }
+      .sem-dl-photo{ flex-basis:auto; padding:0 18px 18px; }
       .sem-dl-row dt{ width:auto; padding:12px 18px 8px; }
       .sem-dl-row dd{ padding:0 18px 16px; }
       /* 写真を氏名の上に中央揃えで配置（DOM順どおり） */
@@ -454,25 +461,33 @@ footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
             <span class="sem-dl-note">※ 同業他社・個人事業主の方のご参加はお断りしております。</span>
           </dd>
         </div>
-        <div class="sem-dl-row">
-          <dt>参加費</dt>
-          <dd>無料（事前申込制）</dd>
-        </div>
-        <div class="sem-dl-row">
-          <dt>定員</dt>
-          <dd>15名（先着順）</dd>
-        </div>
-        <div class="sem-dl-row">
-          <dt>申込締切</dt>
-          <dd>2026年12月9日（水）17:00<span class="sem-dl-note">※ 定員に達し次第、締切前でも受付を終了します。</span></dd>
-        </div>
-        <div class="sem-dl-row">
-          <dt>持ち物</dt>
-          <dd>特にありません<span class="sem-dl-note">※ デモ中心のため、PCのお持ち込みは不要です。</span></dd>
-        </div>
-        <div class="sem-dl-row">
-          <dt>主催</dt>
-          <dd>S.sentia株式会社</dd>
+        <div class="sem-dl-split">
+          <div class="sem-dl-split-rows">
+          <div class="sem-dl-row">
+            <dt>参加費</dt>
+            <dd>無料（事前申込制）</dd>
+          </div>
+          <div class="sem-dl-row">
+            <dt>定員</dt>
+            <dd>15名（先着順）</dd>
+          </div>
+          <div class="sem-dl-row">
+            <dt>申込締切</dt>
+            <dd>2026年12月9日（水）17:00<span class="sem-dl-note">※ 定員に達し次第、締切前でも受付を終了します。</span></dd>
+          </div>
+          <div class="sem-dl-row">
+            <dt>持ち物</dt>
+            <dd>特にありません<span class="sem-dl-note">※ デモ中心のため、PCのお持ち込みは不要です。</span></dd>
+          </div>
+          <div class="sem-dl-row">
+            <dt>主催</dt>
+            <dd>S.sentia株式会社</dd>
+          </div>
+          </div>
+          <figure class="sem-dl-photo">
+            <img src="/images/seminar-20261210-previous.jpg" alt="前回セミナーの様子：講師がスクリーンを使って説明し、参加者が会場で聴講している" loading="lazy" width="1200" height="900">
+            <figcaption>前回の様子</figcaption>
+          </figure>
         </div>
       </dl>
     </div>
