@@ -606,9 +606,12 @@
         gap: 16px;
       }
 
+      .company-table { min-width: 0; }
+
       .company-table th {
         width: 110px;
         padding: 14px 16px;
+        font-size: 0.82rem;
       }
 
       .company-table td {
@@ -638,7 +641,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="S.sentia株式会社">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:url" content="https://www.ssentia.co.jp/profile.html">
+  <meta property="og:url" content="profile.html">
   <meta property="og:title" content="About | S.sentia株式会社">
   <meta property="og:description" content="組織の中に眠るノウハウや判断基準を引き出し、人に依存しない仕組みへと変えるS.sentia株式会社の会社概要と代表者プロフィール。経営・IT支援、AI活用、教育・研修コンテンツ、ソフトウェア開発を手がけています。">
   <meta property="og:image" content="https://www.ssentia.co.jp/images/ogp-default.png">
@@ -673,6 +676,14 @@ footer.sf .sf-links a{font-size:.8rem;color:#52677d;text-decoration:none;padding
 footer.sf .sf-links a:hover{color:#2369b3}
 footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
 @media(max-width:700px){footer.sf .sf-wrap{padding:0 22px}footer.sf .sf-inner{flex-direction:column;align-items:flex-start}footer.sf .sf-links{gap:16px}}
+</style><style id="banner-proposal-theme">
+/* 共通の白とブルー。ページの目的に合わせ、模様の強さを調整します。 */
+body .hero,body .page-hero{background-color:#f5f9fd;background-image:linear-gradient(128deg,transparent 0%,transparent 64.9%,rgba(117,164,204,.14) 65%,transparent 65.2%),linear-gradient(143deg,transparent 0%,transparent 76.8%,rgba(117,164,204,.10) 77%,transparent 77.2%),radial-gradient(ellipse at 94% 10%,rgba(187,216,239,.34),transparent 46%),linear-gradient(105deg,#fff 0%,#f8fbfe 47%,#eaf3fa 100%);background-position:center;background-size:cover;color:#17365a}
+body .page-hero h1{color:#17365a}body .page-hero-label{color:#2369b3}body .page-hero-sub{color:#51677f}
+body .hero-ambient{display:none}body .hero:after{display:none}
+body .hero h1{color:#17365a}body .hero h1 span{color:#2369b3}
+body .page-hero{background-image:linear-gradient(133deg,transparent 0%,transparent 73%,rgba(117,164,204,.12) 73.1%,transparent 73.3%),radial-gradient(ellipse at 93% 5%,rgba(187,216,239,.27),transparent 43%),linear-gradient(105deg,#fff,#f8fbfe 50%,#ecf4fa)}
+@media(max-width:700px){body .hero,body .page-hero{background-image:linear-gradient(132deg,transparent 0%,transparent 75%,rgba(117,164,204,.10) 75.2%,transparent 75.5%),linear-gradient(110deg,#fff 0%,#f8fbfe 55%,#edf5fa 100%)}}
 </style></head>
 <body>
 
@@ -956,12 +967,15 @@ footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
       const isOpen = navDrawer.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
     navDrawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navDrawer.classList.remove('open');
         hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
       });
     });
   </script>
