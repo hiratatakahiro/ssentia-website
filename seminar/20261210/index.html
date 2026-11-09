@@ -59,6 +59,7 @@
     .section-label{ font-size:0.75rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--primary); margin-bottom:10px; }
     .section-title{ font-size:clamp(1.3rem,2.5vw,1.75rem); font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
     .section-lead{ font-size:0.95rem; color:var(--text-muted); line-height:1.9; margin-bottom:28px; max-width:760px; }
+    .section-lead--full{ max-width:none; }
     .section-divider{ width:48px; height:3px; background:var(--primary); border-radius:2px; margin-bottom:32px; }
     .alt-bg{ background:var(--bg-section); }
 
@@ -226,49 +227,54 @@
     .sem-card-benefit::before{ content:"▶ "; color:var(--primary); }
     .sem-caveat{ margin-top:24px; }
     .sem-caveat li{ list-style:none; font-size:0.8rem; color:var(--text-muted); line-height:1.85; margin-bottom:4px; }
-    .sem-goal{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .sem-goal div{ background:#fff; border:1px solid var(--border); border-top:3px solid var(--primary); border-radius:12px; padding:22px 20px; }
-    .sem-goal h3{ font-size:0.98rem; font-weight:700; margin-bottom:6px; color:var(--primary-dark); }
-    .sem-goal p{ font-size:0.86rem; color:var(--text-muted); line-height:1.85; }
-    @media(max-width:768px){ .sem-goal{ grid-template-columns:1fr; } }
+    .sem-gain-lead{ margin:48px 0 8px; font-size:1.1rem; font-weight:700; color:var(--primary-dark); }
+    .sem-gain{ list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
+    .sem-gain li{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:8px 32px; align-items:baseline; padding:20px 4px; border-bottom:1px solid var(--border); }
+    .sem-gain h4{ font-size:1rem; font-weight:700; color:var(--text); line-height:1.7; }
+    .sem-gain p{ font-size:0.9rem; color:var(--text-muted); line-height:1.85; }
+    @media(max-width:768px){ .sem-gain li{ grid-template-columns:1fr; } }
   </style>
-</head>
+<style id="site-header-css">
+header.sh{position:sticky;top:0;z-index:100;display:block;width:100%;height:auto;min-height:0;background:#fff;color:#17365a;border-bottom:1px solid #e7edf3;box-shadow:none;font-family:'Noto Sans JP',sans-serif;line-height:1.6}
+header.sh *{box-sizing:border-box}
+header.sh .sh-head{max-width:1180px;margin:auto;padding:0 34px;height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+header.sh .sh-brand{display:block}
+header.sh .sh-brand img{display:block;width:205px;max-width:100%;height:auto}
+header.sh .sh-nav{display:flex;align-items:center;gap:29px}
+header.sh .sh-nav a,header.sh .sh-mobile a{font-size:.84rem;font-weight:600;text-decoration:none;color:#17365a;letter-spacing:normal;padding:0;background:none;border-radius:0}
+header.sh .sh-nav a:hover,header.sh .sh-mobile a:hover{color:#2369b3;background:none}
+header.sh .sh-nav a.sh-contact{background:#2369b3;color:#fff;padding:12px 18px;border-radius:999px}
+header.sh .sh-nav a.sh-contact:hover{background:#14558f;color:#fff}
+header.sh .sh-menu{display:none;background:none;border:0;color:#17365a;font-size:1.7rem;cursor:pointer;padding:0;font:inherit;font-size:1.7rem}
+header.sh .sh-mobile{display:none;padding:10px 34px 25px;border-top:1px solid #d9e6f0;background:#fff;position:static;box-shadow:none}
+header.sh .sh-mobile.open{display:block}
+header.sh .sh-mobile a{display:block;padding:11px 0;border:0}
+@media(max-width:900px){header.sh .sh-nav{display:none}header.sh .sh-menu{display:block}}
+@media(max-width:700px){header.sh .sh-head{padding:0 22px;height:70px}header.sh .sh-brand img{width:162px}header.sh .sh-mobile{padding:10px 22px 25px}}
+</style><style id="site-footer-css">
+footer.sf{display:block;background:#fff;color:#17365a;border-top:1px solid #d9e6f0;padding:35px 0;font-family:'Noto Sans JP',sans-serif;font-size:1rem;line-height:1.6;text-align:left}
+footer.sf *{box-sizing:border-box}
+footer.sf .sf-wrap{max-width:1180px;margin:auto;padding:0 34px}
+footer.sf .sf-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+footer.sf .sf-brand img{display:block;width:160px;height:auto}
+footer.sf .sf-links{display:flex;gap:22px;flex-wrap:wrap}
+footer.sf .sf-links a{font-size:.8rem;color:#52677d;text-decoration:none;padding:0;background:none}
+footer.sf .sf-links a:hover{color:#2369b3}
+footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
+@media(max-width:700px){footer.sf .sf-wrap{padding:0 22px}footer.sf .sf-inner{flex-direction:column;align-items:flex-start}footer.sf .sf-links{gap:16px}}
+</style><style id="seminar-site-theme">
+:root{--primary:#2369b3;--primary-dark:#17365a;--primary-light:#5d92c4;--text:#17365a;--text-muted:#52677d;--bg-section:#f4f8fc;--border:#d9e6f0}
+.sem-hero{padding:64px 24px 72px;background-color:#f5f9fd;background-image:linear-gradient(128deg,transparent 0%,transparent 64.9%,rgba(117,164,204,.14) 65%,transparent 65.2%),linear-gradient(143deg,transparent 0%,transparent 76.8%,rgba(117,164,204,.10) 77%,transparent 77.2%),radial-gradient(ellipse at 94% 10%,rgba(187,216,239,.34),transparent 46%),linear-gradient(105deg,#fff 0%,#f8fbfe 47%,#eaf3fa 100%)}
+.sem-hero-inner{max-width:1180px}.sem-series,.sem-series+.sem-label{margin-top:0}.sem-series{background:#2369b3}.sem-label{background:#fff;border:1px solid #d9e6f0;color:#2369b3}.sem-hero h1{font-size:clamp(1.85rem,3.7vw,2.8rem);color:#17365a;line-height:1.45;margin:24px 0 12px}.sem-hero-lead{color:#52677d}.sem-when{box-shadow:none;border-left-color:#2369b3}.sem-cta{border-radius:7px;box-shadow:none;background:#2369b3}.sem-cta:hover{background:#14558f}.sem-card,.sem-problem,.sem-speaker,.sem-dl{box-shadow:0 8px 28px rgba(28,75,128,.04);border-color:#dce7f1}.sem-card h3{color:#17365a}.cta-band{background:#2369b3}.sem-contact-link{border-radius:7px}.sem-fixed a{border-radius:7px}
+@media(max-width:768px){.sem-hero{padding:48px 22px 55px}.sem-hero h1{font-size:clamp(1.7rem,6vw,2.3rem)}}
+</style></head>
 <body>
 
-  <header>
-    <div class="header-inner">
-      <a href="/index.html" class="logo">
-        <img src="/logo_white.png" alt="S.sentia株式会社" class="logo-img">
-        <div class="logo-text">
-          <span class="logo-name">S.sentia株式会社</span>
-          <span class="logo-tagline">Trends fade. Fundamentals endure.</span>
-        </div>
-      </a>
-      <nav>
-        <a href="/index.html">Home</a>
-        <a href="/services.html">Services</a>
-        <a href="/profile.html">About</a>
-        <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-
-  <div class="nav-drawer" id="navDrawer">
-    <a href="/index.html">Home</a>
-    <a href="/services.html">Services</a>
-    <a href="/profile.html">About</a>
-    <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
-    <a href="/contact.html">Contact</a>
-  </div>
+  <header class="sh"><div class="sh-head"><a aria-label="S.sentia株式会社 ホーム" class="sh-brand" href="/index.html"><img alt="S.sentia" src="/S.sentia_logo_full.jpeg"></a><nav aria-label="メインナビゲーション" class="sh-nav"><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a class="sh-contact" href="/contact.html">お問い合わせ →</a></nav><button aria-controls="navDrawer" aria-expanded="false" aria-label="メニューを開く" class="sh-menu" id="hamburger">☰</button></div><nav aria-label="モバイルナビゲーション" class="sh-mobile" id="navDrawer"><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a href="/contact.html">お問い合わせ</a></nav></header>
 
   <!-- ① ヒーロー -->
   <div class="sem-hero">
     <div class="sem-hero-inner">
-      <img src="/images/seminar-20261210-banner.png"
-           width="2117" height="743" alt="ChatGPT実務活用セミナー 2026年12月10日（木）15:30〜16:30（受付15:00〜）札幌エルプラザ4F 大研修室C"
-           fetchpriority="high" decoding="async" class="sem-banner">
       <p><span class="sem-series">生成AI活用セミナー 第2弾</span><span class="sem-label">参加無料 ｜ 事前申込制</span></p>
       <h1>
         ChatGPT実務活用セミナー【札幌開催】
@@ -294,39 +300,16 @@
     </div>
   </div>
 
-  <!-- ② 課題提起 -->
-  <section>
-    <div class="section-inner">
-      <p class="section-label">Problem</p>
-      <h2 class="section-title">こんなChatGPTユーザーの方へ</h2>
-      <div class="section-divider"></div>
-      <div class="sem-grid3">
-        <div class="sem-problem">
-          <span class="sem-problem-num">1</span>
-          <p>使い方が、質問・壁打ち・分析で止まっている</p>
-        </div>
-        <div class="sem-problem">
-          <span class="sem-problem-num">2</span>
-          <p>新しい機能は目にするが、実際に試したことはない</p>
-        </div>
-        <div class="sem-problem">
-          <span class="sem-problem-num">3</span>
-          <p>毎日使っているのに、業務の効率化を実感できていない</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ③ セミナーで紹介する内容 -->
   <section class="alt-bg">
     <div class="section-inner">
       <p class="section-label">Contents</p>
       <h2 class="section-title">セミナーで紹介する内容</h2>
       <div class="section-divider"></div>
-      <p class="section-lead">
+      <p class="section-lead section-lead--full">
         ChatGPTを業務で使う方は増えましたが、その多くは「質問して答えをもらう」「アイデアの壁打ち相手にする」といった使い方にとどまっています。一方でChatGPTには、ファイルの呼び出しや定型作業の自動化など、実務をぐっと楽にする機能が次々と追加されています。
       </p>
-      <p class="section-lead">
+      <p class="section-lead section-lead--full">
         本セミナーでは、そうした機能の中から「明日の業務からすぐ使える」ものを厳選し、実際の画面を使ったデモでご紹介します。すべてを使いこなす必要はありません。ひとつでも「これは使える」という機能を持ち帰り、業務を楽にするきっかけにしていただくことが本セミナーの目的です。
       </p>
       <p class="sem-badge">デモを中心にご紹介します（紹介する機能の一例）</p>
@@ -368,26 +351,42 @@
     </div>
   </section>
 
-  <!-- ④ 持ち帰っていただきたいこと -->
+  <!-- ④ こんな方へ／セミナーで得られること -->
   <section>
     <div class="section-inner">
-      <p class="section-label">Goal</p>
-      <h2 class="section-title">このセミナーで持ち帰っていただきたいこと</h2>
+      <p class="section-label">For You</p>
+      <h2 class="section-title">こんなChatGPTユーザーの方へおすすめ</h2>
       <div class="section-divider"></div>
-      <div class="sem-goal">
-        <div>
-          <h3>「使える機能」がひとつ見つかる</h3>
-          <p>すべては使えなくても、ご自身の業務に合う便利機能がきっと見つかります。</p>
+      <div class="sem-grid3">
+        <div class="sem-problem">
+          <span class="sem-problem-num">1</span>
+          <p>使い方が、質問・壁打ち・分析で止まっている</p>
         </div>
-        <div>
-          <h3>翌日から試せる具体的な手順</h3>
-          <p>デモで実際の操作の流れをご覧いただくので、帰ってすぐに試せます。</p>
+        <div class="sem-problem">
+          <span class="sem-problem-num">2</span>
+          <p>新しい機能は目にするが、実際に試したことはない</p>
         </div>
-        <div>
-          <h3>「聞く」から「任せる」への発想転換</h3>
-          <p>質問相手としてだけでなく、作業そのものをChatGPTに任せる使い方のヒントをお伝えします。</p>
+        <div class="sem-problem">
+          <span class="sem-problem-num">3</span>
+          <p>毎日使っているのに、業務の効率化を実感できていない</p>
         </div>
       </div>
+
+      <p class="sem-gain-lead">セミナーでは、こんなことが得られます。</p>
+      <ul class="sem-gain">
+        <li>
+          <h4>「使える機能」がひとつ見つかる</h4>
+          <p>すべては使えなくても、ご自身の業務に合う便利機能がきっと見つかります。</p>
+        </li>
+        <li>
+          <h4>翌日から試せる具体的な手順</h4>
+          <p>デモで実際の操作の流れをご覧いただくので、帰ってすぐに試せます。</p>
+        </li>
+        <li>
+          <h4>「聞く」から「任せる」への発想転換</h4>
+          <p>質問相手としてだけでなく、作業そのものをChatGPTに任せる使い方のヒントをお伝えします。</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -495,7 +494,7 @@
       <div class="section-divider"></div>
       <div class="sem-contact">
         <p class="sem-contact-name">S.sentia株式会社</p>
-        <p>〒001-0010 札幌市北区北10条西3丁目23-1 THE PEAK SAPPORO 1F</p>
+        
         <p>TEL: <a href="tel:09073982183">090-7398-2183</a></p>
         <a class="sem-contact-link" href="/contact.html">お問い合わせフォームへ</a>
       </div>
@@ -516,22 +515,7 @@
        5. sitemap.xml の priority を下げる
   -->
 
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <a href="/index.html" class="footer-logo">S.sentia株式会社</a>
-        <p class="footer-tagline">Trends fade. Fundamentals endure.</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="/index.html">Home</a>
-        <a href="/services.html">Services</a>
-        <a href="/profile.html">About</a>
-        <a href="https://note.com/ssentia" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">&copy; 2026 S.sentia Co., Ltd. All rights reserved.</div>
-  </footer>
+  <footer class="sf"><div class="sf-wrap"><div class="sf-inner"><a class="sf-brand" href="/index.html"><img alt="S.sentia" src="/S.sentia_logo_full.jpeg"></a><nav aria-label="フッターナビゲーション" class="sf-links"><a href="/services.html">Services</a><a href="/profile.html">About</a><a href="https://note.com/ssentia" rel="noopener noreferrer" target="_blank">Blog</a><a href="/contact.html">Contact</a></nav></div><p class="sf-copy">© 2026 S.sentia Co., Ltd. All rights reserved.</p></div></footer>
 
   <script>
     // ハンバーガー
@@ -541,9 +525,10 @@
       const isOpen = navDrawer.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
     });
     navDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => { navDrawer.classList.remove('open'); hamburger.classList.remove('open'); });
+      link.addEventListener('click', () => { navDrawer.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'メニューを開く'); });
     });
   </script>
 
