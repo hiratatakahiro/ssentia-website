@@ -234,6 +234,10 @@
     .sem-card-benefit::before{ content:"▶ "; color:var(--primary); }
     .sem-caveat{ margin-top:24px; }
     .sem-caveat li{ list-style:none; font-size:0.8rem; color:var(--text-muted); line-height:1.85; margin-bottom:4px; }
+    .sem-foryou{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:32px; align-items:center; }
+    .sem-foryou-list{ display:flex; flex-direction:column; gap:16px; }
+    .sem-foryou-img{ display:block; width:100%; height:auto; border-radius:12px; }
+    @media(max-width:768px){ .sem-foryou{ grid-template-columns:1fr; gap:24px; } }
     .sem-gain-lead{ margin:48px 0 8px; font-size:1.1rem; font-weight:700; color:var(--primary-dark); }
     .sem-gain{ list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
     .sem-gain li{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:8px 32px; align-items:baseline; padding:20px 4px; border-bottom:1px solid var(--border); }
@@ -378,7 +382,8 @@ footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
       <p class="section-label">For You</p>
       <h2 class="section-title">こんなChatGPTユーザーの方へおすすめ</h2>
       <div class="section-divider"></div>
-      <div class="sem-grid3">
+      <div class="sem-foryou">
+      <div class="sem-foryou-list">
         <div class="sem-problem">
           <span class="sem-problem-num">1</span>
           <p>使い方が、質問・壁打ち・分析で止まっている</p>
@@ -391,6 +396,8 @@ footer.sf .sf-copy{font-size:.73rem;color:#7b8fa1;margin:24px 0 0}
           <span class="sem-problem-num">3</span>
           <p>毎日使っているのに、業務の効率化を実感できていない</p>
         </div>
+      </div>
+        <img class="sem-foryou-img" src="/images/seminar-20261210-for-you.jpg" alt="ノートパソコンでChatGPTを使うビジネスパーソンのイラスト" loading="lazy">
       </div>
 
       <p class="sem-gain-lead">セミナーでは、こんなことが得られます。</p>
