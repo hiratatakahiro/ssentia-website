@@ -684,6 +684,56 @@ body .hero-ambient{display:none}body .hero:after{display:none}
 body .hero h1{color:#17365a}body .hero h1 span{color:#2369b3}
 body .page-hero{background-image:linear-gradient(133deg,transparent 0%,transparent 73%,rgba(117,164,204,.12) 73.1%,transparent 73.3%),radial-gradient(ellipse at 93% 5%,rgba(187,216,239,.27),transparent 43%),linear-gradient(105deg,#fff,#f8fbfe 50%,#ecf4fa)}
 @media(max-width:700px){body .hero,body .page-hero{background-image:linear-gradient(132deg,transparent 0%,transparent 75%,rgba(117,164,204,.10) 75.2%,transparent 75.5%),linear-gradient(110deg,#fff 0%,#f8fbfe 55%,#edf5fa 100%)}}
+</style><style id="service-structure-css">
+/* ===== S.sentiaサービス提供の基本体制 ===== */
+.structure-section{background:#fff;border-top:1px solid var(--border);padding:80px 24px}
+.structure-lead{color:var(--text-muted);font-size:.96rem;line-height:1.9;margin:-8px 0 36px}
+.sv-flow{display:flex;flex-direction:column;align-items:stretch}
+.sv-box{border-radius:10px;text-align:center}
+.sv-box h3 .nb{display:inline-block}
+.sv-box h3{font-size:1.08rem;font-weight:700;color:var(--text);line-height:1.6;letter-spacing:.03em}
+.sv-box p{font-size:.9rem;color:var(--text-muted);line-height:1.75}
+.sv-client{width:74%;margin:0 auto;padding:16px 20px 18px;background:#f3f7fc;border:2px solid #b8cbe3}
+.sv-client ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;margin:6px 0 0;padding:0;font-size:.9rem;color:var(--text-muted)}
+.sv-client li+li::before{content:"｜";margin:0 .7em;color:#8aa3c4}
+.sv-arrow-v{position:relative;width:2px;height:40px;margin:0 auto;background:var(--primary)}
+.sv-arrow-v::before,.sv-arrow-v::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent}
+.sv-arrow-v::before{top:0;border-bottom:9px solid var(--primary)}
+.sv-arrow-v::after{bottom:0;border-top:9px solid var(--primary)}
+.sv-core{width:77%;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:20px;text-align:left;padding:16px 28px 16px 26px;background:#fff;border:3px solid var(--primary);border-left-width:12px}
+.sv-core-label{display:block;font-size:.85rem;font-weight:700;color:var(--primary);letter-spacing:.04em;line-height:1.5}
+.sv-core-name{display:block;font-size:1.6rem;font-weight:700;color:var(--text);letter-spacing:.02em;line-height:1.4}
+.sv-core-tasks{margin:0;font-size:.92rem;color:var(--text-muted);line-height:1.8}
+.sv-engineers{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:38px}
+.sv-engineers::before{content:"";position:absolute;left:50%;top:0;height:19px;border-left:2px solid var(--primary)}
+.sv-engineers::after{content:"";position:absolute;top:19px;left:calc((100% - 24px)/4);right:calc((100% - 24px)/4);border-top:2px solid var(--primary)}
+.sv-engineer{position:relative;padding:20px 18px 22px}
+.sv-engineer::before{content:"";position:absolute;left:50%;top:-19px;height:19px;border-left:2px solid var(--primary)}
+.sv-engineer::after{content:"";position:absolute;left:50%;top:-9px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--primary)}
+.sv-engineer h3{margin-bottom:8px}
+.sv-engineer--ms{background:#eef3fa;border:2px solid #b8cbe3}
+.sv-engineer--search{background:#f0f6e9;border:2px solid #bcd4aa}
+.sv-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.sv-note{border-top:3px solid #b8c6d6;padding-top:14px}
+.sv-note--main{border-top-color:var(--primary)}
+.sv-note h3{font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.sv-note p{font-size:.9rem;color:var(--text-muted);line-height:1.8}
+.sv-footnote{margin-top:26px;font-size:.8rem;color:var(--text-muted);line-height:1.8}
+@media(max-width:768px){
+  .structure-section{padding:56px 20px}
+  .sv-client,.sv-core{width:100%}
+  .sv-core{grid-template-columns:1fr;gap:10px;padding:16px 20px 16px 18px;border-left-width:10px}
+  .sv-core-name{font-size:1.4rem}
+  .sv-engineers{grid-template-columns:1fr;gap:14px}
+  .sv-engineers::before,.sv-engineers::after{display:none}
+  .sv-engineer:first-child::before{top:-38px;height:38px}
+  .sv-engineer:last-child::before,.sv-engineer:last-child::after{display:none}
+  .sv-notes{grid-template-columns:1fr;gap:22px;margin-top:32px}
+}
+@media(max-width:520px){
+  .sv-client ul{flex-direction:column;align-items:center}
+  .sv-client li+li::before{display:none}
+}
 </style></head>
 <body>
 
@@ -809,6 +859,65 @@ body .page-hero{background-image:linear-gradient(133deg,transparent 0%,transpare
           </dl>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ④ S.sentiaサービス提供の基本体制 -->
+  <section class="structure-section" id="structure">
+    <div class="section-inner">
+      <p class="section-label">Service Structure</p>
+      <h2 class="section-title">S.sentiaサービス提供の基本体制</h2>
+      <div class="section-divider"></div>
+      <p class="structure-lead">S.sentiaが窓口となり、案件に応じて専門技術者と協力体制を構築します。</p>
+
+      <div class="sv-flow">
+        <div class="sv-box sv-client">
+          <h3>お客様（DX・情報システム部門）</h3>
+          <ul>
+            <li>課題・要件の共有</li>
+            <li>権限方針の決定・承認</li>
+            <li>管理者操作</li>
+          </ul>
+        </div>
+
+        <div class="sv-arrow-v" aria-hidden="true"></div>
+
+        <div class="sv-box sv-core">
+          <div>
+            <span class="sv-core-label">プロジェクト窓口・推進</span>
+            <span class="sv-core-name">S.sentia株式会社</span>
+          </div>
+          <p class="sv-core-tasks">業務要件整理・基本設計・進行管理<br>受入検証支援・運用設計・定着支援</p>
+        </div>
+
+        <div class="sv-engineers">
+          <div class="sv-box sv-engineer sv-engineer--ms">
+            <h3><span class="nb">Microsoft 365</span> <span class="nb">専門エンジニア</span></h3>
+            <p>技術設計／コネクタ接続・設定<br>認証・権限設定支援／技術検証・不具合調査</p>
+          </div>
+          <div class="sv-box sv-engineer sv-engineer--search">
+            <h3><span class="nb">企業内検索専門サービス</span> <span class="nb">専門エンジニア</span></h3>
+            <p>技術設計／検索基盤の構築・設定<br>クローリング設定／技術検証・不具合調査</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sv-notes">
+        <div class="sv-note">
+          <h3>権限管理</h3>
+          <p>お客様の承認・管理のもとで実施</p>
+        </div>
+        <div class="sv-note sv-note--main">
+          <h3>専門技術者との連携</h3>
+          <p>技術要件に応じて専門家が対応</p>
+        </div>
+        <div class="sv-note">
+          <h3>構築後の検証</h3>
+          <p>検索結果・閲覧権限を確認</p>
+        </div>
+      </div>
+
+      <p class="sv-footnote">※ 実施体制・役割分担および保守・障害対応範囲は、案件ごとに確認・合意します。</p>
     </div>
   </section>
 
